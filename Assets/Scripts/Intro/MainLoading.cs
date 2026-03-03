@@ -8,7 +8,7 @@ public class MainLoading : MonoBehaviour
     public UnityEngine.UI.Image loadingFill;
     public TextMeshProUGUI loadingText;
 
-    public string sceneToLoad = "SampleScene";
+    public string sceneToLoad = "LoginScene";
     public float minimumLoadTime = 7f;
     public float smoothSpeed = 3f;
 
