@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c0f6a92be863e814c9a89101c09e2b2e
+guid: f3033ce083ce89344b7645c0a3135bdc
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,28 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 1b204bfd8df0f7c4f8f6383ba485b777, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: texture_pbr_20250901
-    second: {fileID: 2800000, guid: eb46c328f64035a4d89595c4c2d60444, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: texture_pbr_20250901_metallic
-    second: {fileID: 2800000, guid: 0f3683e64f8b2de4a92167c970fa95e6, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: texture_pbr_20250901_normal
-    second: {fileID: 2800000, guid: 728a49fbeaa1ea34eb167618bc422343, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: texture_pbr_20250901_roughness
-    second: {fileID: 2800000, guid: ce8bcf3248384f54db4d1a43d33fc447, type: 3}
+      name: tripo_mat_c651457a
+    second: {fileID: 2100000, guid: 03960edc74da9774bb5451eb9f1731ec, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -104,7 +84,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
