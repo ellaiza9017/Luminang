@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: d4c9060b584b8da458e4842134793f75
+guid: b5135f0a5cb6a7f41b4d6b71a3841156
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grey_Floor.003
+    second: {fileID: 2100000, guid: b66ab8910db8eff438411e2f9a2840b0, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pavement
+    second: {fileID: 2800000, guid: 5b7ddf3ed2e46a047a3dba45b53ccb7e, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -79,7 +89,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []

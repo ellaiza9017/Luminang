@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: e236df35c2e67bc4a95f93fd9963eb6b
+guid: c158d4b415c3e83458c065831f1e13d6
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grey_Floor.004
+    second: {fileID: 2100000, guid: 0a53ddb086cf086478666dd159e8e5e9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -79,7 +84,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
