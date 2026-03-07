@@ -9,14 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Unity_LoadingScene.unity
+    path: Assets/Scenes/Loading/Unity_LoadingScene.unity
     guid: 4c50368a621c8f74c9cec4f80823a44e
   - enabled: 1
-    path: Assets/Scenes/MainLoadingScene.unity
+    path: Assets/Scenes/Loading/MainLoadingScene.unity
     guid: 745bd49ccf6a58a418e0a1656707bf9f
   - enabled: 1
-    path: Assets/Scenes/LoginScene.unity
+    path: Assets/Scenes/Authentication/LoginScene.unity
     guid: e08f5b37ea2c77b4fb734330c590be84
+  - enabled: 1
+    path: Assets/Scenes/Authentication/SignupScene.unity
+    guid: ec9564b7cf7eb2245a844e60958e5ed6
+  - enabled: 1
+    path: Assets/Scenes/MainMenu/AboutScene.unity
+    guid: 7ea0ac3615b5a454eb62ffad3553cb16
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
