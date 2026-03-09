@@ -1,2 +1,3 @@
 # Luminang
-blahblah
+LowPoly 3D Game to Promote Philippine Language
+
