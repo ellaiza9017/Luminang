@@ -1,0 +1,1176 @@
+fileFormatVersion: 2
+guid: d40527397eacbb641833e62ea2344f6a
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Black
+    second: {fileID: 2100000, guid: 4a141ca2f5e199c49a279b6f6c9d619e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_White
+    second: {fileID: 2100000, guid: 447d527387a341c49b038c0c13b4b616, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: 631d55a21088c47468d382bdac6c2a15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hooves
+    second: {fileID: 2100000, guid: 9e405ad2f05db31499bb2eb1f5a8b163, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main
+    second: {fileID: 2100000, guid: 1ef37ce0b2222e1488704bd579266b78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main_Dark
+    second: {fileID: 2100000, guid: ca985e4a29bf14c4689b2519748c8f08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main_Light
+    second: {fileID: 2100000, guid: 9a0b3ec8ab6fad9408b93f4257c702eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muzzle
+    second: {fileID: 2100000, guid: 0ba2ba1460577cb4196bd7b6700448ec, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: <Root Transform>
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk (1)
+      takeName: Walk
+      internalID: -7423180918342364789
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AnimalArmature
+        weight: 1
+      - path: AnimalArmature/Body
+        weight: 1
+      - path: AnimalArmature/Body/Back
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.L/BackLeg.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.L/BackLeg.L/BackUpperLeg.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.L/BackLeg.L/BackUpperLeg.L/BackLowerLeg.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.L/BackLeg.L/BackUpperLeg.L/BackLowerLeg.L/BackLowerLeg.L_end
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.R/BackLeg.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.R/BackLeg.R/BackUpperLeg.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.R/BackLeg.R/BackUpperLeg.R/BackLowerLeg.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.R/BackLeg.R/BackUpperLeg.R/BackLowerLeg.R/BackLowerLeg.R_end
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2/Tail3
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2/Tail3/Tail4
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2/Tail3/Tail4/Tail5
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2/Tail3/Tail4/Tail5/Tail6
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2/Tail3/Tail4/Tail5/Tail6/Tail7
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2/Tail3/Tail4/Tail5/Tail6/Tail7/Tail7_end
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.L/FrontUpperLeg.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.L/FrontUpperLeg.L/FrontLowerLeg.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.L/FrontUpperLeg.L/FrontLowerLeg.L/FrontLowerLeg.L_end
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.R/FrontUpperLeg.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.R/FrontUpperLeg.R/FrontLowerLeg.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.R/FrontUpperLeg.R/FrontLowerLeg.R/FrontLowerLeg.R_end
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.L/Ear2.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.L/Ear2.L/Ear3.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.L/Ear2.L/Ear3.L/Ear4.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.L/Ear2.L/Ear3.L/Ear4.L/Ear4.L_end
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.R/Ear2.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.R/Ear2.R/Ear3.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.R/Ear2.R/Ear3.R/Ear4.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.R/Ear2.R/Ear3.R/Ear4.R/Ear4.R_end
+        weight: 1
+      - path: AnimalArmature/Body/PoleTarget.L
+        weight: 1
+      - path: AnimalArmature/Body/PoleTarget.L/PoleTarget.L_end
+        weight: 1
+      - path: AnimalArmature/Body/PoleTarget.R
+        weight: 1
+      - path: AnimalArmature/Body/PoleTarget.R/PoleTarget.R_end
+        weight: 1
+      - path: AnimalArmature/Body/PoleTargetBack.L
+        weight: 1
+      - path: AnimalArmature/Body/PoleTargetBack.L/PoleTargetBack.L_end
+        weight: 1
+      - path: AnimalArmature/Body/PoleTargetBack.R
+        weight: 1
+      - path: AnimalArmature/Body/PoleTargetBack.R/PoleTargetBack.R_end
+        weight: 1
+      - path: AnimalArmature/IKBackLeg.L
+        weight: 1
+      - path: AnimalArmature/IKBackLeg.L/FFB.L
+        weight: 1
+      - path: AnimalArmature/IKBackLeg.L/FFB.L/FFB.L_end
+        weight: 1
+      - path: AnimalArmature/IKBackLeg.R
+        weight: 1
+      - path: AnimalArmature/IKBackLeg.R/FFB.R
+        weight: 1
+      - path: AnimalArmature/IKBackLeg.R/FFB.R/FFB.R_end
+        weight: 1
+      - path: AnimalArmature/IKFrontLeg.L
+        weight: 1
+      - path: AnimalArmature/IKFrontLeg.L/FF.L
+        weight: 1
+      - path: AnimalArmature/IKFrontLeg.L/FF.L/FF.L_end
+        weight: 1
+      - path: AnimalArmature/IKFrontLeg.R
+        weight: 1
+      - path: AnimalArmature/IKFrontLeg.R/FF.R
+        weight: 1
+      - path: AnimalArmature/IKFrontLeg.R/FF.R/FF.R_end
+        weight: 1
+      - path: Horse
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack_Kick
+      takeName: Attack_Kick
+      internalID: 2771865946972476010
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Death
+      takeName: Death
+      internalID: 4348485665485846014
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Eating
+      takeName: Eating
+      internalID: 3673095150341620287
+      firstFrame: 0
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Gallop_Jump
+      takeName: Gallop_Jump
+      internalID: 1485581873647467237
+      firstFrame: 0
+      lastFrame: 44
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Gallop
+      takeName: Gallop
+      internalID: -7180914814543497415
+      firstFrame: 0
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle_HitReact_Left
+      takeName: Idle_HitReact_Left
+      internalID: 1524733597206663280
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle_HitReact_Right
+      takeName: Idle_HitReact_Right
+      internalID: -3892366662005823256
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Jump_toIdle
+      takeName: Jump_toIdle
+      internalID: 1554707017388164449
+      firstFrame: 0
+      lastFrame: 52
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Walk
+      internalID: 2667949614841947897
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AnimalArmature
+        weight: 1
+      - path: AnimalArmature/Body
+        weight: 1
+      - path: AnimalArmature/Body/Back
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.L/BackLeg.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.L/BackLeg.L/BackUpperLeg.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.L/BackLeg.L/BackUpperLeg.L/BackLowerLeg.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.L/BackLeg.L/BackUpperLeg.L/BackLowerLeg.L/BackLowerLeg.L_end
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.R/BackLeg.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.R/BackLeg.R/BackUpperLeg.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.R/BackLeg.R/BackUpperLeg.R/BackLowerLeg.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/BackShoulder.R/BackLeg.R/BackUpperLeg.R/BackLowerLeg.R/BackLowerLeg.R_end
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2/Tail3
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2/Tail3/Tail4
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2/Tail3/Tail4/Tail5
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2/Tail3/Tail4/Tail5/Tail6
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2/Tail3/Tail4/Tail5/Tail6/Tail7
+        weight: 1
+      - path: AnimalArmature/Body/Back/Tail1/Tail2/Tail3/Tail4/Tail5/Tail6/Tail7/Tail7_end
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.L/FrontUpperLeg.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.L/FrontUpperLeg.L/FrontLowerLeg.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.L/FrontUpperLeg.L/FrontLowerLeg.L/FrontLowerLeg.L_end
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.R/FrontUpperLeg.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.R/FrontUpperLeg.R/FrontLowerLeg.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/FrontShoulder.R/FrontUpperLeg.R/FrontLowerLeg.R/FrontLowerLeg.R_end
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.L/Ear2.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.L/Ear2.L/Ear3.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.L/Ear2.L/Ear3.L/Ear4.L
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.L/Ear2.L/Ear3.L/Ear4.L/Ear4.L_end
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.R/Ear2.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.R/Ear2.R/Ear3.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.R/Ear2.R/Ear3.R/Ear4.R
+        weight: 1
+      - path: AnimalArmature/Body/Back/Torso/Torso2/Torso3/Neck1/Neck2/Neck3/Head/Ear1.R/Ear2.R/Ear3.R/Ear4.R/Ear4.R_end
+        weight: 1
+      - path: AnimalArmature/Body/PoleTarget.L
+        weight: 1
+      - path: AnimalArmature/Body/PoleTarget.L/PoleTarget.L_end
+        weight: 1
+      - path: AnimalArmature/Body/PoleTarget.R
+        weight: 1
+      - path: AnimalArmature/Body/PoleTarget.R/PoleTarget.R_end
+        weight: 1
+      - path: AnimalArmature/Body/PoleTargetBack.L
+        weight: 1
+      - path: AnimalArmature/Body/PoleTargetBack.L/PoleTargetBack.L_end
+        weight: 1
+      - path: AnimalArmature/Body/PoleTargetBack.R
+        weight: 1
+      - path: AnimalArmature/Body/PoleTargetBack.R/PoleTargetBack.R_end
+        weight: 1
+      - path: AnimalArmature/IKBackLeg.L
+        weight: 1
+      - path: AnimalArmature/IKBackLeg.L/FFB.L
+        weight: 1
+      - path: AnimalArmature/IKBackLeg.L/FFB.L/FFB.L_end
+        weight: 1
+      - path: AnimalArmature/IKBackLeg.R
+        weight: 1
+      - path: AnimalArmature/IKBackLeg.R/FFB.R
+        weight: 1
+      - path: AnimalArmature/IKBackLeg.R/FFB.R/FFB.R_end
+        weight: 1
+      - path: AnimalArmature/IKFrontLeg.L
+        weight: 1
+      - path: AnimalArmature/IKFrontLeg.L/FF.L
+        weight: 1
+      - path: AnimalArmature/IKFrontLeg.L/FF.L/FF.L_end
+        weight: 1
+      - path: AnimalArmature/IKFrontLeg.R
+        weight: 1
+      - path: AnimalArmature/IKFrontLeg.R/FF.R
+        weight: 1
+      - path: AnimalArmature/IKFrontLeg.R/FF.R/FF.R_end
+        weight: 1
+      - path: Horse
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle_Headlow
+      takeName: Idle_Headlow
+      internalID: 300782237984217352
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle_2
+      takeName: Idle_2
+      internalID: 1245882690682072010
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      internalID: -3100369314251171874
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Attack_Headbutt
+      takeName: AnimalArmature|Attack_Headbutt
+      internalID: 4740071466891634567
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Attack_Kick
+      takeName: AnimalArmature|Attack_Kick
+      internalID: -8735307935826674370
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Death
+      takeName: AnimalArmature|Death
+      internalID: 7370985682789098114
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Eating
+      takeName: AnimalArmature|Eating
+      internalID: 5845618705403835542
+      firstFrame: 0
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Gallop
+      takeName: AnimalArmature|Gallop
+      internalID: -7666980397028532464
+      firstFrame: 0
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Gallop_Jump
+      takeName: AnimalArmature|Gallop_Jump
+      internalID: 9013133730026320192
+      firstFrame: 0
+      lastFrame: 44
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Idle
+      takeName: AnimalArmature|Idle
+      internalID: -5105944257485555118
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Idle_2
+      takeName: AnimalArmature|Idle_2
+      internalID: 9203789705941672436
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Idle_Headlow
+      takeName: AnimalArmature|Idle_Headlow
+      internalID: 4119872625232273396
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Idle_HitReact_Left
+      takeName: AnimalArmature|Idle_HitReact_Left
+      internalID: -3818105308243361847
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Idle_HitReact_Right
+      takeName: AnimalArmature|Idle_HitReact_Right
+      internalID: -3992859531268994507
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Jump_toIdle
+      takeName: AnimalArmature|Jump_toIdle
+      internalID: -34225311753368521
+      firstFrame: 0
+      lastFrame: 52
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AnimalArmature|Walk
+      takeName: AnimalArmature|Walk
+      internalID: -4864718358596981803
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
