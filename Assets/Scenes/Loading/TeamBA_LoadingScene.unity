@@ -643,7 +643,6 @@ MonoBehaviour:
   finalSpacing: 130
   finalNameWidth: 350
   holdTime: 2.5
-  totalDuration: 6
 --- !u!4 &1945613717
 Transform:
   m_ObjectHideFlags: 0
