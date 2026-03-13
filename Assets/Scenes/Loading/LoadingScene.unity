@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 465004255}
   - component: {fileID: 465004259}
   - component: {fileID: 465004260}
+  - component: {fileID: 465004261}
   m_Layer: 5
   m_Name: RevealCircle
   m_TagString: Untagged
@@ -340,6 +341,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ec88defabe49745994eb7a832e9504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RevealFinish
+--- !u!114 &465004261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465004253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4994c8626da2d64686d4299b7d7a240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StartCrystalBounce
+  crystal1: {fileID: 1295942806}
+  crystal2: {fileID: 1084487741}
+  crystal3: {fileID: 1864291758}
 --- !u!1 &594298223
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +482,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119.00002, y: -40.208008}
+  m_AnchoredPosition: {x: -199.99998, y: -40.208008}
   m_SizeDelta: {x: 99.779, y: 71.123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &844948494
@@ -620,6 +636,7 @@ GameObject:
   - component: {fileID: 1084487738}
   - component: {fileID: 1084487740}
   - component: {fileID: 1084487739}
+  - component: {fileID: 1084487741}
   m_Layer: 5
   m_Name: Crystal2
   m_TagString: Untagged
@@ -684,6 +701,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084487737}
   m_CullTransparentMesh: 1
+--- !u!95 &1084487741
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084487737}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1130314788
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +813,7 @@ GameObject:
   - component: {fileID: 1295942803}
   - component: {fileID: 1295942805}
   - component: {fileID: 1295942804}
+  - component: {fileID: 1295942806}
   m_Layer: 5
   m_Name: Crystal1
   m_TagString: Untagged
@@ -797,7 +837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119, y: 11}
+  m_AnchoredPosition: {x: -200, y: 11}
   m_SizeDelta: {x: 45.183, y: 86.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1295942804
@@ -838,6 +878,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295942802}
   m_CullTransparentMesh: 1
+--- !u!95 &1295942806
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295942802}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 920e5bc096a30264b8e60d608abc476e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1297124773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,6 +1113,7 @@ GameObject:
   - component: {fileID: 1864291755}
   - component: {fileID: 1864291757}
   - component: {fileID: 1864291756}
+  - component: {fileID: 1864291758}
   m_Layer: 5
   m_Name: Crystal3
   m_TagString: Untagged
@@ -1074,7 +1137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 116.56598, y: 10.99999}
+  m_AnchoredPosition: {x: 200, y: 10.99999}
   m_SizeDelta: {x: 45.183, y: 86.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1864291756
@@ -1115,6 +1178,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864291754}
   m_CullTransparentMesh: 1
+--- !u!95 &1864291758
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864291754}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1959494431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,7 +1234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 116.56598, y: -40.208008}
+  m_AnchoredPosition: {x: 200.00002, y: -40.208008}
   m_SizeDelta: {x: 99.779, y: 71.123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1959494433
