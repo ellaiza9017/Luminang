@@ -7,11 +7,11 @@ public class OutfitTester : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.tKey.wasPressedThisFrame)
         {
             manager.Equip(testItem);
         }
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.yKey.wasPressedThisFrame)
         {
             manager.Unequip(testItem.slot);
         }
