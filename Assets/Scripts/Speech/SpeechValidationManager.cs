@@ -14,7 +14,7 @@ namespace Luminang.Speech
     public class SpeechValidationManager : MonoBehaviour
     {
         [Header("OpenAI Configuration")]
-        [SerializeField] private string apiKey = "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";
+        [SerializeField] private string apiKey = "";
         
         [Header("Settings")]
         [SerializeField] [Range(0f, 1f)] private float similarityThreshold = 0.7f;
