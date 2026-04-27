@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e057f022b39766c47902e5b89d34f240, type: 3}
+  m_Name: PhraseDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Luminang.Speech.PhraseDatabase
+  phrases:
+  - english: Good morning
+    ilokano: Naimbag a bigat
+    cebuano: Maayong buntag
+    maranao: Mapia a kapipita
+    category: 0
+  - english: Good afternoon
+    ilokano: Naimbag a malem
+    cebuano: Maayong hapon
+    maranao: Mapia a kaapon
+    category: 0
+  - english: Good evening
+    ilokano: Naimbag a rabii
+    cebuano: Maayong gabii
+    maranao: Mapia a kagabii
+    category: 0
+  - english: How are you?
+    ilokano: Kumusta ka?
+    cebuano: Kumusta ka?
+    maranao: Kapya ka?
+    category: 0
+  - english: "I\u2019m doing well"
+    ilokano: Nasayaatak
+    cebuano: Maayo ra ko
+    maranao: Mapia ako
+    category: 0
+  - english: What is your name?
+    ilokano: Ania ti nagan mo?
+    cebuano: Unsay imong ngalan?
+    maranao: Ngai ngaran ka?
+    category: 1
+  - english: My name is ___
+    ilokano: Ti nagan ko ket ___
+    cebuano: Ako si ___
+    maranao: So ngaran ko si ___
+    category: 1
+  - english: Where are you from?
+    ilokano: Taga sadino ka?
+    cebuano: Taga asa ka?
+    maranao: Taga anda ka?
+    category: 1
+  - english: I am from ___
+    ilokano: Taga ___ ak
+    cebuano: Taga ___ ko
+    maranao: Taga ___ ako
+    category: 1
+  - english: Can you help me?
+    ilokano: Mabalin kadi a tulunganak?
+    cebuano: Pwede ko nimo tabangan?
+    maranao: Mapakay ka tabanga ako?
+    category: 2
+  - english: Please help me
+    ilokano: Tulunganak man
+    cebuano: Tabangi ko palihug
+    maranao: Tabanga ako
+    category: 2
+  - english: Please wait for me
+    ilokano: Urayennak man
+    cebuano: Hulata ko palihug
+    maranao: Antay ako
+    category: 2
+  - english: Can I ask something?
+    ilokano: Mabalin kadi agsaludsod?
+    cebuano: Pwede ko mangutana?
+    maranao: Pwede ako magtanong?
+    category: 2
+  - english: Please go straight
+    ilokano: Agdiretso ka man
+    cebuano: Padayon lang palihug
+    maranao: Diretsu lang
+    category: 3
+  - english: Please turn left
+    ilokano: Agliko ka iti kannigid
+    cebuano: Liko sa wala palihug
+    maranao: Liko sa wala
+    category: 3
+  - english: Please turn right
+    ilokano: Agliko ka iti kannawan
+    cebuano: Liko sa tuo palihug
+    maranao: Liko sa tuo
+    category: 3
+  - english: Please go up
+    ilokano: Umuli ka iti ngato
+    cebuano: Saka pataas palihug
+    maranao: Saka pataas
+    category: 3
+  - english: Please go down
+    ilokano: Bumaba ka man
+    cebuano: Naog paubos palihug
+    maranao: Manaog
+    category: 3
+  - english: Please stop here
+    ilokano: Agsardeng ka ditoy
+    cebuano: Hunong diri palihug
+    maranao: Hinto dito
+    category: 3
+  - english: Please come here
+    ilokano: Umay ka ditoy man
+    cebuano: Ari diri palihug
+    maranao: Diri ka
+    category: 3
+  - english: Please go there
+    ilokano: Mapan ka idiay man
+    cebuano: Adto didto palihug
+    maranao: Lakad doon
+    category: 3
+  - english: Please follow me
+    ilokano: Surotennak man
+    cebuano: Sunda ko palihug
+    maranao: Sumunod ka
+    category: 3
+  - english: Please wait here
+    ilokano: Uray ka ditoy man
+    cebuano: Hulata diri palihug
+    maranao: Antay dito
+    category: 3
+  - english: Thank you very much
+    ilokano: Agyamanak unay
+    cebuano: Daghang salamat
+    maranao: Mapiya salamat
+    category: 4
+  - english: Thank you for your help
+    ilokano: Agyamanak iti tulong mo
+    cebuano: Salamat sa imong tabang
+    maranao: Salamat sa tulong mo
+    category: 4
+  - english: I am sorry
+    ilokano: Pakawanen nak
+    cebuano: Pasayloa ko
+    maranao: Pasensya ako
+    category: 4
+  - english: Excuse me please
+    ilokano: Pakawanen nak man
+    cebuano: Pasayloa ko palihug
+    maranao: Tabi lang
+    category: 4
