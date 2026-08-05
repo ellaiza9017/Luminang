@@ -2,6 +2,10 @@ using Postgrest.Attributes;
 using Postgrest.Models;
 using System;
 
+// TODO: DELETE THIS ENTIRE FILE
+// The tables this file maps to (lesson_categories, vocabulary, vocabulary_translations,
+// word_rush_prompts) are being removed from Supabase.
+// Content is now handled locally via LessonsData.json and LuminangPhrases.json.
 namespace Luminang.Database
 {
     [Table("languages")]

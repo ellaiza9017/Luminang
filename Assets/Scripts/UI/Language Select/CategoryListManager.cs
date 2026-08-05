@@ -96,29 +96,8 @@ public class CategoryListManager : MonoBehaviour
     }
 
     // ──────────────────────────────────────────────────
-    // Internal Models — ChaptersDemoData.json  (DB mock)
+    // Internal Models — ChaptersDemoData.json  (DB mock) - REMOVED
     // ──────────────────────────────────────────────────
-
-    [System.Serializable]
-    private class DbLessonEntry
-    {
-        public string categoryKey;
-        public bool isCompleted;
-    }
-
-    [System.Serializable]
-    private class DbChapterEntry
-    {
-        public bool isExpanded;
-        public List<DbLessonEntry> lessons;
-    }
-
-    [System.Serializable]
-    private class DbChaptersWrapper
-    {
-        public List<DbChapterEntry> ilokanoChapters;
-        public List<DbChapterEntry> cebuanoChapters;
-    }
 
     // ──────────────────────────────────────────────────
     // Merged Runtime Model
@@ -146,7 +125,6 @@ public class CategoryListManager : MonoBehaviour
     // ──────────────────────────────────────────────────
 
     private LessonsDataWrapper _lessonsData;
-    private DbChaptersWrapper _dbData;
     private List<MergedChapter> _chapters = new List<MergedChapter>();
 
     private string _selectedCategory = "Greetings";
@@ -197,26 +175,12 @@ public class CategoryListManager : MonoBehaviour
             Debug.LogError("[CategoryListManager] Failed to parse LessonsData.json. Is the file assigned?");
             _lessonsData = new LessonsDataWrapper { languages = new List<LanguageEntry>() };
         }
-
-        // Parse ChaptersDemoData.json (DB mock)
-        if (chaptersJsonData != null)
-            _dbData = JsonUtility.FromJson<DbChaptersWrapper>(chaptersJsonData.text);
-
-        if (_dbData == null)
-        {
-            Debug.LogWarning("[CategoryListManager] Failed to parse ChaptersDemoData.json. isCompleted will default to false.");
-            _dbData = new DbChaptersWrapper
-            {
-                ilokanoChapters = new List<DbChapterEntry>(),
-                cebuanoChapters = new List<DbChapterEntry>()
-            };
-        }
     }
 
     /// <summary>
     /// Builds the merged chapter list for the active language by:
     /// 1. Taking chapter + lesson structure from LessonsData
-    /// 2. Overlaying isCompleted + isExpanded from ChaptersDemoData (matched by categoryKey + chapter order)
+    /// 2. Overlaying isCompleted from Supabase Profile (UserProfileManager)
     /// </summary>
     private void MergeData()
     {
@@ -235,31 +199,28 @@ public class CategoryListManager : MonoBehaviour
             return;
         }
 
-        // Get the DB chapter list for this language
-        List<DbChapterEntry> dbChapters = _activeLanguage == Language.Ilokano
-            ? _dbData.ilokanoChapters
-            : _dbData.cebuanoChapters;
-
-        // Build lookup: categoryKey → isCompleted  (flat across all DB chapters)
-        Dictionary<string, bool> completionLookup = BuildCompletionLookup(dbChapters);
-
         // Track when we hit the first incomplete lesson to lock everything after it
         bool foundFirstIncomplete = false;
+
+        // Get completed objectives from Supabase
+        List<string> completedKeys = new List<string>();
+        if (UserProfileManager.Instance != null && UserProfileManager.Instance.CurrentProfile != null)
+        {
+            var profile = UserProfileManager.Instance.CurrentProfile;
+            completedKeys = _activeLanguage == Language.Ilokano 
+                ? (profile.CompletedObjectivesIlokano ?? new List<string>())
+                : (profile.CompletedObjectivesCebuano ?? new List<string>());
+        }
 
         for (int ci = 0; ci < langEntry.chapters.Count; ci++)
         {
             ChapterEntry chapter = langEntry.chapters[ci];
 
-            // Grab isExpanded from DB by chapter index (positional match)
-            bool isExpanded = false;
-            if (dbChapters != null && ci < dbChapters.Count)
-                isExpanded = dbChapters[ci].isExpanded;
-
             MergedChapter merged = new MergedChapter
             {
                 chapterIndex = chapter.chapterIndex,
                 chapterTitle = chapter.chapterTitle,
-                isExpanded = isExpanded,
+                isExpanded = (ci == 0), // By default, only expand the first chapter
                 lessons = new List<MergedLesson>()
             };
 
@@ -267,8 +228,7 @@ public class CategoryListManager : MonoBehaviour
             {
                 foreach (var lesson in chapter.lessons)
                 {
-                    bool isCompleted = completionLookup.ContainsKey(lesson.categoryKey)
-                        && completionLookup[lesson.categoryKey];
+                    bool isCompleted = completedKeys.Contains(lesson.categoryKey);
 
                     bool isLocked = false;
                     if (!isCompleted)
@@ -298,23 +258,6 @@ public class CategoryListManager : MonoBehaviour
 
             _chapters.Add(merged);
         }
-    }
-
-    private Dictionary<string, bool> BuildCompletionLookup(List<DbChapterEntry> dbChapters)
-    {
-        var lookup = new Dictionary<string, bool>(System.StringComparer.OrdinalIgnoreCase);
-        if (dbChapters == null) return lookup;
-
-        foreach (var ch in dbChapters)
-        {
-            if (ch.lessons == null) continue;
-            foreach (var lesson in ch.lessons)
-            {
-                if (!string.IsNullOrEmpty(lesson.categoryKey))
-                    lookup[lesson.categoryKey] = lesson.isCompleted;
-            }
-        }
-        return lookup;
     }
 
     // ──────────────────────────────────────────────────

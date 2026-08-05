@@ -31,6 +31,8 @@ public class UserProfileManager : MonoBehaviour
         }
     }
 
+    private Coroutine _heartbeatCoroutine;
+
     public async Task FetchProfile()
     {
         try
@@ -47,11 +49,58 @@ public class UserProfileManager : MonoBehaviour
             {
                 CurrentProfile = response;
                 Debug.Log($"[UserProfile] Profile fetched for: {CurrentProfile.Username}");
+                StartHeartbeat(); // Begin pinging Supabase every 3 minutes
             }
         }
         catch (System.Exception ex)
         {
             Debug.Log("[UserProfile] No profile found or error: " + ex.Message);
+        }
+    }
+
+    public void StartHeartbeat()
+    {
+        if (_heartbeatCoroutine != null) StopCoroutine(_heartbeatCoroutine);
+        _heartbeatCoroutine = StartCoroutine(HeartbeatRoutine());
+    }
+
+    public void StopHeartbeat()
+    {
+        if (_heartbeatCoroutine != null) StopCoroutine(_heartbeatCoroutine);
+    }
+
+    private System.Collections.IEnumerator HeartbeatRoutine()
+    {
+        // 180 seconds = 3 minutes
+        var wait = new WaitForSeconds(180f); 
+        
+        while (true)
+        {
+            // Do it immediately upon starting, then every 3 minutes
+            if (CurrentProfile != null && CurrentProfile.Id != "guest-123")
+            {
+                _ = UpdateLastActiveAsync();
+            }
+            yield return wait;
+        }
+    }
+
+    private async Task UpdateLastActiveAsync()
+    {
+        try
+        {
+            CurrentProfile.LastActive = System.DateTime.UtcNow;
+            
+            // Only update the LastActive column instead of uploading the whole profile
+            await SupabaseManager.Instance.client
+                .From<ProfileModel>()
+                .Where(x => x.Id == CurrentProfile.Id)
+                .Set(x => x.LastActive, CurrentProfile.LastActive)
+                .Update();
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogWarning("[UserProfile] Failed to send heartbeat: " + ex.Message);
         }
     }
 
@@ -74,7 +123,11 @@ public class UserProfileManager : MonoBehaviour
                     CurrentProfile.HasCreatedCharacter = updates.HasCreatedCharacter;
                     CurrentProfile.HasCompletedTutorial = updates.HasCompletedTutorial;
                     CurrentProfile.HasSeenPrologue = updates.HasSeenPrologue;
+                    CurrentProfile.HasSeenIlocosIntro = updates.HasSeenIlocosIntro;
+                    CurrentProfile.HasSeenCebuIntro = updates.HasSeenCebuIntro;
                     CurrentProfile.UsernameFinalizedAt = updates.UsernameFinalizedAt;
+                    CurrentProfile.Coins = updates.Coins;
+                    CurrentProfile.OverallCoins = updates.OverallCoins;
                 }
             }
             Debug.Log("[UserProfile] Profile updated successfully.");
@@ -90,6 +143,20 @@ public class UserProfileManager : MonoBehaviour
     {
         if (CurrentProfile == null) return;
         CurrentProfile.HasSeenPrologue = seen;
+        await UpdateProfile(CurrentProfile);
+    }
+
+    public async Task SetIlocosIntroSeen(bool seen)
+    {
+        if (CurrentProfile == null) return;
+        CurrentProfile.HasSeenIlocosIntro = seen;
+        await UpdateProfile(CurrentProfile);
+    }
+
+    public async Task SetCebuIntroSeen(bool seen)
+    {
+        if (CurrentProfile == null) return;
+        CurrentProfile.HasSeenCebuIntro = seen;
         await UpdateProfile(CurrentProfile);
     }
 

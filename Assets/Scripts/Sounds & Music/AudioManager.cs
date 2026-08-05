@@ -47,6 +47,8 @@ public class AudioManager : MonoBehaviour
         onMusicVolumeChange?.Invoke();
     }
 
+    private AudioSource uiSfxSource;
+
     public void ApplySFXVolume(float value)
     {
         sfxVolume = value;
@@ -58,6 +60,23 @@ public class AudioManager : MonoBehaviour
             mainMixer.SetFloat("SFXVolume", LinearToDecibel(sfxVolume));
 
         onSFXVolumeChange?.Invoke();
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        if (clip == null) return;
+        
+        if (uiSfxSource == null)
+        {
+            uiSfxSource = gameObject.AddComponent<AudioSource>();
+            uiSfxSource.playOnAwake = false;
+            // Add SFXVolumeSync so it respects the volume sliders
+            if (gameObject.GetComponent<SFXVolumeSync>() == null)
+                gameObject.AddComponent<SFXVolumeSync>();
+        }
+
+        Debug.Log($"[AudioManager] Playing '{clip.name}' on uiSfxSource. Volume is currently: {uiSfxSource.volume}");
+        uiSfxSource.PlayOneShot(clip);
     }
 
     public void SaveSettings()

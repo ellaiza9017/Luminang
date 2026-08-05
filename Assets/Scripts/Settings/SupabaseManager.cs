@@ -2,6 +2,8 @@ using UnityEngine;
 using Supabase;
 using System.Threading.Tasks;
 using System;
+using System.Collections.Generic;
+
 
 public class SupabaseManager : MonoBehaviour
 {
@@ -131,6 +133,7 @@ public class SupabaseManager : MonoBehaviour
 [Postgrest.Attributes.Table("profiles")]
 public class ProfileModel : Postgrest.Models.BaseModel
 {
+    // --- Identity ---
     [Postgrest.Attributes.PrimaryKey("id", false)]
     public string Id { get; set; }
 
@@ -140,11 +143,22 @@ public class ProfileModel : Postgrest.Models.BaseModel
     [Postgrest.Attributes.Column("username")]
     public string Username { get; set; }
 
-    [Postgrest.Attributes.Column("equipped_outfit")]
-    public object EquippedOutfit { get; set; } 
-
     [Postgrest.Attributes.Column("avatar_url")]
     public string AvatarUrl { get; set; }
+
+    [Postgrest.Attributes.Column("username_finalized_at")]
+    public DateTime? UsernameFinalizedAt { get; set; }
+
+    // --- Economy ---
+    [Postgrest.Attributes.Column("coins")]
+    public int Coins { get; set; }
+
+    [Postgrest.Attributes.Column("overall_coins")]
+    public int OverallCoins { get; set; }
+
+    // --- Onboarding Flags ---
+    [Postgrest.Attributes.Column("onboarding_completed")]
+    public bool OnboardingCompleted { get; set; }
 
     [Postgrest.Attributes.Column("has_created_character")]
     public bool HasCreatedCharacter { get; set; }
@@ -155,14 +169,57 @@ public class ProfileModel : Postgrest.Models.BaseModel
     [Postgrest.Attributes.Column("has_seen_prologue")]
     public bool HasSeenPrologue { get; set; }
 
-    [Postgrest.Attributes.Column("username_finalized_at")]
-    public DateTime? UsernameFinalizedAt { get; set; }
+    [Postgrest.Attributes.Column("has_seen_ilocos_intro")]
+    public bool HasSeenIlocosIntro { get; set; }
+
+    [Postgrest.Attributes.Column("has_seen_cebu_intro")]
+    public bool HasSeenCebuIntro { get; set; }
+
+    // --- Customization ---
+    [Postgrest.Attributes.Column("equipped_outfit")]
+    public object EquippedOutfit { get; set; }
+
+    // --- Last Known Position (for resuming) ---
+    [Postgrest.Attributes.Column("last_language_id")]
+    public int? LastLanguageId { get; set; }
+
+    [Postgrest.Attributes.Column("last_category_id")]
+    public int? LastCategoryId { get; set; }
+
+    // --- Autosave: Completed Objectives ---
+    [Postgrest.Attributes.Column("completed_objectives_ilokano")]
+    public List<string> CompletedObjectivesIlokano { get; set; } = new List<string>();
+
+    [Postgrest.Attributes.Column("completed_objectives_cebuano")]
+    public List<string> CompletedObjectivesCebuano { get; set; } = new List<string>();
+
+    // --- Autosave: Journal / Unlocked Phrases ---
+    [Postgrest.Attributes.Column("unlocked_phrases_ilokano")]
+    public List<string> UnlockedPhrasesIlokano { get; set; } = new List<string>();
+
+    [Postgrest.Attributes.Column("unlocked_phrases_cebuano")]
+    public List<string> UnlockedPhrasesCebuano { get; set; } = new List<string>();
+
+    // --- Account Status ---
+    [Postgrest.Attributes.Column("status")]
+    public string Status { get; set; }
+
+    [Postgrest.Attributes.Column("suspension_reason")]
+    public string SuspensionReason { get; set; }
+
+    [Postgrest.Attributes.Column("suspension_duration")]
+    public string SuspensionDuration { get; set; }
+
+    [Postgrest.Attributes.Column("last_active")]
+    public DateTime? LastActive { get; set; }
 }
 
 [Postgrest.Attributes.Table("user_inventory")]
 public class InventoryModel : Postgrest.Models.BaseModel
 {
-    // Remove ID property or use the correct type if we aren't providing it
+    [Postgrest.Attributes.PrimaryKey("id", false)]
+    public string Id { get; set; }
+
     [Postgrest.Attributes.Column("user_id")]
     public string UserId { get; set; }
 
@@ -171,4 +228,65 @@ public class InventoryModel : Postgrest.Models.BaseModel
 
     [Postgrest.Attributes.Column("slot")]
     public string Slot { get; set; }
+}
+
+// =====================================================
+// NOTIFICATION / ANNOUNCEMENT MODELS
+// =====================================================
+
+/// <summary>
+/// Maps to the 'admin_notifications' table — the global announcements created by admins.
+/// </summary>
+[Postgrest.Attributes.Table("admin_notifications")]
+public class AdminNotificationModel : Postgrest.Models.BaseModel
+{
+    [Postgrest.Attributes.PrimaryKey("id", false)]
+    public string Id { get; set; }
+
+    [Postgrest.Attributes.Column("title")]
+    public string Title { get; set; }
+
+    [Postgrest.Attributes.Column("body")]
+    public string Body { get; set; }
+
+    [Postgrest.Attributes.Column("type")]
+    public string Type { get; set; } // "info", "update", "maintenance", etc.
+
+    [Postgrest.Attributes.Column("attached_coins")]
+    public int AttachedCoins { get; set; }
+
+    [Postgrest.Attributes.Column("created_at")]
+    public DateTime CreatedAt { get; set; }
+}
+
+/// <summary>
+/// Maps to the 'user_notifications' table — a per-player record tracking
+/// whether each announcement has been read, claimed, or archived.
+/// </summary>
+[Postgrest.Attributes.Table("user_notifications")]
+public class UserNotificationModel : Postgrest.Models.BaseModel
+{
+    [Postgrest.Attributes.PrimaryKey("id", false)]
+    public string Id { get; set; }
+
+    [Postgrest.Attributes.Column("user_id")]
+    public string UserId { get; set; }
+
+    [Postgrest.Attributes.Column("notification_id")]
+    public string NotificationId { get; set; }
+
+    [Postgrest.Attributes.Column("is_read")]
+    public bool IsRead { get; set; }
+
+    [Postgrest.Attributes.Column("is_claimed")]
+    public bool IsClaimed { get; set; }
+
+    [Postgrest.Attributes.Column("is_archived")]
+    public bool IsArchived { get; set; }
+
+    [Postgrest.Attributes.Column("created_at")]
+    public DateTime CreatedAt { get; set; }
+
+    [Postgrest.Attributes.Column("deleted_at")]
+    public DateTime? DeletedAt { get; set; }
 }

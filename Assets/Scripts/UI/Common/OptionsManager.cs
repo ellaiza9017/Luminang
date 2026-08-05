@@ -26,6 +26,14 @@ public class OptionsManager : MonoBehaviour
 
 
 
+    [Header("Dynamic Background")]
+    public Image backgroundImage;
+    public Sprite mainMenuBg;
+    public Sprite languageSelectionBg;
+
+    // Static variable to track which scene triggered the options menu
+    public static string PreviousSceneName = "";
+
     [Header("Panels (Disabled)")]
     public GameObject confirmSavePanel; // Keep for inspector safety, but not used
     public GameObject noChangesPanel;
@@ -33,6 +41,19 @@ public class OptionsManager : MonoBehaviour
 
     private void Start()
     {
+        // Set dynamic background based on the previous scene
+        if (backgroundImage != null)
+        {
+            if (PreviousSceneName == "MainMenuScene")
+            {
+                backgroundImage.sprite = mainMenuBg;
+            }
+            else if (PreviousSceneName == "LanguageSelectionScene")
+            {
+                backgroundImage.sprite = languageSelectionBg;
+            }
+        }
+
         // 1. Load & Set Volume
         if (AudioManager.instance != null)
         {
@@ -207,5 +228,20 @@ public class OptionsManager : MonoBehaviour
 
         if (sfxMuteImage != null)
             sfxMuteImage.sprite = (value > 0) ? volumeUpSprite : volumeOffSprite;
+    }
+
+    public void GoBack()
+    {
+        // Default to Main Menu if for some reason we don't know where we came from
+        string targetScene = string.IsNullOrEmpty(PreviousSceneName) ? "MainMenuScene" : PreviousSceneName;
+        
+        if (TransitionOverlay.Instance != null)
+        {
+            TransitionOverlay.Instance.StartTransition(targetScene);
+        }
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(targetScene);
+        }
     }
 }

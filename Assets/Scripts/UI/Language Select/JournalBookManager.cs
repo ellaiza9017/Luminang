@@ -39,7 +39,13 @@ public class JournalBookManager : MonoBehaviour
     public Color cebuanoRowNormal = new Color(0.85f, 0.9f, 0.95f);
     public Color cebuanoRowPressed = new Color(0.7f, 0.8f, 0.9f);
 
-    private JournalDemoData _journalData;
+    [Header("Empty States")]
+    public GameObject emptyStateLeft;
+    public GameObject emptyStateRight;
+    public List<GameObject> objectsToHideLeft;
+    public List<GameObject> objectsToHideRight;
+
+    private JournalData _journalData;
     private string _currentLanguage = "Ilokano"; // Default tab
     private string _currentCategory = "All Categories"; // Default category
     private JournalEntry _selectedEntry;
@@ -57,13 +63,13 @@ public class JournalBookManager : MonoBehaviour
     }
 
     // Public accessor so other managers (e.g. CategoryListManager) can read the journal entries
-    public JournalDemoData GetJournalData() => _journalData;
+    public JournalData GetJournalData() => _journalData;
 
     private void LoadData()
     {
         if (journalJsonFile != null)
         {
-            _journalData = JsonUtility.FromJson<JournalDemoData>(journalJsonFile.text);
+            _journalData = JsonUtility.FromJson<JournalData>(journalJsonFile.text);
             if (_journalData == null || _journalData.journal_entries == null)
             {
                 Debug.LogError("JournalData failed to parse from JSON!");
@@ -131,6 +137,18 @@ public class JournalBookManager : MonoBehaviour
             if (!string.Equals(entry.language, _currentLanguage, System.StringComparison.OrdinalIgnoreCase))
                 continue;
 
+            // Filter by Unlocked Status in Supabase
+            if (UserProfileManager.Instance != null && UserProfileManager.Instance.CurrentProfile != null)
+            {
+                string baseId = entry.id.Replace("ilo_", "").Replace("ceb_", "");
+                List<string> unlockedIds = (_currentLanguage == "Ilokano")
+                    ? UserProfileManager.Instance.CurrentProfile.UnlockedPhrasesIlokano
+                    : UserProfileManager.Instance.CurrentProfile.UnlockedPhrasesCebuano;
+
+                if (unlockedIds == null || !unlockedIds.Contains(baseId))
+                    continue;
+            }
+
             // Filter by Category
             if (_currentCategory != "All Categories" && _currentCategory != "All")
             {
@@ -164,7 +182,18 @@ public class JournalBookManager : MonoBehaviour
         // If list is empty after filtering, clear details
         if (!firstEntryDisplayed)
         {
+            if (emptyStateLeft != null) emptyStateLeft.SetActive(true);
+            if (emptyStateRight != null) emptyStateRight.SetActive(true);
+            if (objectsToHideLeft != null) foreach (var obj in objectsToHideLeft) if (obj != null) obj.SetActive(false);
+            if (objectsToHideRight != null) foreach (var obj in objectsToHideRight) if (obj != null) obj.SetActive(false);
             ClearDetails();
+        }
+        else
+        {
+            if (emptyStateLeft != null) emptyStateLeft.SetActive(false);
+            if (emptyStateRight != null) emptyStateRight.SetActive(false);
+            if (objectsToHideLeft != null) foreach (var obj in objectsToHideLeft) if (obj != null) obj.SetActive(true);
+            if (objectsToHideRight != null) foreach (var obj in objectsToHideRight) if (obj != null) obj.SetActive(true);
         }
     }
 

@@ -8,6 +8,7 @@ public class PlayerInfoPanel : MonoBehaviour
 {
     [Header("UI References")]
     public TextMeshProUGUI usernameText;
+    public TextMeshProUGUI coinsText;
     public Image profileImage; // For URL photos
     public RawImage portraitRawImage; // Still keep this to show the downloaded texture if needed
     public TextMeshProUGUI progressPercentageText;
@@ -65,6 +66,10 @@ public class PlayerInfoPanel : MonoBehaviour
         // Set Username
         if (usernameText != null) 
             usernameText.text = string.IsNullOrEmpty(profile.Username) ? "Unknown Player" : profile.Username;
+
+        // Set Coins
+        if (coinsText != null)
+            coinsText.text = profile.Coins.ToString("N0") + " Coins"; // e.g. 1,500 Coins
 
         // Progress can be connected dynamically later
         if (progressPercentageText != null) progressPercentageText.text = "0%"; 

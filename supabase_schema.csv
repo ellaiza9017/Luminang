@@ -1,0 +1,115 @@
+type,table_name,column_name,data_type,is_nullable,extra
+COLUMN,admin_logs,category,text,NO,null
+COLUMN,admin_logs,event,text,NO,null
+COLUMN,admin_logs,user_name,text,YES,null
+COLUMN,admin_logs,user,text,NO,null
+COLUMN,admin_logs,type,text,NO,'admin'::text
+COLUMN,admin_logs,id,uuid,NO,gen_random_uuid()
+COLUMN,admin_logs,time,timestamp with time zone,NO,now()
+COLUMN,admin_notifications,attached_coins,integer,YES,0
+COLUMN,admin_notifications,id,uuid,NO,gen_random_uuid()
+COLUMN,admin_notifications,type,text,NO,'info'::text
+COLUMN,admin_notifications,body,text,NO,null
+COLUMN,admin_notifications,created_at,timestamp with time zone,NO,now()
+COLUMN,admin_notifications,title,text,NO,null
+COLUMN,languages,name,text,NO,null
+COLUMN,languages,code,text,NO,null
+COLUMN,languages,is_active,boolean,YES,true
+COLUMN,languages,id,integer,NO,nextval('languages_id_seq'::regclass)
+COLUMN,profiles,has_seen_cebu_intro,boolean,YES,false
+COLUMN,profiles,avatar_url,text,YES,null
+COLUMN,profiles,suspension_reason,text,YES,null
+COLUMN,profiles,username,text,YES,null
+COLUMN,profiles,email,text,NO,null
+COLUMN,profiles,id,uuid,NO,null
+COLUMN,profiles,username_finalized_at,timestamp with time zone,YES,null
+COLUMN,profiles,last_category_id,integer,YES,null
+COLUMN,profiles,last_active,timestamp with time zone,YES,"timezone('utc'::text, now())"
+COLUMN,profiles,created_at,timestamp with time zone,YES,"timezone('utc'::text, now())"
+COLUMN,profiles,updated_at,timestamp with time zone,YES,"timezone('utc'::text, now())"
+COLUMN,profiles,has_created_character,boolean,YES,false
+COLUMN,profiles,has_completed_tutorial,boolean,YES,false
+COLUMN,profiles,has_seen_prologue,boolean,YES,false
+COLUMN,profiles,equipped_outfit,jsonb,YES,'{}'::jsonb
+COLUMN,profiles,status,text,YES,'active'::text
+COLUMN,profiles,completed_objectives_cebuano,jsonb,YES,'[]'::jsonb
+COLUMN,profiles,completed_objectives_ilokano,jsonb,YES,'[]'::jsonb
+COLUMN,profiles,overall_coins,integer,YES,0
+COLUMN,profiles,unlocked_phrases_ilokano,jsonb,YES,'[]'::jsonb
+COLUMN,profiles,unlocked_phrases_cebuano,jsonb,YES,'[]'::jsonb
+COLUMN,profiles,has_seen_ilocos_intro,boolean,YES,false
+COLUMN,profiles,suspension_duration,text,YES,null
+COLUMN,profiles,coins,integer,YES,12500
+COLUMN,profiles,onboarding_completed,boolean,YES,false
+COLUMN,profiles,last_language_id,integer,YES,null
+COLUMN,roles,id,uuid,NO,gen_random_uuid()
+COLUMN,roles,name,text,NO,null
+COLUMN,roles,created_at,timestamp with time zone,NO,now()
+COLUMN,user_feedback,user_role,text,NO,'guest'::text
+COLUMN,user_feedback,status,text,NO,'pending'::text
+COLUMN,user_feedback,description,text,NO,null
+COLUMN,user_feedback,language_focus,text,YES,null
+COLUMN,user_feedback,topic_area,text,NO,null
+COLUMN,user_feedback,id,uuid,NO,gen_random_uuid()
+COLUMN,user_feedback,user_id,uuid,YES,null
+COLUMN,user_feedback,created_at,timestamp with time zone,NO,now()
+COLUMN,user_feedback,updated_at,timestamp with time zone,NO,now()
+COLUMN,user_feedback,is_read,boolean,YES,false
+COLUMN,user_feedback,is_archived,boolean,YES,false
+COLUMN,user_feedback,deleted_at,timestamp with time zone,YES,null
+COLUMN,user_feedback,subject_line,text,NO,null
+COLUMN,user_inventory,item_name,text,NO,null
+COLUMN,user_inventory,slot,text,NO,null
+COLUMN,user_inventory,acquired_at,timestamp with time zone,YES,"timezone('utc'::text, now())"
+COLUMN,user_inventory,user_id,uuid,YES,null
+COLUMN,user_inventory,id,uuid,NO,gen_random_uuid()
+COLUMN,user_notifications,is_archived,boolean,YES,false
+COLUMN,user_notifications,is_read,boolean,YES,false
+COLUMN,user_notifications,notification_id,uuid,NO,null
+COLUMN,user_notifications,user_id,uuid,NO,null
+COLUMN,user_notifications,id,uuid,NO,gen_random_uuid()
+COLUMN,user_notifications,is_claimed,boolean,YES,false
+COLUMN,user_notifications,created_at,timestamp with time zone,YES,now()
+COLUMN,user_notifications,deleted_at,timestamp with time zone,YES,null
+COLUMN,user_roles,user_id,uuid,NO,null
+COLUMN,user_roles,role_id,uuid,NO,null
+COLUMN,username_registry,username,text,NO,null
+COLUMN,username_registry,claimed_by,uuid,YES,null
+COLUMN,username_registry,claimed_at,timestamp with time zone,YES,"timezone('utc'::text, now())"
+COLUMN,v_player_progression,username,text,YES,null
+COLUMN,v_player_progression,has_completed_tutorial,boolean,YES,null
+COLUMN,v_player_progression,has_seen_prologue,boolean,YES,null
+COLUMN,v_player_progression,has_created_character,boolean,YES,null
+COLUMN,v_player_progression,onboarding_completed,boolean,YES,null
+COLUMN,v_player_progression,email,text,YES,null
+COLUMN,v_user_inventory,item_name,text,YES,null
+COLUMN,v_user_inventory,user_id,uuid,YES,null
+COLUMN,v_user_inventory,acquired_at,timestamp with time zone,YES,null
+COLUMN,v_user_inventory,slot,text,YES,null
+COLUMN,v_user_inventory,username,text,YES,null
+FK,user_inventory,user_id,profiles,id,user_inventory_user_id_fkey
+FK,user_notifications,notification_id,admin_notifications,id,user_notifications_notification_id_fkey
+FK,user_roles,role_id,roles,id,user_roles_role_id_fkey
+POLICY,admin_logs,Admins manage everything,PERMISSIVE,ALL,true
+POLICY,admin_notifications,Admins manage alerts,PERMISSIVE,ALL,true
+POLICY,languages,Curriculum is viewable by everyone,PERMISSIVE,SELECT,true
+POLICY,profiles,Users can view own profile,PERMISSIVE,SELECT,(auth.uid() = id)
+POLICY,profiles,Users can insert own profile,PERMISSIVE,INSERT,null
+POLICY,profiles,Users can update own profile,PERMISSIVE,UPDATE,(auth.uid() = id)
+POLICY,profiles,Admins can view all profiles,PERMISSIVE,SELECT,is_admin()
+POLICY,roles,Allow public read access to roles,PERMISSIVE,SELECT,true
+POLICY,user_feedback,Admins can view all feedback,PERMISSIVE,SELECT,"(EXISTS ( SELECT 1
+   FROM (user_roles ur
+     JOIN roles r ON ((ur.role_id = r.id)))
+  WHERE ((ur.user_id = auth.uid()) AND (r.name = 'admin'::text))))"
+POLICY,user_feedback,Allow public feedback submission,PERMISSIVE,INSERT,null
+POLICY,user_inventory,Users can view own inventory,PERMISSIVE,SELECT,(auth.uid() = user_id)
+POLICY,user_inventory,Users can insert own inventory,PERMISSIVE,INSERT,null
+POLICY,user_notifications,Users can manage their own notifications,PERMISSIVE,ALL,(auth.uid() = user_id)
+POLICY,user_notifications,Users can update their own notification status,PERMISSIVE,ALL,(auth.uid() = user_id)
+POLICY,user_notifications,Users can view their own notification status,PERMISSIVE,SELECT,(auth.uid() = user_id)
+POLICY,user_roles,Admins can view all user roles,PERMISSIVE,SELECT,is_admin()
+POLICY,user_roles,Users can view own roles,PERMISSIVE,SELECT,(auth.uid() = user_id)
+POLICY,user_roles,Allow users to view their own roles,PERMISSIVE,SELECT,(auth.uid() = user_id)
+POLICY,user_roles,Admins manage roles,PERMISSIVE,ALL,true
+POLICY,username_registry,Username registry viewable by all authenticated users,PERMISSIVE,SELECT,(auth.role() = 'authenticated'::text)

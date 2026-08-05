@@ -16,6 +16,7 @@ public class CutscenePlayer : MonoBehaviour
     public float fallbackDuration = 2f;
 
     private VideoPlayer _vp;
+    private bool _isSkipping = false;
 
     private void Awake()
     {
@@ -31,18 +32,65 @@ public class CutscenePlayer : MonoBehaviour
     /// </summary>
     public IEnumerator Play()
     {
+        _isSkipping = false;
+        
         if (videoClip != null)
         {
             _vp.clip = videoClip;
             _vp.Prepare();
-            while (!_vp.isPrepared) yield return null;
-            _vp.Play();
-            while (_vp.isPlaying) yield return null;
+            while (!_vp.isPrepared && !_isSkipping) yield return null;
+            
+            if (!_isSkipping)
+            {
+                _vp.Play();
+                
+                // Wait a split second for Unity engine to spin up the video
+                yield return new WaitForSeconds(0.1f);
+                
+                while (_vp.isPlaying && !_isSkipping) yield return null;
+            }
         }
         else
         {
             Debug.Log("[CutscenePlayer] No video assigned – using fallback pause.");
-            yield return new WaitForSeconds(fallbackDuration);
+            float timer = 0;
+            while (timer < fallbackDuration && !_isSkipping)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
         }
+        
+        // Wait for the skip fade out to finish before yielding control back
+        while (_isSkipping && _vp.isPlaying) yield return null;
+    }
+
+    /// <summary>
+    /// Call this from a UI Button to skip the current cutscene.
+    /// </summary>
+    public void Skip()
+    {
+        if (_isSkipping) return;
+        _isSkipping = true;
+        StartCoroutine(FadeOutAndStop());
+    }
+
+    private IEnumerator FadeOutAndStop()
+    {
+        // Just fade audio — let the SceneLoader/LoadingScene handle the visual transition
+        float fadeTime = 0.5f;
+        float startVolume = _vp != null ? _vp.GetDirectAudioVolume(0) : 1f;
+        float elapsed = 0f;
+
+        while (elapsed < fadeTime)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / fadeTime;
+            if (_vp != null && _vp.isPlaying)
+                _vp.SetDirectAudioVolume(0, Mathf.Lerp(startVolume, 0f, t));
+            yield return null;
+        }
+
+        if (_vp != null) _vp.Stop();
     }
 }

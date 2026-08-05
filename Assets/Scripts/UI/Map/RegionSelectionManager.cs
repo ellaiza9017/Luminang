@@ -140,11 +140,17 @@ public class RegionSelectionManager : MonoBehaviour
                     string region = currentRegion.data.regionName.ToLower();
                     if (region.Contains("ilocos") || region.Contains("crisologo"))
                     {
-                        sceneToLoad = "Calle_Crisologo";
+                        if (!UserProfileManager.Instance.CurrentProfile.HasSeenIlocosIntro)
+                            sceneToLoad = "IlocosIntroScene";
+                        else
+                            sceneToLoad = "Calle_Crisologo";
                     }
                     else if (region.Contains("cebu") || region.Contains("magellan"))
                     {
-                        sceneToLoad = "Magellan's_Cross";
+                        if (!UserProfileManager.Instance.CurrentProfile.HasSeenCebuIntro)
+                            sceneToLoad = "CebuIntroScene"; // For when you make this later
+                        else
+                            sceneToLoad = "Magellan's_Cross";
                     }
                     else
                     {

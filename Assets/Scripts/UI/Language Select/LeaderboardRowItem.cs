@@ -29,28 +29,26 @@ public class LeaderboardRowItem : MonoBehaviour
     [Tooltip("Color of the rank text when the player is not in the top 3.")]
     public Color normalTextColor = Color.black;
 
-    private LeaderboardPlayer _playerData;
+    private LeaderboardEntry _entryData;
     private LeaderboardManager _manager;
-    private int _rank;
     private ColorBlock _originalColors;
     private bool _colorsStored = false;
 
-    public LeaderboardPlayer PlayerData => _playerData;
+    public LeaderboardEntry EntryData => _entryData;
 
-    public void Setup(LeaderboardPlayer player, int rank, LeaderboardManager manager)
+    public void Setup(LeaderboardEntry entry, LeaderboardManager manager, bool isFooterRow = false)
     {
-        _playerData = player;
-        _rank = rank;
+        _entryData = entry;
         _manager = manager;
 
         // Set Rank Number & Badge
         if (rankText != null)
         {
-            rankText.text = rank.ToString();
-            rankText.gameObject.SetActive(true); // Keep it active so it displays ON TOP of badges
+            rankText.text = entry.Rank.ToString();
+            rankText.gameObject.SetActive(true);
 
             // Apply coloring based on whether they are in the top 3 or the current player
-            if (rank <= 3 || player.is_current_player)
+            if (entry.Rank <= 3 || entry.IsCurrentPlayer)
             {
                 rankText.color = top3TextColor;
             }
@@ -62,51 +60,46 @@ public class LeaderboardRowItem : MonoBehaviour
 
         if (badgeImage != null)
         {
-            // Current player always gets their own special badge regardless of rank
-            if (player.is_current_player && currentPlayerBadge != null)
+            if (isFooterRow && currentPlayerBadge != null)
             {
                 badgeImage.sprite = currentPlayerBadge;
                 badgeImage.gameObject.SetActive(true);
             }
-            else if (rank == 1 && goldBadge != null)
+            else if (entry.Rank == 1 && goldBadge != null)
             {
                 badgeImage.sprite = goldBadge;
                 badgeImage.gameObject.SetActive(true);
             }
-            else if (rank == 2 && silverBadge != null)
+            else if (entry.Rank == 2 && silverBadge != null)
             {
                 badgeImage.sprite = silverBadge;
                 badgeImage.gameObject.SetActive(true);
             }
-            else if (rank == 3 && bronzeBadge != null)
+            else if (entry.Rank == 3 && bronzeBadge != null)
             {
                 badgeImage.sprite = bronzeBadge;
                 badgeImage.gameObject.SetActive(true);
             }
             else
             {
-                // Deactivate the badge completely so no shadow/backplate remains visible
                 badgeImage.gameObject.SetActive(false);
             }
         }
 
         // Set Username & Progress
         if (usernameText != null)
-            usernameText.text = player.username;
+            usernameText.text = entry.Username;
 
         if (progressText != null)
-            progressText.text = $"{player.overall_progress:F1}%";
+            progressText.text = $"{entry.OverallProgress:F1}%";
 
         // Set Avatar (or default white image if null)
         if (avatarImage != null)
         {
-            if (!string.IsNullOrEmpty(player.picture))
+            avatarImage.color = Color.white; // Default fallback color
+            if (!string.IsNullOrEmpty(entry.AvatarUrl) && AvatarManager.Instance != null)
             {
-                // Load custom sprite...
-            }
-            else
-            {
-                avatarImage.color = Color.white; // Default white picture
+                LoadAvatarAsync(entry.AvatarUrl);
             }
         }
 
@@ -115,6 +108,16 @@ public class LeaderboardRowItem : MonoBehaviour
         {
             rowButton.onClick.RemoveAllListeners();
             rowButton.onClick.AddListener(OnClick);
+        }
+    }
+
+    private async void LoadAvatarAsync(string url)
+    {
+        var texture = await AvatarManager.Instance.GetAvatarTexture(url);
+        if (texture != null && avatarImage != null)
+        {
+            avatarImage.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+            avatarImage.color = Color.white;
         }
     }
 
@@ -145,9 +148,9 @@ public class LeaderboardRowItem : MonoBehaviour
 
     private void OnClick()
     {
-        if (_manager != null && _playerData != null)
+        if (_manager != null && _entryData != null)
         {
-            _manager.SelectRow(this, _playerData, _rank);
+            _manager.SelectRow(this, _entryData);
         }
     }
 }

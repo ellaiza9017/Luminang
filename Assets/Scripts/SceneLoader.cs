@@ -31,13 +31,14 @@ public class SceneLoader : MonoBehaviour
         
         string currentScene = SceneManager.GetActiveScene().name;
 
-        // NEW RULE: Only use the loading screen if we are leaving the Main Menu 
-        // AND going to a "heavy" scene (Game, Map, Prologue, or Character Creation).
+        // NEW RULE: We use the loading screen if we are loading into a heavy Gameplay Scene,
+        // OR if we are transitioning into any major feature scene (like Language Select or Prologue).
         bool isHeavyScene = (sceneName == "Calle_Crisologo" || sceneName == "Magellan's_Cross" || 
                              sceneName == "LanguageSelectionScene" || sceneName == "PrologueScene" || 
                              sceneName == "CreateCharacterScene");
         
-        bool shouldShowLoadingScreen = (currentScene == "MainMenuScene" && isHeavyScene);
+        // Always show the loading screen for these heavy scenes!
+        bool shouldShowLoadingScreen = isHeavyScene;
 
         if (shouldShowLoadingScreen && useLoadingScreenForGameScene)
         {

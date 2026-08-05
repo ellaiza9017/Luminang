@@ -129,8 +129,10 @@ public class BookSelectionManager : MonoBehaviour
 
     private void InitializeUI()
     {
-        // Set idle sprite
-        if (bookImage != null && idleBookSprite != null)
+        // Set to CLOSED sprite initially so it doesn't flash open before the animation starts!
+        if (bookImage != null && openSprites != null && openSprites.Length > 0)
+            bookImage.sprite = openSprites[0];
+        else if (bookImage != null && idleBookSprite != null)
             bookImage.sprite = idleBookSprite;
 
         // Auto-cache or add CanvasGroup on each tab content group

@@ -295,9 +295,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 0
   icon: {fileID: 21300000, guid: f6faf2206729a8a45bd5b3cf8c4ee0ac, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Spiky Cut
+  itemDescription: A bold hairstyle with plenty of attitude.
+  price: 600
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -324,9 +324,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 0
   icon: {fileID: 21300000, guid: 67e77921ec516474290de3b625f7c43b, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Golden Layers
+  itemDescription: Soft layered hair with a bright, cheerful look.
+  price: 250
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -1335,9 +1335,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 0
   icon: {fileID: 21300000, guid: 58b91e49a810e9745bb27b83158c4bcd, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Pink Twin Braids
+  itemDescription: A playful braided style full of personality.
+  price: 600
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -1858,9 +1858,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 1
   icon: {fileID: 21300000, guid: e00b02d1d4431f047a6860f8e23d1454, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Lakbay Vest
+  itemDescription: Made for little explorers who are always ready for the next adventure.
+  price: 600
   hideTorso: 1
   hideLegs: 0
   hideArms: 0
@@ -3072,9 +3072,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 3
   icon: {fileID: 21300000, guid: bfa2983bfc3e73b47bf35c5b1aaf146e, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Brown Oxfords
+  itemDescription: A classic pair with a warm, timeless look.
+  price: 300
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -3284,9 +3284,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 3
   icon: {fileID: 21300000, guid: 7c6ebf744397676478e1a4d43f2ba752, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Lakbay Boots
+  itemDescription: Lace up and head out for your next adventure.
+  price: 800
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -3609,9 +3609,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 1
   icon: {fileID: 21300000, guid: 4d48255ca8a03ed42a8b4baea8526b42, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Polo Blanco
+  itemDescription: A neat and polished look that's always in style.
+  price: 150
   hideTorso: 1
   hideLegs: 0
   hideArms: 0
@@ -4032,8 +4032,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 2
   icon: {fileID: 21300000, guid: db1767685a11f3148ad2d25f9eb945c0, type: 3}
-  itemName: 
-  itemDescription: 
+  itemName: Black Trousers
+  itemDescription: A clean and versatile pair for any occasion.
   price: 100
   hideTorso: 0
   hideLegs: 1
@@ -4061,9 +4061,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 2
   icon: {fileID: 21300000, guid: 68f20fad3fa2e4c45b647e7deeb4d206, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Rosas Skirt
+  itemDescription: A sweet and playful skirt that brightens any day.
+  price: 300
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -4249,9 +4249,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 2
   icon: {fileID: 21300000, guid: fdd9dff9de37f1241802b22b0dd38765, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Maong Pants
+  itemDescription: A timeless favorite made for everyday wear.
+  price: 150
   hideTorso: 0
   hideLegs: 1
   hideArms: 0
@@ -4278,9 +4278,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 2
   icon: {fileID: 21300000, guid: 5482204cf8b70f04b8d0b5b659714e6e, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Lino Trousers
+  itemDescription: Lightweight trousers that keep you comfy wherever you go.
+  price: 250
   hideTorso: 0
   hideLegs: 1
   hideArms: 0
@@ -4580,8 +4580,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 0
   icon: {fileID: 21300000, guid: ec560c2cde8a7f849826f9f79a2808f1, type: 3}
-  itemName: 
-  itemDescription: 
+  itemName: Textured Crop
+  itemDescription: A clean, textured haircut for an everyday look.
   price: 100
   hideTorso: 0
   hideLegs: 0
@@ -4609,9 +4609,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 3
   icon: {fileID: 21300000, guid: 3aac2ce23274c314cbc5425303116e0d, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Mutya Heels
+  itemDescription: A graceful pair that adds a touch of elegance to any outfit.
+  price: 400
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -4933,9 +4933,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 0
   icon: {fileID: 21300000, guid: d544a10be79e4e244867fbbc6aeb9fb2, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Straight Locks
+  itemDescription: Long, sleek hair that's simple and elegant.
+  price: 150
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -5168,9 +5168,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 1
   icon: {fileID: 21300000, guid: 03e1fefa5147ea3438d97713bb4a5c58, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Filipiniana
+  itemDescription: An elegant Filipiniana outfit that celebrates Filipino heritage
+    with pride.
+  price: 1000
   hideTorso: 1
   hideLegs: 0
   hideArms: 0
@@ -5197,9 +5198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 3
   icon: {fileID: 21300000, guid: 2fb2a5c1af6e0814eb315ca7038a944c, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Brown Boots
+  itemDescription: Sturdy boots built for every trail and every journey.
+  price: 600
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -5413,8 +5414,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 0
   icon: {fileID: 21300000, guid: f2ea6831d3fdfee4fb10fe2a6259ef28, type: 3}
-  itemName: 
-  itemDescription: 
+  itemName: Classic Bob
+  itemDescription: A neat bob that never goes out of style.
   price: 100
   hideTorso: 0
   hideLegs: 0
@@ -5592,9 +5593,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 1
   icon: {fileID: 21300000, guid: 31b1f1049817f44479ca54861e75d9e0, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Kuneho Tee
+  itemDescription: A soft little shirt with an extra dose of cuteness.
+  price: 300
   hideTorso: 1
   hideLegs: 0
   hideArms: 0
@@ -5861,9 +5862,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 1
   icon: {fileID: 21300000, guid: 7c6418756674da244b328b813219954c, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Barong Tagalog
+  itemDescription: A proudly Filipino classic, perfect for special occasions.
+  price: 1000
   hideTorso: 1
   hideLegs: 0
   hideArms: 0
@@ -5890,8 +5891,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 1
   icon: {fileID: 21300000, guid: cf9a807dd053d3b409509a575e23dbc7, type: 3}
-  itemName: 
-  itemDescription: 
+  itemName: White Tee
+  itemDescription: The everyday favorite that never goes out of fashion.
   price: 100
   hideTorso: 1
   hideLegs: 0
@@ -6704,9 +6705,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 1
   icon: {fileID: 21300000, guid: 94de54c9f733c274d93527e76a2039a9, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Diwata Dress
+  itemDescription: A magical dress that feels straight out of a Filipino folktale.
+  price: 1000
   hideTorso: 1
   hideLegs: 0
   hideArms: 0
@@ -7853,9 +7854,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 1
   icon: {fileID: 21300000, guid: 87564aa215889784e80eb07ebe5166e2, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Guayabera
+  itemDescription: A breezy embroidered shirt with timeless island charm.
+  price: 350
   hideTorso: 1
   hideLegs: 0
   hideArms: 0
@@ -7882,9 +7883,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 2
   icon: {fileID: 21300000, guid: b78716b37a5a06542bd53c3cab101641, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Lakbay Shorts
+  itemDescription: Packed with pockets for every little adventure.
+  price: 120
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -8084,9 +8085,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 0
   icon: {fileID: 21300000, guid: e099b8f4c0d884f448419258184cecd1, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Side Fringe
+  itemDescription: A short cut with a stylish side-swept fringe.
+  price: 300
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -8250,9 +8251,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 1
   icon: {fileID: 21300000, guid: 0228ebab8c3b7114e9e3a899b7f951eb, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Muning Tee
+  itemDescription: For cat lovers who carry a little mischief wherever they go.
+  price: 300
   hideTorso: 1
   hideLegs: 0
   hideArms: 0
@@ -8279,8 +8280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 1
   icon: {fileID: 21300000, guid: 201dc628dfe640c4cbb3f1104da453d1, type: 3}
-  itemName: 
-  itemDescription: 
+  itemName: Black Tee
+  itemDescription: Simple, comfy, and goes with just about anything.
   price: 100
   hideTorso: 1
   hideLegs: 0
@@ -8901,9 +8902,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 0
   icon: {fileID: 21300000, guid: 5134616e53052414fbccf89a64fe7a82, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Tousled Cut
+  itemDescription: A slightly messy style with effortless charm.
+  price: 200
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -9619,8 +9620,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 3
   icon: {fileID: 21300000, guid: 826a0b43d20172c43bd2b29dfaa73775, type: 3}
-  itemName: 
-  itemDescription: 
+  itemName: Bakya Sandals
+  itemDescription: Light, comfy sandals perfect for sunny days.
   price: 100
   hideTorso: 0
   hideLegs: 0
@@ -11106,9 +11107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 4
   icon: {fileID: 21300000, guid: e36d58900ecf4514084d6f65c289bbd5, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Salakot
+  itemDescription: A traditional Filipino hat that keeps you cool under the sun.
+  price: 350
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -11135,9 +11136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 3
   icon: {fileID: 21300000, guid: 5b0e102be17c45247b3bdd2123ab1c91, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Black Sneakers
+  itemDescription: Made for busy days and endless exploring.
+  price: 120
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -11305,9 +11306,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 3
   icon: {fileID: 21300000, guid: f08e7358506ba274ab1cc920e8326b6d, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Black Loafers
+  itemDescription: A dependable pair that's ready for school, work, or adventure.
+  price: 150
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -11848,9 +11849,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 1
   icon: {fileID: 21300000, guid: e22426f99ca1dbb4c9392cf4091d7dd8, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Maharlika Dress
+  itemDescription: A regal outfit inspired by stories of old Filipino kingdoms.
+  price: 800
   hideTorso: 1
   hideLegs: 0
   hideArms: 1
@@ -12680,9 +12681,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 0
   icon: {fileID: 21300000, guid: 41f8926c5e7c19f479213e844f09a029, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Soft Layers
+  itemDescription: Light layers that create a gentle, relaxed look.
+  price: 250
   hideTorso: 0
   hideLegs: 0
   hideArms: 0
@@ -12871,9 +12872,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
   slot: 2
   icon: {fileID: 21300000, guid: 642708906e796d8448c50549a789e2dd, type: 3}
-  itemName: 
-  itemDescription: 
-  price: 100
+  itemName: Mandirigma Greaves
+  itemDescription: Rugged legwear fit for a brave adventurer.
+  price: 600
   hideTorso: 0
   hideLegs: 1
   hideArms: 0

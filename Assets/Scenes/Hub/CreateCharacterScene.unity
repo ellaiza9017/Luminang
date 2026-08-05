@@ -119,93 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &19465619 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6674754715555253297, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &19465622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19465619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 3
-  icon: {fileID: 21300000, guid: 2fb2a5c1af6e0814eb315ca7038a944c, type: 3}
-  itemName: Brown Boots
-  itemDescription: Sturdy boots built for every trail and every journey.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 1
-  hideHands: 0
-  hideHips: 0
---- !u!1 &19737028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5575797390454136160, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &19737030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19737028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 0
-  icon: {fileID: 21300000, guid: 58b91e49a810e9745bb27b83158c4bcd, type: 3}
-  itemName: Pink Twin Braids
-  itemDescription: A playful braided style full of personality.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
---- !u!1 &50340831 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4568477485514031063, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &50340834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 50340831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 3
-  icon: {fileID: 21300000, guid: 7c6ebf744397676478e1a4d43f2ba752, type: 3}
-  itemName: Lakbay Boots
-  itemDescription: Lace up and head out for your next adventure.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 1
-  hideHands: 0
-  hideHips: 0
 --- !u!1 &94855980 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2897215232467610711, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
@@ -227,35 +140,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: db1767685a11f3148ad2d25f9eb945c0, type: 3}
   itemName: Black Trousers
   itemDescription: A clean and versatile pair for any occasion.
-  price: 100
-  hideTorso: 0
-  hideLegs: 1
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 1
---- !u!1 &116326869 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -7623980057311954715, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &116326872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116326869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 2
-  icon: {fileID: 21300000, guid: 642708906e796d8448c50549a789e2dd, type: 3}
-  itemName: Mandirigma Greaves
-  itemDescription: Rugged legwear fit for a brave adventurer.
   price: 100
   hideTorso: 0
   hideLegs: 1
@@ -675,64 +559,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &212119931 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -4323186942627392953, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &212119933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212119931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 0
-  icon: {fileID: 21300000, guid: f6faf2206729a8a45bd5b3cf8c4ee0ac, type: 3}
-  itemName: Spiky Cut
-  itemDescription: A bold hairstyle with plenty of attitude.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
---- !u!1 &216679516 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -2165415220685404457, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &216679519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216679516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 2
-  icon: {fileID: 21300000, guid: 68f20fad3fa2e4c45b647e7deeb4d206, type: 3}
-  itemName: Rosas Skirt
-  itemDescription: A sweet and playful skirt that brightens any day.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 1
 --- !u!1 &225094268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,36 +1273,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
   sfxSource: {fileID: 750825509}
   clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
---- !u!1 &394807194 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -5254408361147893914, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &394807198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394807194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 1
-  icon: {fileID: 21300000, guid: 03e1fefa5147ea3438d97713bb4a5c58, type: 3}
-  itemName: Filipiniana
-  itemDescription: An elegant Filipiniana outfit that celebrates Filipino heritage
-    with pride.
-  price: 100
-  hideTorso: 1
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
 --- !u!1 &444140371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,64 +1390,6 @@ MonoBehaviour:
   hideArms: 0
   hideHead: 0
   hideFeet: 1
-  hideHands: 0
-  hideHips: 0
---- !u!1 &486364189 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3414521805227500887, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &486364193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486364189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 1
-  icon: {fileID: 21300000, guid: e00b02d1d4431f047a6860f8e23d1454, type: 3}
-  itemName: Lakbay Vest
-  itemDescription: Made for little explorers who are always ready for the next adventure.
-  price: 100
-  hideTorso: 1
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
---- !u!1 &508118563 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -6587966133489510686, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &508118567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508118563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 1
-  icon: {fileID: 21300000, guid: 0228ebab8c3b7114e9e3a899b7f951eb, type: 3}
-  itemName: Muning Tee
-  itemDescription: For cat lovers who carry a little mischief wherever they go.
-  price: 100
-  hideTorso: 1
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
   hideHands: 0
   hideHips: 0
 --- !u!1 &551514732
@@ -1874,35 +1612,6 @@ MonoBehaviour:
   hideFeet: 0
   hideHands: 0
   hideHips: 0
---- !u!1 &617693359 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -402964705397909655, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &617693362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617693359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 2
-  icon: {fileID: 21300000, guid: 5482204cf8b70f04b8d0b5b659714e6e, type: 3}
-  itemName: Lino Trousers
-  itemDescription: Lightweight trousers that keep you comfy wherever you go.
-  price: 100
-  hideTorso: 0
-  hideLegs: 1
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 1
 --- !u!1 &629920104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,35 +1980,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
---- !u!1 &675511621 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3983525573035766246, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &675511625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675511621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 1
-  icon: {fileID: 21300000, guid: 31b1f1049817f44479ca54861e75d9e0, type: 3}
-  itemName: Kuneho Tee
-  itemDescription: A soft little shirt with an extra dose of cuteness.
-  price: 100
-  hideTorso: 1
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
 --- !u!1 &700471909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,6 +2171,7 @@ RectTransform:
   - {fileID: 1063395053}
   - {fileID: 1602429045}
   - {fileID: 393412561}
+  - {fileID: 1430955412}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2791,64 +2472,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762483511}
   m_CullTransparentMesh: 1
---- !u!1 &763201755 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1296159259751249470, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &763201757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763201755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 0
-  icon: {fileID: 21300000, guid: 41f8926c5e7c19f479213e844f09a029, type: 3}
-  itemName: Soft Layers
-  itemDescription: Light layers that create a gentle, relaxed look.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
---- !u!1 &778376520 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3594075266421347593, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &778376522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778376520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 0
-  icon: {fileID: 21300000, guid: 5134616e53052414fbccf89a64fe7a82, type: 3}
-  itemName: Tousled Cut
-  itemDescription: A slightly messy style with effortless charm.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
 --- !u!1 &779510147
 GameObject:
   m_ObjectHideFlags: 0
@@ -3419,35 +3042,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -1337662063658625187, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
   m_PrefabInstance: {fileID: 1043437585}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &910006779 stripped
+--- !u!1 &979444395 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7293085257568275853, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
+  m_CorrespondingSourceObject: {fileID: 2185118385730040904, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+  m_PrefabInstance: {fileID: 1430955411}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &910006781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910006779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 0
-  icon: {fileID: 21300000, guid: 67e77921ec516474290de3b625f7c43b, type: 3}
-  itemName: Golden Layers
-  itemDescription: Soft layered hair with a bright, cheerful look.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
 --- !u!1 &988560724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,35 +3136,6 @@ MonoBehaviour:
   m_Spacing: {x: 15, y: 15}
   m_Constraint: 1
   m_ConstraintCount: 4
---- !u!1 &996610012 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -4961360454482744301, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &996610015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996610012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 1
-  icon: {fileID: 21300000, guid: 7c6418756674da244b328b813219954c, type: 3}
-  itemName: Barong Tagalog
-  itemDescription: A proudly Filipino classic, perfect for special occasions.
-  price: 100
-  hideTorso: 1
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
 --- !u!1 &997525116
 GameObject:
   m_ObjectHideFlags: 0
@@ -3740,35 +3310,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
   sfxSource: {fileID: 750825509}
   clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
---- !u!1 &1041110601 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -9029521676484436404, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1041110603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041110601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 0
-  icon: {fileID: 21300000, guid: ec560c2cde8a7f849826f9f79a2808f1, type: 3}
-  itemName: Textured Crop
-  itemDescription: A clean, textured haircut for an everyday look.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
 --- !u!1001 &1043437585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4234,114 +3775,56 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7293085257568275853, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: 5575797390454136160, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -8389297149517002719, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -9029521676484436404, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -3594075266421347593, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: 1296159259751249470, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -4323186942627392953, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -402964705397909655, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -8775048987315522494, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -411551326735733069, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -7623980057311954715, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -2165415220685404457, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -3414521805227500887, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -1558153095564617642, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -4961360454482744301, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: 8965363964690519245, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: 3983525573035766246, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: 5293031690251811527, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -6587966133489510686, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -9148779504880629240, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -7244378236621489306, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -5254408361147893914, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: 578673529682579690, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: 6488143770490122445, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: 1353648825911656990, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: 6674754715555253297, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -1187075942199987075, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: -3084511072899347425, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+    - {fileID: 4568477485514031063, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1589788439}
-    - targetCorrespondingSourceObject: {fileID: -3414521805227500887, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 486364193}
-    - targetCorrespondingSourceObject: {fileID: -1558153095564617642, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1859486982}
-    - targetCorrespondingSourceObject: {fileID: -4961360454482744301, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 996610015}
-    - targetCorrespondingSourceObject: {fileID: 6488143770490122445, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1438730949}
-    - targetCorrespondingSourceObject: {fileID: -402964705397909655, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 617693362}
     - targetCorrespondingSourceObject: {fileID: 7416887774297699816, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2025175626}
-    - targetCorrespondingSourceObject: {fileID: 8965363964690519245, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1177882533}
     - targetCorrespondingSourceObject: {fileID: 7820586143662518487, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 471707547}
-    - targetCorrespondingSourceObject: {fileID: 1353648825911656990, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1431383359}
     - targetCorrespondingSourceObject: {fileID: -2897215232467610711, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 94855983}
-    - targetCorrespondingSourceObject: {fileID: 7293085257568275853, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 910006781}
-    - targetCorrespondingSourceObject: {fileID: 6674754715555253297, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 19465622}
-    - targetCorrespondingSourceObject: {fileID: -1187075942199987075, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1348470991}
-    - targetCorrespondingSourceObject: {fileID: 3983525573035766246, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 675511625}
-    - targetCorrespondingSourceObject: {fileID: -8775048987315522494, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1448882165}
-    - targetCorrespondingSourceObject: {fileID: -411551326735733069, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1659269087}
-    - targetCorrespondingSourceObject: {fileID: -7623980057311954715, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 116326872}
-    - targetCorrespondingSourceObject: {fileID: -3084511072899347425, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1533726841}
-    - targetCorrespondingSourceObject: {fileID: 5293031690251811527, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1509297744}
-    - targetCorrespondingSourceObject: {fileID: 4568477485514031063, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 50340834}
     - targetCorrespondingSourceObject: {fileID: -5193170026950675802, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1434521502}
-    - targetCorrespondingSourceObject: {fileID: 5575797390454136160, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 19737030}
-    - targetCorrespondingSourceObject: {fileID: -2165415220685404457, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 216679519}
-    - targetCorrespondingSourceObject: {fileID: -8389297149517002719, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1269331689}
-    - targetCorrespondingSourceObject: {fileID: -6587966133489510686, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 508118567}
-    - targetCorrespondingSourceObject: {fileID: -9148779504880629240, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1346088503}
-    - targetCorrespondingSourceObject: {fileID: -7244378236621489306, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1450323684}
-    - targetCorrespondingSourceObject: {fileID: -5254408361147893914, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 394807198}
-    - targetCorrespondingSourceObject: {fileID: -9029521676484436404, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1041110603}
-    - targetCorrespondingSourceObject: {fileID: -3594075266421347593, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 778376522}
-    - targetCorrespondingSourceObject: {fileID: 1296159259751249470, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 763201757}
-    - targetCorrespondingSourceObject: {fileID: -4323186942627392953, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 212119933}
     - targetCorrespondingSourceObject: {fileID: 3644270372916163878, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 588672419}
-    - targetCorrespondingSourceObject: {fileID: 578673529682579690, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2063298664}
     - targetCorrespondingSourceObject: {fileID: -5869744370547664690, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2091990345}
@@ -5267,35 +4750,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177450494}
   m_CullTransparentMesh: 1
---- !u!1 &1177882529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8965363964690519245, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1177882533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1177882529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 1
-  icon: {fileID: 21300000, guid: 201dc628dfe640c4cbb3f1104da453d1, type: 3}
-  itemName: Black Tee
-  itemDescription: Simple, comfy, and goes with just about anything.
-  price: 100
-  hideTorso: 1
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
 --- !u!1 &1200986153
 GameObject:
   m_ObjectHideFlags: 0
@@ -5556,35 +5010,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1269331687 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -8389297149517002719, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1269331689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1269331687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 0
-  icon: {fileID: 21300000, guid: e099b8f4c0d884f448419258184cecd1, type: 3}
-  itemName: Side Fringe
-  itemDescription: A short cut with a stylish side-swept fringe.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
 --- !u!1 &1280319373
 GameObject:
   m_ObjectHideFlags: 0
@@ -6325,64 +5750,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1346088499 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -9148779504880629240, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1346088503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1346088499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 1
-  icon: {fileID: 21300000, guid: e22426f99ca1dbb4c9392cf4091d7dd8, type: 3}
-  itemName: Maharlika Dress
-  itemDescription: A regal outfit inspired by stories of old Filipino kingdoms.
-  price: 100
-  hideTorso: 1
-  hideLegs: 0
-  hideArms: 1
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
---- !u!1 &1348470988 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1187075942199987075, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1348470991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348470988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 3
-  icon: {fileID: 21300000, guid: bfa2983bfc3e73b47bf35c5b1aaf146e, type: 3}
-  itemName: Brown Oxfords
-  itemDescription: A classic pair with a warm, timeless look.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 1
-  hideHands: 0
-  hideHips: 0
 --- !u!1 &1350455783
 GameObject:
   m_ObjectHideFlags: 0
@@ -6732,35 +6099,124 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387051797}
   m_CullTransparentMesh: 1
---- !u!1 &1431383356 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1353648825911656990, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1431383359
-MonoBehaviour:
+--- !u!1001 &1430955411
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 713895754}
+    m_Modifications:
+    - target: {fileID: 2185118385730040904, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_Name
+      value: SmallLoading
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185118385730040904, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 189.91228
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+--- !u!224 &1430955412 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8277686444751464440, guid: ba604ad061317e94ba8f90d6e24690ce, type: 3}
+  m_PrefabInstance: {fileID: 1430955411}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1431383356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 3
-  icon: {fileID: 21300000, guid: 5b0e102be17c45247b3bdd2123ab1c91, type: 3}
-  itemName: Black Sneakers
-  itemDescription: Made for busy days and endless exploring.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 1
-  hideHands: 0
-  hideHips: 0
 --- !u!1 &1434521500 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5193170026950675802, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
@@ -6788,35 +6244,6 @@ MonoBehaviour:
   hideArms: 0
   hideHead: 0
   hideFeet: 0
-  hideHands: 0
-  hideHips: 0
---- !u!1 &1438730946 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6488143770490122445, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1438730949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438730946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 3
-  icon: {fileID: 21300000, guid: 3aac2ce23274c314cbc5425303116e0d, type: 3}
-  itemName: Mutya Heels
-  itemDescription: A graceful pair that adds a touch of elegance to any outfit.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 1
   hideHands: 0
   hideHips: 0
 --- !u!1 &1444406179
@@ -6894,64 +6321,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444406179}
   m_CullTransparentMesh: 1
---- !u!1 &1448882162 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -8775048987315522494, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1448882165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448882162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 2
-  icon: {fileID: 21300000, guid: b78716b37a5a06542bd53c3cab101641, type: 3}
-  itemName: Lakbay Shorts
-  itemDescription: Packed with pockets for every little adventure.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 1
---- !u!1 &1450323680 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -7244378236621489306, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1450323684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450323680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 1
-  icon: {fileID: 21300000, guid: 94de54c9f733c274d93527e76a2039a9, type: 3}
-  itemName: Diwata Dress
-  itemDescription: A magical dress that feels straight out of a Filipino folktale.
-  price: 100
-  hideTorso: 1
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 1
 --- !u!1 &1456068460
 GameObject:
   m_ObjectHideFlags: 0
@@ -7003,6 +6372,7 @@ MonoBehaviour:
   modal: {fileID: 1549797866}
   sceneLoader: {fileID: 1329236793}
   nextSceneName: PrologueScene
+  smallLoadingScreen: {fileID: 979444395}
 --- !u!1 &1485643989
 GameObject:
   m_ObjectHideFlags: 0
@@ -7177,64 +6547,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
   sfxSource: {fileID: 750825509}
   clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
---- !u!1 &1509297740 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5293031690251811527, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1509297744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509297740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 1
-  icon: {fileID: 21300000, guid: 87564aa215889784e80eb07ebe5166e2, type: 3}
-  itemName: Guayabera
-  itemDescription: A breezy embroidered shirt with timeless island charm.
-  price: 100
-  hideTorso: 1
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
---- !u!1 &1533726838 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3084511072899347425, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1533726841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533726838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 3
-  icon: {fileID: 21300000, guid: 826a0b43d20172c43bd2b29dfaa73775, type: 3}
-  itemName: Bakya Sandals
-  itemDescription: Light, comfy sandals perfect for sunny days.
-  price: 100
-  hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
 --- !u!1 &1542291227
 GameObject:
   m_ObjectHideFlags: 0
@@ -7846,35 +7158,6 @@ MonoBehaviour:
   m_Spacing: {x: 15, y: 15}
   m_Constraint: 1
   m_ConstraintCount: 4
---- !u!1 &1659269084 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -411551326735733069, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1659269087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659269084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 2
-  icon: {fileID: 21300000, guid: fdd9dff9de37f1241802b22b0dd38765, type: 3}
-  itemName: Maong Pants
-  itemDescription: A timeless favorite made for everyday wear.
-  price: 100
-  hideTorso: 0
-  hideLegs: 1
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 1
 --- !u!1 &1676964370
 GameObject:
   m_ObjectHideFlags: 0
@@ -8698,35 +7981,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830452698}
   m_CullTransparentMesh: 1
---- !u!1 &1859486978 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1558153095564617642, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1859486982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859486978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 1
-  icon: {fileID: 21300000, guid: 4652a34bc29c2c24aa375795b9a0e645, type: 3}
-  itemName: Baro't Saya
-  itemDescription: A timeless Filipina outfit that celebrates grace and tradition.
-  price: 100
-  hideTorso: 1
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
 --- !u!1 &1862466346 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8540762849855351454, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
@@ -9303,35 +8557,6 @@ MonoBehaviour:
   itemDescription: A neat bob that never goes out of style.
   price: 100
   hideTorso: 0
-  hideLegs: 0
-  hideArms: 0
-  hideHead: 0
-  hideFeet: 0
-  hideHands: 0
-  hideHips: 0
---- !u!1 &2063298660 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 578673529682579690, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
-  m_PrefabInstance: {fileID: 1043437585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2063298664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063298660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3099ef84ac92ff24397a5c7e6e7e99f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutfitItem
-  slot: 1
-  icon: {fileID: 21300000, guid: 4d48255ca8a03ed42a8b4baea8526b42, type: 3}
-  itemName: Polo Blanco
-  itemDescription: A neat and polished look that's always in style.
-  price: 100
-  hideTorso: 1
   hideLegs: 0
   hideArms: 0
   hideHead: 0

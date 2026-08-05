@@ -1,0 +1,2272 @@
+{
+  "journal_entries": [
+    {
+      "id": "ilo_greetings_001",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "naimbag a bigat",
+      "pronunciation": "nah-eem-bahg ah bee-gaht",
+      "meaning": "good morning",
+      "sample_sentence": {
+        "native": "Naimbag a bigat, manong! Kumusta?",
+        "translation": "Good morning, older brother! How are you?"
+      },
+      "usage_note": "A polite and common morning greeting.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_001"
+    },
+    {
+      "id": "ceb_greetings_001",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "maayong buntag",
+      "pronunciation": "mah-ah-yong boon-tahg",
+      "meaning": "good morning",
+      "sample_sentence": {
+        "native": "Maayong buntag, kuya! Kumusta?",
+        "translation": "Good morning, older brother! How are you?"
+      },
+      "usage_note": "A polite morning greeting.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_001"
+    },
+    {
+      "id": "ilo_greetings_002",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "naimbag a malem",
+      "pronunciation": "nah-eem-bahg ah mah-lem",
+      "meaning": "good afternoon",
+      "sample_sentence": {
+        "native": "Naimbag a malem kadakayo amin.",
+        "translation": "Good afternoon to all of you."
+      },
+      "usage_note": "Used in the afternoon, usually between 12 PM and 5 PM.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_002"
+    },
+    {
+      "id": "ceb_greetings_002",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "maayong hapon",
+      "pronunciation": "mah-ah-yong hah-pon",
+      "meaning": "good afternoon",
+      "sample_sentence": {
+        "native": "Maayong hapon kaninyong tanan.",
+        "translation": "Good afternoon to all of you."
+      },
+      "usage_note": "A standard afternoon greeting.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_002"
+    },
+    {
+      "id": "ilo_greetings_003",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "naimbag a rabii",
+      "pronunciation": "nah-eem-bahg ah rah-bee",
+      "meaning": "good evening",
+      "sample_sentence": {
+        "native": "Naimbag a rabii, manang.",
+        "translation": "Good evening, older sister."
+      },
+      "usage_note": "A polite evening greeting.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_003"
+    },
+    {
+      "id": "ceb_greetings_003",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "maayong gabii",
+      "pronunciation": "mah-ah-yong gah-bee-ee",
+      "meaning": "good evening",
+      "sample_sentence": {
+        "native": "Maayong gabii, ate.",
+        "translation": "Good evening, older sister."
+      },
+      "usage_note": "A standard evening greeting.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_003"
+    },
+    {
+      "id": "ilo_greetings_004",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "kumusta",
+      "pronunciation": "koo-moos-tah",
+      "meaning": "how are you",
+      "sample_sentence": {
+        "native": "Kumusta kayo ditoy?",
+        "translation": "How are you all doing here?"
+      },
+      "usage_note": "Derived from Spanish 'como esta', used universally in the Philippines.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_004"
+    },
+    {
+      "id": "ceb_greetings_004",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "kumusta",
+      "pronunciation": "koo-moos-tah",
+      "meaning": "how are you",
+      "sample_sentence": {
+        "native": "Kumusta man mo diri?",
+        "translation": "How are you all doing here?"
+      },
+      "usage_note": "A universally understood greeting asking how someone is doing.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_004"
+    },
+    {
+      "id": "ilo_greetings_005",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "nasayaat met",
+      "pronunciation": "nah-sah-yaht met",
+      "meaning": "i'm fine",
+      "sample_sentence": {
+        "native": "Nasayaat met, agyamanak.",
+        "translation": "I'm fine, thank you."
+      },
+      "usage_note": "A standard response to 'kumusta'.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_005"
+    },
+    {
+      "id": "ceb_greetings_005",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "maayo man",
+      "pronunciation": "mah-ah-yo mahn",
+      "meaning": "i'm fine",
+      "sample_sentence": {
+        "native": "Maayo man, salamat.",
+        "translation": "I'm fine, thank you."
+      },
+      "usage_note": "A very common and casual reply when someone asks how you are.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_005"
+    },
+    {
+      "id": "ilo_greetings_006",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "agyamanak",
+      "pronunciation": "ahg-yah-mah-nahk",
+      "meaning": "thank you",
+      "sample_sentence": {
+        "native": "Agyamanak unay iti tulong mo.",
+        "translation": "Thank you very much for your help."
+      },
+      "usage_note": "A polite way to say thank you.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_006"
+    },
+    {
+      "id": "ceb_greetings_006",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "salamat",
+      "pronunciation": "sah-lah-maht",
+      "meaning": "thank you",
+      "sample_sentence": {
+        "native": "Daghang salamat sa imong tabang.",
+        "translation": "Thank you very much for your help."
+      },
+      "usage_note": "A standard and universally understood way to say thank you.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_006"
+    },
+    {
+      "id": "ilo_greetings_007",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "awan aniaman",
+      "pronunciation": "ah-wahn ah-nee-ah-mahn",
+      "meaning": "you're welcome",
+      "sample_sentence": {
+        "native": "Awan aniaman, naragsakak a timmulong.",
+        "translation": "You're welcome, I'm happy to help."
+      },
+      "usage_note": "Directly translates to 'it is nothing'.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_007"
+    },
+    {
+      "id": "ceb_greetings_007",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "walay sapayan",
+      "pronunciation": "wah-ly sah-pah-yahn",
+      "meaning": "you're welcome",
+      "sample_sentence": {
+        "native": "Walay sapayan, nalipay ko nimo natabangan.",
+        "translation": "You're welcome, I'm happy to help you."
+      },
+      "usage_note": "Directly translates to 'no worries' or 'no problem'.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_007"
+    },
+    {
+      "id": "ilo_greetings_008",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "agpakadaakon",
+      "pronunciation": "ahg-pah-kah-dah-ah-kohn",
+      "meaning": "goodbye",
+      "sample_sentence": {
+        "native": "Agpakadaakon, agingga intono maminsan.",
+        "translation": "I am taking my leave now, until next time."
+      },
+      "usage_note": "A polite formal way of saying goodbye.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_008"
+    },
+    {
+      "id": "ceb_greetings_008",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "amping",
+      "pronunciation": "ahm-ping",
+      "meaning": "goodbye",
+      "sample_sentence": {
+        "native": "Amping kanunay sa imong paglakaw.",
+        "translation": "Take care always on your journey."
+      },
+      "usage_note": "Literally means 'take care', commonly used as a goodbye.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_008"
+    },
+    {
+      "id": "ilo_greetings_009",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "agkita ta to",
+      "pronunciation": "ahg-kee-tah tah toh",
+      "meaning": "see you later",
+      "sample_sentence": {
+        "native": "Agkita ta to no bigat.",
+        "translation": "We will see each other tomorrow."
+      },
+      "usage_note": "A friendly way to say you'll meet again.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_009"
+    },
+    {
+      "id": "ceb_greetings_009",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "magkita ra ta unya",
+      "pronunciation": "mahg-kee-tah rah tah oon-yah",
+      "meaning": "see you later",
+      "sample_sentence": {
+        "native": "Magkita ra ta unya sa hapon.",
+        "translation": "We'll see each other later in the afternoon."
+      },
+      "usage_note": "A common phrase when planning to meet someone later.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_009"
+    },
+    {
+      "id": "ilo_greetings_010",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "naragsakak a makaam-ammo ka",
+      "pronunciation": "nah-rahg-sah-kahk ah mah-kah-ahm-ahm-moh kah",
+      "meaning": "nice to meet you",
+      "sample_sentence": {
+        "native": "Naragsakak a makaam-ammo ka, siak ni Juan.",
+        "translation": "Nice to meet you, I am Juan."
+      },
+      "usage_note": "A formal and polite phrase for new acquaintances.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_010"
+    },
+    {
+      "id": "ceb_greetings_010",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "nalipay ko nga nagkaila ta",
+      "pronunciation": "nah-lee-py koh ngah nahg-kah-ee-lah tah",
+      "meaning": "nice to meet you",
+      "sample_sentence": {
+        "native": "Nalipay ko nga nagkaila ta, ako si Juan.",
+        "translation": "Nice to meet you, I am Juan."
+      },
+      "usage_note": "A warm and welcoming phrase when introduced to someone.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_010"
+    },
+    {
+      "id": "ilo_directions_011",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "kannigid",
+      "pronunciation": "kahn-nee-geed",
+      "meaning": "left",
+      "sample_sentence": {
+        "native": "Mapan ka iti kannigid.",
+        "translation": "You go to the left."
+      },
+      "usage_note": "Used when giving directions to turn left.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_011"
+    },
+    {
+      "id": "ceb_directions_011",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "wala",
+      "pronunciation": "wah-lah",
+      "meaning": "left",
+      "sample_sentence": {
+        "native": "Liko sa wala.",
+        "translation": "Turn to the left."
+      },
+      "usage_note": "Standard word for left.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_011"
+    },
+    {
+      "id": "ilo_directions_012",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "kannawan",
+      "pronunciation": "kahn-nah-wahn",
+      "meaning": "right",
+      "sample_sentence": {
+        "native": "Agpakanawan ka.",
+        "translation": "Turn right."
+      },
+      "usage_note": "Used when giving directions to turn right.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_012"
+    },
+    {
+      "id": "ceb_directions_012",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "tuo",
+      "pronunciation": "too-oh",
+      "meaning": "right",
+      "sample_sentence": {
+        "native": "Liko sa tuo.",
+        "translation": "Turn to the right."
+      },
+      "usage_note": "Standard word for right.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_012"
+    },
+    {
+      "id": "ilo_directions_013",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "derecho",
+      "pronunciation": "deh-reh-choh",
+      "meaning": "straight",
+      "sample_sentence": {
+        "native": "Derechoem laeng dayta kalsada.",
+        "translation": "Just go straight on that road."
+      },
+      "usage_note": "Borrowed from Spanish, universally understood.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_013"
+    },
+    {
+      "id": "ceb_directions_013",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "deretso",
+      "pronunciation": "deh-ret-soh",
+      "meaning": "straight",
+      "sample_sentence": {
+        "native": "Deretso lang sa unahan.",
+        "translation": "Just go straight ahead."
+      },
+      "usage_note": "Borrowed from Spanish.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_013"
+    },
+    {
+      "id": "ilo_directions_014",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "ngato",
+      "pronunciation": "ngah-toh",
+      "meaning": "up",
+      "sample_sentence": {
+        "native": "Kitaem sadiay ngato.",
+        "translation": "Look up there."
+      },
+      "usage_note": "Refers to a higher elevation or above.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_014"
+    },
+    {
+      "id": "ceb_directions_014",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "taas",
+      "pronunciation": "tah-ahs",
+      "meaning": "up",
+      "sample_sentence": {
+        "native": "Tan-aw sa taas.",
+        "translation": "Look up."
+      },
+      "usage_note": "Refers to up or high.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_014"
+    },
+    {
+      "id": "ilo_directions_015",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "baba",
+      "pronunciation": "bah-bah",
+      "meaning": "down",
+      "sample_sentence": {
+        "native": "Bumaba ka ditoy.",
+        "translation": "Come down here."
+      },
+      "usage_note": "Refers to a lower elevation or below.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_015"
+    },
+    {
+      "id": "ceb_directions_015",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "ubos",
+      "pronunciation": "oo-bos",
+      "meaning": "down",
+      "sample_sentence": {
+        "native": "Naa sa ubos ang iring.",
+        "translation": "The cat is down there."
+      },
+      "usage_note": "Refers to down or below.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_015"
+    },
+    {
+      "id": "ilo_directions_016",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "ditoy",
+      "pronunciation": "dee-toy",
+      "meaning": "here",
+      "sample_sentence": {
+        "native": "Umay ka ditoy.",
+        "translation": "Come here."
+      },
+      "usage_note": "Refers to a location near the speaker.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_016"
+    },
+    {
+      "id": "ceb_directions_016",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "diri",
+      "pronunciation": "dee-ree",
+      "meaning": "here",
+      "sample_sentence": {
+        "native": "Dali diri.",
+        "translation": "Come here."
+      },
+      "usage_note": "Refers to a location near the speaker.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_016"
+    },
+    {
+      "id": "ilo_directions_017",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "sadiay",
+      "pronunciation": "sah-dyay",
+      "meaning": "there",
+      "sample_sentence": {
+        "native": "Ibagam sadiay.",
+        "translation": "Tell them over there."
+      },
+      "usage_note": "Refers to a location far from the speaker.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_017"
+    },
+    {
+      "id": "ceb_directions_017",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "didto",
+      "pronunciation": "deed-toh",
+      "meaning": "there",
+      "sample_sentence": {
+        "native": "Ibutang didto.",
+        "translation": "Put it there."
+      },
+      "usage_note": "Refers to a location far from both speakers.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_017"
+    },
+    {
+      "id": "ilo_directions_018",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "asideg",
+      "pronunciation": "ah-see-deg",
+      "meaning": "near",
+      "sample_sentence": {
+        "native": "Asideg ti balay mi.",
+        "translation": "Our house is near."
+      },
+      "usage_note": "Used to describe short distances.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_018"
+    },
+    {
+      "id": "ceb_directions_018",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "duol",
+      "pronunciation": "doo-ohl",
+      "meaning": "near",
+      "sample_sentence": {
+        "native": "Duol ra ang tindahan.",
+        "translation": "The store is just near."
+      },
+      "usage_note": "Used to describe short distances.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_018"
+    },
+    {
+      "id": "ilo_directions_019",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "adayo",
+      "pronunciation": "ah-dah-yoh",
+      "meaning": "far",
+      "sample_sentence": {
+        "native": "Adayo ti Manila.",
+        "translation": "Manila is far."
+      },
+      "usage_note": "Used to describe long distances.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_019"
+    },
+    {
+      "id": "ceb_directions_019",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "layo",
+      "pronunciation": "lah-yoh",
+      "meaning": "far",
+      "sample_sentence": {
+        "native": "Layo kaayo ang eskwelahan.",
+        "translation": "The school is very far."
+      },
+      "usage_note": "Used to describe long distances.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_019"
+    },
+    {
+      "id": "ilo_directions_020",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "sango",
+      "pronunciation": "sah-ngoh",
+      "meaning": "front",
+      "sample_sentence": {
+        "native": "Adda idiay sango.",
+        "translation": "It is in front."
+      },
+      "usage_note": "Refers to the front side of something.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_020"
+    },
+    {
+      "id": "ceb_directions_020",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "atubangan",
+      "pronunciation": "ah-too-bah-ngahn",
+      "meaning": "front",
+      "sample_sentence": {
+        "native": "Naa siya sa atubangan.",
+        "translation": "He is in the front."
+      },
+      "usage_note": "Refers to the front side of something.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_020"
+    },
+    {
+      "id": "ilo_directions_021",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "likud",
+      "pronunciation": "lee-kood",
+      "meaning": "back",
+      "sample_sentence": {
+        "native": "Sadiay likud ti balay.",
+        "translation": "At the back of the house."
+      },
+      "usage_note": "Refers to the rear side.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_021"
+    },
+    {
+      "id": "ceb_directions_021",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "likod",
+      "pronunciation": "lee-kod",
+      "meaning": "back",
+      "sample_sentence": {
+        "native": "Naa sa likod ang iro.",
+        "translation": "The dog is at the back."
+      },
+      "usage_note": "Refers to the rear side.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_021"
+    },
+    {
+      "id": "ilo_directions_022",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "uneg",
+      "pronunciation": "oo-neg",
+      "meaning": "inside",
+      "sample_sentence": {
+        "native": "Sumrek ka iti uneg.",
+        "translation": "Come inside."
+      },
+      "usage_note": "Refers to the interior of a space.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_022"
+    },
+    {
+      "id": "ceb_directions_022",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "sulod",
+      "pronunciation": "soo-lod",
+      "meaning": "inside",
+      "sample_sentence": {
+        "native": "Sulod sa balay.",
+        "translation": "Go inside the house."
+      },
+      "usage_note": "Refers to the interior of a space.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_022"
+    },
+    {
+      "id": "ilo_directions_023",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "ruar",
+      "pronunciation": "roo-wahr",
+      "meaning": "outside",
+      "sample_sentence": {
+        "native": "Agyan ka idiay ruar.",
+        "translation": "Stay outside."
+      },
+      "usage_note": "Refers to the exterior.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_023"
+    },
+    {
+      "id": "ceb_directions_023",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "gawas",
+      "pronunciation": "gah-wahs",
+      "meaning": "outside",
+      "sample_sentence": {
+        "native": "Hulat sa gawas.",
+        "translation": "Wait outside."
+      },
+      "usage_note": "Refers to the exterior.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_023"
+    },
+    {
+      "id": "ilo_directions_024",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "rabaw",
+      "pronunciation": "rah-bahw",
+      "meaning": "above",
+      "sample_sentence": {
+        "native": "Adda iti rabaw ti lamisaan.",
+        "translation": "It's on top of the table."
+      },
+      "usage_note": "Refers to being on top of something.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_024"
+    },
+    {
+      "id": "ceb_directions_024",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "ibabaw",
+      "pronunciation": "ee-bah-bahw",
+      "meaning": "above",
+      "sample_sentence": {
+        "native": "Ibutang sa ibabaw.",
+        "translation": "Put it on top."
+      },
+      "usage_note": "Refers to being on top of something.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_024"
+    },
+    {
+      "id": "ilo_directions_025",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "sidong",
+      "pronunciation": "see-dong",
+      "meaning": "below",
+      "sample_sentence": {
+        "native": "Adda iti sidong ti kayo.",
+        "translation": "It's below the tree."
+      },
+      "usage_note": "Refers to being underneath.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_025"
+    },
+    {
+      "id": "ceb_directions_025",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "ilawom",
+      "pronunciation": "ee-lah-wom",
+      "meaning": "below",
+      "sample_sentence": {
+        "native": "Naa sa ilawom sa katre.",
+        "translation": "It's under the bed."
+      },
+      "usage_note": "Refers to being underneath.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_025"
+    },
+    {
+      "id": "ilo_directions_026",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "baet",
+      "pronunciation": "bah-et",
+      "meaning": "between",
+      "sample_sentence": {
+        "native": "Adda iti baet ti dua a balay.",
+        "translation": "It's between the two houses."
+      },
+      "usage_note": "Refers to the space separating two objects.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_026"
+    },
+    {
+      "id": "ceb_directions_026",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "taliwala",
+      "pronunciation": "tah-lee-wah-lah",
+      "meaning": "between",
+      "sample_sentence": {
+        "native": "Naa sa taliwala namo.",
+        "translation": "It is between us."
+      },
+      "usage_note": "Refers to the space in the middle of things.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_026"
+    },
+    {
+      "id": "ilo_directions_027",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "abay",
+      "pronunciation": "ah-by",
+      "meaning": "next to",
+      "sample_sentence": {
+        "native": "Agtugaw ka iti abay ko.",
+        "translation": "Sit next to me."
+      },
+      "usage_note": "Refers to being beside something.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_027"
+    },
+    {
+      "id": "ceb_directions_027",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "tapad",
+      "pronunciation": "tah-pahd",
+      "meaning": "next to",
+      "sample_sentence": {
+        "native": "Tapad sila maglingkod.",
+        "translation": "They sit next to each other."
+      },
+      "usage_note": "Refers to being beside something.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_027"
+    },
+    {
+      "id": "ilo_directions_028",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "amianan",
+      "pronunciation": "ah-myah-nahn",
+      "meaning": "north",
+      "sample_sentence": {
+        "native": "Mapan tayo iti amianan.",
+        "translation": "Let's go north."
+      },
+      "usage_note": "Cardinal direction north.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_028"
+    },
+    {
+      "id": "ceb_directions_028",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "amihanan",
+      "pronunciation": "ah-mee-hah-nahn",
+      "meaning": "north",
+      "sample_sentence": {
+        "native": "Hangin gikan sa amihanan.",
+        "translation": "Wind from the north."
+      },
+      "usage_note": "Cardinal direction north.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_028"
+    },
+    {
+      "id": "ilo_directions_029",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "abagatan",
+      "pronunciation": "ah-bah-gah-tahn",
+      "meaning": "south",
+      "sample_sentence": {
+        "native": "Pannaka-abagatan ti probinsya.",
+        "translation": "Southern part of the province."
+      },
+      "usage_note": "Cardinal direction south.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_029"
+    },
+    {
+      "id": "ceb_directions_029",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "habagatan",
+      "pronunciation": "hah-bah-gah-tahn",
+      "meaning": "south",
+      "sample_sentence": {
+        "native": "Padulong sa habagatan.",
+        "translation": "Heading south."
+      },
+      "usage_note": "Cardinal direction south.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_029"
+    },
+    {
+      "id": "ilo_directions_030",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "daya",
+      "pronunciation": "dah-yah",
+      "meaning": "east",
+      "sample_sentence": {
+        "native": "Bumangon ti init iti daya.",
+        "translation": "The sun rises in the east."
+      },
+      "usage_note": "Cardinal direction east.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_030"
+    },
+    {
+      "id": "ceb_directions_030",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "sidlakan",
+      "pronunciation": "seed-lah-kahn",
+      "meaning": "east",
+      "sample_sentence": {
+        "native": "Sidlakan ang adlaw.",
+        "translation": "The sun is in the east."
+      },
+      "usage_note": "Cardinal direction east.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_030"
+    },
+    {
+      "id": "ilo_directions_031",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "umuli iti ngato",
+      "pronunciation": "oo-moo-lee ee-tee ngah-toh",
+      "meaning": "go up",
+      "sample_sentence": {
+        "native": "Umuli ka iti ngato.",
+        "translation": "You go up."
+      },
+      "usage_note": "Used for giving directions to ascend.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_031"
+    },
+    {
+      "id": "ceb_directions_031",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "saka pataas",
+      "pronunciation": "sah-kah pah-tah-ahs",
+      "meaning": "go up",
+      "sample_sentence": {
+        "native": "Saka pataas didto.",
+        "translation": "Go up there."
+      },
+      "usage_note": "Used for giving directions to ascend.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_031"
+    },
+    {
+      "id": "ilo_directions_032",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "bumaba",
+      "pronunciation": "boo-mah-bah",
+      "meaning": "go down",
+      "sample_sentence": {
+        "native": "Bumaba ka ditoy.",
+        "translation": "Come down here."
+      },
+      "usage_note": "Used for giving directions to descend.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_032"
+    },
+    {
+      "id": "ceb_directions_032",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "naog",
+      "pronunciation": "nah-og",
+      "meaning": "go down",
+      "sample_sentence": {
+        "native": "Naog diri.",
+        "translation": "Come down here."
+      },
+      "usage_note": "Used for giving directions to descend.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_032"
+    },
+    {
+      "id": "ilo_directions_033",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "agsardeng ditoy",
+      "pronunciation": "ahg-sahr-deng dee-toy",
+      "meaning": "stop here",
+      "sample_sentence": {
+        "native": "Agsardeng ka ditoy.",
+        "translation": "You stop here."
+      },
+      "usage_note": "Useful when riding public transport.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_033"
+    },
+    {
+      "id": "ceb_directions_033",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "hunong diri",
+      "pronunciation": "hoo-nong dee-ree",
+      "meaning": "stop here",
+      "sample_sentence": {
+        "native": "Hunong lang diri.",
+        "translation": "Just stop here."
+      },
+      "usage_note": "Useful when riding public transport.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_033"
+    },
+    {
+      "id": "ilo_directions_034",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "umay ditoy",
+      "pronunciation": "oo-my dee-toy",
+      "meaning": "come here",
+      "sample_sentence": {
+        "native": "Umay ka ditoy.",
+        "translation": "Come here."
+      },
+      "usage_note": "Used to call someone over.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_034"
+    },
+    {
+      "id": "ceb_directions_034",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "ari diri",
+      "pronunciation": "ah-ree dee-ree",
+      "meaning": "come here",
+      "sample_sentence": {
+        "native": "Ari diri dali.",
+        "translation": "Come here quickly."
+      },
+      "usage_note": "Used to call someone over.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_034"
+    },
+    {
+      "id": "ilo_directions_035",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "mapan idiay",
+      "pronunciation": "mah-pahn ee-dyay",
+      "meaning": "go there",
+      "sample_sentence": {
+        "native": "Mapan ka idiay.",
+        "translation": "You go there."
+      },
+      "usage_note": "Used to direct someone away.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_035"
+    },
+    {
+      "id": "ceb_directions_035",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "adto didto",
+      "pronunciation": "ahd-toh deed-toh",
+      "meaning": "go there",
+      "sample_sentence": {
+        "native": "Adto na didto.",
+        "translation": "Go there now."
+      },
+      "usage_note": "Used to direct someone away.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_035"
+    },
+    {
+      "id": "ilo_directions_036",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "surotennak",
+      "pronunciation": "soo-roh-ten-nahk",
+      "meaning": "follow me",
+      "sample_sentence": {
+        "native": "Surotennak laeng.",
+        "translation": "Just follow me."
+      },
+      "usage_note": "Used when guiding someone.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_036"
+    },
+    {
+      "id": "ceb_directions_036",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "sunda ko",
+      "pronunciation": "soon-dah koh",
+      "meaning": "follow me",
+      "sample_sentence": {
+        "native": "Sunda ko palihug.",
+        "translation": "Please follow me."
+      },
+      "usage_note": "Used when guiding someone.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_036"
+    },
+    {
+      "id": "ilo_directions_037",
+      "language": "Ilokano",
+      "category": "Directions",
+      "phrase": "uray ditoy",
+      "pronunciation": "oo-ry dee-toy",
+      "meaning": "wait here",
+      "sample_sentence": {
+        "native": "Urayem ditoy.",
+        "translation": "Wait here."
+      },
+      "usage_note": "Used to tell someone to stay put.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_037"
+    },
+    {
+      "id": "ceb_directions_037",
+      "language": "Cebuano",
+      "category": "Directions",
+      "phrase": "hulata diri",
+      "pronunciation": "hoo-lah-tah dee-ree",
+      "meaning": "wait here",
+      "sample_sentence": {
+        "native": "Hulata ko diri.",
+        "translation": "Wait for me here."
+      },
+      "usage_note": "Used to tell someone to stay put.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_037"
+    },
+    {
+      "id": "ilo_count_038",
+      "language": "Ilokano",
+      "category": "Count",
+      "phrase": "maysa",
+      "pronunciation": "my-sah",
+      "meaning": "one",
+      "sample_sentence": {
+        "native": "Maysa a balay.",
+        "translation": "One house."
+      },
+      "usage_note": "Number one.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_038"
+    },
+    {
+      "id": "ceb_count_038",
+      "language": "Cebuano",
+      "category": "Count",
+      "phrase": "usa",
+      "pronunciation": "oo-sah",
+      "meaning": "one",
+      "sample_sentence": {
+        "native": "Usa ka buok.",
+        "translation": "One piece."
+      },
+      "usage_note": "Number one.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_038"
+    },
+    {
+      "id": "ilo_count_039",
+      "language": "Ilokano",
+      "category": "Count",
+      "phrase": "dua",
+      "pronunciation": "doo-wah",
+      "meaning": "two",
+      "sample_sentence": {
+        "native": "Dua nga aso.",
+        "translation": "Two dogs."
+      },
+      "usage_note": "Number two.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_039"
+    },
+    {
+      "id": "ceb_count_039",
+      "language": "Cebuano",
+      "category": "Count",
+      "phrase": "duha",
+      "pronunciation": "doo-hah",
+      "meaning": "two",
+      "sample_sentence": {
+        "native": "Duha ka tawo.",
+        "translation": "Two people."
+      },
+      "usage_note": "Number two.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_039"
+    },
+    {
+      "id": "ilo_count_040",
+      "language": "Ilokano",
+      "category": "Count",
+      "phrase": "tallo",
+      "pronunciation": "tahl-loh",
+      "meaning": "three",
+      "sample_sentence": {
+        "native": "Tallo a kayo.",
+        "translation": "Three trees."
+      },
+      "usage_note": "Number three.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_040"
+    },
+    {
+      "id": "ceb_count_040",
+      "language": "Cebuano",
+      "category": "Count",
+      "phrase": "tulo",
+      "pronunciation": "too-loh",
+      "meaning": "three",
+      "sample_sentence": {
+        "native": "Tulo ka bata.",
+        "translation": "Three children."
+      },
+      "usage_note": "Number three.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_040"
+    },
+    {
+      "id": "ilo_count_041",
+      "language": "Ilokano",
+      "category": "Count",
+      "phrase": "uppat",
+      "pronunciation": "oop-paht",
+      "meaning": "four",
+      "sample_sentence": {
+        "native": "Uppat a bulong.",
+        "translation": "Four leaves."
+      },
+      "usage_note": "Number four.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_041"
+    },
+    {
+      "id": "ceb_count_041",
+      "language": "Cebuano",
+      "category": "Count",
+      "phrase": "upat",
+      "pronunciation": "oo-paht",
+      "meaning": "four",
+      "sample_sentence": {
+        "native": "Upat ka lamesa.",
+        "translation": "Four tables."
+      },
+      "usage_note": "Number four.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_041"
+    },
+    {
+      "id": "ilo_count_042",
+      "language": "Ilokano",
+      "category": "Count",
+      "phrase": "lima",
+      "pronunciation": "lee-mah",
+      "meaning": "five",
+      "sample_sentence": {
+        "native": "Lima a pinggan.",
+        "translation": "Five plates."
+      },
+      "usage_note": "Number five.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_042"
+    },
+    {
+      "id": "ceb_count_042",
+      "language": "Cebuano",
+      "category": "Count",
+      "phrase": "lima",
+      "pronunciation": "lee-mah",
+      "meaning": "five",
+      "sample_sentence": {
+        "native": "Lima ka adlaw.",
+        "translation": "Five days."
+      },
+      "usage_note": "Number five.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_042"
+    },
+    {
+      "id": "ilo_count_043",
+      "language": "Ilokano",
+      "category": "Count",
+      "phrase": "innem",
+      "pronunciation": "een-nem",
+      "meaning": "six",
+      "sample_sentence": {
+        "native": "Innem a bulan.",
+        "translation": "Six months."
+      },
+      "usage_note": "Number six.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_043"
+    },
+    {
+      "id": "ceb_count_043",
+      "language": "Cebuano",
+      "category": "Count",
+      "phrase": "unom",
+      "pronunciation": "oo-nom",
+      "meaning": "six",
+      "sample_sentence": {
+        "native": "Unom ka tuig.",
+        "translation": "Six years."
+      },
+      "usage_note": "Number six.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_043"
+    },
+    {
+      "id": "ilo_count_044",
+      "language": "Ilokano",
+      "category": "Count",
+      "phrase": "pito",
+      "pronunciation": "pee-toh",
+      "meaning": "seven",
+      "sample_sentence": {
+        "native": "Pito a bituen.",
+        "translation": "Seven stars."
+      },
+      "usage_note": "Number seven.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_044"
+    },
+    {
+      "id": "ceb_count_044",
+      "language": "Cebuano",
+      "category": "Count",
+      "phrase": "pito",
+      "pronunciation": "pee-toh",
+      "meaning": "seven",
+      "sample_sentence": {
+        "native": "Pito ka kolor.",
+        "translation": "Seven colors."
+      },
+      "usage_note": "Number seven.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_044"
+    },
+    {
+      "id": "ilo_count_045",
+      "language": "Ilokano",
+      "category": "Count",
+      "phrase": "walo",
+      "pronunciation": "wah-loh",
+      "meaning": "eight",
+      "sample_sentence": {
+        "native": "Walo a tao.",
+        "translation": "Eight people."
+      },
+      "usage_note": "Number eight.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_045"
+    },
+    {
+      "id": "ceb_count_045",
+      "language": "Cebuano",
+      "category": "Count",
+      "phrase": "walo",
+      "pronunciation": "wah-loh",
+      "meaning": "eight",
+      "sample_sentence": {
+        "native": "Walo ka oras.",
+        "translation": "Eight hours."
+      },
+      "usage_note": "Number eight.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_045"
+    },
+    {
+      "id": "ilo_count_046",
+      "language": "Ilokano",
+      "category": "Count",
+      "phrase": "siam",
+      "pronunciation": "syam",
+      "meaning": "nine",
+      "sample_sentence": {
+        "native": "Siam a manok.",
+        "translation": "Nine chickens."
+      },
+      "usage_note": "Number nine.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_046"
+    },
+    {
+      "id": "ceb_count_046",
+      "language": "Cebuano",
+      "category": "Count",
+      "phrase": "siyam",
+      "pronunciation": "see-yahm",
+      "meaning": "nine",
+      "sample_sentence": {
+        "native": "Siyam ka bulan.",
+        "translation": "Nine months."
+      },
+      "usage_note": "Number nine.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_046"
+    },
+    {
+      "id": "ilo_count_047",
+      "language": "Ilokano",
+      "category": "Count",
+      "phrase": "sangapulo",
+      "pronunciation": "sah-ngah-poo-loh",
+      "meaning": "ten",
+      "sample_sentence": {
+        "native": "Sangapulo a pisos.",
+        "translation": "Ten pesos."
+      },
+      "usage_note": "Number ten.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_047"
+    },
+    {
+      "id": "ceb_count_047",
+      "language": "Cebuano",
+      "category": "Count",
+      "phrase": "napulo",
+      "pronunciation": "nah-poo-loh",
+      "meaning": "ten",
+      "sample_sentence": {
+        "native": "Napulo ka tuig.",
+        "translation": "Ten years."
+      },
+      "usage_note": "Number ten.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_047"
+    },
+    {
+      "id": "ilo_action_verbs_048",
+      "language": "Ilokano",
+      "category": "Action Verbs",
+      "phrase": "mangan",
+      "pronunciation": "mah-ngahn",
+      "meaning": "eat",
+      "sample_sentence": {
+        "native": "Mangan tayo.",
+        "translation": "Let's eat."
+      },
+      "usage_note": "Standard verb for eating.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_048"
+    },
+    {
+      "id": "ceb_action_verbs_048",
+      "language": "Cebuano",
+      "category": "Action Verbs",
+      "phrase": "kaon",
+      "pronunciation": "kah-on",
+      "meaning": "eat",
+      "sample_sentence": {
+        "native": "Kaon na ta.",
+        "translation": "Let's eat now."
+      },
+      "usage_note": "Standard verb for eating.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_048"
+    },
+    {
+      "id": "ilo_action_verbs_049",
+      "language": "Ilokano",
+      "category": "Action Verbs",
+      "phrase": "uminom",
+      "pronunciation": "oo-mee-nom",
+      "meaning": "drink",
+      "sample_sentence": {
+        "native": "Uminom ka ti danum.",
+        "translation": "Drink some water."
+      },
+      "usage_note": "Standard verb for drinking.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_049"
+    },
+    {
+      "id": "ceb_action_verbs_049",
+      "language": "Cebuano",
+      "category": "Action Verbs",
+      "phrase": "inom",
+      "pronunciation": "ee-nom",
+      "meaning": "drink",
+      "sample_sentence": {
+        "native": "Inom og tubig.",
+        "translation": "Drink water."
+      },
+      "usage_note": "Standard verb for drinking.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_049"
+    },
+    {
+      "id": "ilo_action_verbs_050",
+      "language": "Ilokano",
+      "category": "Action Verbs",
+      "phrase": "mapan",
+      "pronunciation": "mah-pahn",
+      "meaning": "go",
+      "sample_sentence": {
+        "native": "Mapan ak idiay.",
+        "translation": "I am going there."
+      },
+      "usage_note": "Standard verb for going.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_050"
+    },
+    {
+      "id": "ceb_action_verbs_050",
+      "language": "Cebuano",
+      "category": "Action Verbs",
+      "phrase": "adto",
+      "pronunciation": "ahd-toh",
+      "meaning": "go",
+      "sample_sentence": {
+        "native": "Adto ta didto.",
+        "translation": "Let's go there."
+      },
+      "usage_note": "Standard verb for going.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_050"
+    },
+    {
+      "id": "ilo_action_verbs_051",
+      "language": "Ilokano",
+      "category": "Action Verbs",
+      "phrase": "umay",
+      "pronunciation": "oo-my",
+      "meaning": "come",
+      "sample_sentence": {
+        "native": "Umay ka ditoy.",
+        "translation": "Come here."
+      },
+      "usage_note": "Standard verb for coming.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_051"
+    },
+    {
+      "id": "ceb_action_verbs_051",
+      "language": "Cebuano",
+      "category": "Action Verbs",
+      "phrase": "ari",
+      "pronunciation": "ah-ree",
+      "meaning": "come",
+      "sample_sentence": {
+        "native": "Ari diri.",
+        "translation": "Come here."
+      },
+      "usage_note": "Standard verb for coming.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_051"
+    },
+    {
+      "id": "ilo_action_verbs_052",
+      "language": "Ilokano",
+      "category": "Action Verbs",
+      "phrase": "maturog",
+      "pronunciation": "mah-too-rog",
+      "meaning": "sleep",
+      "sample_sentence": {
+        "native": "Maturog akon.",
+        "translation": "I am going to sleep now."
+      },
+      "usage_note": "Standard verb for sleeping.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_052"
+    },
+    {
+      "id": "ceb_action_verbs_052",
+      "language": "Cebuano",
+      "category": "Action Verbs",
+      "phrase": "katulog",
+      "pronunciation": "kah-too-log",
+      "meaning": "sleep",
+      "sample_sentence": {
+        "native": "Katulog na.",
+        "translation": "Go to sleep now."
+      },
+      "usage_note": "Standard verb for sleeping.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_052"
+    },
+    {
+      "id": "ilo_action_verbs_053",
+      "language": "Ilokano",
+      "category": "Action Verbs",
+      "phrase": "makita",
+      "pronunciation": "mah-kee-tah",
+      "meaning": "see",
+      "sample_sentence": {
+        "native": "Makita ka.",
+        "translation": "I can see you."
+      },
+      "usage_note": "Standard verb for seeing.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_053"
+    },
+    {
+      "id": "ceb_action_verbs_053",
+      "language": "Cebuano",
+      "category": "Action Verbs",
+      "phrase": "makita",
+      "pronunciation": "mah-kee-tah",
+      "meaning": "see",
+      "sample_sentence": {
+        "native": "Makita nako.",
+        "translation": "I can see it."
+      },
+      "usage_note": "Standard verb for seeing.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_053"
+    },
+    {
+      "id": "ilo_action_verbs_054",
+      "language": "Ilokano",
+      "category": "Action Verbs",
+      "phrase": "mangngeg",
+      "pronunciation": "mahng-ngeg",
+      "meaning": "hear",
+      "sample_sentence": {
+        "native": "Mangngeg ko.",
+        "translation": "I can hear it."
+      },
+      "usage_note": "Standard verb for hearing.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_054"
+    },
+    {
+      "id": "ceb_action_verbs_054",
+      "language": "Cebuano",
+      "category": "Action Verbs",
+      "phrase": "paminaw",
+      "pronunciation": "pah-mee-naw",
+      "meaning": "hear",
+      "sample_sentence": {
+        "native": "Paminaw nako.",
+        "translation": "Listen to me."
+      },
+      "usage_note": "Standard verb for hearing or listening.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_054"
+    },
+    {
+      "id": "ilo_action_verbs_055",
+      "language": "Ilokano",
+      "category": "Action Verbs",
+      "phrase": "agsao",
+      "pronunciation": "ahg-sah-oh",
+      "meaning": "speak",
+      "sample_sentence": {
+        "native": "Agsao ka.",
+        "translation": "You speak."
+      },
+      "usage_note": "Standard verb for speaking.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_055"
+    },
+    {
+      "id": "ceb_action_verbs_055",
+      "language": "Cebuano",
+      "category": "Action Verbs",
+      "phrase": "sulti",
+      "pronunciation": "sool-tee",
+      "meaning": "speak",
+      "sample_sentence": {
+        "native": "Sulti na.",
+        "translation": "Speak now."
+      },
+      "usage_note": "Standard verb for speaking.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_055"
+    },
+    {
+      "id": "ilo_linking_verbs_056",
+      "language": "Ilokano",
+      "category": "Linking Verbs",
+      "phrase": "ket / siak ti",
+      "pronunciation": "ket / syahk tee",
+      "meaning": "am",
+      "sample_sentence": {
+        "native": "Siak ti maestro.",
+        "translation": "I am the teacher."
+      },
+      "usage_note": "Often implied or translated via pronouns.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_056"
+    },
+    {
+      "id": "ceb_linking_verbs_056",
+      "language": "Cebuano",
+      "category": "Linking Verbs",
+      "phrase": "mao / ako si",
+      "pronunciation": "mah-oh / ah-koh see",
+      "meaning": "am",
+      "sample_sentence": {
+        "native": "Ako si Juan.",
+        "translation": "I am Juan."
+      },
+      "usage_note": "Often implied or translated via pronouns.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_056"
+    },
+    {
+      "id": "ilo_linking_verbs_057",
+      "language": "Ilokano",
+      "category": "Linking Verbs",
+      "phrase": "ket / isu ti",
+      "pronunciation": "ket / ee-soo tee",
+      "meaning": "is",
+      "sample_sentence": {
+        "native": "Isu ti gayyem ko.",
+        "translation": "He is my friend."
+      },
+      "usage_note": "Often implied or translated via pronouns.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_057"
+    },
+    {
+      "id": "ceb_linking_verbs_057",
+      "language": "Cebuano",
+      "category": "Linking Verbs",
+      "phrase": "mao / maoy",
+      "pronunciation": "mah-oh / mah-oy",
+      "meaning": "is",
+      "sample_sentence": {
+        "native": "Siya ang maestro.",
+        "translation": "He is the teacher."
+      },
+      "usage_note": "Often implied or translated via pronouns.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_057"
+    },
+    {
+      "id": "ilo_linking_verbs_058",
+      "language": "Ilokano",
+      "category": "Linking Verbs",
+      "phrase": "ket / da",
+      "pronunciation": "ket / dah",
+      "meaning": "are",
+      "sample_sentence": {
+        "native": "Isuda dagiti ubbing.",
+        "translation": "They are the children."
+      },
+      "usage_note": "Often implied or translated via pronouns.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_058"
+    },
+    {
+      "id": "ceb_linking_verbs_058",
+      "language": "Cebuano",
+      "category": "Linking Verbs",
+      "phrase": "mao / maoy",
+      "pronunciation": "mah-oh / mah-oy",
+      "meaning": "are",
+      "sample_sentence": {
+        "native": "Sila ang mga bata.",
+        "translation": "They are the children."
+      },
+      "usage_note": "Often implied or translated via pronouns.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_058"
+    },
+    {
+      "id": "ilo_linking_verbs_059",
+      "language": "Ilokano",
+      "category": "Linking Verbs",
+      "phrase": "ket idi / na",
+      "pronunciation": "ket ee-dee",
+      "meaning": "was",
+      "sample_sentence": {
+        "native": "Na-ilokano isuna.",
+        "translation": "He was Ilokano."
+      },
+      "usage_note": "Used for past states.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_059"
+    },
+    {
+      "id": "ceb_linking_verbs_059",
+      "language": "Cebuano",
+      "category": "Linking Verbs",
+      "phrase": "mao / nahimo",
+      "pronunciation": "mah-oh / nah-hee-moh",
+      "meaning": "was",
+      "sample_sentence": {
+        "native": "Nahimo siyang maestro.",
+        "translation": "He became a teacher."
+      },
+      "usage_note": "Used for past states.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_059"
+    },
+    {
+      "id": "ilo_linking_verbs_060",
+      "language": "Ilokano",
+      "category": "Linking Verbs",
+      "phrase": "ket idi",
+      "pronunciation": "ket ee-dee",
+      "meaning": "were",
+      "sample_sentence": {
+        "native": "Idi ket isuda...",
+        "translation": "Back then they were..."
+      },
+      "usage_note": "Used for past states.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_060"
+    },
+    {
+      "id": "ceb_linking_verbs_060",
+      "language": "Cebuano",
+      "category": "Linking Verbs",
+      "phrase": "mao",
+      "pronunciation": "mah-oh",
+      "meaning": "were",
+      "sample_sentence": {
+        "native": "Sila kaniadto mao...",
+        "translation": "They previously were..."
+      },
+      "usage_note": "Used for past states.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_060"
+    },
+    {
+      "id": "ilo_linking_verbs_061",
+      "language": "Ilokano",
+      "category": "Linking Verbs",
+      "phrase": "agbalin",
+      "pronunciation": "ahg-bah-leen",
+      "meaning": "become",
+      "sample_sentence": {
+        "native": "Agbalin a doktor.",
+        "translation": "Become a doctor."
+      },
+      "usage_note": "Used for transitioning states.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_061"
+    },
+    {
+      "id": "ceb_linking_verbs_061",
+      "language": "Cebuano",
+      "category": "Linking Verbs",
+      "phrase": "mahimong",
+      "pronunciation": "mah-hee-mong",
+      "meaning": "become",
+      "sample_sentence": {
+        "native": "Mahimong doktor.",
+        "translation": "Become a doctor."
+      },
+      "usage_note": "Used for transitioning states.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_061"
+    },
+    {
+      "id": "ilo_linking_verbs_062",
+      "language": "Ilokano",
+      "category": "Linking Verbs",
+      "phrase": "kasla",
+      "pronunciation": "kahs-lah",
+      "meaning": "seem",
+      "sample_sentence": {
+        "native": "Kasla naragsak.",
+        "translation": "Seems happy."
+      },
+      "usage_note": "Used for appearances.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_062"
+    },
+    {
+      "id": "ceb_linking_verbs_062",
+      "language": "Cebuano",
+      "category": "Linking Verbs",
+      "phrase": "murag / daw",
+      "pronunciation": "moo-rahg",
+      "meaning": "seem",
+      "sample_sentence": {
+        "native": "Murag malipayon.",
+        "translation": "Seems happy."
+      },
+      "usage_note": "Used for appearances.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_062"
+    },
+    {
+      "id": "ilo_linking_verbs_063",
+      "language": "Ilokano",
+      "category": "Linking Verbs",
+      "phrase": "agtalinaed",
+      "pronunciation": "ahg-tah-lee-nah-ed",
+      "meaning": "remain",
+      "sample_sentence": {
+        "native": "Agtalinaed a napigsa.",
+        "translation": "Remain strong."
+      },
+      "usage_note": "Used for staying in a state.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_063"
+    },
+    {
+      "id": "ceb_linking_verbs_063",
+      "language": "Cebuano",
+      "category": "Linking Verbs",
+      "phrase": "magpabilin",
+      "pronunciation": "mahg-pah-bee-leen",
+      "meaning": "remain",
+      "sample_sentence": {
+        "native": "Magpabilin nga lig-on.",
+        "translation": "Remain strong."
+      },
+      "usage_note": "Used for staying in a state.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_063"
+    },
+    {
+      "id": "ilo_linking_verbs_064",
+      "language": "Ilokano",
+      "category": "Linking Verbs",
+      "phrase": "agyan",
+      "pronunciation": "ahg-yahn",
+      "meaning": "stay",
+      "sample_sentence": {
+        "native": "Agyan ka ditoy.",
+        "translation": "Stay here."
+      },
+      "usage_note": "Used for locations or states.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_064"
+    },
+    {
+      "id": "ceb_linking_verbs_064",
+      "language": "Cebuano",
+      "category": "Linking Verbs",
+      "phrase": "magpabilin",
+      "pronunciation": "mahg-pah-bee-leen",
+      "meaning": "stay",
+      "sample_sentence": {
+        "native": "Magpabilin diri.",
+        "translation": "Stay here."
+      },
+      "usage_note": "Used for locations or states.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_064"
+    },
+    {
+      "id": "ilo_linking_verbs_065",
+      "language": "Ilokano",
+      "category": "Linking Verbs",
+      "phrase": "marikna",
+      "pronunciation": "mah-reek-nah",
+      "meaning": "feel",
+      "sample_sentence": {
+        "native": "Marikna ti lamiis.",
+        "translation": "Feel the cold."
+      },
+      "usage_note": "Used for emotions or sensations.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_065"
+    },
+    {
+      "id": "ceb_linking_verbs_065",
+      "language": "Cebuano",
+      "category": "Linking Verbs",
+      "phrase": "bati",
+      "pronunciation": "bah-tee",
+      "meaning": "feel",
+      "sample_sentence": {
+        "native": "Bati nako ang tugnaw.",
+        "translation": "I feel the cold."
+      },
+      "usage_note": "Used for emotions or sensations.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_065"
+    },
+    {
+      "id": "ilo_pronouns_066",
+      "language": "Ilokano",
+      "category": "Pronouns",
+      "phrase": "siak",
+      "pronunciation": "syahk",
+      "meaning": "I",
+      "sample_sentence": {
+        "native": "Siak ti napan.",
+        "translation": "I was the one who went."
+      },
+      "usage_note": "First person singular.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_066"
+    },
+    {
+      "id": "ceb_pronouns_066",
+      "language": "Cebuano",
+      "category": "Pronouns",
+      "phrase": "ako",
+      "pronunciation": "ah-koh",
+      "meaning": "I",
+      "sample_sentence": {
+        "native": "Ako ang niadto.",
+        "translation": "I was the one who went."
+      },
+      "usage_note": "First person singular.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_066"
+    },
+    {
+      "id": "ilo_pronouns_067",
+      "language": "Ilokano",
+      "category": "Pronouns",
+      "phrase": "sika",
+      "pronunciation": "see-kah",
+      "meaning": "you",
+      "sample_sentence": {
+        "native": "Sika ti nangala?",
+        "translation": "Were you the one who took it?"
+      },
+      "usage_note": "Second person singular.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_067"
+    },
+    {
+      "id": "ceb_pronouns_067",
+      "language": "Cebuano",
+      "category": "Pronouns",
+      "phrase": "ikaw / ka",
+      "pronunciation": "ee-kaw",
+      "meaning": "you",
+      "sample_sentence": {
+        "native": "Ikaw ang nagkuha?",
+        "translation": "Were you the one who took it?"
+      },
+      "usage_note": "Second person singular.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_067"
+    },
+    {
+      "id": "ilo_pronouns_068",
+      "language": "Ilokano",
+      "category": "Pronouns",
+      "phrase": "isuna",
+      "pronunciation": "ee-soo-nah",
+      "meaning": "he",
+      "sample_sentence": {
+        "native": "Isuna ti gayyem ko.",
+        "translation": "He is my friend."
+      },
+      "usage_note": "Third person singular.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_068"
+    },
+    {
+      "id": "ceb_pronouns_068",
+      "language": "Cebuano",
+      "category": "Pronouns",
+      "phrase": "siya",
+      "pronunciation": "see-yah",
+      "meaning": "he",
+      "sample_sentence": {
+        "native": "Siya akong higala.",
+        "translation": "He is my friend."
+      },
+      "usage_note": "Third person singular.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_068"
+    },
+    {
+      "id": "ilo_pronouns_069",
+      "language": "Ilokano",
+      "category": "Pronouns",
+      "phrase": "isuna",
+      "pronunciation": "ee-soo-nah",
+      "meaning": "she",
+      "sample_sentence": {
+        "native": "Isuna ti kabsat ko.",
+        "translation": "She is my sibling."
+      },
+      "usage_note": "Third person singular (gender neutral).",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_069"
+    },
+    {
+      "id": "ceb_pronouns_069",
+      "language": "Cebuano",
+      "category": "Pronouns",
+      "phrase": "siya",
+      "pronunciation": "see-yah",
+      "meaning": "she",
+      "sample_sentence": {
+        "native": "Siya akong igsuon.",
+        "translation": "She is my sibling."
+      },
+      "usage_note": "Third person singular (gender neutral).",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_069"
+    },
+    {
+      "id": "ilo_pronouns_070",
+      "language": "Ilokano",
+      "category": "Pronouns",
+      "phrase": "dakkami",
+      "pronunciation": "dahk-kah-mee",
+      "meaning": "we",
+      "sample_sentence": {
+        "native": "Dakkami ti mapan.",
+        "translation": "We will go."
+      },
+      "usage_note": "First person plural (exclusive).",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_070"
+    },
+    {
+      "id": "ceb_pronouns_070",
+      "language": "Cebuano",
+      "category": "Pronouns",
+      "phrase": "kami / kita",
+      "pronunciation": "kah-mee",
+      "meaning": "we",
+      "sample_sentence": {
+        "native": "Kami ang muadto.",
+        "translation": "We will go."
+      },
+      "usage_note": "First person plural (exclusive).",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_070"
+    },
+    {
+      "id": "ilo_pronouns_071",
+      "language": "Ilokano",
+      "category": "Pronouns",
+      "phrase": "isuda",
+      "pronunciation": "ee-soo-dah",
+      "meaning": "they",
+      "sample_sentence": {
+        "native": "Isuda ti akin-kukua.",
+        "translation": "They are the owners."
+      },
+      "usage_note": "Third person plural.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_071"
+    },
+    {
+      "id": "ceb_pronouns_071",
+      "language": "Cebuano",
+      "category": "Pronouns",
+      "phrase": "sila",
+      "pronunciation": "see-lah",
+      "meaning": "they",
+      "sample_sentence": {
+        "native": "Sila ang tag-iya.",
+        "translation": "They are the owners."
+      },
+      "usage_note": "Third person plural.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_071"
+    },
+    {
+      "id": "ilo_pronouns_072",
+      "language": "Ilokano",
+      "category": "Pronouns",
+      "phrase": "siak",
+      "pronunciation": "syahk",
+      "meaning": "me",
+      "sample_sentence": {
+        "native": "Ibagam kaniak.",
+        "translation": "Tell me."
+      },
+      "usage_note": "Object form of I.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_072"
+    },
+    {
+      "id": "ceb_pronouns_072",
+      "language": "Cebuano",
+      "category": "Pronouns",
+      "phrase": "ako",
+      "pronunciation": "ah-koh",
+      "meaning": "me",
+      "sample_sentence": {
+        "native": "Sultihi ako.",
+        "translation": "Tell me."
+      },
+      "usage_note": "Object form of I.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_072"
+    },
+    {
+      "id": "ilo_pronouns_073",
+      "language": "Ilokano",
+      "category": "Pronouns",
+      "phrase": "dakkami",
+      "pronunciation": "dahk-kah-mee",
+      "meaning": "us",
+      "sample_sentence": {
+        "native": "Kuyogennakami.",
+        "translation": "Come with us."
+      },
+      "usage_note": "Object form of we.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_073"
+    },
+    {
+      "id": "ceb_pronouns_073",
+      "language": "Cebuano",
+      "category": "Pronouns",
+      "phrase": "kami",
+      "pronunciation": "kah-mee",
+      "meaning": "us",
+      "sample_sentence": {
+        "native": "Kuyugi kami.",
+        "translation": "Come with us."
+      },
+      "usage_note": "Object form of we.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_073"
+    },
+    {
+      "id": "ilo_pronouns_074",
+      "language": "Ilokano",
+      "category": "Pronouns",
+      "phrase": "isuda",
+      "pronunciation": "ee-soo-dah",
+      "meaning": "them",
+      "sample_sentence": {
+        "native": "Ipaay mo kadakuada.",
+        "translation": "Give it to them."
+      },
+      "usage_note": "Object form of they.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_074"
+    },
+    {
+      "id": "ceb_pronouns_074",
+      "language": "Cebuano",
+      "category": "Pronouns",
+      "phrase": "sila",
+      "pronunciation": "see-lah",
+      "meaning": "them",
+      "sample_sentence": {
+        "native": "Ihatag kanila.",
+        "translation": "Give it to them."
+      },
+      "usage_note": "Object form of they.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_074"
+    },
+    {
+      "id": "ilo_interrogatives_075",
+      "language": "Ilokano",
+      "category": "Interrogatives",
+      "phrase": "ania",
+      "pronunciation": "ah-nyah",
+      "meaning": "what",
+      "sample_sentence": {
+        "native": "Ania ti nagan mo?",
+        "translation": "What is your name?"
+      },
+      "usage_note": "Used to ask for information.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_075"
+    },
+    {
+      "id": "ceb_interrogatives_075",
+      "language": "Cebuano",
+      "category": "Interrogatives",
+      "phrase": "unsa",
+      "pronunciation": "oon-sah",
+      "meaning": "what",
+      "sample_sentence": {
+        "native": "Unsa imong ngalan?",
+        "translation": "What is your name?"
+      },
+      "usage_note": "Used to ask for information.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_075"
+    },
+    {
+      "id": "ilo_interrogatives_076",
+      "language": "Ilokano",
+      "category": "Interrogatives",
+      "phrase": "asino",
+      "pronunciation": "ah-see-noh",
+      "meaning": "who",
+      "sample_sentence": {
+        "native": "Asino ti kaduam?",
+        "translation": "Who is your companion?"
+      },
+      "usage_note": "Used to ask about people.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_076"
+    },
+    {
+      "id": "ceb_interrogatives_076",
+      "language": "Cebuano",
+      "category": "Interrogatives",
+      "phrase": "kinsa",
+      "pronunciation": "keen-sah",
+      "meaning": "who",
+      "sample_sentence": {
+        "native": "Kinsa imong kuyog?",
+        "translation": "Who is your companion?"
+      },
+      "usage_note": "Used to ask about people.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_076"
+    },
+    {
+      "id": "ilo_interrogatives_077",
+      "language": "Ilokano",
+      "category": "Interrogatives",
+      "phrase": "sadino",
+      "pronunciation": "sah-dee-noh",
+      "meaning": "where",
+      "sample_sentence": {
+        "native": "Sadino ti balay mo?",
+        "translation": "Where is your house?"
+      },
+      "usage_note": "Used to ask about places.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_077"
+    },
+    {
+      "id": "ceb_interrogatives_077",
+      "language": "Cebuano",
+      "category": "Interrogatives",
+      "phrase": "asa",
+      "pronunciation": "ah-sah",
+      "meaning": "where",
+      "sample_sentence": {
+        "native": "Asa imong balay?",
+        "translation": "Where is your house?"
+      },
+      "usage_note": "Used to ask about places.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_077"
+    },
+    {
+      "id": "ilo_interrogatives_078",
+      "language": "Ilokano",
+      "category": "Interrogatives",
+      "phrase": "kaano",
+      "pronunciation": "kah-ah-noh",
+      "meaning": "when",
+      "sample_sentence": {
+        "native": "Kaano ka nga umay?",
+        "translation": "When are you coming?"
+      },
+      "usage_note": "Used to ask about time.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_078"
+    },
+    {
+      "id": "ceb_interrogatives_078",
+      "language": "Cebuano",
+      "category": "Interrogatives",
+      "phrase": "kanus-a",
+      "pronunciation": "kah-noos-ah",
+      "meaning": "when",
+      "sample_sentence": {
+        "native": "Kanus-a ka muari?",
+        "translation": "When are you coming?"
+      },
+      "usage_note": "Used to ask about time.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_078"
+    },
+    {
+      "id": "ilo_interrogatives_079",
+      "language": "Ilokano",
+      "category": "Interrogatives",
+      "phrase": "apay",
+      "pronunciation": "ah-py",
+      "meaning": "why",
+      "sample_sentence": {
+        "native": "Apay nga napan ka?",
+        "translation": "Why did you go?"
+      },
+      "usage_note": "Used to ask for reasons.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_079"
+    },
+    {
+      "id": "ceb_interrogatives_079",
+      "language": "Cebuano",
+      "category": "Interrogatives",
+      "phrase": "ngano",
+      "pronunciation": "ngah-noh",
+      "meaning": "why",
+      "sample_sentence": {
+        "native": "Ngano niadto ka?",
+        "translation": "Why did you go?"
+      },
+      "usage_note": "Used to ask for reasons.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_079"
+    },
+    {
+      "id": "ilo_interrogatives_080",
+      "language": "Ilokano",
+      "category": "Interrogatives",
+      "phrase": "kasano",
+      "pronunciation": "kah-sah-noh",
+      "meaning": "how",
+      "sample_sentence": {
+        "native": "Kasano ti panagluto?",
+        "translation": "How do you cook it?"
+      },
+      "usage_note": "Used to ask about methods.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_080"
+    },
+    {
+      "id": "ceb_interrogatives_080",
+      "language": "Cebuano",
+      "category": "Interrogatives",
+      "phrase": "giunsa / unsaon",
+      "pronunciation": "gee-oon-sah",
+      "meaning": "how",
+      "sample_sentence": {
+        "native": "Giunsa pagluto?",
+        "translation": "How was it cooked?"
+      },
+      "usage_note": "Used to ask about methods.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_080"
+    },
+    {
+      "id": "ilo_interrogatives_081",
+      "language": "Ilokano",
+      "category": "Interrogatives",
+      "phrase": "mano",
+      "pronunciation": "mah-noh",
+      "meaning": "how many",
+      "sample_sentence": {
+        "native": "Mano ti tawen mo?",
+        "translation": "How old are you? (How many years)"
+      },
+      "usage_note": "Used to ask about quantity.",
+      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_081"
+    },
+    {
+      "id": "ceb_interrogatives_081",
+      "language": "Cebuano",
+      "category": "Interrogatives",
+      "phrase": "pila",
+      "pronunciation": "pee-lah",
+      "meaning": "how many",
+      "sample_sentence": {
+        "native": "Pila imong edad?",
+        "translation": "How old are you? (How many years)"
+      },
+      "usage_note": "Used to ask about quantity.",
+      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_081"
+    }
+  ]
+}

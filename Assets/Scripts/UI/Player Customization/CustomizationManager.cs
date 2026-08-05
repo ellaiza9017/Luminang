@@ -209,9 +209,13 @@ public class CustomizationManager : MonoBehaviour
         return owned;
     }
 
+    private bool isInitializingUI = false;
+
     private void GenerateCategory(CategoryFolder category, List<string> ownedItems)
     {
         if (category.contentParent == null) return;
+
+        isInitializingUI = true;
 
         // Clear existing
         foreach (Transform child in category.contentParent)
@@ -247,6 +251,7 @@ public class CustomizationManager : MonoBehaviour
             selectedToggle = noneToggle;
 
         selectedToggle.isOn = true;
+        isInitializingUI = false;
     }
 
     private Toggle CreateItem(CategoryFolder category, string itemName, Sprite icon, Sprite bg, OutfitItem item, ToggleGroup group)
@@ -321,9 +326,12 @@ public class CustomizationManager : MonoBehaviour
             {
                 if (item == null) 
                 {
-                    characterManager.Unequip(category.slot);
+                    if (!isInitializingUI)
+                    {
+                        characterManager.Unequip(category.slot);
+                        RefreshAllFrames();
+                    }
                     if (detailPanel != null) detailPanel.HidePanel();
-                    RefreshAllFrames();
                 }
                 else 
                 {

@@ -26,41 +26,56 @@ public class LeaderboardDetailsManager : MonoBehaviour
     public Slider ilokanoProgressSlider;
     [Tooltip("Slider for Cebuano progress.")]
     public Slider cebuanoProgressSlider;
+    
+    [Header("Journal Preview")]
+    public LeaderboardJournalPreview journalPreview;
 
-    public void DisplayPlayerDetails(LeaderboardPlayer player, int rank)
+    public void DisplayPlayerDetails(LeaderboardEntry entry)
     {
-        if (player == null) return;
+        if (entry == null) return;
 
-        if (usernameText != null) usernameText.text = player.username;
-        if (rankText != null) rankText.text = $"Rank #{rank}";
-        if (overallProgressText != null) overallProgressText.text = $"{player.overall_progress:F1}%";
-        if (coinsText != null) coinsText.text = $"{player.coins.ToString("N0")} Coins";
-        if (ilokanoProgressText != null) ilokanoProgressText.text = $"{player.ilokano_progress:F1}%";
-        if (ilokanoLessonsText != null) ilokanoLessonsText.text = $"{player.ilokano_lessons_completed} / 12";
-        if (cebuanoProgressText != null) cebuanoProgressText.text = $"{player.cebuano_progress:F1}%";
-        if (cebuanoLessonsText != null) cebuanoLessonsText.text = $"{player.cebuano_lessons_completed} / 12";
+        if (usernameText != null) usernameText.text = entry.Username;
+        if (rankText != null) rankText.text = $"Rank #{entry.Rank}";
+        if (overallProgressText != null) overallProgressText.text = $"{entry.OverallProgress:F1}%";
+        if (coinsText != null) coinsText.text = $"{entry.OverallCoins.ToString("N0")} Coins";
+        if (ilokanoProgressText != null) ilokanoProgressText.text = $"{entry.IlokanoProgress:F1}%";
+        if (ilokanoLessonsText != null) ilokanoLessonsText.text = $"{entry.IlokanoObjectivesCompleted} / {LeaderboardService.MAX_OBJECTIVES_PER_LANGUAGE}";
+        if (cebuanoProgressText != null) cebuanoProgressText.text = $"{entry.CebuanoProgress:F1}%";
+        if (cebuanoLessonsText != null) cebuanoLessonsText.text = $"{entry.CebuanoObjectivesCompleted} / {LeaderboardService.MAX_OBJECTIVES_PER_LANGUAGE}";
         
         // Compute relative active time
         if (lastActiveText != null)
         {
-            lastActiveText.text = GetRelativeTimeString(player.last_active);
+            lastActiveText.text = GetRelativeTimeString(entry.LastActive);
         }
 
-        // Set Slider values (automatically handles if slider max is 1 or 100)
-        SetSliderValue(overallProgressSlider, player.overall_progress);
-        SetSliderValue(ilokanoProgressSlider, player.ilokano_progress);
-        SetSliderValue(cebuanoProgressSlider, player.cebuano_progress);
+        // Set Slider values
+        SetSliderValue(overallProgressSlider, entry.OverallProgress);
+        SetSliderValue(ilokanoProgressSlider, entry.IlokanoProgress);
+        SetSliderValue(cebuanoProgressSlider, entry.CebuanoProgress);
+
+        if (journalPreview != null)
+        {
+            journalPreview.SetPlayer(entry);
+        }
 
         if (avatarImage != null)
         {
-            if (!string.IsNullOrEmpty(player.picture))
+            avatarImage.color = Color.white; // Default fallback color
+            if (!string.IsNullOrEmpty(entry.AvatarUrl) && AvatarManager.Instance != null)
             {
-                // Load custom avatar
+                LoadAvatarAsync(entry.AvatarUrl);
             }
-            else
-            {
-                avatarImage.color = Color.white; // Default fallback
-            }
+        }
+    }
+
+    private async void LoadAvatarAsync(string url)
+    {
+        var texture = await AvatarManager.Instance.GetAvatarTexture(url);
+        if (texture != null && avatarImage != null)
+        {
+            avatarImage.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+            avatarImage.color = Color.white;
         }
     }
 
@@ -96,45 +111,42 @@ public class LeaderboardDetailsManager : MonoBehaviour
         if (cebuanoProgressSlider != null) cebuanoProgressSlider.value = 0f;
     }
 
-    private string GetRelativeTimeString(string lastActiveDateStr)
+    private string GetRelativeTimeString(System.DateTime? lastActiveTimeNullable)
     {
-        if (string.IsNullOrEmpty(lastActiveDateStr)) return "Played long ago";
+        if (!lastActiveTimeNullable.HasValue) return "Played long ago";
 
-        if (System.DateTime.TryParse(lastActiveDateStr, out System.DateTime lastActiveTime))
+        System.DateTime lastActiveTime = lastActiveTimeNullable.Value;
+        
+        System.TimeSpan difference = System.DateTime.Now - lastActiveTime;
+
+        if (difference.TotalDays < 0)
         {
-            System.TimeSpan difference = System.DateTime.Now - lastActiveTime;
-
-            if (difference.TotalDays < 0)
-            {
-                return "Active now";
-            }
-            if (difference.TotalSeconds < 60)
-            {
-                return "Active now";
-            }
-            if (difference.TotalMinutes < 60)
-            {
-                int mins = Mathf.Max(1, (int)difference.TotalMinutes);
-                return $"Played {mins}m ago";
-            }
-            if (difference.TotalHours < 24)
-            {
-                int hours = Mathf.Max(1, (int)difference.TotalHours);
-                return $"Played {hours}h ago";
-            }
-            if (difference.TotalDays < 2)
-            {
-                return "Played yesterday";
-            }
-            if (difference.TotalDays < 30)
-            {
-                int days = Mathf.Max(1, (int)difference.TotalDays);
-                return $"Played {days}d ago";
-            }
-            
-            return $"Played on {lastActiveTime:yyyy-MM-dd}";
+            return "Active now";
         }
-
-        return $"Played {lastActiveDateStr}";
+        if (difference.TotalSeconds < 60)
+        {
+            return "Active now";
+        }
+        if (difference.TotalMinutes < 60)
+        {
+            int mins = Mathf.Max(1, (int)difference.TotalMinutes);
+            return $"Played {mins}m ago";
+        }
+        if (difference.TotalHours < 24)
+        {
+            int hours = Mathf.Max(1, (int)difference.TotalHours);
+            return $"Played {hours}h ago";
+        }
+        if (difference.TotalDays < 2)
+        {
+            return "Played yesterday";
+        }
+        if (difference.TotalDays < 30)
+        {
+            int days = Mathf.Max(1, (int)difference.TotalDays);
+            return $"Played {days}d ago";
+        }
+        
+        return $"Played on {lastActiveTime:yyyy-MM-dd}";
     }
 }

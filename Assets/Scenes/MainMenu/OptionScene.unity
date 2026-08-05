@@ -1623,7 +1623,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -309.4826}
+  m_SizeDelta: {x: 0, y: 0.000061035}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &544297947
 MonoBehaviour:
@@ -1936,8 +1936,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1643847910}
-        m_TargetAssemblyTypeName: BackButton_SceneLoader, Assembly-CSharp
+      - m_Target: {fileID: 1541815451}
+        m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: GoBack
         m_Mode: 1
         m_Arguments:
@@ -3043,8 +3043,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -155.64085}
-  m_SizeDelta: {x: -0.8999, y: 311.2827}
+  m_AnchoredPosition: {x: 0, y: 0.0002594}
+  m_SizeDelta: {x: -0.8999, y: 0.00048828}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1320326577
 MonoBehaviour:
@@ -3543,6 +3543,9 @@ MonoBehaviour:
   sfxMuteImage: {fileID: 1736757757}
   volumeUpSprite: {fileID: 21300000, guid: eb01bcf8821ba2f43b70ce62bd710f01, type: 3}
   volumeOffSprite: {fileID: 21300000, guid: e85f8c2cda66f534e8b66483f7223805, type: 3}
+  backgroundImage: {fileID: 376308168}
+  mainMenuBg: {fileID: 21300000, guid: 1d87888a9fc1a8f45be77324a0ff585b, type: 3}
+  languageSelectionBg: {fileID: 21300000, guid: 56492af93abf57242a9e729c9656fda9, type: 3}
   confirmSavePanel: {fileID: 0}
   noChangesPanel: {fileID: 0}
 --- !u!4 &1541815452

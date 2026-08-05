@@ -3,6 +3,9 @@ using Postgrest.Attributes;
 using Postgrest.Models;
 using System.Collections.Generic;
 
+// TODO: DELETE THIS ENTIRE FILE
+// The table this file maps to (two_truths_lie_challenges) is being removed from Supabase.
+// Minigame content is now handled locally via JSON files.
 namespace Luminang.Database
 {
     [Table("two_truths_lie_challenges")]

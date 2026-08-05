@@ -178,7 +178,7 @@ public class LevelDetailPanel : MonoBehaviour
 
         // ── Level Number ──
         if (levelNumberText != null)
-            levelNumberText.text = $"Level {lesson.levelNumber}";
+            levelNumberText.text = $"Quest {lesson.levelNumber}";
 
         // ── Chapter Icon (pulled from CategoryListManager's chapterIconSprites array) ──
         if (chapterIconImage != null && categoryListManager != null)

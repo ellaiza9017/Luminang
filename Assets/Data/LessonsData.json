@@ -37,7 +37,7 @@
             {
               "levelNumber": 3,
               "categoryKey": "Responses",
-              "lessonTitle": "Responses (Yes / No / Maybe)",
+              "lessonTitle": "Responses",
               "description": "Master essential response words like 'yes', 'no', 'okay', and 'I understand' to quickly reply during conversations.",
               "learnings": [
                 "Say yes, no, and okay in Ilokano",
@@ -167,29 +167,10 @@
         },
         {
           "chapterIndex": 4,
-          "chapterTitle": "Sentence Building",
-          "lessons": [
-            {
-              "levelNumber": 12,
-              "categoryKey": "Sentence Building",
-              "lessonTitle": "Sentence Building",
-              "description": "Combine pronouns, action verbs, and linking verbs to construct basic statements and simple questions.",
-              "learnings": [
-                "Combine subject, verb, and object into a full sentence",
-                "Use pronouns, action verbs, and linking verbs together",
-                "Build statements and simple questions",
-                "Understand basic Ilokano sentence structure and word order"
-              ],
-              "rewards": { "coins": 90, "xp": 180 }
-            }
-          ]
-        },
-        {
-          "chapterIndex": 5,
           "chapterTitle": "Final Assessment",
           "lessons": [
             {
-              "levelNumber": 13,
+              "levelNumber": 12,
               "categoryKey": "Final Assessment",
               "lessonTitle": "Final Assessment Test",
               "description": "Test your knowledge of greetings, grammar, directions, and sentence building in this comprehensive final review.",
@@ -372,29 +353,10 @@
         },
         {
           "chapterIndex": 4,
-          "chapterTitle": "Sentence Building",
-          "lessons": [
-            {
-              "levelNumber": 12,
-              "categoryKey": "Sentence Building",
-              "lessonTitle": "Sentence Building",
-              "description": "Combine pronouns, action verbs, and linking verbs to construct basic statements and simple questions.",
-              "learnings": [
-                "Combine subject, verb, and object into a full sentence",
-                "Use pronouns, action verbs, and linking verbs together",
-                "Build statements and simple questions in Cebuano",
-                "Understand basic Cebuano sentence structure and word order"
-              ],
-              "rewards": { "coins": 90, "xp": 180 }
-            }
-          ]
-        },
-        {
-          "chapterIndex": 5,
           "chapterTitle": "Final Assessment",
           "lessons": [
             {
-              "levelNumber": 13,
+              "levelNumber": 12,
               "categoryKey": "Final Assessment",
               "lessonTitle": "Final Assessment Test",
               "description": "Test your knowledge of greetings, grammar, directions, and sentence building in this comprehensive final review.",

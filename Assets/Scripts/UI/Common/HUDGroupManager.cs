@@ -3,12 +3,15 @@ using System.Collections;
 
 public class HUDGroupManager : MonoBehaviour
 {
+    public enum SlideDirection { Left, Right, Top, Bottom }
+
     [Header("Animation Settings")]
+    public SlideDirection slideDirection = SlideDirection.Right;
     public float slideDuration = 0.5f;
     public AnimationCurve slideCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     
-    [Tooltip("How far off-screen to the right the HUD should start (e.g., 500)")]
-    public float offScreenX = 500f;
+    [Tooltip("How far off-screen the HUD should start (e.g., 500)")]
+    public float slideDistance = 500f;
 
     [Tooltip("Match the PlayerInfoPanel delay so they appear together")]
     public float entranceDelay = 2.5f;
@@ -25,8 +28,22 @@ public class HUDGroupManager : MonoBehaviour
         // Save the current position in the editor as our "target" on-screen position
         targetPosition = rectTransform.anchoredPosition;
         
-        // Calculate the hidden position (Positive X is Right)
-        hiddenPosition = new Vector2(targetPosition.x + offScreenX, targetPosition.y);
+        // Calculate the hidden position based on direction
+        switch (slideDirection)
+        {
+            case SlideDirection.Left:
+                hiddenPosition = new Vector2(targetPosition.x - slideDistance, targetPosition.y);
+                break;
+            case SlideDirection.Right:
+                hiddenPosition = new Vector2(targetPosition.x + slideDistance, targetPosition.y);
+                break;
+            case SlideDirection.Top:
+                hiddenPosition = new Vector2(targetPosition.x, targetPosition.y + slideDistance);
+                break;
+            case SlideDirection.Bottom:
+                hiddenPosition = new Vector2(targetPosition.x, targetPosition.y - slideDistance);
+                break;
+        }
         
         // Snap off-screen immediately
         rectTransform.anchoredPosition = hiddenPosition;

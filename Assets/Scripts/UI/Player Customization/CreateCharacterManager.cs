@@ -24,6 +24,7 @@ public class CreateCharacterManager : MonoBehaviour
     [Header("Flow")]
     public SceneLoader sceneLoader;
     public string nextSceneName = "PrologueScene";
+    public GameObject smallLoadingScreen;
 
     void Start()
     {
@@ -216,24 +217,23 @@ public class CreateCharacterManager : MonoBehaviour
                 Debug.Log("[CreateCharacter] Direct Upsert reported success.");
             }
 
-            // 3. Update Inventory (Welcome Pack)
-            // Using Upsert so we don't create duplicates but also don't touch existing rewards!
-            var inventoryItems = new List<InventoryModel>();
-            foreach (var kv in equipped.ToDictionary())
-            {
-                if (!string.IsNullOrEmpty(kv.Value))
-                {
-                    inventoryItems.Add(new InventoryModel 
-                    { 
-                        UserId = user.Id, 
-                        ItemName = kv.Value, 
-                        Slot = kv.Key 
-                    });
-                }
-            }
+            // 3. Save ALL items available in Character Creation as owned starter items
+            var defaultItems = new List<InventoryModel>();
+            var allItems = outfitManager.GetComponentsInChildren<OutfitItem>(true);
             
-            if (inventoryItems.Count > 0)
-                await client.From<InventoryModel>().Upsert(inventoryItems);
+            foreach (var item in allItems)
+            {
+                defaultItems.Add(new InventoryModel 
+                { 
+                    Id = System.Guid.NewGuid().ToString(), 
+                    UserId = user.Id, 
+                    Slot = item.slot.ToString(), 
+                    ItemName = item.gameObject.name 
+                });
+            }
+
+            await client.From<InventoryModel>().Upsert(defaultItems);
+
 
             // 4. Capture and Upload Portrait
             if (portraitBooth != null && AvatarManager.Instance != null)
@@ -244,7 +244,43 @@ public class CreateCharacterManager : MonoBehaviour
                 await AvatarManager.Instance.CaptureAndUpload(user.Id, portraitBooth.portraitTexture);
             }
 
-            // 5. Success!
+            // 5. Send Welcome Notification
+            try 
+            {
+                Debug.Log("[CreateCharacter] Searching for default Welcome notification...");
+                
+                // Fetch the existing global welcome notification from admin_notifications
+                var adminResponse = await client.From<AdminNotificationModel>()
+                    .Filter("title", Postgrest.Constants.Operator.Equals, "Welcome to Luminang!")
+                    .Limit(1)
+                    .Get();
+                    
+                var welcomeAdminNotif = adminResponse.Models?.FirstOrDefault();
+
+                if (welcomeAdminNotif != null)
+                {
+                    Debug.Log($"[CreateCharacter] Found Welcome notification ({welcomeAdminNotif.Id}). Linking to user inbox...");
+                    var welcomeUserNotif = new UserNotificationModel
+                    {
+                        UserId = user.Id,
+                        NotificationId = welcomeAdminNotif.Id,
+                        IsRead = false,
+                        IsClaimed = false,
+                        IsArchived = false
+                    };
+                    await client.From<UserNotificationModel>().Insert(welcomeUserNotif);
+                }
+                else
+                {
+                    Debug.LogWarning("[CreateCharacter] Welcome notification not found in admin_notifications! Please create one in Supabase with the title 'Welcome to Luminang!'");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogWarning($"[CreateCharacter] Failed to send welcome notification: {ex.Message}");
+            }
+
+            // 6. Success!
 
             modal.ShowAlert(
                 $"Character Created!\nWelcome, {username}!",
@@ -277,14 +313,22 @@ public class CreateCharacterManager : MonoBehaviour
     /// </summary>
     public void GoToMainMenu()
     {
-        if (sceneLoader != null)
+        StartCoroutine(GoToMainMenuRoutine());
+    }
+
+    private System.Collections.IEnumerator GoToMainMenuRoutine()
+    {
+        // 1. Show the small loading prefab
+        if (smallLoadingScreen != null)
         {
-            sceneLoader.LoadScene("MainMenuScene");
+            smallLoadingScreen.SetActive(true);
         }
-        else
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuScene");
-        }
+
+        // 2. Wait just a moment for the UI to update and animate
+        yield return new WaitForSeconds(0.25f); 
+
+        // 3. Load the Main Menu
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuScene");
     }
 
     private string TranslateError(string technicalError)

@@ -85,4 +85,54 @@ public class AvatarManager : MonoBehaviour
             return null;
         }
     }
+
+    private static System.Collections.Generic.Dictionary<string, Texture2D> _avatarCache = new System.Collections.Generic.Dictionary<string, Texture2D>();
+
+    /// <summary>
+    /// Downloads an avatar from a URL and caches it in memory.
+    /// Used by leaderboards and other UI panels.
+    /// </summary>
+    public async Task<Texture2D> GetAvatarTexture(string url)
+    {
+        if (string.IsNullOrEmpty(url)) return null;
+
+        // Strip query params for the cache key (so "?t=timestamp" doesn't create duplicate cache entries)
+        string cacheKey = url.Split('?')[0];
+
+        if (_avatarCache.ContainsKey(cacheKey))
+        {
+            return _avatarCache[cacheKey];
+        }
+
+        try
+        {
+            var request = UnityEngine.Networking.UnityWebRequestTexture.GetTexture(url);
+            var operation = request.SendWebRequest();
+
+            while (!operation.isDone)
+            {
+                await Task.Yield();
+            }
+
+            if (request.result != UnityEngine.Networking.UnityWebRequest.Result.Success)
+            {
+                Debug.LogWarning($"[AvatarManager] Failed to download avatar from {url}: {request.error}");
+                return null;
+            }
+
+            Texture2D texture = UnityEngine.Networking.DownloadHandlerTexture.GetContent(request);
+            if (texture != null)
+            {
+                _avatarCache[cacheKey] = texture;
+                return texture;
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"[AvatarManager] Exception downloading avatar: {ex.Message}");
+        }
+
+        return null;
+    }
 }
+

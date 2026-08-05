@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInfoPanel
   usernameText: {fileID: 5462344996902920094}
+  coinsText: {fileID: 3801293847822662318}
   profileImage: {fileID: 8726582762097752273}
   portraitRawImage: {fileID: 0}
   progressPercentageText: {fileID: 7320665086965146684}

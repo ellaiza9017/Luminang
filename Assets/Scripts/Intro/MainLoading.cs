@@ -103,6 +103,15 @@ public class MainLoading : MonoBehaviour
         callerScene = SceneManager.GetActiveScene().name;
         Debug.Log("[MainLoading] PrepareAndShow - Target: " + sceneToLoad + ", Caller: " + callerScene);
         
+        // RESET VISUALS FOR SUBSEQUENT LOADS
+        if (loadingCanvasGroup != null) loadingCanvasGroup.alpha = 1f;
+
+        Camera ownCam = GetComponentInChildren<Camera>(true);
+        if (ownCam != null) ownCam.enabled = true;
+
+        UnityEngine.EventSystems.EventSystem ownEv = GetComponentInChildren<UnityEngine.EventSystems.EventSystem>(true);
+        if (ownEv != null) ownEv.enabled = true;
+
         StopAllCoroutines();
         StartCoroutine(LoadAsyncSequence());
     }

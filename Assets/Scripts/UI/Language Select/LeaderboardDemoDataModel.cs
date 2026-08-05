@@ -1,26 +1,39 @@
 using System;
 using System.Collections.Generic;
 
-[Serializable]
-public class LeaderboardDemoData
+/// <summary>
+/// Represents a single ranked player entry on the leaderboard.
+/// All data is derived from ProfileModel (the Supabase profiles table).
+/// Computed at runtime by LeaderboardService — never loaded from a JSON file.
+/// </summary>
+public class LeaderboardEntry
 {
-    public List<LeaderboardPlayer> players;
+    // --- Identity ---
+    public string ProfileId { get; set; }
+    public string Username { get; set; }
+    public string AvatarUrl { get; set; }
+
+    // --- Raw data from ProfileModel ---
+    public int OverallCoins { get; set; }
+    public DateTime? UsernameFinalizedAt { get; set; }
+    public DateTime? LastActive { get; set; }
+
+    // --- Computed from JSONB arrays ---
+    public int IlokanoObjectivesCompleted { get; set; }
+    public int CebuanoObjectivesCompleted { get; set; }
+    public int TotalObjectivesCompleted => IlokanoObjectivesCompleted + CebuanoObjectivesCompleted;
+
+    public List<string> UnlockedPhrasesIlokano { get; set; } = new List<string>();
+    public List<string> UnlockedPhrasesCebuano { get; set; } = new List<string>();
+    public int TotalPhrasesUnlocked => (UnlockedPhrasesIlokano?.Count ?? 0) + (UnlockedPhrasesCebuano?.Count ?? 0);
+
+    // --- Progress % ---
+    public float IlokanoProgress { get; set; }   // 0-100
+    public float CebuanoProgress { get; set; }   // 0-100
+    public float OverallProgress { get; set; }   // 0-100 (average)
+
+    // --- Leaderboard state ---
+    public int Rank { get; set; }
+    public bool IsCurrentPlayer { get; set; }
 }
 
-[Serializable]
-public class LeaderboardPlayer
-{
-    public string username;
-    public string picture;                   // Path to sprite or null
-    public int ilokano_lessons_completed;    // Out of TOTAL_LESSONS
-    public int cebuano_lessons_completed;    // Out of TOTAL_LESSONS
-    public int clothing_items_bought;
-    public int coins;
-    public string last_active;
-    public bool is_current_player;
-
-    // Computed at runtime by LeaderboardManager — NOT stored in JSON
-    [NonSerialized] public float ilokano_progress;   // 0–100
-    [NonSerialized] public float cebuano_progress;   // 0–100
-    [NonSerialized] public float overall_progress;   // 0–100
-}
