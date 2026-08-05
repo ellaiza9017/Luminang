@@ -90,6 +90,8 @@ public class QuestPathTracker : MonoBehaviour
     private static Material _generatedSparkleMat;
 
     private static bool _markersDirty = false;
+    
+    private TextMeshProUGUI _dynamicDistanceText;
 
     public static void NotifyMarkersChanged()
     {
@@ -253,10 +255,13 @@ public class QuestPathTracker : MonoBehaviour
 
         if (!_isVisible) return;
 
-        // Update UI distance if assigned
-        if (distanceText != null)
+        // Update UI distance (Dynamically create it if missing)
+        if (distanceText == null && _dynamicDistanceText == null) EnsureDistanceTextExists();
+
+        TextMeshProUGUI activeText = distanceText != null ? distanceText : _dynamicDistanceText;
+        if (activeText != null)
         {
-            distanceText.text = $"{Mathf.RoundToInt(distToTarget)}m";
+            activeText.text = $"{Mathf.RoundToInt(distToTarget)}m";
         }
 
         // Throttled NavMesh recalculation check
@@ -281,41 +286,40 @@ public class QuestPathTracker : MonoBehaviour
         Vector3 startPos = GetPlayerFeetPosition();
         Vector3 targetPos = _activeMarker.TargetPosition;
 
+        // Snap start and target positions to the nearest NavMesh surface
+        if (NavMesh.SamplePosition(startPos, out NavMeshHit startHit, 10.0f, NavMesh.AllAreas))
+        {
+            startPos = startHit.position;
+        }
+        if (NavMesh.SamplePosition(targetPos, out NavMeshHit targetHit, 10.0f, NavMesh.AllAreas))
+        {
+            targetPos = targetHit.position;
+        }
+
         _rawTargetPoints.Clear();
 
-        // 1. NavMesh path calculation
-        if (NavMesh.CalculatePath(startPos, targetPos, NavMesh.AllAreas, _navMeshPath) && 
-            (_navMeshPath.status == NavMeshPathStatus.PathComplete || _navMeshPath.status == NavMeshPathStatus.PathPartial))
+        // Always use the fallback straight-line method to go through objects
+        int samples = 8;
+        for (int i = 0; i <= samples; i++)
         {
-            Vector3[] corners = _navMeshPath.corners;
-            for (int i = 0; i < corners.Length; i++)
+            float t = i / (float)samples;
+            Vector3 lerpPos = Vector3.Lerp(startPos, targetPos, t);
+            
+            // Sample the navmesh vertically to stay flat against the ground
+            if (NavMesh.SamplePosition(lerpPos, out NavMeshHit hit, 5.0f, NavMesh.AllAreas))
             {
-                _rawTargetPoints.Add(corners[i] + Vector3.up * groundYOffset);
+                lerpPos = hit.position + Vector3.up * groundYOffset;
             }
-        }
-        else
-        {
-            // 2. Fallback: Raycasted ground points
-            int samples = 8;
-            for (int i = 0; i <= samples; i++)
+            else
             {
-                float t = i / (float)samples;
-                Vector3 lerpPos = Vector3.Lerp(startPos, targetPos, t);
-                if (Physics.Raycast(lerpPos + Vector3.up * 5f, Vector3.down, out RaycastHit hit, 10f))
-                {
-                    lerpPos.y = hit.point.y + groundYOffset;
-                }
-                else
-                {
-                    lerpPos.y += groundYOffset;
-                }
-                _rawTargetPoints.Add(lerpPos);
+                lerpPos.y = startPos.y + groundYOffset; // Keep it flat if all else fails
             }
+            
+            _rawTargetPoints.Add(lerpPos);
         }
 
         FilterTargetPointsToMaxDistance(maxTrailDistance);
 
-        // If path points empty, sync immediately
         if (_pathPoints.Count == 0)
         {
             _pathPoints.AddRange(_rawTargetPoints);
@@ -325,7 +329,9 @@ public class QuestPathTracker : MonoBehaviour
     private Vector3 GetPlayerFeetPosition()
     {
         Vector3 startPos = playerTransform.position;
-        if (Physics.Raycast(startPos + Vector3.up * 1f, Vector3.down, out RaycastHit feetHit, 5f))
+        int layerMask = ~(1 << playerTransform.gameObject.layer); // Ignore the player's own layer
+        
+        if (Physics.Raycast(startPos + Vector3.up * 1f, Vector3.down, out RaycastHit feetHit, 5f, layerMask))
         {
             return feetHit.point + Vector3.up * groundYOffset;
         }
@@ -424,7 +430,9 @@ public class QuestPathTracker : MonoBehaviour
             pos.y += hoverY;
 
             float twinkle = 0.5f + 0.5f * Mathf.Sin((Time.time * hoverSpeed * 1.4f) + phase * 2f);
-            float fadeEdge = Mathf.Sin(Mathf.Clamp01(fraction) * Mathf.PI);
+            
+            // Stay fully visible near the player, and only fade out at the very end of the trail
+            float fadeEdge = Mathf.Clamp01((1.0f - fraction) * 4f);
 
             Color col = Color.Lerp(sparkleColorStart, sparkleColorEnd, fraction);
             col.a = fadeEdge * twinkle * 0.95f;
@@ -469,6 +477,41 @@ public class QuestPathTracker : MonoBehaviour
         return _pathPoints[_pathPoints.Count - 1];
     }
 
+    private void EnsureDistanceTextExists()
+    {
+        if (distanceText != null || _dynamicDistanceText != null) return;
+        if (ObjectiveManager.Instance == null || ObjectiveManager.Instance.objectiveText == null) return;
+
+        TextMeshProUGUI objText = ObjectiveManager.Instance.objectiveText;
+
+        // Create the new text object
+        GameObject distObj = new GameObject("QuestDistanceText");
+        distObj.transform.SetParent(objText.transform.parent, false);
+
+        _dynamicDistanceText = distObj.AddComponent<TextMeshProUGUI>();
+        
+        // Copy styling
+        _dynamicDistanceText.font = objText.font;
+        _dynamicDistanceText.fontSize = objText.fontSize * 0.9f; 
+        _dynamicDistanceText.alignment = objText.alignment;
+        _dynamicDistanceText.color = Color.yellow;
+        
+        // Positioning
+        RectTransform rt = _dynamicDistanceText.GetComponent<RectTransform>();
+        RectTransform objRt = objText.GetComponent<RectTransform>();
+        
+        // Match anchors/pivot
+        rt.anchorMin = objRt.anchorMin;
+        rt.anchorMax = objRt.anchorMax;
+        rt.pivot = objRt.pivot;
+        
+        // Position directly below ObjectiveText
+        rt.anchoredPosition = objRt.anchoredPosition + new Vector2(0, -35f);
+        rt.sizeDelta = objRt.sizeDelta;
+        
+        _dynamicDistanceText.gameObject.SetActive(_isVisible);
+    }
+
     private void SetVisibility(bool visible)
     {
         _isVisible = visible;
@@ -488,6 +531,10 @@ public class QuestPathTracker : MonoBehaviour
         if (distanceText != null)
         {
             distanceText.gameObject.SetActive(visible);
+        }
+        if (_dynamicDistanceText != null)
+        {
+            _dynamicDistanceText.gameObject.SetActive(visible);
         }
     }
 

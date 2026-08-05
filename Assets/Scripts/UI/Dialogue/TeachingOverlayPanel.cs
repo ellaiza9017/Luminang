@@ -86,8 +86,12 @@ public class TeachingOverlayPanel : MonoBehaviour
     // Public API
     // ─────────────────────────────────────────────────────────────────
 
+    public bool isManuallyShown = false;
+
     public void ShowFromEvent(string eventName)
     {
+        isManuallyShown = true;
+
         string autoWord = "";
         if (DialogueManager.Instance != null && DialogueManager.Instance.PendingSTTChoice != null)
         {
@@ -118,6 +122,7 @@ public class TeachingOverlayPanel : MonoBehaviour
 
     public void ShowCustomText(string text)
     {
+        isManuallyShown = true;
         gameObject.SetActive(true);
 
         if (backgroundImage != null) backgroundImage.gameObject.SetActive(false); // Hide bird
@@ -152,25 +157,23 @@ public class TeachingOverlayPanel : MonoBehaviour
 
         EnsureSpeechEngineDependencies();
 
+        // Match STT_TestScene behavior: always set region to Cebuano for Magellan scene lessons
+        if (PhraseEvaluator.Instance != null)
+            PhraseEvaluator.Instance.SetRegion(RegionMode.Cebuano);
+
         if (backgroundImage != null)
         {
-            Sprite found = null;
             if (!string.IsNullOrEmpty(backgroundName))
-                found = FindBackground(backgroundName);
-
-            // Fall back to first sprite if name not matched
-            if (found == null && backgroundOptions != null && backgroundOptions.Length > 0)
-                found = backgroundOptions[0];
-
-            if (found != null)
             {
-                backgroundImage.gameObject.SetActive(true);
-                ChangeBackground(found);
+                Sprite found = FindBackground(backgroundName);
+                if (found != null) 
+                {
+                    backgroundImage.gameObject.SetActive(true);
+                    ChangeBackground(found);
+                }
             }
-            else
-            {
-                backgroundImage.gameObject.SetActive(false);
-            }
+            // If backgroundName is empty, DO NOT hide the background.
+            // This allows the background to persist across multiple STT nodes!
         }
 
         ResetPromptText();
@@ -184,17 +187,31 @@ public class TeachingOverlayPanel : MonoBehaviour
 
         SetMicState(false);
 
-        // Hide mic entirely if there is no target word to speak
+        // Check if device even has a microphone!
+        bool hasMic = Microphone.devices.Length > 0;
         bool hasSttWord = !string.IsNullOrEmpty(_targetWord);
+
         if (micButton != null)
         {
-            micButton.gameObject.SetActive(hasSttWord);
-            if (hasSttWord)
+            if (hasSttWord && hasMic)
             {
+                micButton.gameObject.SetActive(true);
                 micButton.interactable = true;
                 micButton.onClick.RemoveAllListeners();
                 micButton.onClick.AddListener(OnMicButtonTapped);
             }
+            else
+            {
+                micButton.gameObject.SetActive(false);
+            }
+        }
+
+        if (hasSttWord && !hasMic)
+        {
+            // Auto skip if no mic to prevent softlock
+            if (promptText != null)
+                promptText.text = "<color=#FF5555>No microphone detected!\nAuto-skipping check...</color>";
+            StartCoroutine(AutoSkipNoMic());
         }
 
         HideMovementControls(true);
@@ -217,6 +234,7 @@ public class TeachingOverlayPanel : MonoBehaviour
 
     public void Hide()
     {
+        isManuallyShown = false;
         if (!gameObject.activeInHierarchy) return;
         StopAllCoroutines();
         StartCoroutine(FadeOut());
@@ -236,6 +254,13 @@ public class TeachingOverlayPanel : MonoBehaviour
     // ─────────────────────────────────────────────────────────────────
     // Direct STT Flow (Matching STTGameController)
     // ─────────────────────────────────────────────────────────────────
+
+    private IEnumerator AutoSkipNoMic()
+    {
+        yield return new WaitForSeconds(3f);
+        // Simulate a perfect transcription of the target word
+        OnTranscriptionSuccess(_targetWord);
+    }
 
     private void OnMicButtonTapped()
     {
@@ -295,18 +320,24 @@ public class TeachingOverlayPanel : MonoBehaviour
 
         if (!string.IsNullOrEmpty(filePath))
         {
-            string langCode = "";
-            if (PhraseEvaluator.Instance != null && PhraseEvaluator.Instance.CurrentRegion == RegionMode.Cebuano)
-                langCode = "ceb";
-            else if (PhraseEvaluator.Instance != null && PhraseEvaluator.Instance.CurrentRegion == RegionMode.Ilokano)
-                langCode = "tl";
+            if (GroqWhisperManager.Instance != null)
+            {
+                string langCode = "";
+                if (PhraseEvaluator.Instance != null && PhraseEvaluator.Instance.CurrentRegion == RegionMode.Cebuano)
+                    langCode = "ceb";
+                else if (PhraseEvaluator.Instance != null && PhraseEvaluator.Instance.CurrentRegion == RegionMode.Ilokano)
+                    langCode = "tl";
 
-            GroqWhisperManager.Instance.Transcribe(filePath, OnTranscriptionSuccess, OnTranscriptionError, "", langCode);
+                GroqWhisperManager.Instance.Transcribe(filePath, OnTranscriptionSuccess, OnTranscriptionError, "", langCode);
+            }
         }
         else
         {
             if (promptText != null)
-                promptText.text = "<color=#FF7777>Recording failed. Tap to try again.</color>";
+                promptText.text = "<color=#FF5555>Recording failed. Tap to try again.</color>";
+                
+            // CRITICAL: Re-enable the mic button so they can try again!
+            if (micButton != null) micButton.interactable = true;
         }
     }
 

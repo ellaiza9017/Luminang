@@ -26,6 +26,10 @@ public class InteractableNPC : InteractableBase
     [Tooltip("List of special dialogues that only trigger during specific quest objectives.")]
     public List<QuestDialogue> questDialogues = new List<QuestDialogue>();
 
+    [Header("Visibility Settings")]
+    [Tooltip("If true, the NPC is completely hidden (mesh and colliders disabled) until their quest objective is active.")]
+    public bool hideUntilObjective = false;
+
     public Animator npcAnimator;
 
     [Header("One-Time Interaction")]
@@ -42,22 +46,6 @@ public class InteractableNPC : InteractableBase
     [Header("Events")]
     public UnityEvent OnDialogueEnd;
     public UnityEvent OnWrongAnswer;
-
-        #if UNITY_EDITOR
-    protected virtual void Awake()
-    {
-        if (defaultDialogue == null)
-        {
-            string cleanName = gameObject.name.Replace("_Rigged", "");
-            string assetPath = $"Assets/Dialogues/CalleCrisologo_New/{cleanName}_Node_0.asset";
-            defaultDialogue = UnityEditor.AssetDatabase.LoadAssetAtPath<DialogueNode>(assetPath);
-            if (defaultDialogue != null) 
-            {
-                Debug.Log($"[InteractableNPC] Successfully loaded fallback dialogue for {cleanName} via AssetDatabase!");
-            }
-        }
-    }
-    #endif
 
     public override void Interact()
     {
@@ -119,6 +107,12 @@ public class InteractableNPC : InteractableBase
         {
             interactionEnabled = false; // Disable if no animator on start
         }
+
+        if (hideUntilObjective)
+        {
+            SetVisibility(false);
+            interactionEnabled = false;
+        }
     }
 
     protected override void OnEnable()
@@ -136,6 +130,8 @@ public class InteractableNPC : InteractableBase
     private void HandleObjective(string obj)
     {
         if (string.IsNullOrEmpty(obj)) return;
+        
+        bool isTarget = false;
 
         // First check if any questDialogue matches this objective directly
         if (questDialogues != null)
@@ -144,20 +140,21 @@ public class InteractableNPC : InteractableBase
             {
                 if (!string.IsNullOrEmpty(qd.requiredObjective) && obj.StartsWith(qd.requiredObjective, System.StringComparison.OrdinalIgnoreCase))
                 {
-                    if (npcAnimator != null) interactionEnabled = true;
-                    if (InteractionManager.Instance != null) InteractionManager.Instance.ForceCheckProximity();
-                    return;
+                    isTarget = true;
+                    break;
                 }
             }
         }
 
-        // The linear story sets objectives like "Talk to Kyros" or "Return to Kalaw" or "Talk to Tiptip"
-        if (obj.StartsWith("Talk to ", System.StringComparison.OrdinalIgnoreCase) || 
-            obj.StartsWith("Return to ", System.StringComparison.OrdinalIgnoreCase))
+        // Check implicit targeting if not already found in questDialogues
+        if (!isTarget && (obj.StartsWith("Talk to ", System.StringComparison.OrdinalIgnoreCase) || 
+            obj.StartsWith("Return to ", System.StringComparison.OrdinalIgnoreCase) ||
+            obj.StartsWith("Meet ", System.StringComparison.OrdinalIgnoreCase)))
         {
-            string targetName = obj.StartsWith("Talk to ", System.StringComparison.OrdinalIgnoreCase) 
-                ? obj.Substring("Talk to ".Length).Trim() 
-                : obj.Substring("Return to ".Length).Trim();
+            string targetName = obj;
+            if (obj.StartsWith("Talk to ", System.StringComparison.OrdinalIgnoreCase)) targetName = obj.Substring("Talk to ".Length).Trim();
+            else if (obj.StartsWith("Return to ", System.StringComparison.OrdinalIgnoreCase)) targetName = obj.Substring("Return to ".Length).Trim();
+            else if (obj.StartsWith("Meet ", System.StringComparison.OrdinalIgnoreCase)) targetName = obj.Substring("Meet ".Length).Trim();
             
             string cleanTarget = targetName.Replace(" ", "").Replace("_", "").ToLower();
             string cleanName = gameObject.name.Replace(" ", "").Replace("_", "").ToLower()
@@ -175,29 +172,27 @@ public class InteractableNPC : InteractableBase
                 if (isTiptipTarget && isTiptipName) isMatch = true;
             }
 
-            if (isMatch)
+            isTarget = isMatch;
+        }
+        
+        if (isTarget)
+        {
+            if (npcAnimator != null) interactionEnabled = true;
+            if (hideUntilObjective) SetVisibility(true);
+            if (InteractionManager.Instance != null) InteractionManager.Instance.ForceCheckProximity();
+        }
+        else
+        {
+            // Only disable interaction if we don't have defaultDialogue enabled
+            if (defaultDialogue == null)
             {
-                if (npcAnimator != null)
-                {
-                    interactionEnabled = true;
-                }
-                else
-                {
-                    interactionEnabled = false; // Block if missing animator
-                }
-                
-                if (InteractionManager.Instance != null)
-                {
-                    InteractionManager.Instance.ForceCheckProximity();
-                }
+                interactionEnabled = false;
             }
-            else
+            
+            if (hideUntilObjective)
             {
-                // Only disable if we don't have defaultDialogue enabled
-                if (defaultDialogue == null)
-                {
-                    interactionEnabled = false;
-                }
+                SetVisibility(false);
+                interactionEnabled = false;
             }
         }
     }
@@ -253,13 +248,26 @@ public class InteractableNPC : InteractableBase
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
         {
-            // Find the child object that usually holds the armature/mesh in StarterAssets
-            // Usually we just disable all SkinnedMeshRenderers or MeshRenderers
             var renderers = player.GetComponentsInChildren<Renderer>();
             foreach (var r in renderers)
             {
                 r.enabled = isVisible;
             }
+        }
+    }
+
+    private void SetVisibility(bool isVisible)
+    {
+        var renderers = GetComponentsInChildren<Renderer>();
+        foreach (var r in renderers)
+        {
+            r.enabled = isVisible;
+        }
+
+        var colliders = GetComponentsInChildren<Collider>();
+        foreach(var c in colliders)
+        {
+            c.enabled = isVisible;
         }
     }
 
@@ -423,79 +431,69 @@ public class InteractableNPC : InteractableBase
     {
         if (string.IsNullOrEmpty(eventName)) return;
         
-        string[] events = eventName.Split(',');
-        foreach(string evt in events)
+        string cleanEventName = eventName.Trim();
+        
+        // Forward the event to custom scripts (e.g. IrahCoolerLogic)
+        gameObject.SendMessage("OnDialogueEvent", cleanEventName, SendMessageOptions.DontRequireReceiver);
+
+        // NOTE: Logging is intentionally placed inside the match block below to avoid
+        // console spam — this method is called on ALL NPCs via the broadcast pattern.
+
+        // Automatic system handler for TeachingOverlayPanel events
+        if (cleanEventName.StartsWith("ShowTeachingPanel", System.StringComparison.OrdinalIgnoreCase))
         {
-            string cleanEventName = evt.Trim();
-            if (string.IsNullOrEmpty(cleanEventName)) continue;
-            // NOTE: Logging is intentionally placed inside the match block below to avoid
-            // console spam — this method is called on ALL NPCs via the broadcast pattern.
-            
-            // Automatic system handler for TeachingOverlayPanel events
+            if (TeachingOverlayPanel.Instance != null)
+            {
+                TeachingOverlayPanel.Instance.ShowFromEvent(cleanEventName);
+            }
+        }
+        else if (cleanEventName.Equals("HideTeachingPanel", System.StringComparison.OrdinalIgnoreCase))
+        {
+            if (TeachingOverlayPanel.Instance != null)
+            {
+                TeachingOverlayPanel.Instance.Hide();
+            }
+        }
+        else if (cleanEventName.StartsWith("SetObjective:", System.StringComparison.OrdinalIgnoreCase))
+        {
+            string newObjText = cleanEventName.Substring("SetObjective:".Length).Trim();
+            if (ObjectiveManager.Instance != null && !string.IsNullOrEmpty(newObjText))
+            {
+                ObjectiveManager.Instance.SetObjective(newObjText);
+            }
+        }
+        else if (cleanEventName.StartsWith("StartInSceneLesson", System.StringComparison.OrdinalIgnoreCase))
+        {
+            string camName = cleanEventName.Contains(":") ? cleanEventName.Split(':')[1].Trim() : "";
+            if (InSceneLessonController.Instance != null)
+            {
+                InSceneLessonController.Instance.StartInSceneLesson(camName);
+            }
+        }
+        else if (cleanEventName.StartsWith("ShowInSceneMic", System.StringComparison.OrdinalIgnoreCase))
+        {
+            string targetPhrase = cleanEventName.Contains(":") ? cleanEventName.Split(':')[1].Trim() : "";
+            if (InSceneLessonController.Instance != null)
+            {
+                InSceneLessonController.Instance.ShowInSceneMic(targetPhrase);
+            }
+        }
+        else if (cleanEventName.Equals("EndInSceneLesson", System.StringComparison.OrdinalIgnoreCase))
+        {
+            if (InSceneLessonController.Instance != null)
+            {
+                InSceneLessonController.Instance.EndInSceneLesson();
+            }
+        }
 
-            if (cleanEventName.StartsWith("ShowTeachingPanel", System.StringComparison.OrdinalIgnoreCase))
+        foreach (var mapping in dialogueEvents)
+        {
+            if (mapping.eventName != null && mapping.eventName.Trim() == cleanEventName)
             {
-                if (TeachingOverlayPanel.Instance != null)
-                {
-                    TeachingOverlayPanel.Instance.ShowFromEvent(cleanEventName);
-                }
+                Debug.Log($"[InteractableNPC] '{gameObject.name}' matched event '{cleanEventName}' — firing UnityEvent.");
+                mapping.onEventTriggered?.Invoke();
             }
-            else if (cleanEventName.StartsWith("HideTeachingPanel", System.StringComparison.OrdinalIgnoreCase))
-            {
-                if (TeachingOverlayPanel.Instance != null)
-                {
-                    TeachingOverlayPanel.Instance.Hide();
-                }
-            }
-            else if (cleanEventName.StartsWith("ShowPopup:", System.StringComparison.OrdinalIgnoreCase))
-            {
-                string popupName = cleanEventName.Substring("ShowPopup:".Length).Trim();
-                if (PopupManager.Instance != null && !string.IsNullOrEmpty(popupName))
-                {
-                    PopupManager.Instance.ShowPopups(popupName);
-                }
-            }
-            else if (cleanEventName.StartsWith("SetObjective:", System.StringComparison.OrdinalIgnoreCase))
-            {
-                string newObjText = cleanEventName.Substring("SetObjective:".Length).Trim();
-                if (ObjectiveManager.Instance != null && !string.IsNullOrEmpty(newObjText))
-                {
-                    ObjectiveManager.Instance.SetObjective(newObjText);
-                }
-            }
-            else if (cleanEventName.StartsWith("StartInSceneLesson", System.StringComparison.OrdinalIgnoreCase))
-            {
-                string camName = cleanEventName.Contains(":") ? cleanEventName.Split(':')[1].Trim() : "";
-                if (InSceneLessonController.Instance != null)
-                {
-                    InSceneLessonController.Instance.StartInSceneLesson(camName);
-                }
-            }
-            else if (cleanEventName.StartsWith("ShowInSceneMic", System.StringComparison.OrdinalIgnoreCase))
-            {
-                string targetPhrase = cleanEventName.Contains(":") ? cleanEventName.Split(':')[1].Trim() : "";
-                if (InSceneLessonController.Instance != null)
-                {
-                    InSceneLessonController.Instance.ShowInSceneMic(targetPhrase);
-                }
-            }
-            else if (cleanEventName.Equals("EndInSceneLesson", System.StringComparison.OrdinalIgnoreCase))
-            {
-                if (InSceneLessonController.Instance != null)
-                {
-                    InSceneLessonController.Instance.EndInSceneLesson();
-                }
-            }
-
-            foreach (var mapping in dialogueEvents)
-            {
-                if (mapping.eventName != null && mapping.eventName.Trim() == cleanEventName)
-                {
-                    Debug.Log($"[{gameObject.name}] Found mapping for event '{cleanEventName}'. Invoking associated UnityEvent.");
-                    mapping.onEventTriggered?.Invoke();
-                }
-            }
-        } // End foreach event loop
+        }
     }
 
     /// <summary>
@@ -598,4 +596,3 @@ public class DialogueEventMapping
     public string eventName;
     public UnityEvent onEventTriggered;
 }
-

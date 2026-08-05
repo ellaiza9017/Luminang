@@ -14,15 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Tiptip
   speakerPortrait: {fileID: 21300000, guid: c7eaae8ab4a991e4a944a73b6328db14, type: 3}
-  dialogueText: 'Ready to test your skills? Lola Bebang used to be a local here but
-    ever since moving to central Luzon, it''s been years since she had to speak cebuano. '
+  dialogueText: 'Ready to test your skills? '
   translatedText: 
   animationTrigger: 
   triggerEventName: 
   endEventName: 
   choices:
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: a6355f000feb62f42b56782b0db2dd83, type: 2}
+    nextNode: {fileID: 11400000, guid: da8f53d9ce7d0de409933c38c2d6dab9, type: 2}
     isWrong: 0
     choiceEvent: 
     expectedSTTWord: 

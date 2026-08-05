@@ -163,7 +163,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     InSceneLessonController.Instance.ClearPromptAndFeedbackUI();
                 }
-                if (TeachingOverlayPanel.Instance != null)
+                if (TeachingOverlayPanel.Instance != null && !TeachingOverlayPanel.Instance.isManuallyShown)
                 {
                     TeachingOverlayPanel.Instance.Hide();
                 }
@@ -255,7 +255,10 @@ public class DialogueManager : MonoBehaviour
             {
                 PendingMinigameChoice = choice;
                 _pendingMinigameNextNode = choice.nextNode; // Store nextNode NOW before any clone destroys the choice reference
-                if (uiController != null) uiController.HideChoicesOnly();
+                
+                // Hide the ENTIRE dialogue box (so it doesn't show during LoadingScene transitions)
+                if (uiController != null) uiController.HideDialogueForMinigame();
+                
                 // Broadcast to ALL NPCs — the one with this event mapped will respond
                 BroadcastDialogueEvent(choiceEventTrimmed);
                 Debug.Log($"<color=cyan>[DialogueManager] StartMinigame event fired ('{choiceEventTrimmed}'). Next node: '{(choice.nextNode != null ? choice.nextNode.name : "NULL")}'. Dialogue PAUSED until CompleteMinigame() is called.</color>");

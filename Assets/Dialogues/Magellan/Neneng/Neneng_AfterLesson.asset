@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Neneng_AfterLesson
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Neneng
+  speakerPortrait: {fileID: 0}
+  dialogueText: Wow! You're really good at counting! From usa all the way to pulo,
+    you learned ten Cebuano numbers!
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 5a0e63d1b17ebbd4e8084d345543ba83, type: 2}
+    isWrong: 0
+    choiceEvent: EndInSceneLesson
+    expectedSTTWord: 

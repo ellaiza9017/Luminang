@@ -117,6 +117,13 @@ public class InSceneLessonController : MonoBehaviour
         if (_currentNPC != null)
             _currentAnimator = _currentNPC.npcAnimator;
 
+        // If explicitly requested "None", skip all camera panning
+        if (cameraName.Equals("None", System.StringComparison.OrdinalIgnoreCase))
+        {
+            Debug.Log("[InSceneLessonController] Starting lesson with NO camera pan (cameraName = None).");
+            return;
+        }
+
         // Find the close-up camera object — used as a transform target only
         _currentCloseUpCam = FindCameraInScene(cameraName);
         if (_currentCloseUpCam == null) _currentCloseUpCam = defaultCloseUpCamera;

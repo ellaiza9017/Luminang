@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Irah_Requests_Start 2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Irah
+  speakerPortrait: {fileID: 0}
+  dialogueText: Oh? How did you know to help me then? 'Tabangi ko!' Are you familiar
+    with cebuano request phrases? Would like to learn them?
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: Yes
+    nextNode: {fileID: 11400000, guid: d172f30cfd70b8841a337272724ffe66, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 
+  - choiceText: No
+    nextNode: {fileID: 11400000, guid: d9ba15d7bef828c49a588e2f9f0f9d92, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 

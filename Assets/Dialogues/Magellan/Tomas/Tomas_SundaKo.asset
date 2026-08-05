@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Tomas_SundaKo
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Tomas
+  speakerPortrait: {fileID: 21300000, guid: ba6dfb4f62658bd4f9bcd95d048fa112, type: 3}
+  dialogueText: Sometimes the easiest way to guide someone is to lead the way yourself.
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: ShowTeachingPanel:Sige
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 6d3fe9830411b5041a3578a325481379, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 

@@ -17,9 +17,15 @@ MonoBehaviour:
   m_Subtarget: 0
   m_PlatformId: b9b35072a6f44c2e863f17467ea3dc13
   m_PlatformBuildProfile:
-    rid: 2915159706644250625
-  m_OverrideGlobalSceneList: 0
-  m_Scenes: []
+    rid: 7537486558784127064
+  m_OverrideGlobalSceneList: 1
+  m_Scenes:
+  - m_enabled: 1
+    m_path: Assets/Scenes/Environments/Magellan's_Cross.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Loading/LoadingScene.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/MiniGames/FishingGameScene.unity
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
@@ -27,7 +33,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 2915159706644250625
+    - rid: 7537486558784127064
       type: {class: AndroidPlatformBuildSettings, ns: UnityEditor.Android, asm: UnityEditor.Android.Extensions}
       data:
         m_Development: 0

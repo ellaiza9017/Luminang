@@ -19,9 +19,4 @@ MonoBehaviour:
   animationTrigger: 
   triggerEventName: SetObjective:Help Lola Bebang
   endEventName: SetObjective:Help Lola Bebang
-  choices:
-  - choiceText: 
-    nextNode: {fileID: 0}
-    isWrong: 0
-    choiceEvent: 
-    expectedSTTWord: 
+  choices: []

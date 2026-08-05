@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Start 1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Lola Nida
+  speakerPortrait: {fileID: 0}
+  dialogueText: Welcome! I'm Lola Nida, the owner of this sari-sari store. Are you
+    here to buy anything?
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: Dili
+    nextNode: {fileID: 0}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 
+  - choiceText: Oo
+    nextNode: {fileID: 11400000, guid: d534d4cc601e77c479eab8d37bc03bc6, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 

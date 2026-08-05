@@ -15,10 +15,14 @@ MonoBehaviour:
   speakerName: Tiptip
   speakerPortrait: {fileID: 21300000, guid: c7eaae8ab4a991e4a944a73b6328db14, type: 3}
   dialogueText: Why don't you help them? Share what you've learned and guide them
-    when they get stuck. After all, one of the best ways to learn something is to
-    teach it to someone else!
+    when they get stuck.
   translatedText: 
   animationTrigger: 
-  triggerEventName: SetObjective:Find Mishang and help her
-  endEventName: SetObjective:Find Mishang and help her
-  choices: []
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 1bd7d45ef8f8d224db10a0fb9021bf9b, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 

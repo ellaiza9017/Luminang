@@ -18,10 +18,10 @@ MonoBehaviour:
   translatedText: 
   animationTrigger: Clap
   triggerEventName: ShowFloatingText:Excellent result!
-  endEventName: SetObjective:Explore Magellan's Cross
+  endEventName: 
   choices:
   - choiceText: 
-    nextNode: {fileID: 0}
+    nextNode: {fileID: 11400000, guid: f0d58fce275919c43996718fb8d78e83, type: 2}
     isWrong: 0
     choiceEvent: ShowPopup:complete_level1,welcome_level2
     expectedSTTWord: 

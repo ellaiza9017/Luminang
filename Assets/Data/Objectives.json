@@ -1,0 +1,181 @@
+{
+  "objectives": [
+    {
+      "category": "Intro",
+      "items": [
+        {
+          "id": "ceb_01",
+          "objective": "Look around for clues"
+        }
+      ]
+    },
+    {
+      "category": "Greetings",
+      "items": [
+        {
+          "id": "ceb_02",
+          "objective": "Talk to Tiptip"
+        },
+        {
+          "id": "ceb_03",
+          "objective": "Talk to Ellai"
+        },
+        {
+          "id": "ceb_04",
+          "objective": "Help Lola Bebang"
+        }
+      ]
+    },
+    {
+      "category": "Gratitude",
+      "items": [
+        {
+          "id": "ceb_05",
+          "objective": "Go meet Mar"
+        },
+        {
+          "id": "ceb_06",
+          "objective": "Teach Wayne polite Cebuano expressions"
+        }
+      ]
+    },
+    {
+      "category": "Responses",
+      "items": [
+        {
+          "id": "ceb_07",
+          "objective": "Find Jom and learn the Cebuano responses"
+        },
+        {
+          "id": "ceb_08",
+          "objective": "Find Mishang and help her"
+        }
+      ]
+    },
+    {
+      "category": "Identity",
+      "items": [
+        {
+          "id": "ceb_09",
+          "objective": "Get to know Sally"
+        },
+        {
+          "id": "ceb_10",
+          "objective": "Converse with Ronnie"
+        }
+      ]
+    },
+    {
+      "category": "Requests",
+      "items": [
+        {
+          "id": "ceb_11",
+          "objective": "Find Irah to learn Requests"
+        },
+        {
+          "id": "ceb_12",
+          "objective": "Lend a Hand at the Cafe"
+        }
+      ]
+    },
+    {
+      "category": "Directions",
+      "items": [
+        {
+          "id": "ceb_13",
+          "objective": "Find Your Guide, Lito"
+        },
+        {
+          "id": "ceb_14",
+          "objective": "Meet Tomas at the Craft Yard"
+        },
+        {
+          "id": "ceb_15",
+          "objective": "Guide Rodrick to his destination"
+        }
+      ]
+    },
+    {
+      "category": "Count",
+      "items": [
+        {
+          "id": "ceb_16",
+          "objective": "Come play with Neneng"
+        },
+        {
+          "id": "ceb_17",
+          "objective": "Find Kyros at the fishball stall"
+        }
+      ]
+    },
+    {
+      "category": "Action Verbs",
+      "items": [
+        {
+          "id": "ceb_18",
+          "objective": "Visit Aling Riza at the bakery"
+        },
+        {
+          "id": "ceb_19",
+          "objective": "Deliver the pan de coco to Mang Lance"
+        },
+        {
+          "id": "ceb_20",
+          "objective": "Return to Aling Riza"
+        },
+        {
+          "id": "ceb_21",
+          "objective": "Head back to the Police Station"
+        }
+      ]
+    },
+    {
+      "category": "Linking Verbs",
+      "items": [
+        {
+          "id": "ceb_22",
+          "objective": "Meet Rayo the Word Connector"
+        },
+        {
+          "id": "ceb_23",
+          "objective": "Find Klara at the garden"
+        }
+      ]
+    },
+    {
+      "category": "Pronouns",
+      "items": [
+        {
+          "id": "ceb_24",
+          "objective": "Come Meet Lina!"
+        },
+        {
+          "id": "ceb_25",
+          "objective": "Talk to Lina's teammate"
+        }
+      ]
+    },
+    {
+      "category": "Interrogatives",
+      "items": [
+        {
+          "id": "ceb_26",
+          "objective": "Meet the curious Jen"
+        },
+        {
+          "id": "ceb_27",
+          "objective": "Join Dave's Question Quest!"
+        }
+      ]
+    },
+    {
+      "category": "Assessment",
+      "items": [
+        {
+          "id": "ceb_28",
+          "objective": "Meet Tiptip at Magellan's Cross"
+        }
+      ]
+    }
+  ]
+}

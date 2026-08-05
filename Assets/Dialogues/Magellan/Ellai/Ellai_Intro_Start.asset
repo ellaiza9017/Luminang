@@ -15,20 +15,14 @@ MonoBehaviour:
   speakerName: Ellai
   speakerPortrait: {fileID: 21300000, guid: b96d8c4f1b10b3e49acce404fb9d0f4c, type: 3}
   dialogueText: 'Maayong aldaw, traveler! Tiptip tweeted that a new adventurer was
-    exploring Cebu! I guess that''s you. Would you like to learn how to greet in
-    our words? '
+    exploring Cebu! I guess that''s you. '
   translatedText: 
   animationTrigger: 
-  triggerEventName: StoryQuest
+  triggerEventName: 
   endEventName: 
   choices:
-  - choiceText: Yes
-    nextNode: {fileID: 11400000, guid: 6c7fbbd2d94e8d64394b8923b150b711, type: 2}
-    isWrong: 0
-    choiceEvent: 
-    expectedSTTWord: 
-  - choiceText: No
-    nextNode: {fileID: 11400000, guid: 59ae9163fc173f141a3684238dab7447, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 65aa18422f4b98a4ca72b98b0c591536, type: 2}
     isWrong: 0
     choiceEvent: 
     expectedSTTWord: 

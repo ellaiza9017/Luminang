@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: AlingRiza_adto
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Aling Riza
+  speakerPortrait: {fileID: 0}
+  dialogueText: Adventurers like you are always on the move, going from place to
+    place!
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: ShowTeachingPanel:go
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 6dfeedcfe23f8ed4f9f7615a81687003, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 

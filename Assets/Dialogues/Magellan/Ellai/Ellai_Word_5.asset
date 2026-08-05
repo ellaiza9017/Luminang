@@ -15,15 +15,14 @@ MonoBehaviour:
   speakerName: Ellai
   speakerPortrait: {fileID: 21300000, guid: e0eb872fb28ba424f909f04b2cf1a3c0, type: 3}
   dialogueText: "In Cebu, the day starts and ends with greetings. \"Maayong aldaw\"
-    \u2014 meaning good day \u2014 is the one that fills the afternoon air. Ready
-    to give it a try? "
+    \u2014 meaning good day \u2014 is the one that fills the afternoon air. "
   translatedText: 
   animationTrigger: 
   triggerEventName: maayongAldaw
   endEventName: 
   choices:
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 8387db705136bda4eb758d0d56e43fd0, type: 2}
+    nextNode: {fileID: 11400000, guid: c97b31ef5f983e0498ec4481edab1a77, type: 2}
     isWrong: 0
     choiceEvent: 
-    expectedSTTWord: Maayong aldaw
+    expectedSTTWord: 

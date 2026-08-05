@@ -163,10 +163,11 @@ public class PopupManager : MonoBehaviour
             clickPromptText.text = "Click anywhere to continue";
         }
 
+        if (canvasGroup != null) canvasGroup.blocksRaycasts = true;
+        
         if (_fadeCoroutine != null) StopCoroutine(_fadeCoroutine);
-        _fadeCoroutine = StartCoroutine(FadeRoutine(1f, () => {
-            // Block clicks until fade in is mostly done
-            if (canvasGroup != null) canvasGroup.blocksRaycasts = true;
+        _fadeCoroutine = StartCoroutine(FadeRoutine(1f, fadeDuration, () => {
+            // Fade in complete
         }));
 
         MarkPopupAsShown(nextPopupName);
@@ -181,7 +182,7 @@ public class PopupManager : MonoBehaviour
         if (canvasGroup != null) canvasGroup.blocksRaycasts = false;
 
         if (_fadeCoroutine != null) StopCoroutine(_fadeCoroutine);
-        _fadeCoroutine = StartCoroutine(FadeRoutine(0f, () => {
+        _fadeCoroutine = StartCoroutine(FadeRoutine(0f, 1f, () => {
             // Check if there's another one in the queue after this one finishes fading out
             ShowNextPopup();
         }));
@@ -197,7 +198,7 @@ public class PopupManager : MonoBehaviour
         callback?.Invoke();
     }
 
-    private System.Collections.IEnumerator FadeRoutine(float targetAlpha, Action onComplete = null)
+    private System.Collections.IEnumerator FadeRoutine(float targetAlpha, float duration, Action onComplete = null)
     {
         if (canvasGroup == null)
         {
@@ -215,10 +216,10 @@ public class PopupManager : MonoBehaviour
         float startAlpha = canvasGroup.alpha;
         float elapsed = 0f;
 
-        while (elapsed < fadeDuration)
+        while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsed / fadeDuration);
+            canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsed / duration);
             yield return null;
         }
 
