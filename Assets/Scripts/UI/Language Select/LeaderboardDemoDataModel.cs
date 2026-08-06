@@ -23,6 +23,9 @@ public class LeaderboardEntry
     public int CebuanoObjectivesCompleted { get; set; }
     public int TotalObjectivesCompleted => IlokanoObjectivesCompleted + CebuanoObjectivesCompleted;
 
+    public int IlokanoLessonsCompleted { get; set; }
+    public int CebuanoLessonsCompleted { get; set; }
+
     public List<string> UnlockedPhrasesIlokano { get; set; } = new List<string>();
     public List<string> UnlockedPhrasesCebuano { get; set; } = new List<string>();
     public int TotalPhrasesUnlocked => (UnlockedPhrasesIlokano?.Count ?? 0) + (UnlockedPhrasesCebuano?.Count ?? 0);

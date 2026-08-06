@@ -39,9 +39,9 @@ public class LeaderboardDetailsManager : MonoBehaviour
         if (overallProgressText != null) overallProgressText.text = $"{entry.OverallProgress:F1}%";
         if (coinsText != null) coinsText.text = $"{entry.OverallCoins.ToString("N0")} Coins";
         if (ilokanoProgressText != null) ilokanoProgressText.text = $"{entry.IlokanoProgress:F1}%";
-        if (ilokanoLessonsText != null) ilokanoLessonsText.text = $"{entry.IlokanoObjectivesCompleted} / {LeaderboardService.MAX_OBJECTIVES_PER_LANGUAGE}";
+        if (ilokanoLessonsText != null) ilokanoLessonsText.text = $"{entry.IlokanoLessonsCompleted} / 12";
         if (cebuanoProgressText != null) cebuanoProgressText.text = $"{entry.CebuanoProgress:F1}%";
-        if (cebuanoLessonsText != null) cebuanoLessonsText.text = $"{entry.CebuanoObjectivesCompleted} / {LeaderboardService.MAX_OBJECTIVES_PER_LANGUAGE}";
+        if (cebuanoLessonsText != null) cebuanoLessonsText.text = $"{entry.CebuanoLessonsCompleted} / 12";
         
         // Compute relative active time
         if (lastActiveText != null)

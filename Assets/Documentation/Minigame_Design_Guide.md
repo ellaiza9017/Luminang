@@ -1,6 +1,6 @@
-﻿# 🎮 Luminang — Mini-Game Design Guide
+# 🎮 Luminang — Mini-Game Design Guide
 
-> **Last Updated:** July 2026  
+> **Last Updated:** August 2026  
 > **Purpose:** Reference document for all planned lesson mini-games, their mechanics, STT integration, and spaced recall rules.
 
 ---
@@ -69,6 +69,14 @@ Player sees question/situation
 
 ---
 
+## 💡 Question Clarity Rule (For Similar Words)
+
+Some words are very alike (e.g., "thank you" vs "thank you so much"). To prevent players from confusing them, the questions must be unmistakable.
+- **Rule:** Questions must use clear descriptions, intended usages, AND highly specific situations combined.
+- **Example Prompt:** "You are extremely grateful because someone saved your life. What do you say?" -> Answer: Thank you very much (Agyamanak unay).
+
+---
+
 ## 📚 Lesson Mini-Game Breakdown
 
 ---
@@ -100,77 +108,65 @@ Player sees question/situation
 ---
 
 #### L2 — Expressions of Gratitude
-**🎁 Mini-Game: "Salamat Sorter" (Gift Wrap Rush)**
+**🃏 Mini-Game: "Ano Ang Sasabihin Mo?" (Reaction Cards)**
 
-**Theme:** A gift shop at a local fiesta. NPCs bring gifts one by one.
+**Theme:** A deck of situational cards presenting diverse, real-world cultural moments.
 
 **Gameplay:**
-- NPCs hand the player gifts one after another
-- For each gift, player must pick the correct response phrase (thank you / sorry / excuse me) from floating ribbon options
-- Correct choice wraps the gift with a ribbon animation
-- Wrong choice drops and breaks the gift
-- Beat the timer to wrap all gifts before the fiesta starts
+- A "Situation Card" appears in the center with a highly specific context and description (e.g., "A neighbor spent 5 hours fixing your roof. Express extreme gratitude.").
+- 3 vocabulary options appear below it (e.g., "Thank you", "Thank you very much", "I am sorry").
+- Player taps the vocabulary card that perfectly matches the intensity of the situation.
+- The game tests nuances without locking them to a single environment.
 
 **STT Integration:**
-- Every 3rd gift, the ribbon options disappear — player must SPEAK the phrase directly via STT with no hint
-- This is the Bonus STT moment — success adds a golden ribbon to the gift
+- Confirm STT: After tapping the correct card, a mic appears. The player must speak the phrase to officially log their reaction.
 
 **Recall Round (L1):**
-- First gift scenario: "You arrive at the gift shop. Greet the shopkeeper!"
-- Player must say or pick a greeting before the main game begins
+- 1 or 2 situation cards will present a greeting scenario (e.g., "You enter a shop in the morning. Greet the vendor!").
 
-**Win Condition:** Wrap 7/10 gifts + complete at least 1 STT moment
+**Win Condition:** Correctly react to 8/10 situations + pass all STT checks.
 
 ---
 
 #### L3 — Responses (Yes / No / Maybe)
-**🪃 Mini-Game: "Oo o Dili?" (Whack-a-Word)**
+**🥘 Mini-Game: "Turo-Turo Eatery" (Swipe Cards)**
 
-**Theme:** A town plaza. Word moles pop out of holes in the ground.
+**Theme:** A classic Carinderia (Turo-Turo) setting. A vendor offers you exotic local foods (Balut, Bagnet, Lechon).
 
 **Gameplay:**
-- A situation is shown at the top: "Someone offers you food. Do you want it?"
-- Response words pop out of holes rapidly (oo, dili, basin, sige, etc.)
-- Player whacks ONLY the correct response word(s)
-- Wrong hits = buzzer + red flash
-- Gets faster each round
-- 8 situations total
+- The vendor holds up a dish and a prompt appears: "The vendor offers you Balut. You really want it! What do you say?"
+- A card with the food appears in the center.
+- Tinder-style swiping: Swipe RIGHT to say "Oo" (Yes), swipe LEFT to say "Dili/Saan" (No).
 
 **STT Integration:**
-- After each correct whack, a STT mic bubble appears above the mole hole
-- Player must SPEAK the word before the mole goes back down (3-second window)
-- Speaking it correctly scores double points
+- Confirm STT: After swiping, the player must speak the word they chose to lock in the swipe and move to the next dish.
 
 **Recall Round (L1–L2):**
-- 2 situations use greeting or gratitude words as the correct answer
-- "Someone says good morning to you. What do you say back?" → player whacks a greeting word
+- The vendor greets you when you arrive (L1 Recall).
+- The vendor gives you a free extra serving; you must express extreme gratitude (L2 Recall).
 
-**Win Condition:** 6/8 correct + at least 4 STT confirmations
+**Win Condition:** Successfully accept/reject 8 dishes + 100% STT confirmation.
 
 ---
 
 #### L4 — Identity Expressions
-**🎤 Mini-Game: "Who Are You?" (Introductions Spotlight)**
+**💬 Mini-Game: "Sari-Sari Chismis" (Chat Bubbles)**
 
-**Theme:** A stage at a local cultural show. Crowd watching, NPC host with a mic.
+**Theme:** Buying snacks at a Sari-Sari store while the vendor asks nosy questions (a classic Filipino experience!).
 
 **Gameplay:**
-- Player character stands on a spotlight stage
-- NPC host asks questions: "What's your name?", "Where are you from?"
-- Answer tiles light up around the stage — player taps the correct one
-- Correct answers light up the stage more; wrong answers dim the lights
-- Complete the full self-introduction to get a standing ovation
+- The vendor asks you questions in a text-message format: "What is your name?", "Where are you from?"
+- 3 "Chat Bubbles" pop up with full sentence responses.
+- Player taps the correct chat bubble that corresponds to their identity or the provided context.
 
 **STT Integration:**
-- This mini-game is primarily STT-driven — the host asks, player SPEAKS the answer
-- Tap choices are a fallback (appear after 3-second delay)
-- Full STT answers (no tap) earn bonus spotlight points
+- Confirm STT: After tapping the bubble, the player speaks the sentence to directly answer the nosy vendor.
 
 **Recall Round (L1–L3):**
-- The host greets the player first — player must respond (L1 recall)
-- At the end: host says "Salamat!" — player must respond correctly (L2 recall)
+- The vendor asks if you want a plastic bag; you must respond with Yes or No (L3 Recall).
+- You thank the vendor before leaving (L2 Recall).
 
-**Win Condition:** Complete full introduction + 3 STT answers
+**Win Condition:** Complete the full chismis conversation (6 questions) + all STT confirmed.
 
 ---
 
@@ -179,75 +175,64 @@ Player sees question/situation
 ---
 
 #### L5 — Requests
-**🛒 Mini-Game: "Palengke Panic" (Market Rush)**
+**🛒 Mini-Game: "Palengke Match" (Line Matching)**
 
-**Theme:** A crowded wet market. Vendors and customers everywhere.
+**Theme:** A busy wet market (Palengke). Vendors are shouting and customers have specific needs.
 
 **Gameplay:**
-- Customer NPCs appear with thought bubbles showing what they need
-- Player taps the correct request phrase card for each customer's need
-- Timer counts down — more customers served = higher score
-- 10 customers in 60 seconds
+- Left column shows 3 NPC portraits with thought bubbles detailing exactly what they need (e.g., "Needs to ask the price of the fish.").
+- Right column shows 3 request phrases.
+- Player draws a line connecting the specific need to the correct phrase.
 
 **STT Integration:**
-- Every time player taps a phrase, they must also SPEAK it before the customer accepts it
-- Customers have an impatience meter — speaking too slow = customer leaves
-- Trains players to recall AND say phrases quickly (real-world simulation)
+- After connecting a pair, the player must say the request out loud to officially serve the customer. 
 
 **Recall Round (L1–L4):**
-- 3 customers use previous lesson phrases
-- "A vendor greets you as you enter — respond!" (L1 recall)
-- "You bumped into someone — what do you say?" (L2 recall)
+- One of the customers asks for your name instead of an item (L4 Recall).
+- You accidentally bump into a vendor while walking (L2 Recall).
 
-**Win Condition:** Serve 7/10 customers + all answered with STT
+**Win Condition:** Connect and serve 3 sets of customers + all answered with STT.
 
 ---
 
 #### L6 — Directions
-**🚌 Mini-Game: "Jeepney Driver" (Route Navigation)**
+**🚌 Mini-Game: "Tricycle Dash" (Lane Tap)**
 
-**Theme:** Player drives a colorful jeepney through a Philippine town.
+**Theme:** Riding in the sidecar of a tricycle moving down a town road.
 
 **Gameplay:**
-- Passengers shout their destinations in English from the roadside
-- A road with left/right/straight/stop turns appears ahead
-- Player taps the correct directional word card at each turn
-- Miss a turn = wrong stop = unhappy passenger
-- 5 passengers, each with a 3-part route
+- The road scrolls downwards. Arrows indicating turns (Left, Right, Straight, Stop) approach a "hit zone" at the bottom of the screen.
+- A prompt at the top says: "Tell the driver to turn left!"
 
 **STT Integration:**
-- Player must SHOUT the direction word (STT) at each turn — like calling it out like a real driver
-- This is the primary input method — tap is only the fallback
-- Creates a fun "driving and shouting directions" experience
+- Answer STT: There are no buttons to tap! The player must SHOUT the correct directional word (via STT) right before the arrow hits the zone to make the tricycle turn.
 
 **Recall Round (L1–L5):**
-- A passenger asks something before boarding — player must respond with a request/greeting phrase
+- You must ask the driver how much the fare is (L5 Recall).
+- You greet the driver when you enter (L1 Recall).
 
-**Win Condition:** Deliver 4/5 passengers correctly + 10+ STT direction calls
+**Win Condition:** Successfully navigate 10 turns via voice commands.
 
 ---
 
 #### L7 — Count
-**🥭 Mini-Game: "Fruit Stand Flash" (Memory Count)**
+**🥭 Mini-Game: "Flashcard Frenzy" (Quick Memory)**
 
-**Theme:** A colorful fruit stand at a tiangge (local bazaar).
+**Theme:** A local tiangge (bazaar).
 
 **Gameplay:**
-- Vendor flashes a tray of fruits for 2 seconds, then covers it
-- Player must say or tap the correct number word for how many fruits they saw
-- Gets faster and uses larger numbers each round
-- 10 rounds total
+- A tray of fruits (e.g., 3 Mangoes) flashes on screen for 1 second, then is covered by a basket.
+- A prompt asks: "How many mangoes did you see?"
+- A numerical keypad appears. Player types the correct number.
 
 **STT Integration:**
-- Player SPEAKS the number word (STT) as their primary answer
-- Tap fallback appears after 3 seconds if STT is not triggered
-- Bonus: Vendor asks "Pila?" (How many?) — player speaks the number
+- Confirm STT: After typing the number, the player speaks the number word out loud to lift the basket and reveal if they were right.
 
 **Recall Round (L1–L6):**
-- Round 1: vendor greets the player — player responds (L1)
-- Mid-game: vendor asks player to "Wait!" — player must say the correct word (L5)
+- The vendor gives you the fruits; you must say thank you (L2 Recall).
+- The vendor asks if you want more (L3 Recall).
 
-**Win Condition:** 8/10 correct counts + 6+ STT answers
+**Win Condition:** 8/10 correct counts + 100% STT confirmation.
 
 ---
 
@@ -256,102 +241,82 @@ Player sees question/situation
 ---
 
 #### L8 — Action Verbs
-**🏃 Mini-Game: "Verb Relay Race"**
+**🏃 Mini-Game: "Simon Says" (Quick Tap)**
 
-**Theme:** A barangay sports relay race on a dirt track. Cheering crowd.
+**Theme:** A lively barangay sports fest.
 
 **Gameplay:**
-- Player character is at the starting line next to NPC runners
-- Referee shouts an English action (eat, sleep, go, come, drink)
-- Player taps the correct Ilokano/Cebuano verb card
-- Character performs the animated action and moves forward in the race
-- First to complete 5 correct verb actions wins
+- A large, clear icon of an action (e.g., a person eating) appears in the center of the screen with the prompt: "Command them to eat!"
+- A timer ticks down extremely fast (3 seconds).
 
 **STT Integration:**
-- Player must SPEAK the verb to trigger the character action — character won't move until STT confirmed
-- Wrong pronunciation = character stumbles and loses time
-- Creates a fun "shout to run" mechanic
+- Answer STT: The player must instantly shout the correct verb via STT to make the character perform the action and fill a combo bar. No buttons to tap!
 
 **Recall Round (L1–L7):**
-- Before the race: referee greets contestants — player responds (L1)
-- After winning: player thanks the referee (L2)
+- A number icon appears, requiring the player to shout the number (L7 Recall).
+- A direction arrow appears, requiring a direction shout (L6 Recall).
 
-**Win Condition:** Win the race (5 verbs fastest) + all STT confirmed
+**Win Condition:** Achieve a 10-action combo via STT before the timer runs out.
 
 ---
 
 #### L9 — Linking Verbs
-**🪞 Mini-Game: "Mirror Match" (Emotion Mirror)**
+**🪞 Mini-Game: "Fill the Blank" (Swipe Selection)**
 
-**Theme:** A dressing room with a large ornate mirror. NPC characters walk up to it.
+**Theme:** Constructing sentences logically on a chalkboard.
 
 **Gameplay:**
-- An NPC appears with a visible emotion/state (happy, tired, hungry, etc.)
 - A sentence with a blank appears: "Siya ___ malipayon."
-- Player taps the correct linking verb
-- The NPC reflects correctly in the mirror when right
-- Wrong answers shatter the mirror temporarily
+- A card with a linking word appears in the middle.
+- Player swipes right if the word perfectly completes the sentence, or swipes left if it is grammatically incorrect.
 
 **STT Integration:**
-- After tapping the verb, player must SPEAK the full sentence (not just the verb)
-- "Siya malipayon." — player speaks it, STT validates it
-- Correct full-sentence STT = mirror glows gold
+- Confirm STT: If swiped right, the player must speak the *entire* completed sentence to lock it in.
 
 **Recall Round (L1–L8):**
-- The NPC arriving at the mirror does an action first (action verb from L8) — player must identify it
+- Some sentences will test Action Verbs from the previous lesson (L8 Recall).
 
-**Win Condition:** 7/10 correct mirrors + 5 full-sentence STT
+**Win Condition:** Correctly sort 10 cards + speak 5 full sentences.
 
 ---
 
 #### L10 — Pronouns
-**👥 Mini-Game: "Crowd Pointer"**
+**👥 Mini-Game: "Photo Hunt" (Image Tap)**
 
-**Theme:** A fiesta crowd scene with many NPC characters visible.
+**Theme:** Looking at a family photo album.
 
 **Gameplay:**
-- A sentence appears with a blank pronoun: "___ dances well."
-- Player taps the correct person/group in the crowd
-  - One person = siya
-  - Player himself = ako
-  - Two+ people = sila
-  - Player + others = kita / kami
-- Crowd gets bigger and more complex each round
+- A flat illustration of a family gathering is shown. 
+- A highly descriptive prompt appears: "Tap the group of people EXCLUDING yourself."
+- Player taps the correct cluster of characters in the photo.
 
 **STT Integration:**
-- After tapping the group, player SPEAKS the full sentence with the correct pronoun
-- If STT is correct on first try, the selected NPCs do a little dance celebration
+- Confirm STT: After tapping, the player speaks the pronoun (e.g., "Sila" or "Kami") to confirm.
 
 **Recall Round (L1–L9):**
-- Sentences use verbs (L8), linking verbs (L9), and familiar earlier vocab
-- Forces players to use all grammar knowledge together
+- "Tap the person who is EATING" (L8 Recall).
 
-**Win Condition:** 8/12 correct groups + 6 full-sentence STT
+**Win Condition:** 8/12 correct groups + 6 full-sentence STT.
 
 ---
 
 #### L11 — Interrogatives
-**🕵️ Mini-Game: "Detective Quiz" (Mystery Investigation)**
+**🕵️ Mini-Game: "Secret Safe" (Dial Pad)**
 
-**Theme:** A mysterious old bahay na bato (Filipino stone house). Player is a detective.
+**Theme:** A mystery in an old Bahay na Bato.
 
 **Gameplay:**
-- A mystery scene is shown (e.g., a missing item from a market stall)
-- Clues are on a corkboard, each locked
-- To unlock each clue, player picks the correct question word (Who? What? Where? When? Why? How?)
-- Each unlocked clue reveals part of the mystery
-- Solve the full mystery before time runs out
+- A UI safe dial with question words (Who, What, Where, When, Why, How) around it. 
+- A highly specific clue is given: "Used when asking for a person's identity."
+- Player spins the dial to the correct word and taps "Unlock".
 
 **STT Integration:**
-- To unlock each clue, player SPEAKS the question word and the mini-question
-- "Kinsa? → Who took it?" — player speaks "Kinsa?" to unlock the clue
-- The detective's magnifying glass glows when STT is confirmed
+- Confirm STT: Speak the question word to fully turn the lock and open the safe.
 
 **Recall Round (L1–L10):**
-- One clue requires the player to respond to a greeting from a witness NPC (L1)
-- One clue requires a number question (L7 + L11 combo)
+- The safe contains an item; you must describe who owns it using a pronoun (L10 Recall).
 
-**Win Condition:** Solve the full mystery (unlock all 7 clues) + all STT confirmed
+**Win Condition:** Unlock all 5 clues + all STT confirmed.
 
 ---
 
@@ -360,27 +325,23 @@ Player sees question/situation
 ---
 
 #### L12 — Sentence Building
-**🧩 Mini-Game: "Build the Bridge" (Sentence Puzzle)**
+**🧩 Mini-Game: "Magnet Poetry" (UI Drag & Drop)**
 
-**Theme:** A wide river with two villages on either side. NPCs need to cross.
+**Theme:** Organizing thoughts on a visual board.
 
 **Gameplay:**
-- Word tiles float on the water: subjects, verbs, objects
-- Player drags and snaps them in the correct sentence order to build a bridge plank by plank
-- Wrong order = tiles sink into the water
-- Each bridge = one complete sentence
-- Build 5 bridges to let all NPCs cross
+- Scattered word blocks on screen (subjects, verbs, objects).
+- A prompt gives the exact English sentence to translate.
+- Empty slots sit at the top.
+- Player drags and drops the words into the slots in the correct grammatical order.
 
 **STT Integration:**
-- After each bridge is built, player SPEAKS the full sentence (STT) to solidify it
-- The NPC only crosses when the sentence is spoken correctly
-- Wrong pronunciation = NPC hesitates, player tries again
+- Confirm STT: Speak the full sentence to submit the answer for checking.
 
 **Recall Round (All lessons):**
-- Sentences include vocab from all previous chapters
-- This lesson IS the recall — it synthesizes everything learned
+- The sentences built here pull vocabulary from every single past chapter.
 
-**Win Condition:** Build all 5 bridges + speak all sentences via STT
+**Win Condition:** Build 5 complete sentences + speak all of them via STT.
 
 ---
 
@@ -389,25 +350,21 @@ Player sees question/situation
 ---
 
 #### L13 — Final Assessment
-**🏆 Mini-Game: "Festival Parade" (Full Gauntlet)**
+**🏆 Mini-Game: "The Gauntlet" (Rapid Fire Quiz)**
 
-**Theme:** A grand fiesta parade through town. Every float represents a past lesson.
+**Theme:** The ultimate fiesta challenge.
 
 **Gameplay:**
-- Floats pass by one after another, each representing a lesson chapter:
-  - Greetings float → fishing mechanic (L1 style)
-  - Gratitude float → gift sorting (L2 style)
-  - Directions float → quick direction tap (L6 style)
-  - Sentence float → drag-and-build (L12 style)
-- Each float throws 2–3 questions at the player
-- Correct answers add confetti and fireworks to the float
-- Wrong answers make the float dim
+- A fast-paced compilation of all the UI mechanics:
+  - Swipe Cards (from L3)
+  - Line Matching (from L5)
+  - Sentence Building (from L12)
+- Randomly throws highly-specific questions from ALL previous chapters.
 
 **STT Integration:**
-- Every single answer in this mini-game requires STT confirmation — no exceptions
-- This is the ultimate test of active speaking, not just recognition
+- Every single answer in this mini-game requires STT confirmation. This is the ultimate test of active speaking.
 
-**Win Condition:** Score 80%+ across all floats → Completion Badge ceremony
+**Win Condition:** Score 80%+ across all challenges to unlock the Completion Badge.
 
 ---
 
@@ -426,7 +383,7 @@ MinigameManager.StartMinigame()
 ```
 
 ### Recall Data Loading (Pseudo-code)
-```
+```csharp
 List<string> categoryKeysToLoad = GetAllPreviousCategories(currentLessonIndex);
 categoryKeysToLoad.Add(currentCategoryKey);
 var allVocab = await CurriculumManager.GetMatchingPairs(categoryKeysToLoad, languageId);

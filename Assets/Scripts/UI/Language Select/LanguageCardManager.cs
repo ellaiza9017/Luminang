@@ -95,8 +95,8 @@ public class LanguageCardManager : MonoBehaviour
         if (UserProfileManager.Instance != null && UserProfileManager.Instance.CurrentProfile != null)
         {
             var profile = UserProfileManager.Instance.CurrentProfile;
-            completedIlo = profile.CompletedObjectivesIlokano != null ? profile.CompletedObjectivesIlokano.Count : 0;
-            completedCeb = profile.CompletedObjectivesCebuano != null ? profile.CompletedObjectivesCebuano.Count : 0;
+            completedIlo = ProgressCalculator.GetCompletedLessonsCount("ilokano", profile.CompletedObjectivesIlokano);
+            completedCeb = ProgressCalculator.GetCompletedLessonsCount("cebuano", profile.CompletedObjectivesCebuano);
         }
 
         // 3. Update the UI Text

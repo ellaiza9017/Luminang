@@ -18,11 +18,17 @@ public class LeaderboardService : MonoBehaviour
     public static LeaderboardService Instance { get; private set; }
 
     /// <summary>
-    /// TODO: This is a temporary placeholder! 
-    /// Once the team finalizes the master JSON file containing all objectives (e.g. Calle Crisologo, Magellan's Cross), 
-    /// update this number to be the TRUE total number of objectives so the progress percentage is accurate.
+    /// True total number of objectives per language, counted directly from the Objectives JSON files.
+    /// Ilokano: ilo_01 → ilo_47 = 47 objectives
+    /// Cebuano: ceb_01 → ceb_28 = 28 objectives
     /// </summary>
-    public const int MAX_OBJECTIVES_PER_LANGUAGE = 12;
+    public const int MAX_OBJECTIVES_ILOKANO = 47;
+    public const int MAX_OBJECTIVES_CEBUANO = 28;
+
+    /// <summary>
+    /// Combined total across both languages, used for overall progress %.
+    /// </summary>
+    public const int MAX_OBJECTIVES_TOTAL = MAX_OBJECTIVES_ILOKANO + MAX_OBJECTIVES_CEBUANO; // 75
 
     private void Awake()
     {
@@ -67,9 +73,9 @@ public class LeaderboardService : MonoBehaviour
                 int iloPhrases    = profile.UnlockedPhrasesIlokano?.Count ?? 0;
                 int cebPhrases    = profile.UnlockedPhrasesCebuano?.Count ?? 0;
 
-                float iloProgress = (iloObjectives / (float)MAX_OBJECTIVES_PER_LANGUAGE) * 100f;
-                float cebProgress = (cebObjectives / (float)MAX_OBJECTIVES_PER_LANGUAGE) * 100f;
-                float overallProgress = (iloProgress + cebProgress) / 2f;
+                float iloProgress = (iloObjectives / (float)MAX_OBJECTIVES_ILOKANO) * 100f;
+                float cebProgress = (cebObjectives / (float)MAX_OBJECTIVES_CEBUANO) * 100f;
+                float overallProgress = ((iloObjectives + cebObjectives) / (float)MAX_OBJECTIVES_TOTAL) * 100f;
 
                 var entry = new LeaderboardEntry
                 {
@@ -81,6 +87,8 @@ public class LeaderboardService : MonoBehaviour
                     LastActive                 = profile.LastActive,
                     IlokanoObjectivesCompleted = iloObjectives,
                     CebuanoObjectivesCompleted = cebObjectives,
+                    IlokanoLessonsCompleted    = ProgressCalculator.GetCompletedLessonsCount("ilokano", profile.CompletedObjectivesIlokano),
+                    CebuanoLessonsCompleted    = ProgressCalculator.GetCompletedLessonsCount("cebuano", profile.CompletedObjectivesCebuano),
                     UnlockedPhrasesIlokano     = profile.UnlockedPhrasesIlokano ?? new List<string>(),
                     UnlockedPhrasesCebuano     = profile.UnlockedPhrasesCebuano ?? new List<string>(),
                     IlokanoProgress            = iloProgress,

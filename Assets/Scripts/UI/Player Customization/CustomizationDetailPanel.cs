@@ -246,7 +246,7 @@ public class CustomizationDetailPanel : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < animDuration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             
             // Simple ease-out curve
             float t = elapsed / animDuration;

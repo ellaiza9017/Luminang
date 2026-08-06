@@ -238,7 +238,7 @@ public class CategoryListManager : MonoBehaviour
             {
                 foreach (var lesson in chapter.lessons)
                 {
-                    bool isCompleted = completedKeys.Contains(lesson.categoryKey);
+                    bool isCompleted = ProgressCalculator.IsLessonCompleted(langKey, lesson.categoryKey, completedKeys);
 
                     bool isLocked = false;
                     if (!isCompleted)

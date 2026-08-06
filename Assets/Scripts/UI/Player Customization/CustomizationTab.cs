@@ -85,7 +85,7 @@ public class CustomizationTab : MonoBehaviour
 
         while (elapsed < transitionDuration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             float t = transitionCurve.Evaluate(elapsed / transitionDuration);
             SetHeight(Mathf.Lerp(startHeight, targetHeight, t));
             yield return null;

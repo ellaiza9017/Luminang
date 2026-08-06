@@ -2120,6 +2120,7 @@ GameObject:
   - component: {fileID: 477867330}
   - component: {fileID: 477867332}
   - component: {fileID: 477867333}
+  - component: {fileID: 477867334}
   m_Layer: 0
   m_Name: FishingQuizManager
   m_TagString: Untagged
@@ -2149,8 +2150,8 @@ MonoBehaviour:
   feedbackDuration: 1.5
   uiAudioSource: {fileID: 477867333}
   buttonClickSFX: {fileID: 8300000, guid: d71ef51224ec98e44be6d75751a71e09, type: 3}
-  winPanelSFX: {fileID: 0}
-  losePanelSFX: {fileID: 0}
+  winPanelSFX: {fileID: 8300000, guid: d5e1fb7f4bc3e5f4daab0ab315af7a5b, type: 3}
+  losePanelSFX: {fileID: 8300000, guid: b8801c426a017e34391188a040de8887, type: 3}
   correctAnswerSFX: {fileID: 8300000, guid: 80743e35226f6fa4eb990cb43774f9ce, type: 3}
   winOrLoseGroup: {fileID: 1257479054}
   winPanel: {fileID: 1817798133}
@@ -2323,6 +2324,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &477867334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477867329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a1573d9ba86644faa35ee28c364235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SFXVolumeSync
 --- !u!1 &503075932
 GameObject:
   m_ObjectHideFlags: 0
@@ -3768,7 +3781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5165813982000448088, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5052785666674261987, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
       propertyPath: m_Layer
@@ -4121,6 +4134,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 829337222}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 829337223}
     - targetCorrespondingSourceObject: {fileID: 7416887774297699816, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1109881005}
@@ -4236,6 +4252,19 @@ MonoBehaviour:
   feet: {fileID: 0}
   hands: {fileID: 0}
   hips: {fileID: 0}
+--- !u!114 &829337223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829337218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176cec0be2b20c244932e792994439e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerOutfitInitializer
+  playerOutfitManager: {fileID: 0}
 --- !u!1 &895799756
 GameObject:
   m_ObjectHideFlags: 0

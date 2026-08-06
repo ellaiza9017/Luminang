@@ -7905,6 +7905,7 @@ GameObject:
   - component: {fileID: 1440312816}
   - component: {fileID: 1440312815}
   - component: {fileID: 1440312817}
+  - component: {fileID: 1440312818}
   m_Layer: 5
   m_Name: BackgroundImage
   m_TagString: Untagged
@@ -8066,6 +8067,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1440312818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440312813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a1573d9ba86644faa35ee28c364235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SFXVolumeSync
 --- !u!1 &1479737938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8389297149517002719, guid: 7dec9aba355dd2c48bb358e98aabf78d, type: 3}
@@ -9006,6 +9019,7 @@ GameObject:
   - component: {fileID: 1629210913}
   - component: {fileID: 1629210912}
   - component: {fileID: 1629210911}
+  - component: {fileID: 1629210914}
   m_Layer: 5
   m_Name: EquipUnequipButton
   m_TagString: Untagged
@@ -9115,6 +9129,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629210909}
   m_CullTransparentMesh: 1
+--- !u!114 &1629210914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629210909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
+  sfxSource: {fileID: 1440312817}
+  clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
 --- !u!1 &1630583570
 GameObject:
   m_ObjectHideFlags: 0
