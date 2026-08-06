@@ -31,7 +31,16 @@ public class URPDayNightCycle : MonoBehaviour
 
     void Update()
     {
-        if (TimeManager.Instance == null) return;
+        TimeManager tm = TimeManager.Instance;
+        if (tm == null)
+        {
+            // Find TimeManager in scene at runtime/edit time if Instance is not set
+            tm = FindFirstObjectByType<TimeManager>();
+            if (tm == null)
+            {
+                return; // Suppress warning to avoid console spam in Edit mode
+            }
+        }
         if (sunrisePreset == null || sunnyPreset == null || sunsetPreset == null || nightPreset == null) return;
 
         // Try to get volume components if they were missing (e.g., added at runtime)
@@ -45,7 +54,7 @@ public class URPDayNightCycle : MonoBehaviour
             }
         }
 
-        float time = TimeManager.Instance.CurrentTimeOfDay; // 0 to 24
+        float time = tm.CurrentTimeOfDay; // 0 to 24
 
         // Transition Logic
         DayNightLightingPreset fromPreset = nightPreset;
@@ -125,6 +134,12 @@ public class URPDayNightCycle : MonoBehaviour
         RenderSettings.ambientEquatorColor = Color.Lerp(from.equatorColor, to.equatorColor, t);
         RenderSettings.ambientGroundColor = Color.Lerp(from.groundColor, to.groundColor, t);
         RenderSettings.reflectionIntensity = Mathf.Lerp(from.reflectionIntensity, to.reflectionIntensity, t);
+
+        Material targetSkybox = t > 0.5f ? to.skyboxMaterial : from.skyboxMaterial;
+        if (targetSkybox != null && RenderSettings.skybox != targetSkybox)
+        {
+            RenderSettings.skybox = targetSkybox;
+        }
 
         // 3. URP Volume
         if (_colorAdjustments != null)

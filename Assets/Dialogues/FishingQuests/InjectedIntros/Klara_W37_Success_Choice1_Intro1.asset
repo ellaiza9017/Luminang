@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Klara_W37_Success_Choice1_Intro1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Klara
+  speakerPortrait: {fileID: 21300000, guid: cf385c5c4168f354ca622b8557a81b73, type: 3}
+  dialogueText: I am preparing a special recipe that calls for fresh fish. Can you
+    help me catch some?
+  translatedText: 
+  animationTrigger: Talk
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: Wen
+    nextNode: {fileID: 11400000, guid: bd1bad85d243ef341a3e5826b2fe0f40, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 
+  - choiceText: Saan
+    nextNode: {fileID: 11400000, guid: f9d29ab80ebeae74c9e560c6839e72bf, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 
+  isYesNoChoice: 0
+  ambientOnly: 0

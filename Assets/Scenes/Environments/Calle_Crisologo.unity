@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.005
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0.2, a: 1}
+  m_AmbientEquatorColor: {r: 0.09803922, g: 0.09803922, b: 0.4392157, a: 1}
+  m_AmbientGroundColor: {r: 0.019607844, g: 0.019607844, b: 0.0627451, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
   m_HaloStrength: 0.5
@@ -35,7 +35,7 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
   m_UseRadianceAmbientProbe: 0
@@ -791,7 +791,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactionEnabled: 0
-  defaultDialogue: {fileID: 11400000, guid: c74f397f7f76b114696b1f754379c69e, type: 2}
+  defaultDialogue: {fileID: 11400000, guid: 52e2f1205db19684db2b9b5dc732adb3, type: 2}
   isOrganizer: 1
   questDialogues:
   - requiredObjective: Find Lito
@@ -819,6 +819,10 @@ MonoBehaviour:
           m_StringArgument: headShake
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents:
   - eventName: StartMinigame:FishingGame
     onEventTriggered:
@@ -2914,6 +2918,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!95 &30994125
 Animator:
@@ -8299,6 +8307,10 @@ MonoBehaviour:
           m_StringArgument: headShake
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &61506375
 MonoBehaviour:
@@ -10736,6 +10748,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6427614215938619461, guid: ec3e7fbae3eb5d74ebf9682cef054cbc, type: 3}
   m_PrefabInstance: {fileID: 78806604}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &78866862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78866863}
+  m_Layer: 0
+  m_Name: MarTaho_Waypoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &78866863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78866862}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 444469581}
+  - {fileID: 94365257}
+  - {fileID: 756497937}
+  - {fileID: 1632413160}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &78880564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14059,6 +14106,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6427614215938619461, guid: ec3e7fbae3eb5d74ebf9682cef054cbc, type: 3}
   m_PrefabInstance: {fileID: 93554161}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &94365256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94365257}
+  m_Layer: 0
+  m_Name: MarTaho_WP_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &94365257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94365256}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 539.335, y: 2.1600003, z: 465.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 78866863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &94770741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65066,8 +65144,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 1
-  m_Color: {r: 0.8584906, g: 0.8301442, b: 0.8301442, a: 1}
-  m_Intensity: 2
+  m_Color: {r: 0.6862745, g: 0.79607844, b: 1, a: 1}
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -65129,7 +65207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: -0.6830127, y: -0.18301271, z: -0.18301271, w: 0.6830127}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -65299,6 +65377,10 @@ MonoBehaviour:
           m_StringArgument: headShake
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!95 &410554194 stripped
 Animator:
@@ -70712,6 +70794,10 @@ MonoBehaviour:
           m_StringArgument: headShake
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!195 &431707856
 NavMeshAgent:
@@ -71341,6 +71427,10 @@ MonoBehaviour:
           m_StringArgument: Wrong
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &434578664
 MonoBehaviour:
@@ -71374,6 +71464,8 @@ GameObject:
   - component: {fileID: 434738561}
   - component: {fileID: 434738560}
   - component: {fileID: 434738565}
+  - component: {fileID: 434738567}
+  - component: {fileID: 434738566}
   m_Layer: 0
   m_Name: Mar-Taho
   m_TagString: Untagged
@@ -71484,6 +71576,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!4 &434738564
 Transform:
@@ -71523,6 +71619,53 @@ MonoBehaviour:
   minWaitTime: 4
   maxWaitTime: 12
   randomAnimDuration: 3
+--- !u!114 &434738566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434738559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85a60bd055621594684aa4a01658669d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCSchedule
+  slots:
+  - startHour: 6
+    endHour: 12
+    enablePatrol: 1
+  idlePosition: {fileID: 0}
+--- !u!114 &434738567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434738559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abff80475df610b4a9e525c31055e5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCPatrol
+  waypoints:
+  - point: {fileID: 444469581}
+    waitTime: 2
+    idleStateName: 
+  - point: {fileID: 94365257}
+    waitTime: 2
+    idleStateName: 
+  - point: {fileID: 756497937}
+    waitTime: 2
+    idleStateName: 
+  - point: {fileID: 1632413160}
+    waitTime: 2
+    idleStateName: 
+  speed: 1.5
+  rotateSpeed: 5
+  waypointReachDistance: 0.5
+  moveStateName: Run
+  defaultIdleStateName: Breathing_Idle
 --- !u!114 &435833960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72316,6 +72459,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &444469580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 444469581}
+  m_Layer: 0
+  m_Name: MarTaho_WP_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444469581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444469580}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 531.335, y: 2.1600003, z: 473.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 78866863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &444475483
 GameObject:
   m_ObjectHideFlags: 0
@@ -78469,6 +78643,10 @@ MonoBehaviour:
           m_StringArgument: headShake
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &486362061
 MonoBehaviour:
@@ -97295,6 +97473,10 @@ MonoBehaviour:
           m_StringArgument: headShake
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &600636687
 MonoBehaviour:
@@ -97829,6 +98011,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &604076426
 MonoBehaviour:
@@ -99383,6 +99569,7 @@ RectTransform:
   - {fileID: 419899262}
   - {fileID: 855428233}
   - {fileID: 1589066459}
+  - {fileID: 1281766391}
   m_Father: {fileID: 1881897597}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -101083,6 +101270,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents:
   - eventName: 
     onEventTriggered:
@@ -102423,6 +102614,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!1001 &634828475
 PrefabInstance:
@@ -118739,6 +118934,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &716509744
 MonoBehaviour:
@@ -126463,6 +126662,37 @@ Transform:
   - {fileID: 189638124}
   - {fileID: 991836572}
   m_Father: {fileID: 1566072188}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &756497936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756497937}
+  m_Layer: 0
+  m_Name: MarTaho_WP_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756497937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756497936}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 531.335, y: 2.1600003, z: 457.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 78866863}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &756587712
 PrefabInstance:
@@ -157173,6 +157403,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &949543552
 MonoBehaviour:
@@ -169989,6 +170223,143 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6427614215938619461, guid: ec3e7fbae3eb5d74ebf9682cef054cbc, type: 3}
   m_PrefabInstance: {fileID: 1032916419}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1033131566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1033131567}
+  - component: {fileID: 1033131569}
+  - component: {fileID: 1033131568}
+  m_Layer: 0
+  m_Name: TimeText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1033131567
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033131566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1281766391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1033131568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033131566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 8:00 AM
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 721a421f1884e754aa51d30324c4d1a9, type: 2}
+  m_sharedMaterial: {fileID: 9194849470857495647, guid: 721a421f1884e754aa51d30324c4d1a9, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 3003121663
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.7}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 28
+  m_fontSizeBase: 28
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1033131569
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033131566}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1033888589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176085,6 +176456,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!1001 &1065057549
 PrefabInstance:
@@ -176658,6 +177033,10 @@ MonoBehaviour:
           m_StringArgument: headShake
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!95 &1067440871 stripped
 Animator:
@@ -178799,6 +179178,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neneng_Rigged
       objectReference: {fileID: 0}
+    - target: {fileID: 2606146077812957480, guid: cfb8269fe5e0ca34db4707ce362c6787, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.753
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606146077812957480, guid: cfb8269fe5e0ca34db4707ce362c6787, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.219
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: cfb8269fe5e0ca34db4707ce362c6787, type: 3}
       propertyPath: m_Controller
       value: 
@@ -179399,6 +179786,10 @@ MonoBehaviour:
           m_StringArgument: headShake
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!95 &1079974222 stripped
 Animator:
@@ -189844,7 +190235,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactionEnabled: 1
-  defaultDialogue: {fileID: 0}
+  defaultDialogue: {fileID: 11400000, guid: 826efe7bdb682914091718107cc99f58, type: 2}
   isOrganizer: 0
   questDialogues: []
   npcAnimator: {fileID: 1158282576}
@@ -189858,6 +190249,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents:
   - eventName: StartMinigame:FishingGame
     onEventTriggered:
@@ -190187,6 +190582,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!1 &1160933433
 GameObject:
@@ -192214,7 +192613,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   interactionEnabled: 1
-  defaultDialogue: {fileID: 0}
+  defaultDialogue: {fileID: 11400000, guid: 9679a6c2a14547d41876bf913bd11fc4, type: 2}
   isOrganizer: 0
   questDialogues: []
   npcAnimator: {fileID: 1172188845}
@@ -192240,6 +192639,10 @@ MonoBehaviour:
           m_StringArgument: headShake
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents:
   - eventName: StartMinigame:FishingGame
     onEventTriggered:
@@ -200270,6 +200673,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!1001 &1220550975
 PrefabInstance:
@@ -202707,7 +203114,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   interactionEnabled: 1
-  defaultDialogue: {fileID: 0}
+  defaultDialogue: {fileID: 11400000, guid: 691948c31fdefd64597620de3589ab1f, type: 2}
   isOrganizer: 0
   questDialogues: []
   npcAnimator: {fileID: 1241197690}
@@ -202721,6 +203128,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents:
   - eventName: StartMinigame:FishingGame
     onEventTriggered:
@@ -209054,6 +209465,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2563648020402818627, guid: b042955ef1e1c6d41a9aa4831e8e8844, type: 3}
   m_PrefabInstance: {fileID: 1277014027}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1281766390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1281766391}
+  - component: {fileID: 1281766392}
+  m_Layer: 0
+  m_Name: HUDClock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1281766391
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281766390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1033131567}
+  m_Father: {fileID: 610761461}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -20, y: -20}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &1281766392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281766390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca07906f05d4c34687b48a075941740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeWeatherUI
+  timeText: {fileID: 1033131568}
+  periodText: {fileID: 0}
+  periodIcon: {fileID: 0}
+  iconMorning: {fileID: 0}
+  iconAfternoon: {fileID: 0}
+  iconNight: {fileID: 0}
 --- !u!1 &1282125764
 GameObject:
   m_ObjectHideFlags: 0
@@ -211813,7 +212279,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   interactionEnabled: 1
-  defaultDialogue: {fileID: 0}
+  defaultDialogue: {fileID: 11400000, guid: fe70da08c6950694d8c18344fa07441c, type: 2}
   isOrganizer: 0
   questDialogues: []
   npcAnimator: {fileID: 1307185219}
@@ -211827,6 +212293,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents:
   - eventName: StartMinigame:FishingGame
     onEventTriggered:
@@ -212810,6 +213280,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &1314448089
 MonoBehaviour:
@@ -244052,6 +244526,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &1493874655
 MonoBehaviour:
@@ -258348,6 +258826,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &1577654841
 MonoBehaviour:
@@ -258954,7 +259436,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   interactionEnabled: 1
-  defaultDialogue: {fileID: 0}
+  defaultDialogue: {fileID: 11400000, guid: b96cbb79556ff9146ab34765b985bd68, type: 2}
   isOrganizer: 0
   questDialogues: []
   npcAnimator: {fileID: 1583182407}
@@ -258968,6 +259450,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents:
   - eventName: StartMinigame:FishingGame
     onEventTriggered:
@@ -266942,6 +267428,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 560605814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1632413159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1632413160}
+  m_Layer: 0
+  m_Name: MarTaho_WP_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1632413160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632413159}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 523.335, y: 2.1600003, z: 465.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 78866863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1634437758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -270073,6 +270590,10 @@ MonoBehaviour:
           m_StringArgument: headShake
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!95 &1653427253 stripped
 Animator:
@@ -285836,6 +286357,10 @@ MonoBehaviour:
           m_StringArgument: headShake
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!95 &1741770517 stripped
 Animator:
@@ -295202,6 +295727,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &1791749205
 MonoBehaviour:
@@ -295235,6 +295764,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!1001 &1792334522
 PrefabInstance:
@@ -296567,6 +297100,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &1796934689
 MonoBehaviour:
@@ -308786,6 +309323,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!95 &1866386742 stripped
 Animator:
@@ -317473,6 +318014,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &1913505688
 MonoBehaviour:
@@ -330400,6 +330945,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!95 &1985282365
 Animator:
@@ -333615,7 +334164,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   interactionEnabled: 1
-  defaultDialogue: {fileID: 0}
+  defaultDialogue: {fileID: 11400000, guid: 239a62d30755cc040a6a685a83bb6a51, type: 2}
   isOrganizer: 0
   questDialogues: []
   npcAnimator: {fileID: 2002983511}
@@ -333629,6 +334178,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents:
   - eventName: StartMinigame:FishingGame
     onEventTriggered:
@@ -335517,6 +336070,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &2009942066
 MonoBehaviour:
@@ -335689,6 +336246,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!114 &2009942071
 MonoBehaviour:
@@ -335734,6 +336295,10 @@ MonoBehaviour:
   OnWrongAnswer:
     m_PersistentCalls:
       m_Calls: []
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents: []
 --- !u!1001 &2010100839
 PrefabInstance:
@@ -353466,7 +354031,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactionEnabled: 0
-  defaultDialogue: {fileID: 11400000, guid: 424bb1d3a18e9d245bdd7be5d3f61b22, type: 2}
+  defaultDialogue: {fileID: 11400000, guid: 9d746a602e0bbd440ab14294b0247a77, type: 2}
   isOrganizer: 1
   questDialogues:
   - requiredObjective: Find Klara
@@ -353494,6 +354059,10 @@ MonoBehaviour:
           m_StringArgument: headShake
           m_BoolArgument: 0
         m_CallState: 2
+  ambientDialogues: []
+  ambientLibrary: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+  isStoryComplete: 0
+  postCompletionDialogue: {fileID: 0}
   dialogueEvents:
   - eventName: StartMinigame:FishingGame
     onEventTriggered:
@@ -362000,6 +362569,10 @@ PrefabInstance:
       value: Talk to Kalaw
       objectReference: {fileID: 0}
     - target: {fileID: 8443646649292189996, guid: be9b9f551e0dcd74c81bde93e4837608, type: 3}
+      propertyPath: ambientLibrary
+      value: 
+      objectReference: {fileID: 11400000, guid: d7c9f44acb0bb9b4f9378fc7e21e0c2c, type: 2}
+    - target: {fileID: 8443646649292189996, guid: be9b9f551e0dcd74c81bde93e4837608, type: 3}
       propertyPath: defaultDialogue
       value: 
       objectReference: {fileID: 11400000, guid: 358d480568b1d574682325bf5be770fb, type: 2}
@@ -368112,3 +368685,4 @@ SceneRoots:
   - {fileID: 1138541318}
   - {fileID: 334472740}
   - {fileID: 399763923}
+  - {fileID: 78866863}

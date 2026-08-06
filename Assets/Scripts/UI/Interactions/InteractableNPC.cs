@@ -40,8 +40,22 @@ public class InteractableNPC : InteractableBase
     public int minigameLanguageId = 1;
 
     [Header("Events")]
-    public UnityEvent OnDialogueEnd;
-    public UnityEvent OnWrongAnswer;
+    public UnityEngine.Events.UnityEvent OnDialogueEnd;
+    public UnityEngine.Events.UnityEvent OnWrongAnswer;
+
+    [Header("Ambient Dialogue (World-Building)")]
+    [Tooltip("Dialogue shown when this NPC is NOT the current objective. Keeps the world feeling alive.")]
+    public List<DialogueNode> ambientDialogues = new List<DialogueNode>();
+
+    [Tooltip("Shared library of ambient lines to use if no custom ambient dialogue is assigned. Assign via CreateAmbientDialogues tool.")]
+    public AmbientDialogueLibrary ambientLibrary;
+
+    [Header("Post-Completion")]
+    [Tooltip("If true, this NPC's main story arc is complete. The NPC will serve postCompletionDialogue or ambient dialogue instead.")]
+    public bool isStoryComplete = false;
+
+    [Tooltip("Dialogue to show after this NPC's story arc is done. If empty, ambient dialogue is used.")]
+    public DialogueNode postCompletionDialogue;
 
 
 
@@ -78,6 +92,13 @@ public class InteractableNPC : InteractableBase
 
     private DialogueNode GetCurrentDialogueNode()
     {
+        // ── Post-completion: NPC's story arc is done ──────────────────────────
+        if (isStoryComplete)
+        {
+            if (postCompletionDialogue != null) return postCompletionDialogue;
+            return GetAmbientDialogue();
+        }
+
         if (ObjectiveManager.Instance != null && questDialogues != null)
         {
             string currentObj = ObjectiveManager.Instance.CurrentObjective;
@@ -103,6 +124,19 @@ public class InteractableNPC : InteractableBase
                     }
                 }
             }
+
+            // ── Part 5: If this NPC is NOT the current objective target, serve ambient dialogue ──
+            // Only apply if the NPC has quest dialogues (i.e., is a story NPC) but isn't
+            // currently the active objective, to prevent story spoilers or out-of-order progression.
+            if (questDialogues.Count > 0 && !IsTargetOfObjective(currentObj))
+            {
+                DialogueNode ambient = GetAmbientDialogue();
+                if (ambient != null)
+                {
+                    Debug.Log($"[{gameObject.name}] Not the current objective NPC. Serving ambient dialogue.");
+                    return ambient;
+                }
+            }
         }
 
         // 3. Fallback to default dialogue
@@ -117,6 +151,19 @@ public class InteractableNPC : InteractableBase
             return questDialogues[0].dialogueNode;
         }
 
+        return null;
+    }
+
+    /// <summary>
+    /// Returns an ambient dialogue node for world-building conversations.
+    /// Prefers custom ambientDialogues, falls back to ambientLibrary.
+    /// </summary>
+    private DialogueNode GetAmbientDialogue()
+    {
+        if (ambientDialogues != null && ambientDialogues.Count > 0)
+            return ambientDialogues[Random.Range(0, ambientDialogues.Count)];
+        if (ambientLibrary != null)
+            return ambientLibrary.GetRandom();
         return null;
     }
 

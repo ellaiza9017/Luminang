@@ -17,9 +17,17 @@ public class SceneLoader : MonoBehaviour
     [Header("Loading Screen Setup")]
     public bool useLoadingScreenForGameScene = true;
     public string loadingSceneName = "LoadingScene";
+    private static int _lastLoadFrame = -1;
 
     public void LoadScene(string sceneName)
     {
+        if (Time.frameCount == _lastLoadFrame)
+        {
+            Debug.Log("[SceneLoader] LoadScene ignored - duplicate call in same frame.");
+            return;
+        }
+        _lastLoadFrame = Time.frameCount;
+
         if (isSceneLoading)
         {
             Debug.Log("[SceneLoader] LoadScene ignored - already loading.");

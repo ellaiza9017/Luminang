@@ -70,6 +70,14 @@ public class MinigameManager : MonoBehaviour
             rt.localScale = Vector3.one;
         }
 
+        // Clean up embedded EventSystems in the minigame prefab to avoid 'Multiple EventSystem' warnings
+        var extraEventSystems = _currentInstance.GetComponentsInChildren<UnityEngine.EventSystems.EventSystem>(true);
+        foreach (var es in extraEventSystems)
+        {
+            if (UnityEngine.EventSystems.EventSystem.current != es) 
+                Destroy(es); // Only destroy the component! Destroying gameObject might kill the entire minigame prefab!
+        }
+
         // Auto-wire any close/exit/continue buttons on the spawned panel to call HideMinigame().
         // This ensures dialogue always resumes when the player closes the panel, even if the
         // prefab's button is wired to LessonManager.HideLesson() instead of MinigameManager.

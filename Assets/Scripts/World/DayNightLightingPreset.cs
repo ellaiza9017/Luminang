@@ -18,6 +18,7 @@ public class DayNightLightingPreset : ScriptableObject
 
     [Header("Environment")]
     public float reflectionIntensity = 1f;
+    public Material skyboxMaterial;
 
     [Header("URP Global Volume")]
     public Color colorFilter = Color.white;

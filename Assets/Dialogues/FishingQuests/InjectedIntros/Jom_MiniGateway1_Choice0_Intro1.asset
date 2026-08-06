@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Jom_MiniGateway1_Choice0_Intro1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Jom
+  speakerPortrait: {fileID: 21300000, guid: d01af24494056374182e13118c0585e2, type: 3}
+  dialogueText: I'm helping neighbors gather food for a community feast later. Could
+    you catch a few more fish for us?
+  translatedText: 
+  animationTrigger: Talk
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: Wen
+    nextNode: {fileID: 0}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 
+  - choiceText: Saan
+    nextNode: {fileID: 11400000, guid: 2cb0b6d2f4783144797215c56b19edce, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 
+  isYesNoChoice: 0
+  ambientOnly: 0

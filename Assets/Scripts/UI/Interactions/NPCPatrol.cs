@@ -46,6 +46,62 @@ public class NPCPatrol : MonoBehaviour
     private bool _isPausedForInteraction = false;
     private Animator _animator;
     private float _startY;
+    private Coroutine _lookAtCoroutine;
+
+    void OnEnable()
+    {
+        // Auto-hook: when any dialogue starts/ends in the scene, check if we should pause/resume.
+        DialogueManager.OnNPCDialogueStarted += OnSceneDialogueStarted;
+        DialogueManager.OnNPCDialogueEnded   += OnSceneDialogueEnded;
+    }
+
+    void OnDisable()
+    {
+        DialogueManager.OnNPCDialogueStarted -= OnSceneDialogueStarted;
+        DialogueManager.OnNPCDialogueEnded   -= OnSceneDialogueEnded;
+    }
+
+    private void OnSceneDialogueStarted(InteractableNPC npc)
+    {
+        // Only pause if the dialogue is with THIS NPC
+        if (npc != null && npc.gameObject == gameObject)
+        {
+            PausePatrol();
+            // Face the player smoothly
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null)
+            {
+                if (_lookAtCoroutine != null) StopCoroutine(_lookAtCoroutine);
+                _lookAtCoroutine = StartCoroutine(SmoothLookAt(player.transform));
+            }
+        }
+    }
+
+    private void OnSceneDialogueEnded(InteractableNPC npc)
+    {
+        if (npc != null && npc.gameObject == gameObject)
+        {
+            ResumePatrol();
+        }
+    }
+
+    private System.Collections.IEnumerator SmoothLookAt(Transform target)
+    {
+        float duration = 0.5f;
+        float elapsed = 0f;
+        Quaternion startRot = transform.rotation;
+        Vector3 dir = target.position - transform.position;
+        dir.y = 0f;
+        if (dir.sqrMagnitude < 0.01f) yield break;
+        Quaternion targetRot = Quaternion.LookRotation(dir);
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(startRot, targetRot, elapsed / duration);
+            yield return null;
+        }
+        transform.rotation = targetRot;
+    }
 
     void Start()
     {

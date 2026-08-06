@@ -31,6 +31,13 @@ public class DialogueNode : ScriptableObject
     [Header("Player Options")]
     [Tooltip("The choices the player has. If this list is empty, the conversation ends.")]
     public List<DialogueChoice> choices = new List<DialogueChoice>();
+
+    [Tooltip("If true, the first two choice buttons will be labelled 'Wen' (Yes) and 'Saan' (No) in Ilocano.")]
+    public bool isYesNoChoice;
+
+    [Header("Ambient / World-Building")]
+    [Tooltip("If true, this node is ambient world-building dialogue only. It will never advance story objectives or trigger quests.")]
+    public bool ambientOnly;
 }
 
 [System.Serializable]

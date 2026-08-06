@@ -8,7 +8,7 @@ public class ExtractObjectives : EditorWindow
     [MenuItem("Tools/Extract Objectives")]
     public static void DoWork()
     {
-        string path = @"C:\Users\Asus\.gemini\antigravity-ide\brain\66599819-d9f9-4ac2-8a55-72a804a29283\objectives_list.md";
+        string path = @"C:\Users\Asus\.gemini\antigravity-ide\brain\8f601297-6156-4d8e-841a-f026039c661c\playable_objectives.md";
         
         // Ensure the directory exists
         string dir = Path.GetDirectoryName(path);

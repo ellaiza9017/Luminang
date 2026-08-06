@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Rodrick_FishingQuestion
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Rodrick
+  speakerPortrait: {fileID: 0}
+  dialogueText: 'The community gathering is tomorrow and we promised to bring food.
+    Fish would be perfect.
+
+    Could you catch a few fish for me?'
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: Sure, I'd be happy to help.
+    nextNode: {fileID: 11400000, guid: d60f1059b2d6876438d11a073720005c, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 
+  - choiceText: Sorry, maybe later.
+    nextNode: {fileID: 11400000, guid: a17f091581ffd5e40b96b13ef4214c80, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 
+  isYesNoChoice: 1
+  ambientOnly: 0

@@ -31,8 +31,10 @@ public class FixNavMeshAndTerrain : EditorWindow
 
         // 2. Clear and Rebuild the NavMesh
         Debug.Log("Rebuilding NavMesh, this might take a few seconds...");
-        NavMeshBuilder.ClearAllNavMeshes();
-        NavMeshBuilder.BuildNavMesh();
+#pragma warning disable 0618
+        UnityEditor.AI.NavMeshBuilder.ClearAllNavMeshes();
+        UnityEditor.AI.NavMeshBuilder.BuildNavMesh();
+#pragma warning restore 0618
         
         Debug.Log("<color=green>SUCCESS: NavMesh successfully rebuilt!</color>");
     }

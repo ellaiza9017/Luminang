@@ -4,15 +4,15 @@ using System.IO;
 
 public static class AssignSpeakerPortraits
 {
-    [MenuItem("Tools/Calle Crisologo/Assign Speaker Portraits")]
+    [MenuItem("Tools/Luminang/Assign Speaker Portraits")]
     public static void AssignPortraits()
     {
         int patchedNodes = 0;
-        string dialoguesFolder = "Assets/Dialogues/CalleCrisologo";
+        string[] dialoguesFolders = new string[] { "Assets/Dialogues" };
         string spritesFolder = "Assets/Sprites/NPCs";
 
         // Find all DialogueNode assets
-        string[] nodeGuids = AssetDatabase.FindAssets("t:DialogueNode", new[] { dialoguesFolder });
+        string[] nodeGuids = AssetDatabase.FindAssets("t:DialogueNode", dialoguesFolders);
         
         // Find all sprite assets in the NPCs folder
         string[] spriteGuids = AssetDatabase.FindAssets("t:Sprite", new[] { spritesFolder });
@@ -46,8 +46,8 @@ public static class AssignSpeakerPortraits
                 }
             }
 
-            // Assign the sprite (even if it's null, this clears old incorrect ones, or handles "if does not have one, then dont put")
-            if (node.speakerPortrait != foundSprite)
+            // ONLY assign if we actually found a portrait for this NPC
+            if (foundSprite != null && node.speakerPortrait != foundSprite)
             {
                 node.speakerPortrait = foundSprite;
                 EditorUtility.SetDirty(node);

@@ -120,7 +120,6 @@ public class EnforceCurriculumMinigames : EditorWindow
 
         // ─── Step 5: Wire MATCHING GAME → after Klara_W37_Success ────────────
         // Per curriculum: after Klara teaches Word 37 (uray ditoy) → DIRECTIONS MILESTONE UNLOCKED
-        string klaraW37Path = "Assets/Dialogues/CalleCrisologo/Level2_FunctionalNavigational/Quest6_Directions/Klara/Klara_Intro.asset";
         // Look for the actual W37 success node first
         string[] klaraCandidates = new string[] {
             klaraDir + "/Klara_W37_Success.asset",

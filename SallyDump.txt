@@ -1,8 +1,8 @@
---- SALLY NPC FOUND: Sally_Rigged ---
-Default Dialogue: Sally_Intro
-QuestDialogue [0]: RequiredObj='Find Sally', Dialogue='Sally_Intro'
-QuestDialogue [1]: RequiredObj='LEVEL I COMPLETE! Head to Level II', Dialogue='Sally_Intro'
 --- SALLY NPC FOUND: Sally_Casual_Rigged ---
 Default Dialogue: NULL
+QuestDialogue [0]: RequiredObj='Find Sally', Dialogue='Sally_Intro'
+QuestDialogue [1]: RequiredObj='LEVEL I COMPLETE! Head to Level II', Dialogue='Sally_Intro'
+--- SALLY NPC FOUND: Sally_Rigged ---
+Default Dialogue: Sally_Intro
 QuestDialogue [0]: RequiredObj='Find Sally', Dialogue='Sally_Intro'
 QuestDialogue [1]: RequiredObj='LEVEL I COMPLETE! Head to Level II', Dialogue='Sally_Intro'

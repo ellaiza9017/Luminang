@@ -87,6 +87,25 @@ public class FishingQuizManager : MonoBehaviour
         // Show How To Play screen first, DO NOT start game yet
         if (howToPlayGroup != null && howToPlayPanel != null)
         {
+            // Find all buttons in the group (so we catch buttons that are siblings to the panel)
+            var buttons = howToPlayGroup.GetComponentsInChildren<UnityEngine.UI.Button>(true);
+            UnityEngine.UI.Button closeBtn = null;
+            foreach (var btn in buttons)
+            {
+                if (btn.name.IndexOf("Close", System.StringComparison.OrdinalIgnoreCase) >= 0 || btn.name.IndexOf("X", System.StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    closeBtn = btn;
+                    break;
+                }
+            }
+            if (closeBtn == null && buttons.Length > 0) closeBtn = buttons[buttons.Length - 1]; // Fallback
+
+            if (closeBtn != null)
+            {
+                closeBtn.onClick.RemoveAllListeners();
+                closeBtn.onClick.AddListener(CloseHowToPlay);
+            }
+
             howToPlayGroup.SetActive(true);
             StartCoroutine(AnimatePanelIn(howToPlayPanel.transform));
         }

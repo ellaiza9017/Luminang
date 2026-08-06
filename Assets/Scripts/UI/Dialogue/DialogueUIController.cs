@@ -152,7 +152,20 @@ public class DialogueUIController : MonoBehaviour
             translateButton.gameObject.SetActive(false);
 
         if (speakerNameText != null)
-            speakerNameText.text = string.IsNullOrEmpty(node.speakerName) ? "" : node.speakerName;
+        {
+            string sName = node.speakerName;
+            if (string.IsNullOrEmpty(sName) && DialogueManager.Instance != null)
+            {
+                InteractableNPC activeNPC = DialogueManager.Instance.GetActiveNPC();
+                if (activeNPC != null)
+                {
+                    sName = activeNPC.gameObject.name
+                        .Replace("_Rigged", "").Replace("_rigged", "").Replace("_Rrrigged", "")
+                        .Replace("Vendor", "").Replace("barista", "").Trim();
+                }
+            }
+            speakerNameText.text = sName;
+        }
 
         // Clear text immediately so no placeholder shows during pop-in
         if (dialogueText != null) dialogueText.text = "";
@@ -162,6 +175,7 @@ public class DialogueUIController : MonoBehaviour
         // Spawn choice buttons if there are any choices with text
         if (node.choices != null)
         {
+            int choiceIndex = 0;
             foreach (var choice in node.choices)
             {
                 if (string.IsNullOrEmpty(choice.choiceText)) continue;
@@ -171,7 +185,20 @@ public class DialogueUIController : MonoBehaviour
                 _activeChoiceButtons.Add(obj);
 
                 var btnText = obj.GetComponentInChildren<TextMeshProUGUI>();
-                if (btnText != null) btnText.text = choice.choiceText;
+                if (btnText != null)
+                {
+                    // If this node is a yes/no question, override labels with Ilocano
+                    if (node.isYesNoChoice)
+                    {
+                        if (choiceIndex == 0) btnText.text = "Wen";
+                        else if (choiceIndex == 1) btnText.text = "Saan";
+                        else btnText.text = choice.choiceText;
+                    }
+                    else
+                    {
+                        btnText.text = choice.choiceText;
+                    }
+                }
 
                 var btn = obj.GetComponent<Button>();
                 if (btn != null)
@@ -186,6 +213,7 @@ public class DialogueUIController : MonoBehaviour
                         _onChoiceSelected?.Invoke(cached);
                     });
                 }
+                choiceIndex++;
             }
         }
         
