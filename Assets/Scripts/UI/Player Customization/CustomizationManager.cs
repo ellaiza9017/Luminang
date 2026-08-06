@@ -54,6 +54,16 @@ public class CustomizationManager : MonoBehaviour
 
     async void Start()
     {
+        // Auto-fetch the singleton modal if the inspector slot lost its reference
+        if (modal == null) 
+        {
+            modal = GenericModal.Instance;
+            if (modal == null)
+            {
+                modal = FindFirstObjectByType<GenericModal>(FindObjectsInactive.Include);
+            }
+        }
+
         // 1. Ensure the profile is loaded
         if (UserProfileManager.Instance != null && UserProfileManager.Instance.CurrentProfile == null)
         {
@@ -162,7 +172,14 @@ public class CustomizationManager : MonoBehaviour
         }
 
         if (saveChangesButton != null)
+        {
             saveChangesButton.onClick.AddListener(OnSaveChangesClicked);
+            Debug.Log("[Customization] Successfully bound saveChangesButton onClick listener!");
+        }
+        else
+        {
+            Debug.LogError("[Customization] ERROR: saveChangesButton is NOT ASSIGNED in the Inspector! The button will do nothing.");
+        }
 
         // 3. Fetch inventory and build the UI
         await InitializeGallery();
@@ -386,17 +403,42 @@ public class CustomizationManager : MonoBehaviour
 
     private void OnSaveChangesClicked()
     {
-        if (characterManager == null || modal == null) return;
+        Debug.Log("[Customization] Save button clicked!");
+
+        // Dynamically find managers if they are missing or destroyed due to scene transitions
+        if (characterManager == null) characterManager = FindFirstObjectByType<OutfitManager>(FindObjectsInactive.Include);
+        
+        if (modal == null || modal.gameObject == null || !modal.gameObject.scene.IsValid()) 
+        {
+            modal = GenericModal.Instance;
+            if (modal == null || modal.gameObject == null)
+            {
+                modal = FindFirstObjectByType<GenericModal>(FindObjectsInactive.Include);
+            }
+        }
+
+        if (characterManager == null) 
+        {
+            Debug.LogError("[Customization] Save aborted: characterManager is completely missing from the scene!");
+            return;
+        }
+        if (modal == null) 
+        {
+            Debug.LogError("[Customization] Save aborted: modal is completely missing from the scene!");
+            return;
+        }
 
         EquippedOutfitData currentOutfit = characterManager.GetEquippedNames();
 
         // Check if there are any changes
         if (originalOutfit != null && currentOutfit.IsSameAs(originalOutfit))
         {
+            Debug.Log("[Customization] No changes detected, showing alert.");
             modal.ShowAlert("You didn't change anything in your outfit.");
             return;
         }
 
+        Debug.Log("[Customization] Showing confirmation modal.");
         // Ask for confirmation
         modal.ShowConfirm(
             "Are you sure you want to save these changes?",

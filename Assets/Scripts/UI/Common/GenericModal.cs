@@ -38,14 +38,8 @@ public class GenericModal : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        // Always take over as the active instance. Never destroy itself.
+        Instance = this;
 
         // Get or add CanvasGroup for fading
         canvasGroup = modalPanel.GetComponent<CanvasGroup>();

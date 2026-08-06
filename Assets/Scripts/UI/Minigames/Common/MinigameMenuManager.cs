@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class MinigameMenuManager : MonoBehaviour
 {
@@ -18,43 +17,36 @@ public class MinigameMenuManager : MonoBehaviour
     public AudioClip buttonClickSFX;
     public AudioClip panelOpenSFX;
 
-    private bool isAnimating = false;
-
     public void OpenMenu()
     {
-        if (isAnimating) return;
         if (sfxSource != null && buttonClickSFX != null) sfxSource.PlayOneShot(buttonClickSFX);
-        menuGroup.SetActive(true);
         if (sfxSource != null && panelOpenSFX != null) sfxSource.PlayOneShot(panelOpenSFX);
-        StartCoroutine(AnimatePanelIn(menuPanel.transform));
+        menuGroup.SetActive(true);
+        menuGroup.GetComponent<UIFadeAnimator>()?.FadeIn();
+        menuPanel?.GetComponent<UIPopAnimator>()?.PopIn();
     }
 
     public void ResumeGame()
     {
-        if (isAnimating) return;
         if (sfxSource != null && buttonClickSFX != null) sfxSource.PlayOneShot(buttonClickSFX);
-        StartCoroutine(AnimatePanelOut(menuPanel.transform, () =>
-        {
-            menuGroup.SetActive(false);
-        }));
+        // Instant close — safe on all platforms
+        if (menuPanel != null) menuPanel.transform.localScale = Vector3.zero;
+        if (menuGroup != null) menuGroup.SetActive(false);
     }
 
     public void RestartMinigame()
     {
         if (sfxSource != null && buttonClickSFX != null) sfxSource.PlayOneShot(buttonClickSFX);
-        // Reloads the current active scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void QuitMinigame()
     {
         if (sfxSource != null && buttonClickSFX != null) sfxSource.PlayOneShot(buttonClickSFX);
-        // Tell the hub scene we did NOT win/complete the objective
         PlayerPrefs.SetInt("FishingMinigameWon", 0);
-        PlayerPrefs.SetInt("MinigameWon", 0); // General fallback flag for other games
+        PlayerPrefs.SetInt("MinigameWon", 0);
         PlayerPrefs.Save();
 
-        // Load previous scene, or LanguageSelectionScene if none exists
         string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
         SceneManager.LoadScene(prevScene);
     }
@@ -67,73 +59,18 @@ public class MinigameMenuManager : MonoBehaviour
             return;
         }
 
-        if (isAnimating) return;
         if (sfxSource != null && buttonClickSFX != null) sfxSource.PlayOneShot(buttonClickSFX);
 
-        // Close the menu panel first, then open How To Play
-        StartCoroutine(AnimatePanelOut(menuPanel.transform, () =>
+        // Close the menu panel instantly first, then open How To Play
+        if (menuPanel != null) menuPanel.transform.localScale = Vector3.zero;
+        if (menuGroup != null) menuGroup.SetActive(false);
+
+        howToPlayGroup.SetActive(true);
+        howToPlayGroup.GetComponent<UIFadeAnimator>()?.FadeIn();
+        if (sfxSource != null && panelOpenSFX != null) sfxSource.PlayOneShot(panelOpenSFX);
+        if (howToPlayPanel != null)
         {
-            menuGroup.SetActive(false);
-            
-            howToPlayGroup.SetActive(true);
-            if (sfxSource != null && panelOpenSFX != null) sfxSource.PlayOneShot(panelOpenSFX);
-            if (howToPlayPanel != null)
-            {
-                StartCoroutine(AnimatePanelIn(howToPlayPanel.transform));
-            }
-        }));
-    }
-
-    // --- Animation Coroutines ---
-
-    private IEnumerator AnimatePanelIn(Transform panelTransform)
-    {
-        isAnimating = true;
-        panelTransform.localScale = Vector3.zero;
-        
-        float duration = 0.3f;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / duration;
-            panelTransform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * 1.1f, t);
-            yield return null;
-        }
-
-        elapsed = 0f;
-        while (elapsed < 0.1f)
-        {
-            elapsed += Time.deltaTime;
-            panelTransform.localScale = Vector3.Lerp(Vector3.one * 1.1f, Vector3.one, elapsed / 0.1f);
-            yield return null;
-        }
-
-        panelTransform.localScale = Vector3.one;
-        isAnimating = false;
-    }
-
-    private IEnumerator AnimatePanelOut(Transform panelTransform, System.Action onComplete = null)
-    {
-        isAnimating = true;
-        float duration = 0.2f;
-        float elapsed = 0f;
-        Vector3 startScale = panelTransform.localScale;
-
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            panelTransform.localScale = Vector3.Lerp(startScale, Vector3.zero, elapsed / duration);
-            yield return null;
-        }
-
-        panelTransform.localScale = Vector3.zero;
-        isAnimating = false;
-        
-        if (onComplete != null)
-        {
-            onComplete.Invoke();
+            howToPlayPanel.GetComponent<UIPopAnimator>()?.PopIn();
         }
     }
 }

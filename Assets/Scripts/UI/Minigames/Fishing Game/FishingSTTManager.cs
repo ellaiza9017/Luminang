@@ -165,7 +165,9 @@ public class FishingSTTManager : MonoBehaviour
         // Show UI and Slide In, then fade in fish + glow
         sttGroup.SetActive(true);
         StartCoroutine(SlidePanel(panelOffscreenPos, panelOnscreenPos, true));
-        StartCoroutine(FadeInFishAndGlow());
+        
+        if (fadeInCoroutine != null) StopCoroutine(fadeInCoroutine);
+        fadeInCoroutine = StartCoroutine(FadeInFishAndGlow());
     }
 
     private void OnSpeakButtonClicked()
@@ -278,14 +280,8 @@ public class FishingSTTManager : MonoBehaviour
         }
     }
 
-    private void ShowResultOverlay(bool isCorrect)
-    {
-        if (correctWrongImage == null) return;
-        correctWrongImage.sprite = isCorrect ? correctResultSprite : wrongResultSprite;
-        correctWrongImage.gameObject.SetActive(true);
-        correctWrongImage.transform.localScale = Vector3.zero;
-        StartCoroutine(PopInThenOut(correctWrongImage.transform));
-    }
+    private Coroutine fadeInCoroutine;
+    private Coroutine popInCoroutine;
 
     private string GetRandomCorrectFeedback()
     {
@@ -321,6 +317,17 @@ public class FishingSTTManager : MonoBehaviour
         }
         t.localScale = Vector3.one;
         // Stay visible (EndSTTFlow will hide with the panel)
+    }
+
+    private void ShowResultOverlay(bool isCorrect)
+    {
+        if (correctWrongImage == null) return;
+        correctWrongImage.sprite = isCorrect ? correctResultSprite : wrongResultSprite;
+        correctWrongImage.gameObject.SetActive(true);
+        correctWrongImage.transform.localScale = Vector3.zero;
+        
+        if (popInCoroutine != null) StopCoroutine(popInCoroutine);
+        popInCoroutine = StartCoroutine(PopInThenOut(correctWrongImage.transform));
     }
 
     private IEnumerator FadeInFishAndGlow()
@@ -359,8 +366,8 @@ public class FishingSTTManager : MonoBehaviour
         // Wait a bit so the player can see the success/fail message
         yield return new WaitForSeconds(resultWaitTime);
 
-        // Slide out
-        yield return StartCoroutine(SlidePanel(panelOnscreenPos, panelOffscreenPos, false));
+        // Slide out (Flattened Coroutine to avoid IL2CPP crash)
+        yield return SlidePanel(panelOnscreenPos, panelOffscreenPos, false);
 
         if (success)
         {
@@ -393,6 +400,11 @@ public class FishingSTTManager : MonoBehaviour
 
         if (!showGroup && sttGroup != null)
         {
+            // CRITICAL: Stop background animations BEFORE disabling the UI group
+            // Modifying a disabled UI object causes native IL2CPP crashes on Android.
+            if (fadeInCoroutine != null) StopCoroutine(fadeInCoroutine);
+            if (popInCoroutine != null) StopCoroutine(popInCoroutine);
+            
             sttGroup.SetActive(false);
         }
     }

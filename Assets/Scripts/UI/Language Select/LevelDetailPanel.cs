@@ -139,9 +139,16 @@ public class LevelDetailPanel : MonoBehaviour
     {
         if (lessonsDataJson != null)
             _data = JsonUtility.FromJson<LessonsDataWrapper>(lessonsDataJson.text);
+        else
+        {
+            // Fallback for mobile if Inspector reference is lost
+            TextAsset resourceAsset = Resources.Load<TextAsset>("LessonsData");
+            if (resourceAsset != null)
+                _data = JsonUtility.FromJson<LessonsDataWrapper>(resourceAsset.text);
+        }
 
         if (_data == null)
-            Debug.LogError("[LevelDetailPanel] Failed to parse LessonsData.json. Is it assigned?");
+            Debug.LogError("[LevelDetailPanel] Failed to parse LessonsData.json. Is it assigned or in the Resources folder?");
 
         if (startButton != null)
             startButton.onClick.AddListener(OnStartButtonPressed);

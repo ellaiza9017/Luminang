@@ -46,14 +46,20 @@ public class WordsListManager : MonoBehaviour
 
     private void LoadData()
     {
-        if (journalJsonFile == null)
+        if (journalJsonFile != null)
         {
-            Debug.LogError("[WordsListManager] Journal JSON file not assigned!");
-            return;
+            _journalData = JsonUtility.FromJson<JournalData>(journalJsonFile.text);
         }
-        _journalData = JsonUtility.FromJson<JournalData>(journalJsonFile.text);
+        else
+        {
+            // Fallback for mobile if Inspector reference is lost
+            TextAsset resourceAsset = Resources.Load<TextAsset>("LuminangJournalDictionary");
+            if (resourceAsset != null)
+                _journalData = JsonUtility.FromJson<JournalData>(resourceAsset.text);
+        }
+
         if (_journalData == null)
-            Debug.LogError("[WordsListManager] Failed to parse JournalData JSON!");
+            Debug.LogError("[WordsListManager] Failed to parse JournalData JSON! Is it assigned or in the Resources folder?");
     }
 
     // Called by LanguageCardManager when a card is selected

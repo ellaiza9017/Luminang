@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2705463142878492478}
   - component: {fileID: 6294731274438502620}
   - component: {fileID: 4170918238902637263}
+  - component: {fileID: 8380782498552347930}
   m_Layer: 5
   m_Name: MenuPanel
   m_TagString: Untagged
@@ -77,6 +78,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8380782498552347930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749616152898833828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eefac94750ea4dd4eb101b4fa96e4783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPopAnimator
+  duration: 0.3
 --- !u!1 &2388600016817820652
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +828,8 @@ GameObject:
   - component: {fileID: 1060450796984819206}
   - component: {fileID: 7390458307211806548}
   - component: {fileID: 2729396128989922949}
+  - component: {fileID: 1823438361686553311}
+  - component: {fileID: 5308507622220259192}
   m_Layer: 5
   m_Name: MenuGroup
   m_TagString: Untagged
@@ -879,6 +895,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1823438361686553311
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5670327795742663304}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &5308507622220259192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5670327795742663304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef91b0cb07c5be4eb5e7085560de6be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIFadeAnimator
+  duration: 0.25
 --- !u!1 &7333613189164009707
 GameObject:
   m_ObjectHideFlags: 0

@@ -166,9 +166,18 @@ public class CategoryListManager : MonoBehaviour
 
     private void ParseJsonFiles()
     {
-        // Parse LessonsData.json
+        // Parse LessonsData.json — try Inspector slot first, then Resources fallback (mobile-safe)
         if (lessonsData != null)
+        {
             _lessonsData = JsonUtility.FromJson<LessonsDataWrapper>(lessonsData.text);
+        }
+        else
+        {
+            // Fallback: load from Resources/LessonsData (works on mobile even if Inspector slot is unassigned)
+            TextAsset resourceAsset = Resources.Load<TextAsset>("LessonsData");
+            if (resourceAsset != null)
+                _lessonsData = JsonUtility.FromJson<LessonsDataWrapper>(resourceAsset.text);
+        }
 
         if (_lessonsData == null)
         {
@@ -176,6 +185,7 @@ public class CategoryListManager : MonoBehaviour
             _lessonsData = new LessonsDataWrapper { languages = new List<LanguageEntry>() };
         }
     }
+
 
     /// <summary>
     /// Builds the merged chapter list for the active language by:

@@ -584,4 +584,19 @@ public class BookSelectionManager : MonoBehaviour
         if (loader != null) loader.LoadScene(sceneToLoad);
         else UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
     }
+
+    // --- TEMPORARY FISHING GAME TEST BUTTON ---
+    public void LoadFishingGame()
+    {
+        Debug.Log("[BookSelectionManager] Loading FishingGameScene...");
+        
+        // Save the current scene so the minigame knows where to return to
+        PlayerPrefs.SetString("PreviousScene", UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        PlayerPrefs.Save();
+        
+        // Load the minigame
+        var loader = FindFirstObjectByType<SceneLoader>();
+        if (loader != null) loader.LoadScene("FishingGameScene");
+        else UnityEngine.SceneManagement.SceneManager.LoadScene("FishingGameScene");
+    }
 }

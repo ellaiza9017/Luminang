@@ -66,8 +66,14 @@ public class FishingQuizManager : MonoBehaviour
     public int totalBaits = 20;
     public int totalRounds = 15;
     
+#if UNITY_EDITOR
+    [Header("--- EDITOR DEBUG (hidden in build) ---")]
+    public int currentBaits;
+    public int currentRound;
+#else
     [HideInInspector] public int currentBaits;
     private int currentRound;
+#endif
     
     private List<GreetingQuizData> allGreetings = new List<GreetingQuizData>();
     private List<QuestionData> questionPool = new List<QuestionData>();
@@ -80,6 +86,19 @@ public class FishingQuizManager : MonoBehaviour
         Instance = this;
     }
 
+#if UNITY_EDITOR
+    void Update()
+    {
+        // EDITOR CHEATS — stripped out of APK builds completely
+        // Press W → instantly trigger Win Screen
+        // Press L → instantly trigger Lose Screen
+        var kb = UnityEngine.InputSystem.Keyboard.current;
+        if (kb == null) return;
+        if (kb.wKey.wasPressedThisFrame) ShowWinScreen();
+        if (kb.lKey.wasPressedThisFrame) ShowLoseScreen();
+    }
+#endif
+
     void Start()
     {
         LoadQuizData();
@@ -88,7 +107,8 @@ public class FishingQuizManager : MonoBehaviour
         if (howToPlayGroup != null && howToPlayPanel != null)
         {
             howToPlayGroup.SetActive(true);
-            StartCoroutine(AnimatePanelIn(howToPlayPanel.transform));
+            howToPlayGroup.GetComponent<UIFadeAnimator>()?.FadeIn();
+            howToPlayPanel.GetComponent<UIPopAnimator>()?.PopIn();
         }
         else
         {
@@ -99,13 +119,12 @@ public class FishingQuizManager : MonoBehaviour
 
     void LoadQuizData()
     {
-        // Load the greetings scenario data
-        TextAsset jsonFile = Resources.Load<TextAsset>("Greetings"); // We'll put it in Resources for easy loading, or read from Data path
-        // Actually, let's read from the exact path we created it at:
-        string path = Path.Combine(Application.dataPath, "Data/Minigames/FishingGame/Greetings.json");
-        if (File.Exists(path))
+        // Load the greetings scenario data from the Resources folder (mobile friendly)
+        TextAsset jsonFile = Resources.Load<TextAsset>("Greetings");
+        
+        if (jsonFile != null)
         {
-            string jsonString = File.ReadAllText(path);
+            string jsonString = jsonFile.text;
             string wrappedJson = "{\"items\":" + jsonString + "}";
             GreetingDataWrapper wrapper = JsonUtility.FromJson<GreetingDataWrapper>(wrappedJson);
             if (wrapper != null && wrapper.items != null)
@@ -132,7 +151,7 @@ public class FishingQuizManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Greetings.json not found at " + path);
+            Debug.LogError("Greetings.json not found in any Resources folder! Make sure it is inside a folder named 'Resources'.");
         }
     }
 
@@ -155,24 +174,7 @@ public class FishingQuizManager : MonoBehaviour
         NextRound();
     }
 
-    // Call this from the "X" Button OnClick()
-    public void CloseHowToPlay()
-    {
-        if (uiAudioSource != null && buttonClickSFX != null) uiAudioSource.PlayOneShot(buttonClickSFX);
-        if (howToPlayPanel != null)
-        {
-            StartCoroutine(AnimatePanelOut(howToPlayPanel.transform, () => 
-            {
-                if (howToPlayGroup != null) howToPlayGroup.SetActive(false);
-                StartGame(); // Actually start the game after the animation finishes!
-            }));
-        }
-        else
-        {
-            if (howToPlayGroup != null) howToPlayGroup.SetActive(false);
-            StartGame();
-        }
-    }
+
 
     void NextRound()
     {
@@ -323,12 +325,46 @@ public class FishingQuizManager : MonoBehaviour
         }
     }
 
+    // Fallback: if any star reference is missing, search for them under WinPanel automatically
+    private void ValidateStars()
+    {
+        if (winPanel == null) return;
+        bool anyNull = winStars == null || winStars.Length == 0;
+        if (!anyNull)
+        {
+            foreach (var s in winStars) if (s == null) { anyNull = true; break; }
+        }
+        if (!anyNull) return; // All fine, skip
+
+        Debug.LogWarning("[WinScreen] Some star references are missing — searching for them automatically under WinPanel...");
+        var images = winPanel.GetComponentsInChildren<UnityEngine.UI.Image>(true);
+        var found = new System.Collections.Generic.List<UnityEngine.UI.Image>();
+        foreach (var img in images)
+        {
+            string n = img.gameObject.name.ToLower();
+            if (n.Contains("star")) found.Add(img);
+        }
+        if (found.Count > 0)
+        {
+            winStars = found.ToArray();
+            Debug.Log($"[WinScreen] Auto-recovered {winStars.Length} star Image(s) from WinPanel children.");
+        }
+        else
+        {
+            Debug.LogError("[WinScreen] Could not auto-find any star Images under WinPanel! Make sure they are named with 'Star' in them.");
+        }
+    }
+
     private void ShowWinScreen()
     {
         Debug.Log("Game Won! Showing Win Screen.");
-        winOrLoseGroup.SetActive(true);
-        winPanel.SetActive(true);
-        losePanel.SetActive(false);
+        if (winOrLoseGroup != null)
+        {
+            winOrLoseGroup.SetActive(true);
+            winOrLoseGroup.GetComponent<UIFadeAnimator>()?.FadeIn();
+        }
+        if (winPanel != null) winPanel.SetActive(true);
+        if (losePanel != null) losePanel.SetActive(false);
 
         // Calculate Stars based on remaining baits (Total Baits is 20, 15 rounds = min 15 baits used)
         int baitsUsed = totalBaits - currentBaits;
@@ -342,16 +378,30 @@ public class FishingQuizManager : MonoBehaviour
         else { stars = 1; coinsEarned = 10; }
 
         // Update star sprites visually
-        for (int i = 0; i < winStars.Length; i++)
+        ValidateStars(); // Auto-recover if references are missing
+        Debug.Log($"[WinScreen] baitsUsed={baitsUsed}, stars={stars}, winStars.Length={winStars?.Length ?? -1}, activeSprite={activeStarSprite?.name}, inactiveSprite={inactiveStarSprite?.name}");
+        if (winStars != null)
         {
-            if (winStars[i] != null)
+            for (int i = 0; i < winStars.Length; i++)
             {
-                winStars[i].sprite = (i < stars) ? activeStarSprite : inactiveStarSprite;
-                winStars[i].gameObject.SetActive(true); // Make sure they are visible!
+                if (winStars[i] != null)
+                {
+                    Sprite chosen = (i < stars) ? activeStarSprite : inactiveStarSprite;
+                    winStars[i].sprite = chosen;
+                    winStars[i].gameObject.SetActive(true);
+                    Debug.Log($"[WinScreen] Star[{i}] → {chosen?.name ?? "NULL sprite!"}");
+                }
+                else
+                {
+                    Debug.LogWarning($"[WinScreen] Star[{i}] is NULL in the array!");
+                }
             }
         }
 
-        winCoinsText.text = $"+{coinsEarned}";
+        if (winCoinsText != null)
+        {
+            winCoinsText.text = $"+{coinsEarned}";
+        }
 
         // Save coins and minigame win state
         int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
@@ -360,19 +410,26 @@ public class FishingQuizManager : MonoBehaviour
         PlayerPrefs.Save();
 
         if (uiAudioSource != null && winPanelSFX != null) uiAudioSource.PlayOneShot(winPanelSFX);
-        StartCoroutine(AnimatePanelIn(winPanel.transform));
+        winPanel?.GetComponent<UIPopAnimator>()?.PopIn();
     }
 
     private void ShowLoseScreen()
     {
         Debug.Log("Game Over! Showing Lose Screen.");
-        winOrLoseGroup.SetActive(true);
-        winPanel.SetActive(false);
-        losePanel.SetActive(true);
+        if (winOrLoseGroup != null)
+        {
+            winOrLoseGroup.SetActive(true);
+            winOrLoseGroup.GetComponent<UIFadeAnimator>()?.FadeIn();
+        }
+        if (winPanel != null) winPanel.SetActive(false);
+        if (losePanel != null) losePanel.SetActive(true);
 
         // Consolation prize for losing
         int coinsEarned = 2;
-        loseCoinsText.text = $"+{coinsEarned}";
+        if (loseCoinsText != null)
+        {
+            loseCoinsText.text = $"+{coinsEarned}";
+        }
 
         int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
         PlayerPrefs.SetInt("PlayerCoins", currentCoins + coinsEarned);
@@ -380,55 +437,18 @@ public class FishingQuizManager : MonoBehaviour
         PlayerPrefs.Save();
 
         if (uiAudioSource != null && losePanelSFX != null) uiAudioSource.PlayOneShot(losePanelSFX);
-        StartCoroutine(AnimatePanelIn(losePanel.transform));
+        losePanel?.GetComponent<UIPopAnimator>()?.PopIn();
     }
 
-    private System.Collections.IEnumerator AnimatePanelIn(Transform panelTransform)
+    // Call this from the "X" Button OnClick()
+    public void CloseHowToPlay()
     {
-        panelTransform.localScale = Vector3.zero;
+        if (uiAudioSource != null && buttonClickSFX != null) uiAudioSource.PlayOneShot(buttonClickSFX);
         
-        float duration = 0.3f;
-        float elapsed = 0f;
-
-        // Pop up and overshoot slightly
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / duration;
-            // Ease out back (bouncy overshoot)
-            float scale = 1 + 0.15f * Mathf.Sin(t * Mathf.PI); // Bounces up to 1.15
-            panelTransform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * 1.1f, t);
-            yield return null;
-        }
-
-        // Settle back to exactly 1
-        elapsed = 0f;
-        while (elapsed < 0.1f)
-        {
-            elapsed += Time.deltaTime;
-            panelTransform.localScale = Vector3.Lerp(Vector3.one * 1.1f, Vector3.one, elapsed / 0.1f);
-            yield return null;
-        }
-
-        panelTransform.localScale = Vector3.one;
-    }
-
-    private System.Collections.IEnumerator AnimatePanelOut(Transform panelTransform, System.Action onComplete = null)
-    {
-        float duration = 0.2f;
-        float elapsed = 0f;
-        Vector3 startScale = panelTransform.localScale;
-
-        // Shrink down quickly
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            panelTransform.localScale = Vector3.Lerp(startScale, Vector3.zero, elapsed / duration);
-            yield return null;
-        }
-
-        panelTransform.localScale = Vector3.zero;
-        onComplete?.Invoke();
+        if (howToPlayPanel != null) howToPlayPanel.transform.localScale = Vector3.zero; // INSTANT SNAP
+        if (howToPlayGroup != null) howToPlayGroup.SetActive(false);
+        
+        StartGame(); 
     }
 
     // Call this from the "Try Again" Button OnClick()

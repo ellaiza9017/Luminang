@@ -44,9 +44,9 @@ public class UpdateOutfitData : MonoBehaviour
             { "lacedBrownBoots", ("Lakbay Boots", "Lace up and head out for your next adventure.", 800) },
 
             // Hairs
-            { "blackHairShort", ("Classic Bob", "A neat bob that never goes out of style.", 100) },
+            { "blackHairShort", ("Black Hair Short", "A neat bob that never goes out of style.", 100) },
             { "blondHair", ("Golden Layers", "Soft layered hair with a bright, cheerful look.", 250) },
-            { "longBlackHair", ("Straight Locks", "Long, sleek hair that's simple and elegant.", 150) },
+            { "longBlackHair", ("Long Black Hair", "Long, sleek hair that's simple and elegant.", 150) },
             { "pinkHair", ("Pink Twin Braids", "A playful braided style full of personality.", 600) },
             { "purpBlackHairShort", ("Side Fringe", "A short cut with a stylish side-swept fringe.", 300) },
             { "shortBlackHair", ("Textured Crop", "A clean, textured haircut for an everyday look.", 100) },

@@ -167,6 +167,13 @@ public class ItemDetailPanelController : MonoBehaviour
         {
             descriptionPanel.gameObject.SetActive(true);
             if (animCoroutine != null) StopCoroutine(animCoroutine);
+            
+            if (!gameObject.activeInHierarchy)
+            {
+                descriptionPanel.localScale = Vector3.one;
+                return;
+            }
+
             animCoroutine = StartCoroutine(ScalePanel(Vector3.zero, Vector3.one));
         }
     }
@@ -177,6 +184,15 @@ public class ItemDetailPanelController : MonoBehaviour
         if (descriptionPanel != null)
         {
             if (animCoroutine != null) StopCoroutine(animCoroutine);
+            
+            if (!gameObject.activeInHierarchy)
+            {
+                descriptionPanel.localScale = Vector3.zero;
+                descriptionPanel.gameObject.SetActive(false);
+                return;
+            }
+
+            descriptionPanel.gameObject.SetActive(true);
             animCoroutine = StartCoroutine(ScalePanel(descriptionPanel.localScale, Vector3.zero, hideOnComplete: true));
         }
     }

@@ -70,18 +70,22 @@ public class JournalBookManager : MonoBehaviour
         if (journalJsonFile != null)
         {
             _journalData = JsonUtility.FromJson<JournalData>(journalJsonFile.text);
-            if (_journalData == null || _journalData.journal_entries == null)
-            {
-                Debug.LogError("JournalData failed to parse from JSON!");
-            }
-            else
-            {
-                Debug.Log($"Loaded {_journalData.journal_entries.Count} journal entries from JSON.");
-            }
         }
         else
         {
-            Debug.LogError("Journal JSON file is not assigned in the Inspector!");
+            // Fallback for mobile if Inspector reference is lost
+            TextAsset resourceAsset = Resources.Load<TextAsset>("LuminangJournalDictionary");
+            if (resourceAsset != null)
+                _journalData = JsonUtility.FromJson<JournalData>(resourceAsset.text);
+        }
+
+        if (_journalData == null || _journalData.journal_entries == null)
+        {
+            Debug.LogError("JournalData failed to parse from JSON! Is it assigned or in the Resources folder?");
+        }
+        else
+        {
+            Debug.Log($"Loaded {_journalData.journal_entries.Count} journal entries from JSON.");
         }
     }
 

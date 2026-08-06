@@ -207,6 +207,14 @@ public class CustomizationDetailPanel : MonoBehaviour
         {
             descriptionPanel.gameObject.SetActive(true);
             if (animCoroutine != null) StopCoroutine(animCoroutine);
+            
+            // Check if the script's game object is fully active in hierarchy before starting coroutines
+            if (!gameObject.activeInHierarchy)
+            {
+                descriptionPanel.localScale = Vector3.one;
+                return;
+            }
+
             animCoroutine = StartCoroutine(ScalePanel(Vector3.zero, Vector3.one));
         }
     }
@@ -217,6 +225,18 @@ public class CustomizationDetailPanel : MonoBehaviour
         if (descriptionPanel != null)
         {
             if (animCoroutine != null) StopCoroutine(animCoroutine);
+            
+            // If the script's gameobject is inactive, we can't run a coroutine on it. Just snap it closed.
+            if (!gameObject.activeInHierarchy)
+            {
+                descriptionPanel.localScale = Vector3.zero;
+                descriptionPanel.gameObject.SetActive(false);
+                return;
+            }
+
+            // MOBILE FIX: Ensure the panel is active so the coroutine can run.
+            // The coroutine itself will SetActive(false) when the animation finishes.
+            descriptionPanel.gameObject.SetActive(true);
             animCoroutine = StartCoroutine(ScalePanel(descriptionPanel.localScale, Vector3.zero, hideOnComplete: true));
         }
     }

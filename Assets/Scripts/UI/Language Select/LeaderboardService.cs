@@ -22,7 +22,7 @@ public class LeaderboardService : MonoBehaviour
     /// Once the team finalizes the master JSON file containing all objectives (e.g. Calle Crisologo, Magellan's Cross), 
     /// update this number to be the TRUE total number of objectives so the progress percentage is accurate.
     /// </summary>
-    public const int MAX_OBJECTIVES_PER_LANGUAGE = 13;
+    public const int MAX_OBJECTIVES_PER_LANGUAGE = 12;
 
     private void Awake()
     {

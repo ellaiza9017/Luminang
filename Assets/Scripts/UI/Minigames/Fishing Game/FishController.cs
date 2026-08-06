@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
-public class FishController : MonoBehaviour, IPointerClickHandler
+public class FishController : MonoBehaviour
 {
     [Header("Animation Settings")]
     public Sprite[] frames;
@@ -207,13 +206,8 @@ public class FishController : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    void OnMouseDown()
-    {
-        if (isCaught) return;
-        HandleClick();
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
+    // Called externally by FishTouchHandler when this fish is tapped on mobile/desktop
+    public void OnFishTapped()
     {
         if (isCaught) return;
         HandleClick();

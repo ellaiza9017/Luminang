@@ -144,9 +144,15 @@ namespace Luminang.UI.Announcements
         {
             if (_currentData == null || _mainManager == null) return;
 
-            if (GenericModal.Instance != null)
+            GenericModal modal = GenericModal.Instance;
+            if (modal == null || modal.gameObject == null || !modal.gameObject.scene.IsValid())
             {
-                GenericModal.Instance.ShowConfirm(
+                modal = FindFirstObjectByType<GenericModal>(FindObjectsInactive.Include);
+            }
+
+            if (modal != null)
+            {
+                modal.ShowConfirm(
                     "Archive this announcement?",
                     "Yes",
                     () => {
@@ -158,7 +164,7 @@ namespace Luminang.UI.Announcements
             }
             else
             {
-                Debug.LogWarning("[AnnouncementDetailsManager] GenericModal.Instance not found! Archiving immediately.");
+                Debug.LogWarning("[AnnouncementDetailsManager] GenericModal not found in hierarchy! Archiving immediately.");
                 _mainManager.ArchiveAnnouncement(_currentData.Id);
                 ClearDetails();
             }
@@ -168,9 +174,15 @@ namespace Luminang.UI.Announcements
         {
             if (_currentData == null || _mainManager == null) return;
 
-            if (GenericModal.Instance != null)
+            GenericModal modal = GenericModal.Instance;
+            if (modal == null || modal.gameObject == null || !modal.gameObject.scene.IsValid())
             {
-                GenericModal.Instance.ShowConfirm(
+                modal = FindFirstObjectByType<GenericModal>(FindObjectsInactive.Include);
+            }
+
+            if (modal != null)
+            {
+                modal.ShowConfirm(
                     "Delete this announcement? This cannot be undone.",
                     "Yes",
                     () => {
@@ -182,7 +194,7 @@ namespace Luminang.UI.Announcements
             }
             else
             {
-                Debug.LogWarning("[AnnouncementDetailsManager] GenericModal.Instance not found! Deleting immediately.");
+                Debug.LogWarning("[AnnouncementDetailsManager] GenericModal not found in hierarchy! Deleting immediately.");
                 _mainManager.DeleteAnnouncement(_currentData.Id);
                 ClearDetails();
             }
@@ -208,9 +220,15 @@ namespace Luminang.UI.Announcements
                 StartCoroutine(ClaimWithLoadingRoutine(dataToClaimId, coinsToClaim));
             };
 
-            if (GenericModal.Instance != null)
+            GenericModal modal = GenericModal.Instance;
+            if (modal == null || modal.gameObject == null || !modal.gameObject.scene.IsValid())
             {
-                GenericModal.Instance.ShowConfirm(
+                modal = FindFirstObjectByType<GenericModal>(FindObjectsInactive.Include);
+            }
+
+            if (modal != null)
+            {
+                modal.ShowConfirm(
                     $"Claim {coinsToClaim} Coins?",
                     "Claim",
                     doClaimAction,
@@ -219,7 +237,7 @@ namespace Luminang.UI.Announcements
             }
             else
             {
-                Debug.LogWarning("[AnnouncementDetailsManager] GenericModal not found — claiming directly.");
+                Debug.LogWarning("[AnnouncementDetailsManager] GenericModal not found in hierarchy — claiming directly.");
                 doClaimAction();
             }
         }
