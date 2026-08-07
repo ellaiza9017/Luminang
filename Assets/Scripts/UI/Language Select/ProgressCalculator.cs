@@ -124,4 +124,17 @@ public static class ProgressCalculator
 
         return completedCount;
     }
+
+    public static int GetTotalObjectivesCount(string languageKey)
+    {
+        ObjectivesData data = GetObjectivesData(languageKey);
+        if (data == null || data.objectives == null) return 0;
+
+        int count = 0;
+        foreach (var cat in data.objectives)
+        {
+            if (cat.items != null) count += cat.items.Count;
+        }
+        return count;
+    }
 }

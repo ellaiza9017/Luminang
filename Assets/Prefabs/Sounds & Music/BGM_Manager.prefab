@@ -146,6 +146,9 @@ MonoBehaviour:
   - sceneNameContains: FishingGameScene
     clip: {fileID: 8300000, guid: d9f7bcce1a4786945907de39c4a4fd75, type: 3}
     volumeMultiplier: 0.5
+  - sceneNameContains: ReactionCardScene
+    clip: {fileID: 8300000, guid: 7e782d6bfbfd96041b041bbac133abc5, type: 3}
+    volumeMultiplier: 0.5
   defaultClip: {fileID: 8300000, guid: e76b3a43171539c4f93b2d49778a824c, type: 3}
   defaultVolumeMultiplier: 0.5
   crossfadeDuration: 1

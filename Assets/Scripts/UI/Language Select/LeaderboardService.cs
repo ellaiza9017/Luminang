@@ -19,16 +19,7 @@ public class LeaderboardService : MonoBehaviour
 
     /// <summary>
     /// True total number of objectives per language, counted directly from the Objectives JSON files.
-    /// Ilokano: ilo_01 → ilo_47 = 47 objectives
-    /// Cebuano: ceb_01 → ceb_28 = 28 objectives
     /// </summary>
-    public const int MAX_OBJECTIVES_ILOKANO = 47;
-    public const int MAX_OBJECTIVES_CEBUANO = 28;
-
-    /// <summary>
-    /// Combined total across both languages, used for overall progress %.
-    /// </summary>
-    public const int MAX_OBJECTIVES_TOTAL = MAX_OBJECTIVES_ILOKANO + MAX_OBJECTIVES_CEBUANO; // 75
 
     private void Awake()
     {
@@ -73,9 +64,13 @@ public class LeaderboardService : MonoBehaviour
                 int iloPhrases    = profile.UnlockedPhrasesIlokano?.Count ?? 0;
                 int cebPhrases    = profile.UnlockedPhrasesCebuano?.Count ?? 0;
 
-                float iloProgress = (iloObjectives / (float)MAX_OBJECTIVES_ILOKANO) * 100f;
-                float cebProgress = (cebObjectives / (float)MAX_OBJECTIVES_CEBUANO) * 100f;
-                float overallProgress = ((iloObjectives + cebObjectives) / (float)MAX_OBJECTIVES_TOTAL) * 100f;
+                int maxIlokano = ProgressCalculator.GetTotalObjectivesCount("ilokano");
+                int maxCebuano = ProgressCalculator.GetTotalObjectivesCount("cebuano");
+                int maxTotal = maxIlokano + maxCebuano;
+
+                float iloProgress = maxIlokano > 0 ? (iloObjectives / (float)maxIlokano) * 100f : 0f;
+                float cebProgress = maxCebuano > 0 ? (cebObjectives / (float)maxCebuano) * 100f : 0f;
+                float overallProgress = maxTotal > 0 ? ((iloObjectives + cebObjectives) / (float)maxTotal) * 100f : 0f;
 
                 var entry = new LeaderboardEntry
                 {

@@ -30,11 +30,11 @@
     - `distractors`: A list of wrong/partially correct phrases, each with custom feedback. 
       - *Example Distractor:* "thank_you" -> Feedback: "Hmm... you're almost correct, but we're expressing *extreme* gratitude. What do you think that is?"
 
-### Lives System (3 Strikes)
-- The player starts with **3 Hearts** (or 3 Cups of Coffee).
-- The game consists of **10 Rounds**.
-- If they tap a wrong Vocabulary Card, they lose 1 Heart.
-- If Hearts reach 0 before 10 rounds are completed → game ends early.
+### Lives System (5 Strikes)
+- The player starts with **5 Hearts**.
+- The game consists of **15 Rounds** (10 Gratitude situations + 5 Recall situations).
+- If they tap a wrong Vocabulary Card, they lose 1 Heart (1 mistake).
+- If they lose all 5 Hearts before 15 rounds are completed → game ends early.
 
 ### Wrong Answer Behavior
 - Screen/Card **shakes**, red cross flashes.
@@ -57,12 +57,12 @@
 - STT uses existing: `SpeechRecorder` → `GroqWhisperManager` → `PhraseEvaluator.EvaluateSpeech()`
 
 ### Recall Round Rule (L1)
-- Rounds 3 and 7 will pull a **Greeting (L1)** situation instead of a Gratitude situation. 
+- **5 of the 15 rounds** will randomly pull a **Greeting (L1)** situation instead of a Gratitude situation. 
 - *Example:* "You wake up and see your lola. Greet her!" -> Player must pick "Good morning".
 
 ### Win Condition
-- Complete all **10 rounds** without losing all 3 Hearts.
-- Minimum to pass: **7/10** correct rounds.
+- Complete all **15 rounds** without losing all 5 Hearts.
+- Minimum to pass: **10/15** correct rounds.
 
 ---
 
@@ -72,12 +72,12 @@ Stars are based on **how many rounds completed perfectly on the first try** (cor
 
 | Correct Rounds | Stars | Coins Earned |
 |---|---|---|
-| 9–10 / 10 | ⭐⭐⭐⭐⭐ | 100% of L2 coins |
-| 7–8 / 10 | ⭐⭐⭐⭐ | 80% |
-| 5–6 / 10 | ⭐⭐⭐ | 60% |
-| 3–4 / 10 | ⭐⭐ | 40% |
-| 1–2 / 10 | ⭐ | 20% |
-| 0 / 10 | — | 5% (consolation) |
+| 14–15 / 15 | ⭐⭐⭐⭐⭐ | 100% of L2 coins |
+| 11–13 / 15 | ⭐⭐⭐⭐ | 80% |
+| 8–10 / 15 | ⭐⭐⭐ | 60% |
+| 5–7 / 15 | ⭐⭐ | 40% |
+| 1–4 / 15 | ⭐ | 20% |
+| 0 / 15 | — | 5% (consolation) |
 
 Coin amounts come from `LessonsData.json` → `rewards.coins` for each lesson.
 
@@ -124,7 +124,7 @@ Instead of a full 3D body, we use the same hybrid technique from the Fishing Gam
 
 ```
 ┌─────────────────────────────────────────────┐
-│ [Pause]                           [❤❤❤ Lives]│
+│ [Pause]                           [❤❤❤❤❤ Lives]│
 ├─────────────────────────────────────────────┤
 │      ~~~ Wooden Desk Background ~~~         │
 │                                             │
