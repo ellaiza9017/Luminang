@@ -1,0 +1,720 @@
+[
+  {
+    "englishDialogue": "I poured you a glass of cold water, do you want it?",
+    "ilokanoDialogue": "Nangbukbokak ti nalamiis a danum, kayatmo?",
+    "cebuanoDialogue": "Naghuwad ko og bugnaw nga tubig, gusto ka?",
+    "situationText": "Do you want the water? Accept it!",
+    "correctPhraseId": "responses_014",
+    "englishFeedback": "Here you go! Drink up.",
+    "ilokanoFeedback": "Daytoy oh! Uminom ka.",
+    "cebuanoFeedback": "Dia ra! Inom na.",
+    "distractors": [
+      {
+        "phraseId": "responses_015",
+        "feedback": "You must be very thirsty! Let's accept their kind offer instead of saying no."
+      },
+      {
+        "phraseId": "responses_018",
+        "feedback": "It's a simple question about water, no need to say you don't understand!"
+      }
+    ],
+    "npcDescription": "A kind, elderly woman wearing a simple traditional dress, holding out a clear glass of cold water.",
+    "acceptablePhraseIds": [
+      "responses_014"
+    ],
+    "npcKeyword": "thirsty"
+  },
+  {
+    "englishDialogue": "We are playing basketball at the court, want to join?",
+    "ilokanoDialogue": "Agy-ayam kami ti basketball idiay court, kayatmo ti sumali?",
+    "cebuanoDialogue": "Nagdula mi og basketball sa court, gusto ka moapil?",
+    "situationText": "Do you want to play? Accept the invite!",
+    "correctPhraseId": "responses_014",
+    "englishFeedback": "Awesome! Let's go play.",
+    "ilokanoFeedback": "Naimbag! Inkan agay-ayam.",
+    "cebuanoFeedback": "Nindot! Tara dula ta.",
+    "distractors": [
+      {
+        "phraseId": "greetings_007",
+        "feedback": "Saying goodbye means you don't want to play!"
+      },
+      {
+        "phraseId": "responses_015",
+        "feedback": "You love basketball, so let's excitedly accept their invitation instead of saying no!"
+      }
+    ],
+    "npcDescription": "A young, energetic teenage boy wearing a sweaty basketball jersey and holding a worn-out basketball.",
+    "acceptablePhraseIds": [
+      "responses_014",
+      "responses_016"
+    ],
+    "npcKeyword": "basketball"
+  },
+  {
+    "englishDialogue": "Do you want me to put extra sauce on this?",
+    "ilokanoDialogue": "Kayatmo nga ikkak ti adu a sarsa daytoy?",
+    "cebuanoDialogue": "Gusto ka butangan nako og extra sauce kani?",
+    "situationText": "Do you want the sauce? Accept it!",
+    "correctPhraseId": "responses_014",
+    "englishFeedback": "Here is your extra sauce. Enjoy!",
+    "ilokanoFeedback": "Daytoy ti extra sarsam. Naimbag a pannangan!",
+    "cebuanoFeedback": "Dia ra ang imong extra sauce. Kaon og maayo!",
+    "distractors": [
+      {
+        "phraseId": "responses_015",
+        "feedback": "You love the sauce! Don't reject it."
+      },
+      {
+        "phraseId": "responses_017",
+        "feedback": "They are asking you a Yes or No question, not giving you instructions to understand."
+      }
+    ],
+    "npcDescription": "A cheerful, middle-aged street food vendor wearing an apron, holding a plastic squeeze bottle of sauce.",
+    "acceptablePhraseIds": [
+      "responses_014",
+      "responses_016"
+    ],
+    "npcKeyword": "sauce"
+  },
+  {
+    "englishDialogue": "I can make this extra spicy for you, is that okay?",
+    "ilokanoDialogue": "Mabalin ko a pagbalinen a naanghang daytoy, okay lang?",
+    "cebuanoDialogue": "Pwede nako ni himuong halang kaayo, okay ra?",
+    "situationText": "You hate spicy food! Refuse it!",
+    "correctPhraseId": "responses_015",
+    "englishFeedback": "Got it, no spice for you!",
+    "ilokanoFeedback": "Maawatan, awan ti sili na!",
+    "cebuanoFeedback": "Sige, walay halang para nimo!",
+    "distractors": [
+      {
+        "phraseId": "responses_014",
+        "feedback": "Remember, you hate spicy food! It's perfectly fine to say no here."
+      },
+      {
+        "phraseId": "responses_016",
+        "feedback": "If you say 'okay', they will make it spicy! Say no instead."
+      }
+    ],
+    "npcDescription": "A friendly cook in a casual uniform, holding a small bowl of bright red chili oil.",
+    "acceptablePhraseIds": [
+      "responses_015"
+    ],
+    "npcKeyword": "spicy"
+  },
+  {
+    "englishDialogue": "Excuse me, did you drop this wallet?",
+    "ilokanoDialogue": "Dispensarennak, natnagmo kadi daytoy a pitaka?",
+    "cebuanoDialogue": "Tabi, nahulog ba nimo kining pitaka?",
+    "situationText": "It's not your wallet! Refuse it!",
+    "correctPhraseId": "responses_015",
+    "englishFeedback": "Ah, I'll keep looking for the owner then.",
+    "ilokanoFeedback": "Ah, agbirokak manen ti makinkukua.",
+    "cebuanoFeedback": "Ah, mangita na lang ko sa tag-iya.",
+    "distractors": [
+      {
+        "phraseId": "responses_014",
+        "feedback": "Since the wallet isn't yours, let's politely say no."
+      },
+      {
+        "phraseId": "responses_017",
+        "feedback": "They just want to know if it's yours, you just need to say no."
+      }
+    ],
+    "npcDescription": "An honest-looking young woman carrying a shoulder bag, holding out a black leather wallet.",
+    "acceptablePhraseIds": [
+      "responses_015"
+    ],
+    "npcKeyword": "wallet"
+  },
+  {
+    "englishDialogue": "Are you tired? Do you want to go home?",
+    "ilokanoDialogue": "Nabayag kan? Kayatmon ti agawid?",
+    "cebuanoDialogue": "Gikapoy ka? Gusto na ka muuli?",
+    "situationText": "You are not tired! Refuse to go home!",
+    "correctPhraseId": "responses_015",
+    "englishFeedback": "Great, let's keep hanging out!",
+    "ilokanoFeedback": "Naimbag, ituloy ta ti agpasyar!",
+    "cebuanoFeedback": "Nindot, padayon ta og laag!",
+    "distractors": [
+      {
+        "phraseId": "responses_014",
+        "feedback": "You still have lots of energy! Let's tell them no so you can stay longer."
+      },
+      {
+        "phraseId": "responses_016",
+        "feedback": "Saying 'okay' means you'll go home. Let's say no so you can keep hanging out!"
+      }
+    ],
+    "npcDescription": "A tired-looking friend in casual clothes, carrying a backpack and looking ready to go home.",
+    "acceptablePhraseIds": [
+      "responses_015"
+    ],
+    "npcKeyword": "energy"
+  },
+  {
+    "englishDialogue": "I don't have exact change, can I give you 3 pieces of candy instead?",
+    "ilokanoDialogue": "Awan ti barya, mabalin a 3 a kendi ti isuklik?",
+    "cebuanoDialogue": "Wala koy sinsiyo, pwede ba 3 ka kendi na lang ang isukli nako?",
+    "situationText": "Candy sounds good! Agree to it!",
+    "correctPhraseId": "responses_016",
+    "englishFeedback": "Thank you! Here is your candy.",
+    "ilokanoFeedback": "Agyamanak! Daytoy ti kendi.",
+    "cebuanoFeedback": "Salamat! Dia ang kendi.",
+    "distractors": [
+      {
+        "phraseId": "responses_015",
+        "feedback": "Since you don't mind getting candy, it's perfectly fine to accept it!"
+      },
+      {
+        "phraseId": "responses_018",
+        "feedback": "It's a common practice at stores. You just need to accept the alternative."
+      }
+    ],
+    "npcDescription": "A busy sari-sari store owner, an older man in a polo shirt, holding out three colorful wrapped candies.",
+    "acceptablePhraseIds": [
+      "responses_016",
+      "responses_014",
+      "gratitude_009"
+    ],
+    "npcKeyword": "candy"
+  },
+  {
+    "englishDialogue": "Can we meet at 5:00 PM instead of 4:00 PM?",
+    "ilokanoDialogue": "Mabalin kadi nga agkikitata ti 5:00 PM imbes a 4:00 PM?",
+    "cebuanoDialogue": "Pwede ba magkita ta inig ka 5:00 PM imbes 4:00 PM?",
+    "situationText": "5:00 is fine! Agree to the time!",
+    "correctPhraseId": "responses_016",
+    "englishFeedback": "Perfect, see you at 5:00 PM!",
+    "ilokanoFeedback": "Sige, agkitata inton 5:00 PM!",
+    "cebuanoFeedback": "Sige, magkita ta sa 5:00 PM!",
+    "distractors": [
+      {
+        "phraseId": "responses_015",
+        "feedback": "You have the whole afternoon free, so there's no reason to decline!"
+      },
+      {
+        "phraseId": "responses_018",
+        "feedback": "They just asked to change the time. You should just say it's okay."
+      }
+    ],
+    "npcDescription": "A busy classmate in neat clothes, holding a planner and checking their watch.",
+    "acceptablePhraseIds": [
+      "responses_016"
+    ],
+    "npcKeyword": "afternoon"
+  },
+  {
+    "englishDialogue": "Can you please clean your room before dinner?",
+    "ilokanoDialogue": "Mabalin kadi a dalusam ti kwartom sakbay a mangan?",
+    "cebuanoDialogue": "Palihug limpyuhi ang imong kwarto sa dili pa mangaon.",
+    "situationText": "You will do it! Agree to clean up!",
+    "correctPhraseId": "responses_016",
+    "englishFeedback": "Thank you, I appreciate it.",
+    "ilokanoFeedback": "Agyamanak, maapresyar ko dayta.",
+    "cebuanoFeedback": "Salamat, na-apreciate nako.",
+    "distractors": [
+      {
+        "phraseId": "responses_015",
+        "feedback": "Since you already agreed in your head to clean the room, you should accept the request."
+      },
+      {
+        "phraseId": "responses_017",
+        "feedback": "Saying 'okay' is a more natural way to agree to a chore than 'I understand'."
+      }
+    ],
+    "npcDescription": "A caring mother wearing casual house clothes, with her hands resting confidently on her hips.",
+    "acceptablePhraseIds": [
+      "responses_016"
+    ],
+    "npcKeyword": "mother"
+  },
+  {
+    "englishDialogue": "Those are the rules of the game, got it?",
+    "ilokanoDialogue": "Dagitoy ti pagalagadan ti ay-ayam, naawatam?",
+    "cebuanoDialogue": "Mao na ang mga rules sa dula, nasabtan nimo?",
+    "situationText": "You know the rules now! Tell them you understand!",
+    "correctPhraseId": "responses_017",
+    "englishFeedback": "Awesome, let's start playing!",
+    "ilokanoFeedback": "Naimbag, irugi tayon ti agay-ayam!",
+    "cebuanoFeedback": "Nindot, sugdan na nato ang dula!",
+    "distractors": [
+      {
+        "phraseId": "responses_018",
+        "feedback": "You listened carefully and know the rules, so don't say you don't understand!"
+      },
+      {
+        "phraseId": "responses_015",
+        "feedback": "Saying no means you didn't get the rules."
+      }
+    ],
+    "npcDescription": "An excited kid wearing shorts and a t-shirt, pointing eagerly downwards with one hand.",
+    "acceptablePhraseIds": [
+      "responses_017"
+    ],
+    "npcKeyword": "kid"
+  },
+  {
+    "englishDialogue": "Just turn left at the big church to get to the market.",
+    "ilokanoDialogue": "Agliko ka laeng iti kannigid idiay dakkel a simbaan tapno makadanon ka idiay palengke.",
+    "cebuanoDialogue": "Liko lang sa wala didto sa dako nga simbahan para makaabot sa palengke.",
+    "situationText": "You know where to go! Tell them you understand!",
+    "correctPhraseId": "responses_017",
+    "englishFeedback": "Safe travels, you won't get lost!",
+    "ilokanoFeedback": "Agaluad ka, saanka a mapukaw!",
+    "cebuanoFeedback": "Pag-amping, dili ka masaag!",
+    "distractors": [
+      {
+        "phraseId": "responses_018",
+        "feedback": "The directions were clear, so you should tell them you understand!"
+      },
+      {
+        "phraseId": "responses_015",
+        "feedback": "Saying no is dismissive. You should confirm that you understood the directions."
+      }
+    ],
+    "npcDescription": "A helpful local tricycle driver wearing a cap and a towel over his shoulder, gesturing with his hand.",
+    "acceptablePhraseIds": [
+      "responses_017"
+    ],
+    "npcKeyword": "tricycle"
+  },
+  {
+    "englishDialogue": "The store will be closed tomorrow for the holiday.",
+    "ilokanoDialogue": "Serrado ti tiendaan inton bigat gapu iti piesta.",
+    "cebuanoDialogue": "Sirado ang tindahan ugma tungod sa holiday.",
+    "situationText": "The store is closed! Tell them you understand!",
+    "correctPhraseId": "responses_017",
+    "englishFeedback": "See you the day after tomorrow then!",
+    "ilokanoFeedback": "Agkitata inton sumaruno a bigat!",
+    "cebuanoFeedback": "Magkita ta inig human ugma!",
+    "distractors": [
+      {
+        "phraseId": "responses_015",
+        "feedback": "They are just giving you a fact. Saying 'no' doesn't make sense here."
+      },
+      {
+        "phraseId": "responses_014",
+        "feedback": "You should let them know that you fully understood the notice."
+      }
+    ],
+    "npcDescription": "A polite store clerk in a uniform, holding up a small 'closed' sign.",
+    "acceptablePhraseIds": [
+      "responses_017",
+      "responses_016"
+    ],
+    "npcKeyword": "clerk"
+  },
+  {
+    "englishDialogue": "[Speaks very fast in a language you haven't learned yet]",
+    "ilokanoDialogue": "[Agisasao iti napartak iti pagsasao a dimo pay nasursuro]",
+    "cebuanoDialogue": "[Magsulti og paspas sa lengguwahe nga wala pa nimo nakat-uni]",
+    "situationText": "They speak too fast! Tell them you don't understand!",
+    "correctPhraseId": "responses_018",
+    "englishFeedback": "Oh, sorry! Let me find someone to translate.",
+    "ilokanoFeedback": "Ay, dispensarennak! Agbirokak ti mangibaga.",
+    "cebuanoFeedback": "Ay, pasayloa ko! Mangita kog mutranslate.",
+    "distractors": [
+      {
+        "phraseId": "responses_017",
+        "feedback": "You have no idea what they said, so you definitely don't understand!"
+      },
+      {
+        "phraseId": "responses_014",
+        "feedback": "Never say yes if you don't know what you are agreeing to!"
+      }
+    ],
+    "npcDescription": "A lost foreign tourist with a big backpack, speaking rapidly and looking confused.",
+    "acceptablePhraseIds": [
+      "responses_018"
+    ],
+    "npcKeyword": "tourist"
+  },
+  {
+    "englishDialogue": "So you carry the 1, divide by X, and find the square root...",
+    "ilokanoDialogue": "Isunga itugotmo ti 1, imbingaymo ti X, ket birokem ti square root...",
+    "cebuanoDialogue": "Busa dad-a ang 1, bahina sa X, ug pangitaa ang square root...",
+    "situationText": "Math is too hard! Tell them you don't understand!",
+    "correctPhraseId": "responses_018",
+    "englishFeedback": "That's okay, let's take it step by step again.",
+    "ilokanoFeedback": "Sige lang, in-inuten ta manen.",
+    "cebuanoFeedback": "Okay ra, hinay-hinayon nato utro.",
+    "distractors": [
+      {
+        "phraseId": "responses_017",
+        "feedback": "You are completely lost, you shouldn't lie and say you understand!"
+      },
+      {
+        "phraseId": "responses_016",
+        "feedback": "Saying 'okay' won't help you learn the math problem."
+      }
+    ],
+    "npcDescription": "A patient teacher holding an open notebook full of math equations, pointing at the page.",
+    "acceptablePhraseIds": [
+      "responses_018"
+    ],
+    "npcKeyword": "math"
+  },
+  {
+    "englishDialogue": "Go left, then right, then left, then behind the blue house...",
+    "ilokanoDialogue": "Agliko ka iti kannigid, kalpasanna kannawan, sa kannigid, idiay likod ti asul a balay...",
+    "cebuanoDialogue": "Liko sa wala, unya tuo, unya wala, unya sa luyo sa blue nga balay...",
+    "situationText": "You are lost! Tell them you don't understand!",
+    "correctPhraseId": "responses_018",
+    "englishFeedback": "Let me draw you a map instead.",
+    "ilokanoFeedback": "Mangiladawanak laengen ti mapa.",
+    "cebuanoFeedback": "Mag-drawing na lang kog mapa para nimo.",
+    "distractors": [
+      {
+        "phraseId": "responses_017",
+        "feedback": "The directions were way too confusing, you should admit that you don't understand."
+      },
+      {
+        "phraseId": "responses_014",
+        "feedback": "If you say yes, they will let you leave and you will get lost!"
+      }
+    ],
+    "npcDescription": "A fast-talking local resident pointing in five different directions at once with their fingers.",
+    "acceptablePhraseIds": [
+      "responses_018"
+    ],
+    "npcKeyword": "directions"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "Breakfast is ready!",
+    "ilokanoDialogue": "Nakasagana ti pammigat!",
+    "cebuanoDialogue": "Luto na ang pamahaw!",
+    "situationText": "[RECALL] Breakfast time! Greet them for the morning!",
+    "correctPhraseId": "greetings_001",
+    "englishFeedback": "Good morning to you too!",
+    "ilokanoFeedback": "Naimbag a bigatmo met!",
+    "cebuanoFeedback": "Maayong buntag pud nimo!",
+    "distractors": [
+      {
+        "phraseId": "greetings_003",
+        "feedback": "You just woke up, it's not evening!"
+      },
+      {
+        "phraseId": "gratitude_009",
+        "feedback": "Greet them good morning first before thanking them for the food."
+      }
+    ],
+    "npcDescription": "A smiling grandmother wearing a morning duster, holding a wooden cooking spatula.",
+    "acceptablePhraseIds": [
+      "greetings_001"
+    ],
+    "npcKeyword": "grandmother"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "Wow, it's so hot today, right?",
+    "ilokanoDialogue": "Wow, napudot unay ita, di ba?",
+    "cebuanoDialogue": "Wow, inita karon, diba?",
+    "situationText": "[RECALL] It's after lunch! Greet them for the afternoon!",
+    "correctPhraseId": "greetings_002",
+    "englishFeedback": "Good afternoon! Yeah, let's get some shade.",
+    "ilokanoFeedback": "Naimbag a malem! Wen, inkan aglinong.",
+    "cebuanoFeedback": "Maayong hapon! Oo, mangita tag landong.",
+    "distractors": [
+      {
+        "phraseId": "greetings_001",
+        "feedback": "It is already afternoon, not morning!"
+      },
+      {
+        "phraseId": "greetings_007",
+        "feedback": "Don't say goodbye, you just saw them."
+      }
+    ],
+    "npcDescription": "A friend carrying a basket of fresh vegetables, sweating slightly from the afternoon heat.",
+    "acceptablePhraseIds": [
+      "greetings_002"
+    ],
+    "npcKeyword": "vegetables"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "Time to go home and rest.",
+    "ilokanoDialogue": "Oras a mapan agawid ken aginana.",
+    "cebuanoDialogue": "Oras na muuli ug mupahuway.",
+    "situationText": "[RECALL] The sun is setting! Greet them for the evening!",
+    "correctPhraseId": "greetings_003",
+    "englishFeedback": "Good evening! Have a good rest.",
+    "ilokanoFeedback": "Naimbag a rabii! Aginana ka iti nasayaat.",
+    "cebuanoFeedback": "Maayong gabii! Pahuway og tarong.",
+    "distractors": [
+      {
+        "phraseId": "greetings_002",
+        "feedback": "The sun went down, it's not afternoon anymore."
+      },
+      {
+        "phraseId": "greetings_001",
+        "feedback": "It's nighttime, not morning!"
+      }
+    ],
+    "npcDescription": "A tired but smiling street vendor, holding a folded-up rain umbrella.",
+    "acceptablePhraseIds": [
+      "greetings_003"
+    ],
+    "npcKeyword": "umbrella"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "[Smiles and waves at you]",
+    "ilokanoDialogue": "[Immisem ken nagkaway kaniam]",
+    "cebuanoDialogue": "[Nipahiyom ug nikaway nimo]",
+    "situationText": "[RECALL] Someone waves! Say a simple hello!",
+    "correctPhraseId": "greetings_004",
+    "englishFeedback": "Hello there!",
+    "ilokanoFeedback": "Kumusta!",
+    "cebuanoFeedback": "Kumusta!",
+    "distractors": [
+      {
+        "phraseId": "greetings_007",
+        "feedback": "You are just saying hi, not leaving!"
+      },
+      {
+        "phraseId": "gratitude_013",
+        "feedback": "You don't need to excuse yourself, just be friendly."
+      }
+    ],
+    "npcDescription": "An acquaintance wearing casual clothes, raising one hand to wave casually.",
+    "acceptablePhraseIds": [
+      "greetings_004"
+    ],
+    "npcKeyword": "acquaintance"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "Oh my, look how much you've grown!",
+    "ilokanoDialogue": "Apo, kitaem no kasano ti idadakkelmo!",
+    "cebuanoDialogue": "Hala, tan-awa ra gud unsa naka kadako!",
+    "situationText": "[RECALL] You see your uncle! Ask about him well-being!",
+    "correctPhraseId": "greetings_005",
+    "englishFeedback": "I'm doing great, how about you?",
+    "ilokanoFeedback": "Nasayaatak met, ket sika?",
+    "cebuanoFeedback": "Maayo ra ko, ikaw diha?",
+    "distractors": [
+      {
+        "phraseId": "greetings_006",
+        "feedback": "Ask them how they are first, before answering!"
+      },
+      {
+        "phraseId": "greetings_007",
+        "feedback": "You just arrived! Too early to say goodbye."
+      }
+    ],
+    "npcDescription": "An older aunt or uncle with a big, welcoming smile, wearing nice clothes for your visit.",
+    "acceptablePhraseIds": [
+      "greetings_005"
+    ],
+    "npcKeyword": "relative"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "You look happy! How have you been?",
+    "ilokanoDialogue": "Kasla naragsakka! Kumusta ti biag?",
+    "cebuanoDialogue": "Mura lag malipayon ka! Kumusta naka?",
+    "situationText": "[RECALL] You are happy! Tell them you are doing well!",
+    "correctPhraseId": "greetings_006",
+    "englishFeedback": "Glad to hear that!",
+    "ilokanoFeedback": "Naimbag a mangngeg dayta!",
+    "cebuanoFeedback": "Maayo hinuon!",
+    "distractors": [
+      {
+        "phraseId": "greetings_005",
+        "feedback": "They already asked you! Now you answer."
+      },
+      {
+        "phraseId": "gratitude_012",
+        "feedback": "You are feeling great, why would you apologize?"
+      }
+    ],
+    "npcDescription": "A close friend looking at you with a warm, relaxed expression.",
+    "acceptablePhraseIds": [
+      "greetings_006"
+    ],
+    "npcKeyword": "relaxed"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "See you tomorrow! Take care.",
+    "ilokanoDialogue": "Agkitata inton bigat! Agaluad ka.",
+    "cebuanoDialogue": "Magkita ta ugma! Pag-amping.",
+    "situationText": "[RECALL] Time to go home! Bid them farewell!",
+    "correctPhraseId": "greetings_007",
+    "englishFeedback": "Goodbye! Have a safe trip.",
+    "ilokanoFeedback": "Agpakada akon! Naimbag a biahe.",
+    "cebuanoFeedback": "Paalam! Amping sa byahe.",
+    "distractors": [
+      {
+        "phraseId": "greetings_004",
+        "feedback": "You are leaving work, not arriving! Say goodbye."
+      },
+      {
+        "phraseId": "gratitude_013",
+        "feedback": "You aren't trying to pass by them, you are leaving."
+      }
+    ],
+    "npcDescription": "A friendly coworker waving goodbye while still wearing their work uniform.",
+    "acceptablePhraseIds": [
+      "greetings_007"
+    ],
+    "npcKeyword": "shift"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "It was so nice talking to you.",
+    "ilokanoDialogue": "Naimbag a naka-sao ka.",
+    "cebuanoDialogue": "Nindot kaayo nga naka-istorya tika.",
+    "situationText": "[RECALL] You had a nice talk! Wish them a good day!",
+    "correctPhraseId": "greetings_008",
+    "englishFeedback": "Good day to you too!",
+    "ilokanoFeedback": "Naimbag nga aldawmo met!",
+    "cebuanoFeedback": "Maayong adlaw pud nimo!",
+    "distractors": [
+      {
+        "phraseId": "greetings_001",
+        "feedback": "It might not be morning right now!"
+      },
+      {
+        "phraseId": "greetings_003",
+        "feedback": "It might not be night right now!"
+      }
+    ],
+    "npcDescription": "A polite stranger wearing everyday clothes, smiling kindly while waving goodbye.",
+    "acceptablePhraseIds": [
+      "greetings_008"
+    ],
+    "npcKeyword": "stranger"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "Here is your order, careful it's hot!",
+    "ilokanoDialogue": "Daytoy ti order-mo, agannad ka ta napudot!",
+    "cebuanoDialogue": "Dia ra imong order, amping kay init!",
+    "situationText": "[RECALL] You got your food! Thank the vendor!",
+    "correctPhraseId": "gratitude_009",
+    "englishFeedback": "You're welcome! Come again.",
+    "ilokanoFeedback": "Awan aniamanna! Umitaray ka manen.",
+    "cebuanoFeedback": "Walay sapayan! Balik-balik.",
+    "distractors": [
+      {
+        "phraseId": "greetings_004",
+        "feedback": "You already know them, just thank them for the food!"
+      },
+      {
+        "phraseId": "gratitude_012",
+        "feedback": "You just bought food, you don't need to apologize!"
+      }
+    ],
+    "npcDescription": "A hard-working street food vendor handing over a hot paper bag of fresh street food.",
+    "acceptablePhraseIds": [
+      "gratitude_009"
+    ],
+    "npcKeyword": "paper"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "Happy birthday! Open it!",
+    "ilokanoDialogue": "Narabas a panagkasangay! Luktam!",
+    "cebuanoDialogue": "Malipayong adlawng natawhan! Ablihi!",
+    "situationText": "[RECALL] A big gift! Show big gratitude!",
+    "correctPhraseId": "gratitude_010",
+    "englishFeedback": "I hope you like it!",
+    "ilokanoFeedback": "Sapay koma kayatmo!",
+    "cebuanoFeedback": "Hinaot nagustohan nimo!",
+    "distractors": [
+      {
+        "phraseId": "gratitude_012",
+        "feedback": "Why are you apologizing? You just got a gift!"
+      },
+      {
+        "phraseId": "greetings_004",
+        "feedback": "Saying hello is friendly, but right now we want to thank them for the amazing gift!"
+      }
+    ],
+    "npcDescription": "An excited friend holding out a beautifully wrapped gift box with a big ribbon.",
+    "acceptablePhraseIds": [
+      "gratitude_010"
+    ],
+    "npcKeyword": "birthday"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "Phew, that was heavy. You're safe now.",
+    "ilokanoDialogue": "Nagsaem daydiay a. Sige, natalged kan.",
+    "cebuanoDialogue": "Kapoya ato uy. Sige, luwas naka.",
+    "situationText": "[RECALL] They pushed your car! Thank them for helping!",
+    "correctPhraseId": "gratitude_011",
+    "englishFeedback": "No problem! Call a mechanic.",
+    "ilokanoFeedback": "Awan aniamanna! Umawagka ti mekaniko.",
+    "cebuanoFeedback": "Walay problema! Tawag og mekaniko.",
+    "distractors": [
+      {
+        "phraseId": "greetings_001",
+        "feedback": "Don't just greet them, they just did hard labor for you!"
+      },
+      {
+        "phraseId": "gratitude_013",
+        "feedback": "You say excuse me to pass by, not when someone saves your car!"
+      }
+    ],
+    "npcDescription": "A sweaty, helpful stranger wearing dirty clothes, wiping their forehead with a small towel.",
+    "acceptablePhraseIds": [
+      "gratitude_011"
+    ],
+    "npcKeyword": "car"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "Hey! Watch where you're going!",
+    "ilokanoDialogue": "Hoy! Kitaem ti pagnaanmo!",
+    "cebuanoDialogue": "Hoy! Tan-awa imong gina-agian!",
+    "situationText": "[RECALL] Oops, you bumped someone! Apologize!",
+    "correctPhraseId": "gratitude_012",
+    "englishFeedback": "Just be more careful next time.",
+    "ilokanoFeedback": "Agaluad ka laeng inton sumaruno.",
+    "cebuanoFeedback": "Pagbantay na lang sunod.",
+    "distractors": [
+      {
+        "phraseId": "gratitude_013",
+        "feedback": "Saying 'Excuse me' isn't enough when you crash into them. Apologize!"
+      },
+      {
+        "phraseId": "gratitude_009",
+        "feedback": "You bumped into them! Why would you thank them?"
+      }
+    ],
+    "npcDescription": "A startled person holding a stack of disorganized papers, looking surprised.",
+    "acceptablePhraseIds": [
+      "gratitude_012"
+    ],
+    "npcKeyword": "bumped"
+  },
+  {
+    "isRecall": true,
+    "englishDialogue": "[Standing right in front of the door]",
+    "ilokanoDialogue": "[Nakapatakder idiay sanga ti ridaw]",
+    "cebuanoDialogue": "[Nagtindog dapit sa pultahan]",
+    "situationText": "[RECALL] They are blocking the door! Ask to pass!",
+    "correctPhraseId": "gratitude_013",
+    "englishFeedback": "Oh, my bad. Go ahead.",
+    "ilokanoFeedback": "Ay, dispensarennak. Lumasat ka.",
+    "cebuanoFeedback": "Ay, pasayloa ko. Sige, agi.",
+    "distractors": [
+      {
+        "phraseId": "gratitude_012",
+        "feedback": "You didn't bump into them yet! Try asking them politely to move."
+      },
+      {
+        "phraseId": "greetings_001",
+        "feedback": "Saying 'Good morning' won't tell them you need to squeeze past!"
+      }
+    ],
+    "npcDescription": "A passenger wearing a backpack on their front, looking slightly annoyed.",
+    "acceptablePhraseIds": [
+      "gratitude_013"
+    ],
+    "npcKeyword": "jeepney"
+  }
+]

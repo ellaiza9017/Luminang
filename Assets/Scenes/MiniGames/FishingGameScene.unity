@@ -8912,6 +8912,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6812220923033989189, guid: f505311fbc4c08142b5441676b25a831, type: 3}
+      propertyPath: m_text
+      value: The Fish Escaped!
+      objectReference: {fileID: 0}
     - target: {fileID: 7495744889863530570, guid: f505311fbc4c08142b5441676b25a831, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

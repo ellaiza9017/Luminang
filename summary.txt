@@ -1,0 +1,140 @@
+[0] Prompt: You are very thirsty from carrying heavy bags. How do you respond? (You should say: 'yes')
+    NPC: I poured you a glass of cold water, do you want it?
+    Correct: yes
+    Wrong: no, I don't understand
+
+[1] Prompt: You really want to play basketball. How do you respond? (You should say: 'yes')
+    NPC: We are playing basketball at the court, want to join?
+    Correct: yes
+    Wrong: okay, no
+
+[2] Prompt: You love this sauce. What do you say? (You should say: 'yes')
+    NPC: Do you want me to put extra sauce on this?
+    Correct: yes
+    Wrong: no, I understand
+
+[3] Prompt: You absolutely hate spicy food. How do you respond? (You should say: 'no')
+    NPC: I can make this extra spicy for you, is that okay?
+    Correct: no
+    Wrong: yes, okay
+
+[4] Prompt: The wallet is not yours. What do you say? (You should say: 'no')
+    NPC: Excuse me, did you drop this wallet?
+    Correct: no
+    Wrong: yes, I understand
+
+[5] Prompt: You are full of energy and want to stay. How do you respond? (You should say: 'no')
+    NPC: Are you tired? Do you want to go home?
+    Correct: no
+    Wrong: yes, okay
+
+[6] Prompt: You don't mind getting candy. What do you say? (You should say: 'okay')
+    NPC: I don't have exact change, can I give you 3 pieces of candy instead?
+    Correct: okay
+    Wrong: no, I don't understand
+
+[7] Prompt: You are free all afternoon. How do you respond? (You should say: 'okay')
+    NPC: Can we meet at 5:00 PM instead of 4:00 PM?
+    Correct: okay
+    Wrong: no, I don't understand
+
+[8] Prompt: You agree to do it. What do you say? (You should say: 'okay')
+    NPC: Can you please clean your room before dinner?
+    Correct: okay
+    Wrong: no, I understand
+
+[9] Prompt: You listened carefully and know exactly what to do. What do you say? (You should say: 'I understand')
+    NPC: Those are the rules of the game, got it?
+    Correct: I understand
+    Wrong: I don't understand, no
+
+[10] Prompt: Their directions are very clear to you. How do you respond? (You should say: 'I understand')
+    NPC: Just turn left at the big church to get to the market.
+    Correct: I understand
+    Wrong: I don't understand, no
+
+[11] Prompt: You comprehend the information. What do you say? (You should say: 'I understand')
+    NPC: The store will be closed tomorrow for the holiday.
+    Correct: I understand
+    Wrong: no, yes
+
+[12] Prompt: You have no idea what they are saying. What do you say? (You should say: 'I don't understand')
+    NPC: [Speaks very fast in a language you haven't learned yet]
+    Correct: I don't understand
+    Wrong: I understand, yes
+
+[13] Prompt: You are completely lost by the math problem. How do you respond? (You should say: 'I don't understand')
+    NPC: So you carry the 1, divide by X, and find the square root...
+    Correct: I don't understand
+    Wrong: I understand, okay
+
+[14] Prompt: The directions are too confusing. What do you say? (You should say: 'I don't understand')
+    NPC: Go left, then right, then left, then behind the blue house...
+    Correct: I don't understand
+    Wrong: I understand, yes
+
+[15] Prompt: [RECALL] You just woke up and smell food. What do you say? (You should say: 'good morning')
+    NPC: Breakfast is ready!
+    Correct: good morning
+    Wrong: good evening, thank you
+
+[16] Prompt: [RECALL] You run into a friend at the market after lunch. Greet them. (You should say: 'good afternoon')
+    NPC: Wow, it's so hot today, right?
+    Correct: good afternoon
+    Wrong: good morning, goodbye
+
+[17] Prompt: [RECALL] The street vendor is packing up their stall as it gets dark. (You should say: 'good evening')
+    NPC: Time to go home and rest.
+    Correct: good evening
+    Wrong: good afternoon, good morning
+
+[18] Prompt: [RECALL] You see someone you vaguely recognize walking past you. (You should say: 'hello')
+    NPC: [Smiles and waves at you]
+    Correct: hello
+    Wrong: goodbye, excuse me
+
+[19] Prompt: [RECALL] You are visiting a relative you haven't seen in months. (You should say: 'how are you?')
+    NPC: Oh my, look how much you've grown!
+    Correct: how are you?
+    Wrong: I'm fine, goodbye
+
+[20] Prompt: [RECALL] Your friend notices you look relaxed today. (You should say: 'I'm fine')
+    NPC: You look happy! How have you been?
+    Correct: I'm fine
+    Wrong: how are you?, I am sorry
+
+[21] Prompt: [RECALL] You are finishing your shift at work and leaving. (You should say: 'goodbye')
+    NPC: See you tomorrow! Take care.
+    Correct: goodbye
+    Wrong: hello, excuse me
+
+[22] Prompt: [RECALL] You are ending a pleasant conversation with a stranger. (You should say: 'good day')
+    NPC: It was so nice talking to you.
+    Correct: good day
+    Wrong: good morning, good evening
+
+[23] Prompt: [RECALL] The vendor hands you your food. (You should say: 'thank you')
+    NPC: Here is your order, careful it's hot!
+    Correct: thank you
+    Wrong: thank you very much, I am sorry
+
+[24] Prompt: [RECALL] Your friend gifts you a brand new phone for your birthday! (You should say: 'thank you very much')
+    NPC: Happy birthday! Open it!
+    Correct: thank you very much
+    Wrong: thank you, hello
+
+[25] Prompt: [RECALL] A stranger helped you push your broken car to the side of the road. (You should say: 'thank you for your help')
+    NPC: Phew, that was heavy. You're safe now.
+    Correct: thank you for your help
+    Wrong: thank you, excuse me
+
+[26] Prompt: [RECALL] You accidentally bumped into someone while walking fast. (You should say: 'I am sorry')
+    NPC: Hey! Watch where you're going!
+    Correct: I am sorry
+    Wrong: excuse me, thank you
+
+[27] Prompt: [RECALL] You want to squeeze past someone to get on the jeepney. (You should say: 'excuse me')
+    NPC: [Standing right in front of the door]
+    Correct: excuse me
+    Wrong: I am sorry, good morning
+

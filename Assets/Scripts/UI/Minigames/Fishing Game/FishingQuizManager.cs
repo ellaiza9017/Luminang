@@ -80,6 +80,7 @@ public class FishingQuizManager : MonoBehaviour
 
     private GreetingQuizData currentTarget;
     private bool isAskingScenario; // false = ask direct translation, true = ask scenario
+    private bool hasGameStarted = false;
 
     void Awake()
     {
@@ -440,6 +441,18 @@ public class FishingQuizManager : MonoBehaviour
         losePanel?.GetComponent<UIPopAnimator>()?.PopIn();
     }
 
+    public void OpenHowToPlay()
+    {
+        if (uiAudioSource != null && buttonClickSFX != null) uiAudioSource.PlayOneShot(buttonClickSFX);
+
+        if (howToPlayGroup != null && howToPlayPanel != null)
+        {
+            howToPlayGroup.SetActive(true);
+            howToPlayGroup.GetComponent<UIFadeAnimator>()?.FadeIn();
+            howToPlayPanel.GetComponent<UIPopAnimator>()?.PopIn();
+        }
+    }
+
     // Call this from the "X" Button OnClick()
     public void CloseHowToPlay()
     {
@@ -448,7 +461,11 @@ public class FishingQuizManager : MonoBehaviour
         if (howToPlayPanel != null) howToPlayPanel.transform.localScale = Vector3.zero; // INSTANT SNAP
         if (howToPlayGroup != null) howToPlayGroup.SetActive(false);
         
-        StartGame(); 
+        if (!hasGameStarted)
+        {
+            hasGameStarted = true;
+            StartGame(); 
+        }
     }
 
     // Call this from the "Try Again" Button OnClick()

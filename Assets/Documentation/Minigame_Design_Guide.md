@@ -129,23 +129,22 @@ Some words are very alike (e.g., "thank you" vs "thank you so much"). To prevent
 ---
 
 #### L3 — Responses (Yes / No / Maybe)
-**🥘 Mini-Game: "Turo-Turo Eatery" (Swipe Cards)**
+**🩴 Mini-Game: "Tumbang Preso" (Slipper Toss)**
 
-**Theme:** A classic Carinderia (Turo-Turo) setting. A vendor offers you exotic local foods (Balut, Bagnet, Lechon).
+**Theme:** A classic Filipino street game where you knock down tin cans with a tsinelas (slipper).
 
 **Gameplay:**
-- The vendor holds up a dish and a prompt appears: "The vendor offers you Balut. You really want it! What do you say?"
-- A card with the food appears in the center.
-- Tinder-style swiping: Swipe RIGHT to say "Oo" (Yes), swipe LEFT to say "Dili/Saan" (No).
+- A Situation Prompt appears at the top of the screen (e.g. "The vendor asks if you want spicy sauce. You hate spicy food.").
+- 3 Tin Cans stand in the street, each with a signpost hovering above them containing your possible answers (Yes, No, Okay, or past lesson vocab).
+- Player physically drags and swipes a Tsinelas from the bottom of the screen to throw it and knock over the correct can!
 
 **STT Integration:**
-- Confirm STT: After swiping, the player must speak the word they chose to lock in the swipe and move to the next dish.
+- 40% Blind STT Surprise: Randomly, the Tin Cans spawn completely blank! The STT mic opens up, and you must shout the correct word from memory to make the Tsinelas fly and hit the invisible can.
 
 **Recall Round (L1–L2):**
-- The vendor greets you when you arrive (L1 Recall).
-- The vendor gives you a free extra serving; you must express extreme gratitude (L2 Recall).
+- 5 out of the 20 total rounds will randomly pull Greetings or Gratitude situations. The long phrases easily fit on the signposts above the cans.
 
-**Win Condition:** Successfully accept/reject 8 dishes + 100% STT confirmation.
+**Win Condition:** Survive 20 total rounds without losing all your hearts (mistakes cost hearts).
 
 ---
 

@@ -599,4 +599,22 @@ public class BookSelectionManager : MonoBehaviour
         if (loader != null) loader.LoadScene("FishingGameScene");
         else UnityEngine.SceneManagement.SceneManager.LoadScene("FishingGameScene");
     }
+
+    public void TempLoadReactionCardScene()
+    {
+        PlayerPrefs.SetString("PreviousScene", "LanguageSelectionScene");
+        PlayerPrefs.Save();
+        var loader = FindFirstObjectByType<SceneLoader>();
+        if (loader != null) loader.LoadScene("ReactionCardScene");
+        else UnityEngine.SceneManagement.SceneManager.LoadScene("ReactionCardScene");
+    }
+
+    public void TempLoadTumbangPresoScene()
+    {
+        PlayerPrefs.SetString("PreviousScene", "LanguageSelectionScene");
+        PlayerPrefs.Save();
+        var loader = FindFirstObjectByType<SceneLoader>();
+        if (loader != null) loader.LoadScene("TumbangPresoScene");
+        else UnityEngine.SceneManagement.SceneManager.LoadScene("TumbangPresoScene");
+    }
 }
