@@ -2159,6 +2159,7 @@ GameObject:
   - component: {fileID: 742852002}
   - component: {fileID: 742852001}
   - component: {fileID: 742852003}
+  - component: {fileID: 742852004}
   m_Layer: 0
   m_Name: TumbangPresoGameManager
   m_TagString: Untagged
@@ -2398,6 +2399,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &742852004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742852000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a1573d9ba86644faa35ee28c364235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SFXVolumeSync
 --- !u!114 &791290231 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8693855176655557779, guid: f505311fbc4c08142b5441676b25a831, type: 3}

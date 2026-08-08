@@ -6,7 +6,7 @@
 public static class FishingGameConfig
 {
     /// <summary>The language to display and evaluate. e.g. "cebuano" or "ilokano"</summary>
-    public static string TargetLanguage = "cebuano";
+    public static string TargetLanguage = "ilokano";
 
     /// <summary>The category of phrases to use. e.g. "Greetings"</summary>
     public static string CategoryFilter = "Greetings";
