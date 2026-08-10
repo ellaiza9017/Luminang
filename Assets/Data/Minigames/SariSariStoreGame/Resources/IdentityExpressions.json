@@ -1,0 +1,626 @@
+[
+  {
+    "npcType": "GirlTurnedAway",
+    "englishDialogue": "She must be new here. Why don't you ask her name?",
+    "ilokanoDialogue": "Kasla baro isuna ditoy. Apay dimo damagen ti naganna?",
+    "cebuanoDialogue": "Mura'g bag-o siya diri. Nganong dili nimo pangutan-on ang iyang ngalan?",
+    "situationText": "She hasn't noticed you. Ask her name!",
+    "correctPhraseId": "identity_019",
+    "englishFeedback": "Oh, hi! I'm Sarah.",
+    "ilokanoFeedback": "Ay, hi! Siak ni Sarah.",
+    "cebuanoFeedback": "Ay, hi! Ako si Sarah.",
+    "npcDescription": "Girl in a bun turned away facing at the back as if buying.",
+    "npcKeyword": "ask_name",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "tulong",
+      "malem",
+      "taga"
+    ],
+    "acceptablePhraseIds": [
+      "identity_019"
+    ]
+  },
+  {
+    "npcType": "Tindera",
+    "englishDialogue": "Let's test your memory! How do you say 'what is your name'?",
+    "ilokanoDialogue": "Padasen tayo ti lagip mo! Kasanom a sawen ti 'what is your name'?",
+    "cebuanoDialogue": "Testingan nato imong memorya! Unsaon pagsulti og 'what is your name'?",
+    "situationText": "Translate 'what is your name'!",
+    "correctPhraseId": "identity_019",
+    "englishFeedback": "Exactly!",
+    "ilokanoFeedback": "Pudno!",
+    "cebuanoFeedback": "Sakto!",
+    "npcDescription": "The Tindera checking your knowledge.",
+    "npcKeyword": "practice",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "ket",
+      "dispensaren",
+      "ak"
+    ],
+    "acceptablePhraseIds": [
+      "identity_019"
+    ]
+  },
+  {
+    "npcType": "GuyTeenager",
+    "englishDialogue": "I haven't seen you around. What is your name?",
+    "ilokanoDialogue": "Saan ka pay a nakita ditoy. Ania ti nagan mo?",
+    "cebuanoDialogue": "Wala pa tika nakit-an diri. Unsay imong ngalan?",
+    "situationText": "Tell the peeping teenager your name!",
+    "correctPhraseId": "identity_020",
+    "englishFeedback": "Nice to meet you!",
+    "ilokanoFeedback": "Naimbag a panagkikita!",
+    "cebuanoFeedback": "Nalipay ko nagkaila ta!",
+    "npcDescription": "Guy teenager wearing gray shirt and black shorts peeping",
+    "npcKeyword": "intro",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "nasayaat",
+      "malem",
+      "kumusta"
+    ],
+    "acceptablePhraseIds": [
+      "identity_020"
+    ]
+  },
+  {
+    "npcType": "Tindera",
+    "englishDialogue": "Let's test your memory! How do you say 'my name is {name}'?",
+    "ilokanoDialogue": "Padasen tayo ti lagip mo! Kasanom a sawen ti 'my name is {name}'?",
+    "cebuanoDialogue": "Testingan nato imong memorya! Unsaon pagsulti og 'my name is {name}'?",
+    "situationText": "Translate 'my name is {name}'!",
+    "correctPhraseId": "identity_020",
+    "englishFeedback": "Exactly!",
+    "ilokanoFeedback": "Pudno!",
+    "cebuanoFeedback": "Sakto!",
+    "npcDescription": "The Tindera checking your knowledge.",
+    "npcKeyword": "practice",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "malem",
+      "tulong",
+      "naimbag"
+    ],
+    "acceptablePhraseIds": [
+      "identity_020"
+    ]
+  },
+  {
+    "npcType": "GirlTurnedAway",
+    "englishDialogue": "I wonder where she's from. You should ask her!",
+    "ilokanoDialogue": "Pagarupko no taga sadino isuna. Damagem man!",
+    "cebuanoDialogue": "Naghunahuna ko asa siya gikan. Pangutan-a daw siya!",
+    "situationText": "Ask where she is from!",
+    "correctPhraseId": "identity_021",
+    "englishFeedback": "I am from here!",
+    "ilokanoFeedback": "Taga ditoy ak!",
+    "cebuanoFeedback": "Taga diri ko!",
+    "npcDescription": "Girl in a bun turned away facing at the back as if buying.",
+    "npcKeyword": "ask_where",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "kumusta",
+      "saan",
+      "nak"
+    ],
+    "acceptablePhraseIds": [
+      "identity_021"
+    ]
+  },
+  {
+    "npcType": "Tindera",
+    "englishDialogue": "Let's test your memory! How do you say 'where are you from'?",
+    "ilokanoDialogue": "Padasen tayo ti lagip mo! Kasanom a sawen ti 'where are you from'?",
+    "cebuanoDialogue": "Testingan nato imong memorya! Unsaon pagsulti og 'where are you from'?",
+    "situationText": "Translate 'where are you from'!",
+    "correctPhraseId": "identity_021",
+    "englishFeedback": "Exactly!",
+    "ilokanoFeedback": "Pudno!",
+    "cebuanoFeedback": "Sakto!",
+    "npcDescription": "The Tindera checking your knowledge.",
+    "npcKeyword": "practice",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "unay",
+      "rabii",
+      "okay"
+    ],
+    "acceptablePhraseIds": [
+      "identity_021"
+    ]
+  },
+  {
+    "npcType": "JudgingLady",
+    "englishDialogue": "You don't look familiar. Where are you from?",
+    "ilokanoDialogue": "Saan a pamilyar ti rupam. Taga sadino ka?",
+    "cebuanoDialogue": "Di ka pamilyar. Taga asa ka?",
+    "situationText": "Tell the judging lady where you are from!",
+    "correctPhraseId": "identity_022",
+    "englishFeedback": "Oh, I see.",
+    "ilokanoFeedback": "Ah, kasta.",
+    "cebuanoFeedback": "Ah, mao ba.",
+    "npcDescription": "A lady in her late 40s wearing glasses with strings and curled up brows.",
+    "npcKeyword": "hometown",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "nga",
+      "iti",
+      "ka"
+    ],
+    "acceptablePhraseIds": [
+      "identity_022"
+    ]
+  },
+  {
+    "npcType": "Tindera",
+    "englishDialogue": "Let's test your memory! How do you say 'I am from {place}'?",
+    "ilokanoDialogue": "Padasen tayo ti lagip mo! Kasanom a sawen ti 'I am from {place}'?",
+    "cebuanoDialogue": "Testingan nato imong memorya! Unsaon pagsulti og 'I am from {place}'?",
+    "situationText": "Translate 'I am from {place}'!",
+    "correctPhraseId": "identity_022",
+    "englishFeedback": "Exactly!",
+    "ilokanoFeedback": "Pudno!",
+    "cebuanoFeedback": "Sakto!",
+    "npcDescription": "The Tindera checking your knowledge.",
+    "npcKeyword": "practice",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "rabii",
+      "nagan",
+      "ko"
+    ],
+    "acceptablePhraseIds": [
+      "identity_022"
+    ]
+  },
+  {
+    "npcType": "GuySando",
+    "englishDialogue": "Good morning! Just buying my breakfast.",
+    "ilokanoDialogue": "Naimbag a bigat! Gumatgatang ak ti pamigat.",
+    "cebuanoDialogue": "Maayong buntag! Namalit ra ko pamahaw.",
+    "situationText": "Greet him back!",
+    "correctPhraseId": "greetings_001",
+    "englishFeedback": "Have a good day!",
+    "ilokanoFeedback": "Naimbag nga aldawmo!",
+    "cebuanoFeedback": "Maayong adlaw nimo!",
+    "npcDescription": "A guy in white sando holding his plastic bag full of goods.",
+    "npcKeyword": "morning",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "ko",
+      "okay",
+      "kumusta"
+    ],
+    "acceptablePhraseIds": [
+      "greetings_001"
+    ]
+  },
+  {
+    "npcType": "GirlSoftdrinks",
+    "englishDialogue": "It's so hot this afternoon. Good afternoon!",
+    "ilokanoDialogue": "Nakapudot itatta a malem. Naimbag a malem!",
+    "cebuanoDialogue": "Inita karong hapon. Maayong hapon!",
+    "situationText": "Greet her back!",
+    "correctPhraseId": "greetings_002",
+    "englishFeedback": "Drink water!",
+    "ilokanoFeedback": "Uminom ka ti danum!",
+    "cebuanoFeedback": "Inom tubig!",
+    "npcDescription": "Girl in messy bun wearing glasses, sipping her softdrinks.",
+    "npcKeyword": "afternoon",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "agpakada",
+      "ko",
+      "saan"
+    ],
+    "acceptablePhraseIds": [
+      "greetings_002"
+    ]
+  },
+  {
+    "npcType": "Tindera",
+    "englishDialogue": "Let's test your memory! How do you say 'good evening'?",
+    "ilokanoDialogue": "Padasen tayo ti lagip mo! Kasanom a sawen ti 'good evening'?",
+    "cebuanoDialogue": "Testingan nato imong memorya! Unsaon pagsulti og 'good evening'?",
+    "situationText": "Translate 'good evening'!",
+    "correctPhraseId": "greetings_003",
+    "englishFeedback": "Exactly!",
+    "ilokanoFeedback": "Pudno!",
+    "cebuanoFeedback": "Sakto!",
+    "npcDescription": "The Tindera checking your knowledge.",
+    "npcKeyword": "practice",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "iti",
+      "nak",
+      "maawatan"
+    ],
+    "acceptablePhraseIds": [
+      "greetings_003"
+    ]
+  },
+  {
+    "npcType": "LittleGirl",
+    "englishDialogue": "Hi!",
+    "ilokanoDialogue": "Hi!",
+    "cebuanoDialogue": "Hi!",
+    "situationText": "Say Hello to the little girl!",
+    "correctPhraseId": "greetings_004",
+    "englishFeedback": "Bye bye!",
+    "ilokanoFeedback": "Babay!",
+    "cebuanoFeedback": "Babay!",
+    "npcDescription": "A little girl with lollipop in her mouth.",
+    "npcKeyword": "hello",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "unay",
+      "malem",
+      "nagan"
+    ],
+    "acceptablePhraseIds": [
+      "greetings_004"
+    ]
+  },
+  {
+    "npcType": "Tindera",
+    "englishDialogue": "Let's test your memory! How do you say 'how are you?'?",
+    "ilokanoDialogue": "Padasen tayo ti lagip mo! Kasanom a sawen ti 'how are you?'?",
+    "cebuanoDialogue": "Testingan nato imong memorya! Unsaon pagsulti og 'how are you?'?",
+    "situationText": "Translate 'how are you?'!",
+    "correctPhraseId": "greetings_005",
+    "englishFeedback": "Exactly!",
+    "ilokanoFeedback": "Pudno!",
+    "cebuanoFeedback": "Sakto!",
+    "npcDescription": "The Tindera checking your knowledge.",
+    "npcKeyword": "practice",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "taga",
+      "ti",
+      "akon"
+    ],
+    "acceptablePhraseIds": [
+      "greetings_005"
+    ]
+  },
+  {
+    "npcType": "Tindera",
+    "englishDialogue": "Let's test your memory! How do you say 'I'm fine'?",
+    "ilokanoDialogue": "Padasen tayo ti lagip mo! Kasanom a sawen ti 'I'm fine'?",
+    "cebuanoDialogue": "Testingan nato imong memorya! Unsaon pagsulti og 'I'm fine'?",
+    "situationText": "Translate 'I'm fine'!",
+    "correctPhraseId": "greetings_006",
+    "englishFeedback": "Exactly!",
+    "ilokanoFeedback": "Pudno!",
+    "cebuanoFeedback": "Sakto!",
+    "npcDescription": "The Tindera checking your knowledge.",
+    "npcKeyword": "practice",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "malem",
+      "rabii",
+      "ka"
+    ],
+    "acceptablePhraseIds": [
+      "greetings_006"
+    ]
+  },
+  {
+    "npcType": "Tindera",
+    "englishDialogue": "Let's test your memory! How do you say 'goodbye'?",
+    "ilokanoDialogue": "Padasen tayo ti lagip mo! Kasanom a sawen ti 'goodbye'?",
+    "cebuanoDialogue": "Testingan nato imong memorya! Unsaon pagsulti og 'goodbye'?",
+    "situationText": "Translate 'goodbye'!",
+    "correctPhraseId": "greetings_007",
+    "englishFeedback": "Exactly!",
+    "ilokanoFeedback": "Pudno!",
+    "cebuanoFeedback": "Sakto!",
+    "npcDescription": "The Tindera checking your knowledge.",
+    "npcKeyword": "practice",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "ti",
+      "kumusta",
+      "naimbag"
+    ],
+    "acceptablePhraseIds": [
+      "greetings_007"
+    ]
+  },
+  {
+    "npcType": "MomSurprised",
+    "englishDialogue": "Oh! Good day!",
+    "ilokanoDialogue": "Ay! Naimbag nga aldaw!",
+    "cebuanoDialogue": "Hala! Maayong adlaw!",
+    "situationText": "Greet her back!",
+    "correctPhraseId": "greetings_008",
+    "englishFeedback": "Sorry, I was just surprised!",
+    "ilokanoFeedback": "Pasensia, nakigtotak lang!",
+    "cebuanoFeedback": "Sorry, nakuratan ra ko!",
+    "npcDescription": "Chubby woman looking surprised.",
+    "npcKeyword": "day",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "ket",
+      "tulong",
+      "a"
+    ],
+    "acceptablePhraseIds": [
+      "greetings_008"
+    ]
+  },
+  {
+    "npcType": "BoyKid",
+    "englishDialogue": "Here, some extra chichirya!",
+    "ilokanoDialogue": "Daytoy, sobra a chichirya!",
+    "cebuanoDialogue": "Kani, sobra nga chichirya!",
+    "situationText": "Say Thank You!",
+    "correctPhraseId": "gratitude_009",
+    "englishFeedback": "You're welcome!",
+    "ilokanoFeedback": "Awan aniaman!",
+    "cebuanoFeedback": "Walay sapayan!",
+    "npcDescription": "Boy kid holding chichirya, pointing.",
+    "npcKeyword": "thanks",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "bigat",
+      "aldaw",
+      "nagan"
+    ],
+    "acceptablePhraseIds": [
+      "gratitude_009"
+    ]
+  },
+  {
+    "npcType": "Tindera",
+    "englishDialogue": "Let's test your memory! How do you say 'thank you very much'?",
+    "ilokanoDialogue": "Padasen tayo ti lagip mo! Kasanom a sawen ti 'thank you very much'?",
+    "cebuanoDialogue": "Testingan nato imong memorya! Unsaon pagsulti og 'thank you very much'?",
+    "situationText": "Translate 'thank you very much'!",
+    "correctPhraseId": "gratitude_010",
+    "englishFeedback": "Exactly!",
+    "ilokanoFeedback": "Pudno!",
+    "cebuanoFeedback": "Sakto!",
+    "npcDescription": "The Tindera checking your knowledge.",
+    "npcKeyword": "practice",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "aldaw",
+      "nga",
+      "nasayaat"
+    ],
+    "acceptablePhraseIds": [
+      "gratitude_010"
+    ]
+  },
+  {
+    "npcType": "Tindera",
+    "englishDialogue": "Let's test your memory! How do you say 'thank you for your help'?",
+    "ilokanoDialogue": "Padasen tayo ti lagip mo! Kasanom a sawen ti 'thank you for your help'?",
+    "cebuanoDialogue": "Testingan nato imong memorya! Unsaon pagsulti og 'thank you for your help'?",
+    "situationText": "Translate 'thank you for your help'!",
+    "correctPhraseId": "gratitude_011",
+    "englishFeedback": "Exactly!",
+    "ilokanoFeedback": "Pudno!",
+    "cebuanoFeedback": "Sakto!",
+    "npcDescription": "The Tindera checking your knowledge.",
+    "npcKeyword": "practice",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "aldaw",
+      "ko",
+      "saan"
+    ],
+    "acceptablePhraseIds": [
+      "gratitude_011"
+    ]
+  },
+  {
+    "npcType": "GirlTurnedAway",
+    "englishDialogue": "Oops, you accidentally bumped into her! You should apologize.",
+    "ilokanoDialogue": "Ay, nadungpar mo isuna! Masapul nga agpabasol ka.",
+    "cebuanoDialogue": "Hala, nabanggaan nimo siya! Pag-sorry kaniya.",
+    "situationText": "You accidentally bumped into her. Say 'I am sorry'!",
+    "correctPhraseId": "gratitude_012",
+    "englishFeedback": "Oh, it's okay!",
+    "ilokanoFeedback": "Ay, okay lang!",
+    "cebuanoFeedback": "Ay, okay ra!",
+    "npcDescription": "Girl in a bun turned away facing at the back as if buying.",
+    "npcKeyword": "sorry",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "mo",
+      "okay",
+      "dispensaren"
+    ],
+    "acceptablePhraseIds": [
+      "gratitude_012"
+    ]
+  },
+  {
+    "npcType": "Guy40s",
+    "englishDialogue": "He's blocking your way to the snacks. Tell him 'Excuse me'!",
+    "ilokanoDialogue": "Salsalapunna ti dalanmo mapan kadagiti snacks. Ibagam kenkuana ti 'Excuse me'!",
+    "cebuanoDialogue": "Gialihan niya ang imong agianan padulong sa mga snacks. Ingna siya 'Excuse me'!",
+    "situationText": "He's blocking the way. Say 'Excuse me'!",
+    "correctPhraseId": "gratitude_013",
+    "englishFeedback": "Oh, sorry!",
+    "ilokanoFeedback": "Ay, pasensia!",
+    "cebuanoFeedback": "Ay, sorry!",
+    "npcDescription": "A guy in his 40s bending down a bit.",
+    "npcKeyword": "excuse",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "sadino",
+      "rabii",
+      "naimbag"
+    ],
+    "acceptablePhraseIds": [
+      "gratitude_013"
+    ]
+  },
+  {
+    "npcType": "GuySando",
+    "englishDialogue": "Wow, the sun is blazing! It's really hot outside today, right?",
+    "ilokanoDialogue": "Nakapud-pudot itatta! Napudot kadi ti ruar?",
+    "cebuanoDialogue": "Init ba sa gawas?",
+    "situationText": "Say 'Yes'!",
+    "correctPhraseId": "responses_014",
+    "englishFeedback": "I knew it.",
+    "ilokanoFeedback": "Ammonak met.",
+    "cebuanoFeedback": "Kahibalo nako.",
+    "npcDescription": "A guy in white sando holding his plastic bag full of goods.",
+    "npcKeyword": "yes",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "unay",
+      "kumusta",
+      "ka?"
+    ],
+    "acceptablePhraseIds": [
+      "responses_014"
+    ]
+  },
+  {
+    "npcType": "Tindera",
+    "englishDialogue": "Let's test your memory! How do you say 'no'?",
+    "ilokanoDialogue": "Padasen tayo ti lagip mo! Kasanom a sawen ti 'no'?",
+    "cebuanoDialogue": "Testingan nato imong memorya! Unsaon pagsulti og 'no'?",
+    "situationText": "Translate 'no'!",
+    "correctPhraseId": "responses_015",
+    "englishFeedback": "Exactly!",
+    "ilokanoFeedback": "Pudno!",
+    "cebuanoFeedback": "Sakto!",
+    "npcDescription": "The Tindera checking your knowledge.",
+    "npcKeyword": "practice",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "tulong",
+      "rabii",
+      "ko"
+    ],
+    "acceptablePhraseIds": [
+      "responses_015"
+    ]
+  },
+  {
+    "npcType": "MomSurprised",
+    "englishDialogue": "I'm in a huge rush! Please let me go first, okay?",
+    "ilokanoDialogue": "Nagap-apuraak! Okay lang kadi no siak umuna?",
+    "cebuanoDialogue": "Okay ra ba kon ako mag-una?",
+    "situationText": "Say 'Okay'!",
+    "correctPhraseId": "responses_016",
+    "englishFeedback": "Thank you so much!",
+    "ilokanoFeedback": "Agyamanak unay!",
+    "cebuanoFeedback": "Salamat kaayo!",
+    "npcDescription": "Chubby woman looking surprised.",
+    "npcKeyword": "okay",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "nagan",
+      "ka?",
+      "sadino"
+    ],
+    "acceptablePhraseIds": [
+      "responses_016"
+    ]
+  },
+  {
+    "npcType": "Tindera",
+    "englishDialogue": "Let's test your memory! How do you say 'I understand'?",
+    "ilokanoDialogue": "Padasen tayo ti lagip mo! Kasanom a sawen ti 'I understand'?",
+    "cebuanoDialogue": "Testingan nato imong memorya! Unsaon pagsulti og 'I understand'?",
+    "situationText": "Translate 'I understand'!",
+    "correctPhraseId": "responses_017",
+    "englishFeedback": "Exactly!",
+    "ilokanoFeedback": "Pudno!",
+    "cebuanoFeedback": "Sakto!",
+    "npcDescription": "The Tindera checking your knowledge.",
+    "npcKeyword": "practice",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "tulong",
+      "nasayaat",
+      "dispensaren"
+    ],
+    "acceptablePhraseIds": [
+      "responses_017"
+    ]
+  },
+  {
+    "npcType": "JudgingLady",
+    "englishDialogue": "Mmm... hrm... I think I saw you before... mmm... wait... or maybe... actually, nevermind.",
+    "ilokanoDialogue": "Mmm... hrm... Kasla nakitaka idin... ay... mmm... wenno... ngem, saanen.",
+    "cebuanoDialogue": "Moadto ba ka sa merkado unya?",
+    "situationText": "Tell her 'I don't understand'.",
+    "correctPhraseId": "responses_018",
+    "englishFeedback": "Nevermind then.",
+    "ilokanoFeedback": "Saanen.",
+    "cebuanoFeedback": "Di na lang.",
+    "npcDescription": "A lady in her late 40s wearing glasses with strings and curled up brows.",
+    "npcKeyword": "dont_understand",
+    "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
+    "ilokanoWrongFeedback": "'{0}'? Kasla adda mali! Padasem a kitaen ti urnos dagiti sao.",
+    "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
+    "distractorWords": [
+      "dispensaren",
+      "pakawanen",
+      "sadino"
+    ],
+    "acceptablePhraseIds": [
+      "responses_018"
+    ]
+  }
+]

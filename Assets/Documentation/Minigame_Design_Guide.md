@@ -44,6 +44,13 @@ Since `CurriculumManager` already fetches by `categoryKey`, extend it to accept 
 
 ---
 
+## 📈 Progression & Difficulty Scaling
+- **L1-L2:** Forgiving STT, unlimited time, obvious wrong choices.
+- **L3-L5:** Introduction of time limits, more nuanced distractors.
+- **L6+:** "Blind Surprise" STT moments increase in frequency. Faster timing.
+
+---
+
 ## 🎙️ STT Integration Rule (Applies to ALL Mini-Games)
 
 Every mini-game must have **at least one STT moment** built into it. This is Luminang's core differentiator.
@@ -149,23 +156,23 @@ Some words are very alike (e.g., "thank you" vs "thank you so much"). To prevent
 ---
 
 #### L4 — Identity Expressions
-**💬 Mini-Game: "Sari-Sari Chismis" (Chat Bubbles)**
+**🗣️ Mini-Game: "POV Sari-Sari Store" (Drag-and-Drop Sentence Builder)**
 
-**Theme:** Buying snacks at a Sari-Sari store while the vendor asks nosy questions (a classic Filipino experience!).
+**Theme:** A First-Person view (POV) of a traditional Sari-Sari store. You talk to the Tindera (Vendor) and various Tambays (Bystanders) who ask you nosy questions!
 
 **Gameplay:**
-- The vendor asks you questions in a text-message format: "What is your name?", "Where are you from?"
-- 3 "Chat Bubbles" pop up with full sentence responses.
-- Player taps the correct chat bubble that corresponds to their identity or the provided context.
+- The game alternates between **Situational Roleplay** (a Tambay asks where you are from) and **Tindera Quizzes** (The Tindera acts as a guide, asking "How do you say X?").
+- A speech bubble appears with empty dotted slots.
+- A pile of scrambled individual `WordBlocks` sits at the bottom of the screen (combining the correct words with random distractor words from past vocabulary).
+- Player drags and drops the individual words into the slots to build the correct sentence grammatically.
 
 **STT Integration:**
-- Confirm STT: After tapping the bubble, the player speaks the sentence to directly answer the nosy vendor.
+- Confirm STT: Once all slots are filled correctly, the microphone activates. The player speaks the complete sentence to submit their answer to the NPC.
 
 **Recall Round (L1–L3):**
-- The vendor asks if you want a plastic bag; you must respond with Yes or No (L3 Recall).
-- You thank the vendor before leaving (L2 Recall).
+- Massive Recall integration: The Tindera will quiz you on EVERY single phrase from Greetings, Gratitude, and Responses (e.g., "How do you say 'thank you'?"). The same drag-and-drop word mechanic applies.
 
-**Win Condition:** Complete the full chismis conversation (6 questions) + all STT confirmed.
+**Win Condition:** Complete all 24 rounds of Identity and Recall questions.
 
 ---
 
@@ -405,3 +412,18 @@ foreach (var word in allVocab)
 ---
 
 *This document should be updated as mini-games are finalized and built.*
+
+---
+
+## 🗄️ Backup / Generalized Minigames
+These mechanics are highly reusable and not strictly tied to conversational situations, making them perfect fallbacks for future vocabulary categories (Colors, Numbers, Items, etc.).
+
+### 1. "Pabitin" (Jump & Grab)
+* **Theme:** A classic Filipino fiesta game where a bamboo lattice hangs from a tree, bouncing up and down.
+* **Gameplay:** A Situation Prompt appears at the top. 3 prize bags hang from the lattice, each with an answer tag. The player must time their tap to make their character jump and grab the correct prize bag.
+* **STT Integration:** Confirm STT. After grabbing the bag, the player must shout the word to officially "open" the prize. If they fail, the prize gets pulled back up!
+
+### 2. "Palayok Smash" (Hit the Pot)
+* **Theme:** A classic party game. 3 clay pots (*Palayok*) are hanging from a rope. Your character is blindfolded holding a bamboo stick.
+* **Gameplay:** The prompt appears on screen. The 3 pots have the 3 text options written on them. The player taps or swipes towards the correct pot to swing their stick and smash it open.
+* **STT Integration:** Blind Surprise. Just like Tumbang Preso, sometimes the pots spawn completely blank. Because the character is "blindfolded", the player must shout the answer from memory to smash the correct pot.

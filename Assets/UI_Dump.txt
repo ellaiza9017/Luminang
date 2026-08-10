@@ -1,0 +1,34 @@
+--- SariSariGameManager State ---
+activeSessionRounds count (via reflection): 15
+phraseDictionary count (via reflection): 81
+wordBlockPrefab assigned: WordBoxPrefab
+wordSlotPrefab assigned: WordSlotPrefab
+
+[WordBoxGroup]
+  Rect: sizeDelta=(1207.28, 73.61), rect=(x:-603.64, y:-36.81, width:1207.28, height:73.61), anchoredPosition=(0.00, 87.39), pivot=(0.50, 0.50), scale=(1.00, 1.00, 1.00)
+  HorizontalLayoutGroup: ControlSize(W:False, H:False), ForceExpand(W:False, H:False)
+  [Children of WordBoxGroup]
+    - WordBoxPrefab(Clone)
+      Rect: sizeDelta=(1401.00, 73.61), rect=(x:-700.50, y:-36.81, width:1401.00, height:73.61), anchoredPosition=(588.64, -36.81), pivot=(0.50, 0.50), scale=(1.00, 1.00, 1.00)
+      HorizontalLayoutGroup: ControlSize(W:True, H:True), ForceExpand(W:False, H:False)
+      ContentSizeFitter: H:PreferredSize, V:Unconstrained
+    - WordBoxPrefab(Clone)
+      Rect: sizeDelta=(1401.00, 73.61), rect=(x:-700.50, y:-36.81, width:1401.00, height:73.61), anchoredPosition=(598.64, -36.81), pivot=(0.50, 0.50), scale=(1.00, 1.00, 1.00)
+      HorizontalLayoutGroup: ControlSize(W:True, H:True), ForceExpand(W:False, H:False)
+      ContentSizeFitter: H:PreferredSize, V:Unconstrained
+    - WordBoxPrefab(Clone)
+      Rect: sizeDelta=(1401.00, 73.61), rect=(x:-700.50, y:-36.81, width:1401.00, height:73.61), anchoredPosition=(608.64, -36.81), pivot=(0.50, 0.50), scale=(1.00, 1.00, 1.00)
+      HorizontalLayoutGroup: ControlSize(W:True, H:True), ForceExpand(W:False, H:False)
+      ContentSizeFitter: H:PreferredSize, V:Unconstrained
+    - WordBoxPrefab(Clone)
+      Rect: sizeDelta=(1401.00, 73.61), rect=(x:-700.50, y:-36.81, width:1401.00, height:73.61), anchoredPosition=(618.64, -36.81), pivot=(0.50, 0.50), scale=(1.00, 1.00, 1.00)
+      HorizontalLayoutGroup: ControlSize(W:True, H:True), ForceExpand(W:False, H:False)
+      ContentSizeFitter: H:PreferredSize, V:Unconstrained
+
+[SentenceBox]
+  Rect: sizeDelta=(954.08, 167.06), rect=(x:-477.04, y:-83.53, width:954.08, height:167.06), anchoredPosition=(0.00, 112.00), pivot=(0.50, 0.50), scale=(1.00, 1.00, 1.00)
+  HorizontalLayoutGroup: ControlSize(W:False, H:False), ForceExpand(W:False, H:False)
+  [Children of SentenceBox]
+    - WordSlotPrefab(Clone)
+      Rect: sizeDelta=(100.00, 100.00), rect=(x:-50.00, y:-50.00, width:100.00, height:100.00), anchoredPosition=(477.04, -83.53), pivot=(0.50, 0.50), scale=(1.00, 1.00, 1.00)
+      LayoutElement: min(W:-1, H:-1), preferred(W:200, H:80), flex(W:-1, H:-1)
