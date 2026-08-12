@@ -1084,11 +1084,11 @@ MonoBehaviour:
   kikiamTargetText: {fileID: 3267195}
   hotdogTargetText: {fileID: 1312741893}
   hearts:
-  - {fileID: 759396035}
-  - {fileID: 1548906276}
-  - {fileID: 2003810815}
-  - {fileID: 1793580010}
-  - {fileID: 1966115359}
+  - {fileID: 759396037}
+  - {fileID: 1548906278}
+  - {fileID: 2003810817}
+  - {fileID: 1793580012}
+  - {fileID: 1966115361}
   fullHeartSprite: {fileID: 21300000, guid: 65b07983b61b3ca4d9492a1ce080b202, type: 3}
   emptyHeartSprite: {fileID: 21300000, guid: 8cb32e0692433a94bb4be55b2868929c, type: 3}
   manongImage: {fileID: 1832856180}
