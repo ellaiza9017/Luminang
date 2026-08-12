@@ -21,11 +21,17 @@ public class UIFadeAnimator : MonoBehaviour
         _cg = GetComponent<CanvasGroup>();
     }
 
+    private void OnDisable()
+    {
+        _anim = null;
+    }
+
     /// <summary>
     /// Call this right after SetActive(true) to fade the panel in.
     /// </summary>
     public void FadeIn()
     {
+        if (!gameObject.activeInHierarchy) return;
         if (_cg == null) _cg = GetComponent<CanvasGroup>();
         if (_anim != null) StopCoroutine(_anim);
         _anim = StartCoroutine(DoFadeIn());

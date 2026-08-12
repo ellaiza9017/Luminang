@@ -163,6 +163,7 @@ public class TusokTusokGameManager : MonoBehaviour
         ShowHowToPlay();
     }
 
+
     public void ShowHowToPlay()
     {
         if (audioSource != null && panelPopupSFX != null) audioSource.PlayOneShot(panelPopupSFX);

@@ -14,11 +14,17 @@ public class UIPopAnimator : MonoBehaviour
 
     private Coroutine _anim;
 
+    private void OnDisable()
+    {
+        _anim = null;
+    }
+
     /// <summary>
     /// Call this right after SetActive(true) to play the pop-in animation.
     /// </summary>
     public void PopIn()
     {
+        if (!gameObject.activeInHierarchy) return;
         if (_anim != null) StopCoroutine(_anim);
         _anim = StartCoroutine(DoPopIn());
     }

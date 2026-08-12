@@ -27,10 +27,6 @@ public class SpeechRecorder : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (_isRecording)
-        {
-            StopRecording();
-        }
         if (Instance == this) Instance = null;
     }
 
