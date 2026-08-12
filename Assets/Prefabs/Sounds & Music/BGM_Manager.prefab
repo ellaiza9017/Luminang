@@ -155,6 +155,9 @@ MonoBehaviour:
   - sceneNameContains: SariSariChismisScene
     clip: {fileID: 8300000, guid: 2a5d5506ad761f843a1aca3a9152ae9b, type: 3}
     volumeMultiplier: 0.5
+  - sceneNameContains: TusokTusokGameScene
+    clip: {fileID: 8300000, guid: 7d803aa8b9ca5ea4bb8600e2e435aaf3, type: 3}
+    volumeMultiplier: 0.5
   defaultClip: {fileID: 8300000, guid: e76b3a43171539c4f93b2d49778a824c, type: 3}
   defaultVolumeMultiplier: 0.5
   crossfadeDuration: 1

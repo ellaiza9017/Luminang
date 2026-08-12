@@ -222,23 +222,25 @@ Some words are very alike (e.g., "thank you" vs "thank you so much"). To prevent
 ---
 
 #### L7 — Count
-**🥭 Mini-Game: "Flashcard Frenzy" (Quick Memory)**
+**🍢 Mini-Game: "Tusok-Tusok" (Fishball Stand)**
 
-**Theme:** A local tiangge (bazaar).
+**Theme:** A traditional Filipino street food cart (Fishballs, Kwek-Kwek, Kikiam) parked outside a school or plaza. You are buying snacks from "Manong Fishball".
 
 **Gameplay:**
-- A tray of fruits (e.g., 3 Mangoes) flashes on screen for 1 second, then is covered by a basket.
-- A prompt asks: "How many mangoes did you see?"
-- A numerical keypad appears. Player types the correct number.
+- Manong Fishball asks you how many pieces you want (e.g., "Ilan sayo?").
+- A prompt tells you the target number (e.g., "Skewer 7 fishballs").
+- You physically drag/swipe a barbecue stick to "tusok" (skewer) the exact number of fishballs from the boiling wok.
+- If you skewer too many or too few, Manong shakes his head!
 
 **STT Integration:**
-- Confirm STT: After typing the number, the player speaks the number word out loud to lift the basket and reveal if they were right.
+- **Answer STT:** Once you have the correct number of fishballs on your stick, the STT mic activates. You must confidently state the number in the target language (e.g., "Pito" for 7) to pay and complete the order.
 
 **Recall Round (L1–L6):**
-- The vendor gives you the fruits; you must say thank you (L2 Recall).
-- The vendor asks if you want more (L3 Recall).
+- Manong Fishball will occasionally test your past knowledge (e.g., He asks your name -> L4 Recall).
+- You must thank him after receiving your food (L2 Recall).
+- He asks if you want spicy sauce, and you must answer Yes or No (L3 Recall).
 
-**Win Condition:** 8/10 correct counts + 100% STT confirmation.
+**Win Condition:** Successfully skewer and verbally count 10 different orders.
 
 ---
 
