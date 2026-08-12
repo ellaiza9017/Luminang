@@ -60,6 +60,14 @@ public class AvatarManager : MonoBehaviour
             string cacheBusterUrl = $"{publicUrl}?t={System.DateTime.Now.Ticks}";
             Debug.Log($"[AvatarManager] UPLOAD SUCCESS! Public URL: {publicUrl}");
 
+            // Clear the local cache so the leaderboard gets the fresh image!
+            string cacheKey = publicUrl;
+            if (_avatarCache.ContainsKey(cacheKey))
+            {
+                Destroy(_avatarCache[cacheKey]); // Free memory
+                _avatarCache.Remove(cacheKey);
+            }
+
             // 4. Update the Profile table
             if (UserProfileManager.Instance != null && UserProfileManager.Instance.CurrentProfile != null)
             {

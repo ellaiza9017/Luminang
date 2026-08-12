@@ -104,7 +104,7 @@ public class SariSariGameManager : MonoBehaviour
     private List<ChismisRoundData> activeSessionRounds = new List<ChismisRoundData>();
     private int currentRoundIndex = 0;
     private int lives = 5; // The 5 Candies
-    private bool isCheckingAnswer = false;
+    public bool isCheckingAnswer = false;
     private bool hasGameStarted = false;
 
     private List<LuminangPhrase> phraseDictionary;

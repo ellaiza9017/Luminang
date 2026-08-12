@@ -128,6 +128,8 @@ public class SariSariWordBlock : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (SariSariGameManager.Instance != null && SariSariGameManager.Instance.isCheckingAnswer) return;
+
         if (currentSlot != null)
         {
             // If it's an input block, tapping it should NOT return it to the bank.
@@ -146,6 +148,8 @@ public class SariSariWordBlock : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (SariSariGameManager.Instance != null && SariSariGameManager.Instance.isCheckingAnswer) return;
+
         // If we picked it up from a slot, tell the slot it's empty now!
         if (currentSlot != null)
         {
@@ -169,6 +173,8 @@ public class SariSariWordBlock : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (SariSariGameManager.Instance != null && SariSariGameManager.Instance.isCheckingAnswer) return;
+
         rectTransform.anchoredPosition += eventData.delta / parentCanvas.scaleFactor;
     }
 

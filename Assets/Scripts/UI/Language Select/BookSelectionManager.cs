@@ -626,4 +626,13 @@ public class BookSelectionManager : MonoBehaviour
         if (loader != null) loader.LoadScene("SariSariChismisScene");
         else UnityEngine.SceneManagement.SceneManager.LoadScene("SariSariChismisScene");
     }
+
+    public void TempLoadTusokTusokScene()
+    {
+        PlayerPrefs.SetString("PreviousScene", "LanguageSelectionScene");
+        PlayerPrefs.Save();
+        var loader = FindFirstObjectByType<SceneLoader>();
+        if (loader != null) loader.LoadScene("TusokTusokGameScene");
+        else UnityEngine.SceneManagement.SceneManager.LoadScene("TusokTusokGameScene");
+    }
 }
