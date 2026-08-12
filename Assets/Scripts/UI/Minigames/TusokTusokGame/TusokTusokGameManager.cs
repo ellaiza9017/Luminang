@@ -134,28 +134,16 @@ public class TusokTusokGameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        
-        // Auto-recovery for Unity serialization bug
-        if (hearts == null || hearts.Length < 5 || hearts[0] == null)
-        {
-            hearts = new UnityEngine.UI.Image[5];
-            for (int i = 0; i < 5; i++)
-            {
-                GameObject heartObj = GameObject.Find("Heart" + (i + 1));
-                if (heartObj != null) hearts[i] = heartObj.GetComponent<UnityEngine.UI.Image>();
-            }
-            Debug.Log("[Tusok] Auto-recovered Hearts from scene hierarchy.");
-        }
     }
 
     private void Start()
     {
-        UpdateHeartsUI(); // Guarantee hearts match the starting value
         LoadData();
         submitButton.onClick.AddListener(OnSubmitClicked);
         if (translateButton != null) translateButton.onClick.AddListener(OnTranslateClicked);
         ShowHowToPlay();
     }
+
 
     public void ShowHowToPlay()
     {
@@ -587,21 +575,10 @@ public class TusokTusokGameManager : MonoBehaviour
     private void UpdateHeartsUI()
     {
         if (hearts == null) return;
-        
-        // Swap heart sprites instead of turning them off
         for (int i = 0; i < hearts.Length; i++)
         {
             if (hearts[i] != null)
-            {
-                bool shouldBeFull = i < currentHearts;
-                hearts[i].sprite = shouldBeFull ? fullHeartSprite : emptyHeartSprite;
-                Debug.Log($"[Tusok] Heart {i} sprite set to {(shouldBeFull ? "FULL" : "EMPTY")}");
-            }
-            else
-            {
-                bool isPureNull = object.ReferenceEquals(hearts[i], null);
-                Debug.LogWarning($"[Tusok] Heart {i} is NULL in the array! Pure C# Null? {isPureNull}");
-            }
+                hearts[i].sprite = (i < currentHearts) ? fullHeartSprite : emptyHeartSprite;
         }
     }
 
@@ -614,8 +591,8 @@ public class TusokTusokGameManager : MonoBehaviour
         {
             correctOrWrongImage.gameObject.SetActive(true);
             correctOrWrongImage.sprite = correctPopupSprite;
-            UIPopAnimator popAnim = correctOrWrongImage.GetComponent<UIPopAnimator>();
-            if (popAnim != null) popAnim.PopIn();
+            if (_localPopupAnim != null) StopCoroutine(_localPopupAnim);
+            _localPopupAnim = StartCoroutine(SafePopupAnim(correctOrWrongImage.transform));
         }
         
         manongImage.sprite = manongHappy;
@@ -640,8 +617,8 @@ public class TusokTusokGameManager : MonoBehaviour
         {
             correctOrWrongImage.gameObject.SetActive(true);
             correctOrWrongImage.sprite = wrongPopupSprite;
-            UIPopAnimator popAnim = correctOrWrongImage.GetComponent<UIPopAnimator>();
-            if (popAnim != null) popAnim.PopIn();
+            if (_localPopupAnim != null) StopCoroutine(_localPopupAnim);
+            _localPopupAnim = StartCoroutine(SafePopupAnim(correctOrWrongImage.transform));
         }
         
         manongImage.sprite = manongWrong;
@@ -756,8 +733,30 @@ public class TusokTusokGameManager : MonoBehaviour
         SceneManager.LoadScene(prevScene);
     }
 
+    private Coroutine _localPopupAnim;
+    private System.Collections.IEnumerator SafePopupAnim(Transform target)
+    {
+        target.localScale = Vector3.zero;
+        float elapsed = 0f;
+        while (elapsed < 0.15f)
+        {
+            elapsed += Time.deltaTime;
+            target.localScale = Vector3.one * Mathf.Lerp(0f, 1.1f, elapsed / 0.15f);
+            yield return null;
+        }
+        elapsed = 0f;
+        while (elapsed < 0.15f)
+        {
+            elapsed += Time.deltaTime;
+            target.localScale = Vector3.one * Mathf.Lerp(1.1f, 1f, elapsed / 0.15f);
+            yield return null;
+        }
+        target.localScale = Vector3.one;
+        _localPopupAnim = null;
+    }
+
     [System.Serializable]
-    private class CountingRoundDataList
+    public class CountingRoundDataList
     {
         public CountingRoundData[] items;
     }
