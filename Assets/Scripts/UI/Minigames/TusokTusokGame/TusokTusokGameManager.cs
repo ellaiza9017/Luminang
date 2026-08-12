@@ -138,19 +138,6 @@ public class TusokTusokGameManager : MonoBehaviour
 
     private void Start()
     {
-        // Safe fallback just in case the Inspector references were lost due to variable type change
-        if (hearts == null || hearts.Length < 5 || hearts[0] == null)
-        {
-            hearts = new Image[5];
-            for (int i = 0; i < 5; i++)
-            {
-                GameObject hObj = GameObject.Find("Heart" + (i + 1));
-                if (hObj != null) hearts[i] = hObj.GetComponent<Image>();
-            }
-            Debug.Log("[Tusok] Re-linked Hearts using GameObject.Find");
-        }
-
-        UpdateHeartsUI(); // Guarantee hearts match the starting value
         LoadData();
         submitButton.onClick.AddListener(OnSubmitClicked);
         if (translateButton != null) translateButton.onClick.AddListener(OnTranslateClicked);
@@ -588,21 +575,10 @@ public class TusokTusokGameManager : MonoBehaviour
     private void UpdateHeartsUI()
     {
         if (hearts == null) return;
-        
-        // Swap heart sprites instead of turning them off
         for (int i = 0; i < hearts.Length; i++)
         {
             if (hearts[i] != null)
-            {
-                bool shouldBeFull = i < currentHearts;
-                hearts[i].sprite = shouldBeFull ? fullHeartSprite : emptyHeartSprite;
-                Debug.Log($"[Tusok] Heart {i} sprite set to {(shouldBeFull ? "FULL" : "EMPTY")}");
-            }
-            else
-            {
-                bool isPureNull = object.ReferenceEquals(hearts[i], null);
-                Debug.LogWarning($"[Tusok] Heart {i} is NULL in the array! Pure C# Null? {isPureNull}");
-            }
+                hearts[i].sprite = (i < currentHearts) ? fullHeartSprite : emptyHeartSprite;
         }
     }
 
