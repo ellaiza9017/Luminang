@@ -138,6 +138,18 @@ public class TusokTusokGameManager : MonoBehaviour
 
     private void Start()
     {
+        // Safe fallback just in case the Inspector references were lost due to variable type change
+        if (hearts == null || hearts.Length < 5 || hearts[0] == null)
+        {
+            hearts = new Image[5];
+            for (int i = 0; i < 5; i++)
+            {
+                GameObject hObj = GameObject.Find("Heart" + (i + 1));
+                if (hObj != null) hearts[i] = hObj.GetComponent<Image>();
+            }
+            Debug.Log("[Tusok] Re-linked Hearts using GameObject.Find");
+        }
+
         UpdateHeartsUI(); // Guarantee hearts match the starting value
         LoadData();
         submitButton.onClick.AddListener(OnSubmitClicked);
@@ -603,8 +615,8 @@ public class TusokTusokGameManager : MonoBehaviour
         {
             correctOrWrongImage.gameObject.SetActive(true);
             correctOrWrongImage.sprite = correctPopupSprite;
-            UIPopAnimator popAnim = correctOrWrongImage.GetComponent<UIPopAnimator>();
-            if (popAnim != null) popAnim.PopIn();
+            if (_localPopupAnim != null) StopCoroutine(_localPopupAnim);
+            _localPopupAnim = StartCoroutine(SafePopupAnim(correctOrWrongImage.transform));
         }
         
         manongImage.sprite = manongHappy;
@@ -629,8 +641,8 @@ public class TusokTusokGameManager : MonoBehaviour
         {
             correctOrWrongImage.gameObject.SetActive(true);
             correctOrWrongImage.sprite = wrongPopupSprite;
-            UIPopAnimator popAnim = correctOrWrongImage.GetComponent<UIPopAnimator>();
-            if (popAnim != null) popAnim.PopIn();
+            if (_localPopupAnim != null) StopCoroutine(_localPopupAnim);
+            _localPopupAnim = StartCoroutine(SafePopupAnim(correctOrWrongImage.transform));
         }
         
         manongImage.sprite = manongWrong;
@@ -743,6 +755,28 @@ public class TusokTusokGameManager : MonoBehaviour
         if (audioSource != null && buttonClickSFX != null) audioSource.PlayOneShot(buttonClickSFX);
         string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
         SceneManager.LoadScene(prevScene);
+    }
+
+    private Coroutine _localPopupAnim;
+    private System.Collections.IEnumerator SafePopupAnim(Transform target)
+    {
+        target.localScale = Vector3.zero;
+        float elapsed = 0f;
+        while (elapsed < 0.15f)
+        {
+            elapsed += Time.deltaTime;
+            target.localScale = Vector3.one * Mathf.Lerp(0f, 1.1f, elapsed / 0.15f);
+            yield return null;
+        }
+        elapsed = 0f;
+        while (elapsed < 0.15f)
+        {
+            elapsed += Time.deltaTime;
+            target.localScale = Vector3.one * Mathf.Lerp(1.1f, 1f, elapsed / 0.15f);
+            yield return null;
+        }
+        target.localScale = Vector3.one;
+        _localPopupAnim = null;
     }
 
     [System.Serializable]
