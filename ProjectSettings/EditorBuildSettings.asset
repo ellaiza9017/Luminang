@@ -44,12 +44,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hub/CharacterCustomizationScene.unity
     guid: bda05c22fa2a3a144aaecbdb729a4a04
-  - enabled: 0
-    path: Assets/Scenes/Environments/Calle_Crisologo.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/Environments/Magellan's_Cross.unity
-    guid: f22e8b4fc4cb3e3409b7ce42335a7238
   - enabled: 1
     path: Assets/Scenes/MiniGames/FishingGameScene.unity
     guid: ce74d42815571444488ca576c1ea13c6
@@ -62,6 +56,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGames/SariSariChismisScene.unity
     guid: a8065767987c13c489777ba511515291
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/TusokTusokGameScene.unity
+    guid: c4c673caf576c284aacd628970ece74f
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: d2afdb32aa936b84f96cb58f959024df, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

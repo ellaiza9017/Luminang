@@ -135,14 +135,20 @@ public class TusokTusokGameManager : MonoBehaviour
     {
         Instance = this;
         
-        // Auto-recovery for Unity serialization bug
         if (hearts == null || hearts.Length < 5 || hearts[0] == null)
         {
             hearts = new UnityEngine.UI.Image[5];
+            UnityEngine.UI.Image[] allImages = Resources.FindObjectsOfTypeAll<UnityEngine.UI.Image>();
             for (int i = 0; i < 5; i++)
             {
-                GameObject heartObj = GameObject.Find("Heart" + (i + 1));
-                if (heartObj != null) hearts[i] = heartObj.GetComponent<UnityEngine.UI.Image>();
+                foreach (var img in allImages)
+                {
+                    if (img.gameObject.name == "Heart" + (i + 1) && img.gameObject.scene.isLoaded)
+                    {
+                        hearts[i] = img;
+                        break;
+                    }
+                }
             }
             Debug.Log("[Tusok] Auto-recovered Hearts from scene hierarchy.");
         }
@@ -757,7 +763,7 @@ public class TusokTusokGameManager : MonoBehaviour
     }
 
     [System.Serializable]
-    private class CountingRoundDataList
+    public class CountingRoundDataList
     {
         public CountingRoundData[] items;
     }

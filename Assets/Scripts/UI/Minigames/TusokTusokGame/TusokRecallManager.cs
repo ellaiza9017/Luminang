@@ -139,13 +139,13 @@ public class TusokRecallManager : MonoBehaviour
     }
 
     [System.Serializable]
-    private class PhraseList
+    public class PhraseList
     {
         public PhraseData[] phrases;
     }
 
     [System.Serializable]
-    private class PhraseData
+    public class PhraseData
     {
         public string id;
         public string ilokano;
