@@ -134,24 +134,6 @@ public class TusokTusokGameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        
-        if (hearts == null || hearts.Length < 5 || hearts[0] == null)
-        {
-            hearts = new UnityEngine.UI.Image[5];
-            UnityEngine.UI.Image[] allImages = Resources.FindObjectsOfTypeAll<UnityEngine.UI.Image>();
-            for (int i = 0; i < 5; i++)
-            {
-                foreach (var img in allImages)
-                {
-                    if (img.gameObject.name == "Heart" + (i + 1) && img.gameObject.scene.isLoaded)
-                    {
-                        hearts[i] = img;
-                        break;
-                    }
-                }
-            }
-            Debug.Log("[Tusok] Auto-recovered Hearts from scene hierarchy.");
-        }
     }
 
     private void Start()

@@ -14,7 +14,8 @@ public class UIFadeAnimator : MonoBehaviour
     public float duration = 0.25f;
 
     private CanvasGroup _cg;
-    private Coroutine _anim;
+    private float _elapsed = 0f;
+    private bool _isAnimating = false;
 
     void Awake()
     {
@@ -23,7 +24,8 @@ public class UIFadeAnimator : MonoBehaviour
 
     private void OnDisable()
     {
-        _anim = null;
+        _isAnimating = false;
+        if (_cg != null) _cg.alpha = 1f; // Default to fully visible when disabled
     }
 
     /// <summary>
@@ -33,23 +35,23 @@ public class UIFadeAnimator : MonoBehaviour
     {
         if (!gameObject.activeInHierarchy) return;
         if (_cg == null) _cg = GetComponent<CanvasGroup>();
-        if (_anim != null) StopCoroutine(_anim);
-        _anim = StartCoroutine(DoFadeIn());
+        
+        _cg.alpha = 0f;
+        _elapsed = 0f;
+        _isAnimating = true;
     }
 
-    private IEnumerator DoFadeIn()
+    private void Update()
     {
-        _cg.alpha = 0f;
-        float elapsed = 0f;
+        if (!_isAnimating) return;
 
-        while (elapsed < duration)
+        _elapsed += Time.deltaTime;
+        _cg.alpha = Mathf.Clamp01(_elapsed / duration);
+
+        if (_elapsed >= duration)
         {
-            elapsed += Time.deltaTime;
-            _cg.alpha = Mathf.Clamp01(elapsed / duration);
-            yield return null;
+            _cg.alpha = 1f;
+            _isAnimating = false;
         }
-
-        _cg.alpha = 1f;
-        _anim = null;
     }
 }

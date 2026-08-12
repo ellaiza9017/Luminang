@@ -12,11 +12,13 @@ public class UIPopAnimator : MonoBehaviour
     [Tooltip("Total duration of the pop-in bounce (seconds).")]
     public float duration = 0.3f;
 
-    private Coroutine _anim;
+    private float _elapsed = 0f;
+    private bool _isAnimating = false;
 
     private void OnDisable()
     {
-        _anim = null;
+        _isAnimating = false;
+        transform.localScale = Vector3.one;
     }
 
     /// <summary>
@@ -25,37 +27,33 @@ public class UIPopAnimator : MonoBehaviour
     public void PopIn()
     {
         if (!gameObject.activeInHierarchy) return;
-        if (_anim != null) StopCoroutine(_anim);
-        _anim = StartCoroutine(DoPopIn());
+        
+        transform.localScale = Vector3.zero;
+        _elapsed = 0f;
+        _isAnimating = true;
     }
 
-    private IEnumerator DoPopIn()
+    private void Update()
     {
-        transform.localScale = Vector3.zero;
+        if (!_isAnimating) return;
 
+        _elapsed += Time.deltaTime;
         float half = duration * 0.5f;
-        float elapsed = 0f;
 
-        // Scale up to 1.1x
-        while (elapsed < half)
+        if (_elapsed < half)
         {
-            elapsed += Time.deltaTime;
-            float t = elapsed / half;
+            float t = _elapsed / half;
             transform.localScale = Vector3.one * Mathf.Lerp(0f, 1.1f, t);
-            yield return null;
         }
-
-        // Settle back to exactly 1x
-        elapsed = 0f;
-        while (elapsed < half)
+        else if (_elapsed < duration)
         {
-            elapsed += Time.deltaTime;
-            float t = elapsed / half;
+            float t = (_elapsed - half) / half;
             transform.localScale = Vector3.one * Mathf.Lerp(1.1f, 1f, t);
-            yield return null;
         }
-
-        transform.localScale = Vector3.one;
-        _anim = null;
+        else
+        {
+            transform.localScale = Vector3.one;
+            _isAnimating = false;
+        }
     }
 }
