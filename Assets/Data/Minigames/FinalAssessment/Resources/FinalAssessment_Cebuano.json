@@ -1,0 +1,1148 @@
+{
+  "questions": [
+    {
+      "id": "greetings_001",
+      "category": "Greetings",
+      "english_prompt": "good morning",
+      "native_context": "",
+      "correct_answer": "maayong buntag",
+      "wrong_choices": [
+        "Maayong aldaw",
+        "maayong gabii",
+        "paalam"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "greetings_002",
+      "category": "Greetings",
+      "english_prompt": "good afternoon",
+      "native_context": "maayong ____",
+      "correct_answer": "hapon",
+      "wrong_choices": [
+        "malem",
+        "rabii",
+        "aldaw"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "greetings_003",
+      "category": "Greetings",
+      "english_prompt": "good evening",
+      "native_context": "",
+      "correct_answer": "maayong gabii",
+      "wrong_choices": [
+        "maayong hapon",
+        "kumusta",
+        "paalam"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "greetings_004",
+      "category": "Greetings",
+      "english_prompt": "hello",
+      "native_context": "",
+      "correct_answer": "kumusta",
+      "wrong_choices": [
+        "Maayong aldaw",
+        "paalam",
+        "kumusta ka?"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "greetings_005",
+      "category": "Greetings",
+      "english_prompt": "how are you?",
+      "native_context": "",
+      "correct_answer": "kumusta ka?",
+      "wrong_choices": [
+        "maayong gabii",
+        "Maayong aldaw",
+        "maayong buntag"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "greetings_006",
+      "category": "Greetings",
+      "english_prompt": "I'm fine",
+      "native_context": "",
+      "correct_answer": "maayo ra ko",
+      "wrong_choices": [
+        "maayong hapon",
+        "Maayong aldaw",
+        "kumusta ka?"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "greetings_007",
+      "category": "Greetings",
+      "english_prompt": "goodbye",
+      "native_context": "",
+      "correct_answer": "paalam",
+      "wrong_choices": [
+        "kumusta",
+        "maayong buntag",
+        "maayong gabii"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "greetings_008",
+      "category": "Greetings",
+      "english_prompt": "good day",
+      "native_context": "",
+      "correct_answer": "Maayong aldaw",
+      "wrong_choices": [
+        "maayong buntag",
+        "kumusta ka?",
+        "maayong hapon"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "gratitude_009",
+      "category": "Gratitude",
+      "english_prompt": "thank you",
+      "native_context": "",
+      "correct_answer": "salamat",
+      "wrong_choices": [
+        "tabi",
+        "salamat sa imong tabang",
+        "daghang salamat"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "gratitude_010",
+      "category": "Gratitude",
+      "english_prompt": "thank you very much",
+      "native_context": "",
+      "correct_answer": "daghang salamat",
+      "wrong_choices": [
+        "tabi",
+        "salamat",
+        "salamat sa imong tabang"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "gratitude_011",
+      "category": "Gratitude",
+      "english_prompt": "thank you for your help",
+      "native_context": "",
+      "correct_answer": "salamat sa imong tabang",
+      "wrong_choices": [
+        "daghang salamat",
+        "salamat",
+        "pasayloa ko"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "gratitude_012",
+      "category": "Gratitude",
+      "english_prompt": "I am sorry",
+      "native_context": "pasayloa ____",
+      "correct_answer": "ko",
+      "wrong_choices": [
+        "ka",
+        "sila",
+        "niya"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "gratitude_013",
+      "category": "Gratitude",
+      "english_prompt": "excuse me",
+      "native_context": "",
+      "correct_answer": "tabi",
+      "wrong_choices": [
+        "salamat",
+        "daghang salamat",
+        "salamat sa imong tabang"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "responses_014",
+      "category": "Responses",
+      "english_prompt": "yes",
+      "native_context": "",
+      "correct_answer": "oo",
+      "wrong_choices": [
+        "dili",
+        "sabtan nako",
+        "dili ko kasabot"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "responses_015",
+      "category": "Responses",
+      "english_prompt": "no",
+      "native_context": "____",
+      "correct_answer": "dili",
+      "wrong_choices": [
+        "oo",
+        "wala",
+        "siguro"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "responses_016",
+      "category": "Responses",
+      "english_prompt": "okay",
+      "native_context": "",
+      "correct_answer": "sige",
+      "wrong_choices": [
+        "dili ko kasabot",
+        "oo",
+        "sabtan nako"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "responses_017",
+      "category": "Responses",
+      "english_prompt": "I understand",
+      "native_context": "",
+      "correct_answer": "sabtan nako",
+      "wrong_choices": [
+        "dili",
+        "oo",
+        "dili ko kasabot"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "responses_018",
+      "category": "Responses",
+      "english_prompt": "I don't understand",
+      "native_context": "",
+      "correct_answer": "dili ko kasabot",
+      "wrong_choices": [
+        "dili",
+        "sabtan nako",
+        "oo"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "identity_019",
+      "category": "Identity",
+      "english_prompt": "what is your name",
+      "native_context": "",
+      "correct_answer": "unsay imong ngalan",
+      "wrong_choices": [
+        "ako si {name}",
+        "taga asa ka",
+        "taga {place} ko"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "identity_020",
+      "category": "Identity",
+      "english_prompt": "my name is {name}",
+      "native_context": "",
+      "correct_answer": "ako si {name}",
+      "wrong_choices": [
+        "unsay imong ngalan",
+        "taga asa ka",
+        "taga {place} ko"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "identity_021",
+      "category": "Identity",
+      "english_prompt": "where are you from",
+      "native_context": "",
+      "correct_answer": "taga asa ka",
+      "wrong_choices": [
+        "taga {place} ko",
+        "ako si {name}",
+        "unsay imong ngalan"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "identity_022",
+      "category": "Identity",
+      "english_prompt": "I am from {place}",
+      "native_context": "",
+      "correct_answer": "taga {place} ko",
+      "wrong_choices": [
+        "unsay imong ngalan",
+        "taga asa ka",
+        "ako si {name}"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "requests_023",
+      "category": "Requests",
+      "english_prompt": "help me",
+      "native_context": "",
+      "correct_answer": "tabangi ko",
+      "wrong_choices": [
+        "pwede nimo ko tabangan",
+        "hatagi ko {item}",
+        "hulata ko"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "requests_024",
+      "category": "Requests",
+      "english_prompt": "can you help me",
+      "native_context": "",
+      "correct_answer": "pwede nimo ko tabangan",
+      "wrong_choices": [
+        "hulata ko",
+        "tabangi ko",
+        "hatagi ko {item}"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "requests_025",
+      "category": "Requests",
+      "english_prompt": "please wait",
+      "native_context": "",
+      "correct_answer": "hulata ko",
+      "wrong_choices": [
+        "pwede nimo ko tabangan",
+        "tabangi ko",
+        "pwede ko mangutana"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "requests_026",
+      "category": "Requests",
+      "english_prompt": "give me {item}",
+      "native_context": "",
+      "correct_answer": "hatagi ko {item}",
+      "wrong_choices": [
+        "pwede nimo ko tabangan",
+        "hulata ko",
+        "pwede ko mangutana"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "requests_027",
+      "category": "Requests",
+      "english_prompt": "can I ask",
+      "native_context": "",
+      "correct_answer": "pwede ko mangutana",
+      "wrong_choices": [
+        "tabangi ko",
+        "hulata ko",
+        "pwede nimo ko tabangan"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "directions_028",
+      "category": "Directions",
+      "english_prompt": "go straight",
+      "native_context": "____",
+      "correct_answer": "padayon",
+      "wrong_choices": [
+        "oo",
+        "dili",
+        "wala"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "directions_029",
+      "category": "Directions",
+      "english_prompt": "turn left",
+      "native_context": "",
+      "correct_answer": "liko sa wala",
+      "wrong_choices": [
+        "ari diri",
+        "sunda ko",
+        "liko sa tuo"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "directions_030",
+      "category": "Directions",
+      "english_prompt": "turn right",
+      "native_context": "",
+      "correct_answer": "liko sa tuo",
+      "wrong_choices": [
+        "saka pataas",
+        "sunda ko",
+        "hunong diri"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "directions_031",
+      "category": "Directions",
+      "english_prompt": "go up",
+      "native_context": "",
+      "correct_answer": "saka pataas",
+      "wrong_choices": [
+        "adto didto",
+        "hunong diri",
+        "liko sa tuo"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "directions_032",
+      "category": "Directions",
+      "english_prompt": "go down",
+      "native_context": "____",
+      "correct_answer": "naog",
+      "wrong_choices": [
+        "oo",
+        "dili",
+        "wala"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "directions_033",
+      "category": "Directions",
+      "english_prompt": "stop here",
+      "native_context": "",
+      "correct_answer": "hunong diri",
+      "wrong_choices": [
+        "saka pataas",
+        "adto didto",
+        "hulata diri"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "directions_034",
+      "category": "Directions",
+      "english_prompt": "come here",
+      "native_context": "",
+      "correct_answer": "ari diri",
+      "wrong_choices": [
+        "adto didto",
+        "liko sa wala",
+        "hulata diri"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "directions_035",
+      "category": "Directions",
+      "english_prompt": "go there",
+      "native_context": "",
+      "correct_answer": "adto didto",
+      "wrong_choices": [
+        "sunda ko",
+        "hunong diri",
+        "ari diri"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "directions_036",
+      "category": "Directions",
+      "english_prompt": "follow me",
+      "native_context": "",
+      "correct_answer": "sunda ko",
+      "wrong_choices": [
+        "saka pataas",
+        "liko sa wala",
+        "naog"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "directions_037",
+      "category": "Directions",
+      "english_prompt": "wait here",
+      "native_context": "",
+      "correct_answer": "hulata diri",
+      "wrong_choices": [
+        "saka pataas",
+        "liko sa wala",
+        "liko sa tuo"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "count_038",
+      "category": "Count",
+      "english_prompt": "one",
+      "native_context": "",
+      "correct_answer": "usa",
+      "wrong_choices": [
+        "upat",
+        "tulo",
+        "lima"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "count_039",
+      "category": "Count",
+      "english_prompt": "two",
+      "native_context": "",
+      "correct_answer": "duha",
+      "wrong_choices": [
+        "lima",
+        "pito",
+        "unom"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "count_040",
+      "category": "Count",
+      "english_prompt": "three",
+      "native_context": "____",
+      "correct_answer": "tulo",
+      "wrong_choices": [
+        "tallo",
+        "walo",
+        "innem"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "count_041",
+      "category": "Count",
+      "english_prompt": "four",
+      "native_context": "____",
+      "correct_answer": "upat",
+      "wrong_choices": [
+        "tallo",
+        "walo",
+        "innem"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "count_042",
+      "category": "Count",
+      "english_prompt": "five",
+      "native_context": "",
+      "correct_answer": "lima",
+      "wrong_choices": [
+        "usa",
+        "pito",
+        "tulo"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "count_043",
+      "category": "Count",
+      "english_prompt": "six",
+      "native_context": "",
+      "correct_answer": "unom",
+      "wrong_choices": [
+        "pito",
+        "usa",
+        "tulo"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "count_044",
+      "category": "Count",
+      "english_prompt": "seven",
+      "native_context": "",
+      "correct_answer": "pito",
+      "wrong_choices": [
+        "napulo",
+        "usa",
+        "walo"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "count_045",
+      "category": "Count",
+      "english_prompt": "eight",
+      "native_context": "",
+      "correct_answer": "walo",
+      "wrong_choices": [
+        "duha",
+        "pito",
+        "unom"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "count_046",
+      "category": "Count",
+      "english_prompt": "nine",
+      "native_context": "",
+      "correct_answer": "siyam",
+      "wrong_choices": [
+        "upat",
+        "pito",
+        "duha"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "count_047",
+      "category": "Count",
+      "english_prompt": "ten",
+      "native_context": "____",
+      "correct_answer": "napulo",
+      "wrong_choices": [
+        "tallo",
+        "walo",
+        "innem"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "action_verbs_048",
+      "category": "Action Verbs",
+      "english_prompt": "eat",
+      "native_context": "",
+      "correct_answer": "kaon",
+      "wrong_choices": [
+        "adto",
+        "inom",
+        "sulti"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "action_verbs_049",
+      "category": "Action Verbs",
+      "english_prompt": "drink",
+      "native_context": "",
+      "correct_answer": "inom",
+      "wrong_choices": [
+        "kaon",
+        "sulti",
+        "adto"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "action_verbs_050",
+      "category": "Action Verbs",
+      "english_prompt": "go",
+      "native_context": "",
+      "correct_answer": "adto",
+      "wrong_choices": [
+        "makita",
+        "katulog",
+        "sulti"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "action_verbs_051",
+      "category": "Action Verbs",
+      "english_prompt": "come",
+      "native_context": "",
+      "correct_answer": "ari",
+      "wrong_choices": [
+        "kaon",
+        "katulog",
+        "sulti"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "action_verbs_052",
+      "category": "Action Verbs",
+      "english_prompt": "sleep",
+      "native_context": "",
+      "correct_answer": "katulog",
+      "wrong_choices": [
+        "paminaw",
+        "makita",
+        "kaon"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "action_verbs_053",
+      "category": "Action Verbs",
+      "english_prompt": "see",
+      "native_context": "",
+      "correct_answer": "makita",
+      "wrong_choices": [
+        "kaon",
+        "paminaw",
+        "ari"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "action_verbs_054",
+      "category": "Action Verbs",
+      "english_prompt": "hear",
+      "native_context": "",
+      "correct_answer": "paminaw",
+      "wrong_choices": [
+        "ari",
+        "inom",
+        "katulog"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "action_verbs_055",
+      "category": "Action Verbs",
+      "english_prompt": "speak",
+      "native_context": "",
+      "correct_answer": "sulti",
+      "wrong_choices": [
+        "adto",
+        "makita",
+        "ari"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "linking_verbs_056_a",
+      "category": "Linking Verbs",
+      "english_prompt": "<u>I am</u> Juan.",
+      "native_context": "",
+      "correct_answer": "Ako si",
+      "wrong_choices": [
+        "Siya si",
+        "Kami si",
+        "Kinsa"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "linking_verbs_057_a",
+      "category": "Linking Verbs",
+      "english_prompt": "He <u>is</u> Juan.",
+      "native_context": "Siya _____ Juan.",
+      "correct_answer": "maoy",
+      "wrong_choices": [
+        "unya",
+        "nga",
+        "ang"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "linking_verbs_057_b",
+      "category": "Linking Verbs",
+      "english_prompt": "The dog <u>is</u> big.",
+      "native_context": "",
+      "correct_answer": "mao",
+      "wrong_choices": [
+        "dili",
+        "wala",
+        "murag"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "linking_verbs_058_a",
+      "category": "Linking Verbs",
+      "english_prompt": "They <u>are</u> students.",
+      "native_context": "Sila _____ mga estudyante",
+      "correct_answer": "maoy",
+      "wrong_choices": [
+        "oo",
+        "dili",
+        "wala"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "linking_verbs_059_a",
+      "category": "Linking Verbs",
+      "english_prompt": "He <u>was</u> a student.",
+      "native_context": "",
+      "correct_answer": "nahimo",
+      "wrong_choices": [
+        "mao",
+        "dili",
+        "wala"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "linking_verbs_059_b",
+      "category": "Linking Verbs",
+      "english_prompt": "It <u>was</u> big.",
+      "native_context": "",
+      "correct_answer": "mao kaniadto",
+      "wrong_choices": [
+        "mao",
+        "dili",
+        "ugma"
+      ],
+      "quiz_type": "SB"
+    },
+    {
+      "id": "linking_verbs_060",
+      "category": "Linking Verbs",
+      "english_prompt": "were",
+      "native_context": "",
+      "correct_answer": "mao",
+      "wrong_choices": [
+        "bati",
+        "huna-huna",
+        "magpabilin"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "linking_verbs_061",
+      "category": "Linking Verbs",
+      "english_prompt": "become",
+      "native_context": "____",
+      "correct_answer": "mahimong",
+      "wrong_choices": [
+        "oo",
+        "dili",
+        "wala"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "linking_verbs_064_b",
+      "category": "Linking Verbs",
+      "english_prompt": "<u>Stay</u> inside.",
+      "native_context": "",
+      "correct_answer": "mopabilin",
+      "wrong_choices": [
+        "lakaw",
+        "gawas",
+        "dagan"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "linking_verbs_062_a",
+      "category": "Linking Verbs",
+      "english_prompt": "It <u>seems</u> heavy.",
+      "native_context": "",
+      "correct_answer": "murag",
+      "wrong_choices": [
+        "dili",
+        "mao",
+        "wala"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "linking_verbs_062_b",
+      "category": "Linking Verbs",
+      "english_prompt": "<u>Is</u> that so?",
+      "native_context": "____ ba?",
+      "correct_answer": "Mao",
+      "wrong_choices": [
+        "Dili",
+        "Wala",
+        "Unsa"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "linking_verbs_063",
+      "category": "Linking Verbs",
+      "english_prompt": "remain",
+      "native_context": "____",
+      "correct_answer": "magpabilin",
+      "wrong_choices": [
+        "oo",
+        "dili",
+        "wala"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "linking_verbs_064_a",
+      "category": "Linking Verbs",
+      "english_prompt": "<u>Stay</u> here.",
+      "native_context": "",
+      "correct_answer": "magpabilin",
+      "wrong_choices": [
+        "lakaw",
+        "dagan",
+        "barog"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "linking_verbs_065",
+      "category": "Linking Verbs",
+      "english_prompt": "feel",
+      "native_context": "",
+      "correct_answer": "bati",
+      "wrong_choices": [
+        "mao",
+        "magpabilin",
+        "huna-huna"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "pronouns_066",
+      "category": "Pronouns",
+      "english_prompt": "I",
+      "native_context": "____",
+      "correct_answer": "ako",
+      "wrong_choices": [
+        "oo",
+        "dili",
+        "wala"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "pronouns_067_a",
+      "category": "Pronouns",
+      "english_prompt": "<u>You</u> are my friend.",
+      "native_context": "",
+      "correct_answer": "ikaw",
+      "wrong_choices": [
+        "ako",
+        "siya",
+        "sila"
+      ],
+      "quiz_type": "MC"
+    },
+    {
+      "id": "pronouns_067_b",
+      "category": "Pronouns",
+      "english_prompt": "Where are <u>you</u>?",
+      "native_context": "Asa ____?",
+      "correct_answer": "ka",
+      "wrong_choices": [
+        "oo",
+        "dili",
+        "wala"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "pronouns_068",
+      "category": "Pronouns",
+      "english_prompt": "he",
+      "native_context": "____",
+      "correct_answer": "siya",
+      "wrong_choices": [
+        "oo",
+        "dili",
+        "wala"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "pronouns_069",
+      "category": "Pronouns",
+      "english_prompt": "she",
+      "native_context": "",
+      "correct_answer": "siya",
+      "wrong_choices": [
+        "sila",
+        "ako",
+        "kami"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "pronouns_070_a",
+      "category": "Pronouns",
+      "english_prompt": "<u>We (inclusive)</u> will go.",
+      "native_context": "Mangadto _____",
+      "correct_answer": "kita",
+      "wrong_choices": [
+        "oo",
+        "dili",
+        "wala"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "pronouns_070_b",
+      "category": "Pronouns",
+      "english_prompt": "<u>We (exclusive)</u> will eat.",
+      "native_context": "Mokaon _____",
+      "correct_answer": "kami",
+      "wrong_choices": [
+        "oo",
+        "dili",
+        "wala"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "pronouns_071",
+      "category": "Pronouns",
+      "english_prompt": "they",
+      "native_context": "",
+      "correct_answer": "sila",
+      "wrong_choices": [
+        "ikaw",
+        "ako",
+        "siya"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "pronouns_072",
+      "category": "Pronouns",
+      "english_prompt": "me",
+      "native_context": "",
+      "correct_answer": "ako",
+      "wrong_choices": [
+        "kami",
+        "siya",
+        "sila"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "pronouns_073",
+      "category": "Pronouns",
+      "english_prompt": "us",
+      "native_context": "",
+      "correct_answer": "kami",
+      "wrong_choices": [
+        "siya",
+        "sila",
+        "ako"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "pronouns_074",
+      "category": "Pronouns",
+      "english_prompt": "them",
+      "native_context": "____",
+      "correct_answer": "sila",
+      "wrong_choices": [
+        "oo",
+        "dili",
+        "wala"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "interrogatives_075",
+      "category": "Interrogatives",
+      "english_prompt": "what",
+      "native_context": "____",
+      "correct_answer": "unsa",
+      "wrong_choices": [
+        "kinsa",
+        "asa",
+        "giunsa"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "interrogatives_076",
+      "category": "Interrogatives",
+      "english_prompt": "who",
+      "native_context": "____",
+      "correct_answer": "kinsa",
+      "wrong_choices": [
+        "kanus-a",
+        "asa",
+        "giunsa"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "interrogatives_077",
+      "category": "Interrogatives",
+      "english_prompt": "where",
+      "native_context": "____",
+      "correct_answer": "asa",
+      "wrong_choices": [
+        "kinsa",
+        "unsa",
+        "giunsa"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "interrogatives_078",
+      "category": "Interrogatives",
+      "english_prompt": "when",
+      "native_context": "",
+      "correct_answer": "kanus-a",
+      "wrong_choices": [
+        "unsa",
+        "ngano",
+        "kinsa"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "interrogatives_079",
+      "category": "Interrogatives",
+      "english_prompt": "why",
+      "native_context": "____",
+      "correct_answer": "ngano",
+      "wrong_choices": [
+        "kinsa",
+        "asa",
+        "giunsa"
+      ],
+      "quiz_type": "FIB"
+    },
+    {
+      "id": "interrogatives_080_a",
+      "category": "Interrogatives",
+      "english_prompt": "<u>How</u> did you do it?",
+      "native_context": "",
+      "correct_answer": "giunsa",
+      "wrong_choices": [
+        "unsaon",
+        "ngano",
+        "kanus-a"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "interrogatives_080_b",
+      "category": "Interrogatives",
+      "english_prompt": "<u>How</u> do I do that?",
+      "native_context": "",
+      "correct_answer": "unsaon",
+      "wrong_choices": [
+        "unsa",
+        "kinsa",
+        "asa"
+      ],
+      "quiz_type": "STT"
+    },
+    {
+      "id": "interrogatives_081",
+      "category": "Interrogatives",
+      "english_prompt": "how many",
+      "native_context": "",
+      "correct_answer": "pila",
+      "wrong_choices": [
+        "unsa",
+        "ngano",
+        "asa"
+      ],
+      "quiz_type": "STT"
+    }
+  ]
+}
