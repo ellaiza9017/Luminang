@@ -30,6 +30,8 @@ public class OptionsManager : MonoBehaviour
     public Image backgroundImage;
     public Sprite mainMenuBg;
     public Sprite languageSelectionBg;
+    public Sprite calleCrisologoBg;
+    public Sprite magellansCrossBg;
 
     // Static variable to track which scene triggered the options menu
     public static string PreviousSceneName = "";
@@ -51,6 +53,14 @@ public class OptionsManager : MonoBehaviour
             else if (PreviousSceneName == "LanguageSelectionScene")
             {
                 backgroundImage.sprite = languageSelectionBg;
+            }
+            else if (PreviousSceneName == "Calle_Crisologo")
+            {
+                backgroundImage.sprite = calleCrisologoBg;
+            }
+            else if (PreviousSceneName == "Magellan's_Cross")
+            {
+                backgroundImage.sprite = magellansCrossBg;
             }
         }
 

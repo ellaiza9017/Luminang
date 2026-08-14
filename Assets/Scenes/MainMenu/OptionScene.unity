@@ -3559,6 +3559,8 @@ MonoBehaviour:
   backgroundImage: {fileID: 376308168}
   mainMenuBg: {fileID: 21300000, guid: 1d87888a9fc1a8f45be77324a0ff585b, type: 3}
   languageSelectionBg: {fileID: 21300000, guid: 56492af93abf57242a9e729c9656fda9, type: 3}
+  calleCrisologoBg: {fileID: 21300000, guid: 4de425c1076bd274dac83958cb692d15, type: 3}
+  magellansCrossBg: {fileID: 21300000, guid: 36e33933e97cfdd4991eb98fcff714d4, type: 3}
   confirmSavePanel: {fileID: 0}
   noChangesPanel: {fileID: 0}
 --- !u!4 &1541815452
