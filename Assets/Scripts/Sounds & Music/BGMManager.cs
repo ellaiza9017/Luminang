@@ -118,12 +118,13 @@ public class BGMManager : MonoBehaviour
         yield return FadeCoroutine(finalVolume, crossfadeDuration / 2f);
     }
 
-    private void UpdateVolume()
+    public void UpdateVolume()
     {
-        if (audioSource != null && AudioManager.instance != null)
+        if (audioSource != null)
         {
+            float playerVol = AudioManager.instance != null ? AudioManager.instance.musicVolume : PlayerPrefs.GetFloat("MusicVolume", 0.75f);
             // The actual volume is the player's setting (0-1) MULTIPLIED by the scene's setting (0-1)
-            audioSource.volume = AudioManager.instance.musicVolume * currentVolumeMultiplier;
+            audioSource.volume = playerVol * currentVolumeMultiplier;
         }
     }
 

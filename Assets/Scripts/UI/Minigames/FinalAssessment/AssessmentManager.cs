@@ -66,6 +66,11 @@ public class AssessmentManager : MonoBehaviour
     public GameObject sttPanel;
     public GameObject sentenceBuilderPanel;
 
+    [Header("--- HOW TO PLAY ---")]
+    public GameObject howToPlayGroup;
+    public GameObject howToPlayPanel;
+    private bool hasSeenHowToPlay = false;
+
     [Header("--- RESULTS UI ---")]
     public GameObject resultsGroup;
     public GameObject resultsPanel;
@@ -96,6 +101,8 @@ public class AssessmentManager : MonoBehaviour
     public AudioClip correctSfx;
     public AudioClip wrongSfx;
     public AudioClip nextQuestionSfx;
+    public AudioClip winSfx;
+    public AudioClip loseSfx;
 
     [Header("--- MULTIPLE CHOICE ---")]
     public TextMeshProUGUI mcChooseText;
@@ -231,6 +238,9 @@ public class AssessmentManager : MonoBehaviour
     {
         // Pulls whatever language the player actually chose in the previous scene
         selectedLanguage = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+#if UNITY_EDITOR
+        selectedLanguage = "Ilokano"; // FORCE ILOKANO FOR TESTING
+#endif
         EnsureDependencies();
         
         if (sttMicButton != null) sttMicButton.onClick.AddListener(OnMicButtonClicked);
@@ -368,9 +378,45 @@ public class AssessmentManager : MonoBehaviour
     public void StartAssessment()
     {
         introPanel.SetActive(false);
+
+        if (!hasSeenHowToPlay)
+        {
+            ShowHowToPlay();
+            return;
+        }
+
         currentQuestionIndex = 0;
         totalScore = 0;
         ShowNextQuestion();
+    }
+
+    public void ShowHowToPlay()
+    {
+        if (howToPlayGroup != null)
+        {
+            howToPlayGroup.SetActive(true);
+            if (howToPlayGroup.TryGetComponent<UIFadeAnimator>(out var fade)) fade.FadeIn();
+            
+            if (howToPlayPanel != null) howToPlayPanel.SetActive(true);
+        }
+    }
+
+    public void CloseHowToPlay()
+    {
+        if (howToPlayGroup != null)
+        {
+            if (howToPlayGroup.TryGetComponent<UIFadeAnimator>(out var fade)) fade.FadeOut();
+            else howToPlayGroup.SetActive(false);
+        }
+
+        if (!hasSeenHowToPlay)
+        {
+            hasSeenHowToPlay = true;
+            // Now actually start the game (triggers Category Intro 1)
+            currentQuestionIndex = 0;
+            totalScore = 0;
+            ShowNextQuestion();
+        }
     }
 
     private void ShowNextQuestion()
@@ -928,6 +974,15 @@ public class AssessmentManager : MonoBehaviour
     
     private void Update()
     {
+#if UNITY_EDITOR
+        if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            if (isRecording) StopRecording();
+            Debug.Log("<color=yellow>[CHEAT] Bypassing Question via P key!</color>");
+            OnAnswerSubmitted(true, 1f);
+        }
+#endif
+
         // Handle STT Visualizers
         if (isSTTActive && sttLeftVisualizers != null && sttLeftVisualizers.Length > 0 && currentVisualizerScales != null)
         {
@@ -1343,11 +1398,18 @@ public class AssessmentManager : MonoBehaviour
         string pName = PlayerPrefs.GetString("PlayerName", "Traveler");
         if (titleMessageText != null) titleMessageText.text = $"Amazing effort, {pName}!";
 
-        int stars = 1;
+        int stars = 0;
+        if (roundedPerc >= 20) stars = 1;
         if (roundedPerc >= 40) stars = 2;
         if (roundedPerc >= 60) stars = 3;
         if (roundedPerc >= 75) stars = 4;
         if (roundedPerc >= 90) stars = 5;
+
+        if (audioSource != null)
+        {
+            if (stars > 0 && winSfx != null) audioSource.PlayOneShot(winSfx);
+            else if (stars == 0 && loseSfx != null) audioSource.PlayOneShot(loseSfx);
+        }
 
         if (starImages != null)
         {

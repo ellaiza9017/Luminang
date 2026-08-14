@@ -52,4 +52,32 @@ public class UIFadeAnimator : MonoBehaviour
         _cg.alpha = 1f;
         _anim = null;
     }
+
+    /// <summary>
+    /// Call this to fade the panel out and then safely disable the GameObject.
+    /// </summary>
+    public void FadeOut()
+    {
+        if (!gameObject.activeInHierarchy) return;
+        if (_cg == null) _cg = GetComponent<CanvasGroup>();
+        if (_anim != null) StopCoroutine(_anim);
+        _anim = StartCoroutine(DoFadeOut());
+    }
+
+    private IEnumerator DoFadeOut()
+    {
+        float startAlpha = _cg.alpha;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            _cg.alpha = Mathf.Lerp(startAlpha, 0f, elapsed / duration);
+            yield return null;
+        }
+
+        _cg.alpha = 0f;
+        _anim = null;
+        gameObject.SetActive(false);
+    }
 }

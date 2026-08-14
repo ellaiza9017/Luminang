@@ -18,12 +18,15 @@ public class SFXVolumeSync : MonoBehaviour
         AudioManager.onSFXVolumeChange += UpdateVolume;
     }
 
-    private void UpdateVolume()
+    public void UpdateVolume()
     {
-        if (audioSource != null && AudioManager.instance != null)
+        if (audioSource != null)
         {
+            // Fallback to PlayerPrefs if we are testing directly in a scene without AudioManager
+            float sfxVol = AudioManager.instance != null ? AudioManager.instance.sfxVolume : PlayerPrefs.GetFloat("SFXVolume", 0.75f);
+            
             // Final volume = (Designed Volume) * (Slider Percentage)
-            audioSource.volume = baseVolume * AudioManager.instance.sfxVolume;
+            audioSource.volume = baseVolume * sfxVol;
         }
     }
 
