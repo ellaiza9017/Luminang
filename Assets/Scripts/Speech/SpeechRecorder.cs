@@ -118,6 +118,29 @@ public class SpeechRecorder : MonoBehaviour
         byte[] wavData = WavUtility.FromAudioClip(clip);
         File.WriteAllBytes(filePath, wavData);
     }
+
+    public float GetMicVolume()
+    {
+        if (!_isRecording || _recording == null || string.IsNullOrEmpty(_deviceName)) return 0f;
+        
+        int position = Microphone.GetPosition(_deviceName);
+        if (position < 0) return 0f;
+
+        // Sample a small window to get the current volume
+        int sampleSize = 128;
+        if (position < sampleSize) return 0f;
+
+        float[] waveData = new float[sampleSize];
+        _recording.GetData(waveData, position - sampleSize);
+
+        float sum = 0f;
+        for (int i = 0; i < sampleSize; i++)
+        {
+            sum += waveData[i] * waveData[i];
+        }
+        
+        return Mathf.Sqrt(sum / sampleSize);
+    }
 }
 
 public static class WavUtility
