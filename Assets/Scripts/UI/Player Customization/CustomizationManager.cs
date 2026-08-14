@@ -71,7 +71,7 @@ public class CustomizationManager : MonoBehaviour
             await UserProfileManager.Instance.FetchProfile();
         }
 
-        // 2. Set the username and handle the 30-day cooldown
+        // 2. Set the username and handle the 30-day cooldown (only if in CharacterCustomization scene)
         if (usernameField != null && UserProfileManager.Instance != null && UserProfileManager.Instance.CurrentProfile != null)
         {
             var profile = UserProfileManager.Instance.CurrentProfile;
@@ -185,17 +185,11 @@ public class CustomizationManager : MonoBehaviour
         await InitializeGallery();
     }
 
-    public async System.Threading.Tasks.Task InitializeGallery()
+    public async System.Threading.Tasks.Task InitializeGallery(bool showAll = false)
     {
         if (characterManager == null || itemFramePrefab == null) return;
-
-        // Fetch owned items from database
         ownedItems = await FetchOwnedInventory();
-
-        foreach (var category in categories)
-        {
-            GenerateCategory(category, ownedItems);
-        }
+        foreach (var category in categories) GenerateCategory(category, ownedItems, showAll);
     }
 
     private async System.Threading.Tasks.Task<List<string>> FetchOwnedInventory()
@@ -228,7 +222,7 @@ public class CustomizationManager : MonoBehaviour
 
     private bool isInitializingUI = false;
 
-    private void GenerateCategory(CategoryFolder category, List<string> ownedItems)
+    private void GenerateCategory(CategoryFolder category, List<string> ownedItems, bool showAll = false)
     {
         if (category.contentParent == null) return;
 
@@ -253,9 +247,9 @@ public class CustomizationManager : MonoBehaviour
 
         foreach (var item in allItems)
         {
-            // Only show owned items in Character Customization
             bool isOwned = ownedItems.Contains(item.name) || item.price <= 0;
-            if (item.slot == category.slot && isOwned)
+            // showAll = Shop mode (show everything); default = only show owned items
+            if (item.slot == category.slot && (showAll || isOwned))
             {
                 Toggle t = CreateItem(category, item.name, item.icon, null, item, group);
                 if (item.name == equippedName)
@@ -400,6 +394,12 @@ public class CustomizationManager : MonoBehaviour
     }
 
     #region Save Logic
+
+    public bool HasUnsavedChanges()
+    {
+        if (characterManager == null || originalOutfit == null) return false;
+        return !characterManager.GetEquippedNames().IsSameAs(originalOutfit);
+    }
 
     private void OnSaveChangesClicked()
     {
