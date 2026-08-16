@@ -237,27 +237,6 @@ public class LoadingSceneController : MonoBehaviour
 
         Debug.Log("[LoadingScene] Loading complete, activating scene...");
 
-        // 4. Unload the CALLER scene early ONLY if we are EXITING a minigame back to the main world.
-        //    When ENTERING a minigame, we must NOT unload the main world (player needs to return there).
-        //    Detection: if sceneToLoad matches PreviousScene, we are going BACK = exiting minigame.
-        string previousScenePref = PlayerPrefs.GetString("PreviousScene", "");
-        bool isExitingMinigame = (!string.IsNullOrEmpty(previousScenePref) && sceneToLoad == previousScenePref);
-
-        if (isExitingMinigame &&
-            !SceneLoader.keepBackgroundPersistent &&
-            !string.IsNullOrEmpty(callerScene) &&
-            callerScene != sceneToLoad &&
-            callerScene != gameObject.scene.name)
-        {
-            Debug.Log("[LoadingScene] Exiting minigame - unloading caller BEFORE activation: " + callerScene);
-            Scene s = SceneManager.GetSceneByName(callerScene);
-            if (s.IsValid() && s.isLoaded)
-            {
-                var unloadOp = SceneManager.UnloadSceneAsync(s);
-                while (!unloadOp.isDone) yield return null;
-            }
-        }
-
         // 5. Activate the new scene
         if (operation != null)
         {
@@ -278,6 +257,28 @@ public class LoadingSceneController : MonoBehaviour
 
             foreach (GameObject obj in loadedScene.GetRootGameObjects())
                 obj.SetActive(true);
+        }
+
+        // 4. Unload the CALLER scene early ONLY if we are EXITING a minigame back to the main world.
+        //    Detection: if sceneToLoad matches PreviousScene, we are going BACK = exiting minigame.
+        //    We do this AFTER activation to prevent Unity hanging on unloading the last main scene.
+        string previousScenePref = PlayerPrefs.GetString("PreviousScene", "");
+        bool isExitingMinigame = (!string.IsNullOrEmpty(previousScenePref) && sceneToLoad == previousScenePref);
+
+        if (isExitingMinigame &&
+            !SceneLoader.keepBackgroundPersistent &&
+            !string.IsNullOrEmpty(callerScene) &&
+            callerScene != sceneToLoad &&
+            callerScene != gameObject.scene.name)
+        {
+            Debug.Log("[LoadingScene] Exiting minigame - unloading caller AFTER activation: " + callerScene);
+            Scene s = SceneManager.GetSceneByName(callerScene);
+            if (s.IsValid() && s.isLoaded)
+            {
+                var unloadOp = SceneManager.UnloadSceneAsync(s);
+                while (!unloadOp.isDone) yield return null;
+            }
+        }
 
             // CRITICAL: If the scene was already in memory (we kept it alive during minigame),
             // restore all components that were disabled when we entered the minigame.
