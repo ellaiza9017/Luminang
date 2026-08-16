@@ -161,6 +161,9 @@ MonoBehaviour:
   - sceneNameContains: FinalAssessmentScene
     clip: {fileID: 8300000, guid: c91159cb29354984a8a4abb20fa04edd, type: 3}
     volumeMultiplier: 0.5
+  - sceneNameContains: MemoryGameScene
+    clip: {fileID: 8300000, guid: 5122c1127c1d53346891cc5a07e7f4a4, type: 3}
+    volumeMultiplier: 0.5
   defaultClip: {fileID: 8300000, guid: e76b3a43171539c4f93b2d49778a824c, type: 3}
   defaultVolumeMultiplier: 0.5
   crossfadeDuration: 1
