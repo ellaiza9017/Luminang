@@ -85,6 +85,8 @@ namespace Luminang.UI.Minigames
         public int totalRounds = 20;
         public int initialCardsLeft = 25;
 
+        private bool hasGameStarted = false;
+
         private List<TCGRoundData> roundPool = new List<TCGRoundData>();
         private int currentRoundIndex = 0;           // 0-indexed internally
         private int cardsLeft;
@@ -315,11 +317,15 @@ namespace Luminang.UI.Minigames
             
             if (howToPlayGroup != null) howToPlayGroup.SetActive(false);
             
-            StartGame();
+            if (!hasGameStarted)
+            {
+                StartGame();
+            }
         }
 
         private void StartGame()
         {
+            hasGameStarted = true;
             cardsLeft = initialCardsLeft;
             currentRoundIndex = 0;
 
