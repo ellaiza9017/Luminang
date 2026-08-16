@@ -62,6 +62,10 @@
         {
           "id": "ceb_10",
           "objective": "Converse with Ronnie"
+        },
+        {
+          "id": "ceb_11",
+          "objective": "Help Jerem introduce himself"
         }
       ]
     },
@@ -69,11 +73,11 @@
       "category": "Requests",
       "items": [
         {
-          "id": "ceb_11",
+          "id": "ceb_12",
           "objective": "Find Irah to learn Requests"
         },
         {
-          "id": "ceb_12",
+          "id": "ceb_13",
           "objective": "Lend a Hand at the Cafe"
         }
       ]
@@ -82,15 +86,15 @@
       "category": "Directions",
       "items": [
         {
-          "id": "ceb_13",
+          "id": "ceb_14",
           "objective": "Find Your Guide, Lito"
         },
         {
-          "id": "ceb_14",
+          "id": "ceb_15",
           "objective": "Meet Tomas at the Craft Yard"
         },
         {
-          "id": "ceb_15",
+          "id": "ceb_16",
           "objective": "Guide Rodrick to his destination"
         }
       ]
@@ -99,11 +103,11 @@
       "category": "Count",
       "items": [
         {
-          "id": "ceb_16",
+          "id": "ceb_17",
           "objective": "Come play with Neneng"
         },
         {
-          "id": "ceb_17",
+          "id": "ceb_18",
           "objective": "Find Kyros at the fishball stall"
         }
       ]
@@ -112,19 +116,19 @@
       "category": "Action Verbs",
       "items": [
         {
-          "id": "ceb_18",
+          "id": "ceb_19",
           "objective": "Visit Aling Riza at the bakery"
         },
         {
-          "id": "ceb_19",
+          "id": "ceb_20",
           "objective": "Deliver the pan de coco to Mang Lance"
         },
         {
-          "id": "ceb_20",
+          "id": "ceb_21",
           "objective": "Return to Aling Riza"
         },
         {
-          "id": "ceb_21",
+          "id": "ceb_22",
           "objective": "Head back to the Police Station"
         }
       ]
@@ -133,11 +137,11 @@
       "category": "Linking Verbs",
       "items": [
         {
-          "id": "ceb_22",
+          "id": "ceb_23",
           "objective": "Meet Rayo the Word Connector"
         },
         {
-          "id": "ceb_23",
+          "id": "ceb_24",
           "objective": "Find Klara at the garden"
         }
       ]
@@ -146,11 +150,11 @@
       "category": "Pronouns",
       "items": [
         {
-          "id": "ceb_24",
+          "id": "ceb_25",
           "objective": "Come Meet Lina!"
         },
         {
-          "id": "ceb_25",
+          "id": "ceb_26",
           "objective": "Talk to Lina's teammate"
         }
       ]
@@ -159,11 +163,11 @@
       "category": "Interrogatives",
       "items": [
         {
-          "id": "ceb_26",
+          "id": "ceb_27",
           "objective": "Meet the curious Jen"
         },
         {
-          "id": "ceb_27",
+          "id": "ceb_28",
           "objective": "Join Dave's Question Quest!"
         }
       ]
@@ -172,7 +176,7 @@
       "category": "Assessment",
       "items": [
         {
-          "id": "ceb_28",
+          "id": "ceb_29",
           "objective": "Meet Tiptip at Magellan's Cross"
         }
       ]
