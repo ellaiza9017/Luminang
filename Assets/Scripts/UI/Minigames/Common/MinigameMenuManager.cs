@@ -68,9 +68,25 @@ public class MinigameMenuManager : MonoBehaviour
         howToPlayGroup.SetActive(true);
         howToPlayGroup.GetComponent<UIFadeAnimator>()?.FadeIn();
         if (sfxSource != null && panelOpenSFX != null) sfxSource.PlayOneShot(panelOpenSFX);
+        
         if (howToPlayPanel != null)
         {
-            howToPlayPanel.GetComponent<UIPopAnimator>()?.PopIn();
+            var popAnim = howToPlayPanel.GetComponent<UIPopAnimator>();
+            if (popAnim != null) popAnim.PopIn();
+            else howToPlayPanel.transform.localScale = Vector3.one;
+        }
+        else
+        {
+            // Auto-fallback for scenes that haven't linked the panel explicitly yet
+            Transform panel = howToPlayGroup.transform.Find("HowToPlayPanel");
+            if (panel == null && howToPlayGroup.transform.childCount > 0) panel = howToPlayGroup.transform.GetChild(0);
+
+            if (panel != null)
+            {
+                var popAnim = panel.GetComponent<UIPopAnimator>();
+                if (popAnim != null) popAnim.PopIn();
+                else panel.localScale = Vector3.one;
+            }
         }
     }
 }
