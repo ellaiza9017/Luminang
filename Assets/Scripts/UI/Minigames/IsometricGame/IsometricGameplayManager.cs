@@ -1397,6 +1397,7 @@ namespace Luminang.UI.Minigames.IsometricGame
         public void ExitMinigameToPreviousScene()
         {
             string prevScene = PlayerPrefs.GetString("PreviousScene", "Magellan's_Cross");
+            PlayerPrefs.SetString("PreviousScene", prevScene); // FIX: Ensure LoadingScene unloads caller in Editor
             SceneLoader.ResetLoadingFlag();
             SceneLoader.targetSceneForLoading = prevScene;
             SceneLoader.keepBackgroundPersistent = false;

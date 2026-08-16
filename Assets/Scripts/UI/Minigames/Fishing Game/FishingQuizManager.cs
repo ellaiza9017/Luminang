@@ -478,14 +478,22 @@ public class FishingQuizManager : MonoBehaviour
     public void ContinueToNextObjective()
     {
         string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        SceneManager.LoadScene(prevScene);
+        PlayerPrefs.SetString("PreviousScene", prevScene);
+        SceneLoader.ResetLoadingFlag();
+        SceneLoader.targetSceneForLoading = prevScene;
+        SceneLoader.keepBackgroundPersistent = false;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     // Call this from the LosePanel's "Quit" Button OnClick()
     public void QuitToPreviousScene()
     {
         string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        SceneManager.LoadScene(prevScene);
+        PlayerPrefs.SetString("PreviousScene", prevScene);
+        SceneLoader.ResetLoadingFlag();
+        SceneLoader.targetSceneForLoading = prevScene;
+        SceneLoader.keepBackgroundPersistent = false;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     void UpdateHUD()

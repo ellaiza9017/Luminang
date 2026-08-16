@@ -730,7 +730,11 @@ public class TusokTusokGameManager : MonoBehaviour
     {
         if (audioSource != null && buttonClickSFX != null) audioSource.PlayOneShot(buttonClickSFX);
         string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        SceneManager.LoadScene(prevScene);
+        PlayerPrefs.SetString("PreviousScene", prevScene);
+        SceneLoader.ResetLoadingFlag();
+        SceneLoader.targetSceneForLoading = prevScene;
+        SceneLoader.keepBackgroundPersistent = false;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     private Coroutine _localPopupAnim;
