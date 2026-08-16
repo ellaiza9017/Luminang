@@ -907,7 +907,11 @@ public class MemoryGameManager : MonoBehaviour
     {
         if (AudioManager.instance != null && buttonClickSFX != null) AudioManager.instance.PlaySFX(buttonClickSFX);
         string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        UnityEngine.SceneManagement.SceneManager.LoadScene(prevScene);
+        PlayerPrefs.SetString("PreviousScene", prevScene); // FIX: Ensures LoadingSceneController unloads minigame scene when testing in Editor
+        SceneLoader.ResetLoadingFlag();
+        SceneLoader.targetSceneForLoading = prevScene;
+        SceneLoader.keepBackgroundPersistent = false;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     private IEnumerator SlidePanelY(RectTransform panel, float targetY, float duration)
