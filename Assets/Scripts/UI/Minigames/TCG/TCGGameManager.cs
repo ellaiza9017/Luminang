@@ -246,7 +246,8 @@ namespace Luminang.UI.Minigames
             if (howToPlayGroup != null && howToPlayPanel != null)
             {
                 howToPlayGroup.SetActive(true);
-                StartCoroutine(TCGCardAnimator.Instance.PopIn(howToPlayPanel.transform));
+                howToPlayGroup.GetComponent<UIFadeAnimator>()?.FadeIn();
+                howToPlayPanel.GetComponent<UIPopAnimator>()?.PopIn();
             }
             else
             {
@@ -309,22 +310,12 @@ namespace Luminang.UI.Minigames
         {
             Debug.Log("<color=yellow>[TCGGameManager] CloseHowToPlay() clicked!</color>");
             PlaySFX(buttonClickSFX);
-
-            if (howToPlayPanel != null && TCGCardAnimator.Instance != null)
-            {
-                StartCoroutine(TCGCardAnimator.Instance.PopOut(howToPlayPanel.transform, 0.2f, () =>
-                {
-                    if (howToPlayGroup != null) howToPlayGroup.SetActive(false);
-                    StartGame();
-                }));
-            }
-            else
-            {
-                Debug.LogWarning($"[TCGGameManager] howToPlayPanel is {(howToPlayPanel == null ? "NULL" : "assigned")}, howToPlayGroup is {(howToPlayGroup == null ? "NULL" : "assigned")}, Animator Instance is {(TCGCardAnimator.Instance == null ? "NULL" : "assigned")}");
-                if (howToPlayPanel != null) howToPlayPanel.SetActive(false);
-                if (howToPlayGroup != null) howToPlayGroup.SetActive(false);
-                StartGame();
-            }
+            
+            if (howToPlayPanel != null) howToPlayPanel.transform.localScale = Vector3.zero; // Instant snap
+            
+            if (howToPlayGroup != null) howToPlayGroup.SetActive(false);
+            
+            StartGame();
         }
 
         private void StartGame()
