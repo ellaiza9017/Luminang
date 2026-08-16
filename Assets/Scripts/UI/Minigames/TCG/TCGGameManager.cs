@@ -1143,10 +1143,7 @@ namespace Luminang.UI.Minigames
         public void QuitGame()
         {
             string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-            SceneLoader.ResetLoadingFlag();
-            SceneLoader.targetSceneForLoading = prevScene;
-            SceneLoader.keepBackgroundPersistent = false;
-            SceneManager.LoadScene("LoadingScene", LoadSceneMode.Additive);
+            SceneManager.LoadScene(prevScene);
         }
 
         private void UpdateHUD()
