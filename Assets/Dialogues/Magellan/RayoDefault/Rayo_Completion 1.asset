@@ -10,18 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
-<<<<<<<< HEAD:Assets/Dialogues/CalleCrisologo_New/VendorIrah_Node_4_Succ.asset
-  m_Name: VendorIrah_Node_4_Succ
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  speakerName: VENDOR IRAH
-  speakerPortrait: {fileID: 0}
-  dialogueText: 'Pakawanen nak... No harm done!
-Pop over to Vendor Jom''s empanada stall for the last gratitude phrase!'
-  translatedText: 
-  animationTrigger: 
-  triggerEventName: 
-  endEventName: HideTeachingPanel,SetObjective_Talk to Vendor Jom
-========
   m_Name: Rayo_Completion 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Rayo
@@ -34,5 +22,4 @@ Pop over to Vendor Jom''s empanada stall for the last gratitude phrase!'
   animationTrigger: 
   triggerEventName: 
   endEventName: 
->>>>>>>> origin/magellanCross-TCG-Directions-minigamesIncluded:Assets/Dialogues/Magellan/RayoDefault/Rayo_Completion 1.asset
   choices: []

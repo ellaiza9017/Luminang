@@ -10,21 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
-<<<<<<<< HEAD:Assets/Dialogues/CalleCrisologo_New/AlingRiza_Node_1_Succ.asset
-  m_Name: AlingRiza_Node_1_Succ
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  speakerName: ALING RIZA
-  speakerPortrait: {fileID: 0}
-  dialogueText: 'Marikna!
-LINKING VERBS MILESTONE UNLOCKED!'
-  translatedText: 
-  animationTrigger: 
-  triggerEventName: 
-  endEventName: 
-  choices:
-  - choiceText: ''
-    nextNode: {fileID: 11400000, guid: 281630ee9af35ae19e49caa656a4c97c, type: 2}
-========
   m_Name: Rayo_mao_Teach1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Rayo
@@ -37,7 +22,6 @@ LINKING VERBS MILESTONE UNLOCKED!'
   choices:
   - choiceText: 
     nextNode: {fileID: 11400000, guid: ead8f91cda2020940897e9bcb7aee6b6, type: 2}
->>>>>>>> origin/magellanCross-TCG-Directions-minigamesIncluded:Assets/Dialogues/Magellan/RayoDefault/Rayo_mao_Teach1.asset
     isWrong: 0
     choiceEvent: 
     expectedSTTWord: 

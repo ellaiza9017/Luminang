@@ -10,21 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
-<<<<<<<< HEAD:Assets/Dialogues/CalleCrisologo_New/AlingRiza_Node_8.asset
-  m_Name: AlingRiza_Node_8
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  speakerName: ALING RIZA
-  speakerPortrait: {fileID: 0}
-  dialogueText: 'Ilokano can use ''siak'' when referring to ''me'' as well, depending on the sentence structure.
-Listen carefully: siak.'
-  translatedText: 
-  animationTrigger: 
-  triggerEventName: ShowTeachingPanel:siak:bg_morning
-  endEventName: 
-  choices:
-  - choiceText: ''
-    nextNode: {fileID: 11400000, guid: 8d03cc4f62955180bd5f5184b213a6f9, type: 2}
-========
   m_Name: Jen_Intro 2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Jen
@@ -37,7 +22,6 @@ Listen carefully: siak.'
   choices:
   - choiceText: 
     nextNode: {fileID: 11400000, guid: 5fa89c61394d58147b3faf638e9760ab, type: 2}
->>>>>>>> origin/magellanCross-TCG-Directions-minigamesIncluded:Assets/Dialogues/Magellan/JenDefault/Jen_Intro 2.asset
     isWrong: 0
     choiceEvent: 
     expectedSTTWord: 
