@@ -17,6 +17,6 @@ MonoBehaviour:
   dialogueText: It sounds like your biggest challenge is about to begin!
   translatedText: 
   animationTrigger: 
-  triggerEventName: SetObjective:Meet Tiptip at Magella's Cross
-  endEventName: SetObjective:Meet Tiptip at Magella's Cross
+  triggerEventName: 
+  endEventName: 
   choices: []

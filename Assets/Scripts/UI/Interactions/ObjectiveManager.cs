@@ -57,7 +57,13 @@ public class ObjectiveManager : MonoBehaviour
             _rectTransform.anchoredPosition = hiddenPos;
 
             // Grab initial text and strip "Objective: " if it exists to keep the ID clean
-            if (!string.IsNullOrEmpty(objectiveText.text))
+            string savedObj = PlayerPrefs.GetString("CurrentObjective", "");
+            if (!string.IsNullOrEmpty(savedObj))
+            {
+                CurrentObjective = savedObj;
+                objectiveText.text = "Objective: " + CurrentObjective;
+            }
+            else if (!string.IsNullOrEmpty(objectiveText.text))
             {
                 string raw = objectiveText.text.Trim();
                 if (raw.StartsWith("Objective:", System.StringComparison.OrdinalIgnoreCase))
@@ -79,6 +85,28 @@ public class ObjectiveManager : MonoBehaviour
         // Wait a small moment for the scene to settle, then slide in
         yield return new WaitForSeconds(0.1f);
         
+        if (PlayerPrefs.GetInt("RestorePlayerPos", 0) == 1)
+        {
+            float x = PlayerPrefs.GetFloat("PlayerPosX");
+            float y = PlayerPrefs.GetFloat("PlayerPosY");
+            float z = PlayerPrefs.GetFloat("PlayerPosZ");
+            float rotY = PlayerPrefs.GetFloat("PlayerRotY");
+
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                CharacterController cc = player.GetComponent<CharacterController>();
+                if (cc != null) cc.enabled = false;
+
+                player.transform.position = new Vector3(x, y, z);
+                player.transform.rotation = Quaternion.Euler(0, rotY, 0);
+
+                if (cc != null) cc.enabled = true;
+            }
+            PlayerPrefs.SetInt("RestorePlayerPos", 0);
+            PlayerPrefs.Save();
+        }
+
         // Broadcast the initial objective so all Indicators sync up
         OnObjectiveChanged?.Invoke(CurrentObjective);
         
@@ -105,6 +133,9 @@ public class ObjectiveManager : MonoBehaviour
         if (cleanObjective == oldObjective) return;
 
         CurrentObjective = cleanObjective;
+        PlayerPrefs.SetString("CurrentObjective", cleanObjective);
+        PlayerPrefs.Save();
+
         if (objectiveText != null) 
         {
             objectiveText.text = string.IsNullOrEmpty(cleanObjective) ? "" : "Objective: " + cleanObjective;

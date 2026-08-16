@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Ellai_Word_afterLesson
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Ellai
+  speakerPortrait: {fileID: 21300000, guid: 0cff92c0be6bf29429ea128e6aaf38aa, type: 3}
+  dialogueText: It's nice conversing with you! If you ever forget any of the words
+    you've learned here, you can always come find me and visit this lesson again.
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: HideTeachingPanel
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 595be34b701778c4d90e9cb3fa2b673b, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 

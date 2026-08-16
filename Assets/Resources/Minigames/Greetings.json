@@ -1,0 +1,42 @@
+[
+  {
+    "id": "greetings_001",
+    "english": "Good morning",
+    "scenario": "when greeting someone early in the day"
+  },
+  {
+    "id": "greetings_002",
+    "english": "Good afternoon",
+    "scenario": "when greeting someone after midday"
+  },
+  {
+    "id": "greetings_003",
+    "english": "Good evening",
+    "scenario": "when greeting someone at night"
+  },
+  {
+    "id": "greetings_004",
+    "english": "Hello",
+    "scenario": "as a general, friendly greeting"
+  },
+  {
+    "id": "greetings_005",
+    "english": "How are you?",
+    "scenario": "when asking about someone's well-being"
+  },
+  {
+    "id": "greetings_006",
+    "english": "I'm fine",
+    "scenario": "to say you are doing well"
+  },
+  {
+    "id": "greetings_007",
+    "english": "Goodbye",
+    "scenario": "when leaving or parting ways"
+  },
+  {
+    "id": "greetings_008",
+    "english": "Good day",
+    "scenario": "to wish someone a nice day overall"
+  }
+]

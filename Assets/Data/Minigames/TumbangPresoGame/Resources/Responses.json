@@ -78,7 +78,7 @@
   },
   {
     "englishDialogue": "I can make this extra spicy for you, is that okay?",
-    "ilokanoDialogue": "Mabalin ko a pagbalinen a nagasang daytoy, okay lang?",
+    "ilokanoDialogue": "Mabalin ko a pagbalinen a naanghang daytoy, okay lang?",
     "cebuanoDialogue": "Pwede nako ni himuong halang kaayo, okay ra?",
     "situationText": "You hate spicy food! Refuse it!",
     "correctPhraseId": "responses_015",
@@ -128,7 +128,7 @@
   },
   {
     "englishDialogue": "Are you tired? Do you want to go home?",
-    "ilokanoDialogue": "Nabannog kan? Kayatmon ti agawid?",
+    "ilokanoDialogue": "Nabayag kan? Kayatmon ti agawid?",
     "cebuanoDialogue": "Gikapoy ka? Gusto na ka muuli?",
     "situationText": "You are not tired! Refuse to go home!",
     "correctPhraseId": "responses_015",
@@ -434,7 +434,7 @@
   {
     "isRecall": true,
     "englishDialogue": "Time to go home and rest.",
-    "ilokanoDialogue": "Oras a agawid ken aginana.",
+    "ilokanoDialogue": "Oras a mapan agawid ken aginana.",
     "cebuanoDialogue": "Oras na muuli ug mupahuway.",
     "situationText": "[RECALL] The sun is setting! Greet them for the evening!",
     "correctPhraseId": "greetings_003",

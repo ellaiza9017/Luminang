@@ -22,14 +22,21 @@ public class NPCRandomIdle : MonoBehaviour
     public float randomAnimDuration = 3f;
 
     private Animator _animator;
+    private bool _isPausedForInteraction = false;
+    private Coroutine _idleCoroutine;
 
     void Start()
     {
         _animator = GetComponent<Animator>();
+        StartRandomIdle();
+    }
 
-        if (_animator != null && randomIdleStates != null && randomIdleStates.Length > 0)
+    private void StartRandomIdle()
+    {
+        if (_animator != null && randomIdleStates != null && randomIdleStates.Length > 0 && !_isPausedForInteraction)
         {
-            StartCoroutine(RandomIdleRoutine());
+            if (_idleCoroutine != null) StopCoroutine(_idleCoroutine);
+            _idleCoroutine = StartCoroutine(RandomIdleRoutine());
         }
     }
 
@@ -51,5 +58,30 @@ public class NPCRandomIdle : MonoBehaviour
             // 4. Wait for the random animation to finish before looping back to default
             yield return new WaitForSeconds(randomAnimDuration);
         }
+    }
+
+    /// <summary>
+    /// Call this from InteractableNPC's OnInteract UnityEvent
+    /// </summary>
+    public void PauseRandomIdle()
+    {
+        _isPausedForInteraction = true;
+        if (_idleCoroutine != null)
+        {
+            StopCoroutine(_idleCoroutine);
+            _idleCoroutine = null;
+        }
+        
+        // Let InteractableNPC.SmoothLookAtPlayer() handle the rotation and idle animation during conversation
+        if (_animator != null) _animator.CrossFadeInFixedTime(defaultIdleState, 0.25f);
+    }
+
+    /// <summary>
+    /// Call this from InteractableNPC's OnDialogueEnd UnityEvent
+    /// </summary>
+    public void ResumeRandomIdle()
+    {
+        _isPausedForInteraction = false;
+        StartRandomIdle();
     }
 }

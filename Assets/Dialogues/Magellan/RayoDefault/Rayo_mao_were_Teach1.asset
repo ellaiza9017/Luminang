@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Rayo_mao_were_Teach1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Rayo
+  speakerPortrait: {fileID: 0}
+  dialogueText: Stories can tell us what things were like before. Maybe this busy
+    street was once quiet and empty.
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: ShowTeachingPanel:were
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 51dedc07d21816242a6e4d0a4190c046, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 

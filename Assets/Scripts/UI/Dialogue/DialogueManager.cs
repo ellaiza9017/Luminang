@@ -34,8 +34,9 @@ public class DialogueManager : MonoBehaviour
     /// <summary>Returns the currently active dialogue node.</summary>
     public DialogueNode GetActiveNode() => _activeNode;
 
-    // The next node to advance to after a minigame completes (stored separately so it survives clone destruction)
-    private DialogueNode _pendingMinigameNextNode;
+    // The next node to advance to after a minigame completes (stored statically so it survives scene reloads)
+    private static DialogueNode _pendingMinigameNextNode;
+    private static string _pendingMinigameNPCName;
 
     void Awake()
     {
@@ -43,6 +44,73 @@ public class DialogueManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        CheckAndResumeMinigame();
+    }
+
+    /// <summary>
+    /// Called by LoadingSceneController when returning to this scene from a minigame
+    /// (when the scene was kept in memory and Start() won't fire again).
+    /// </summary>
+    public void OnReturnFromMinigame()
+    {
+        Debug.Log("[DialogueManager] OnReturnFromMinigame called.");
+        // Do NOT reset IsInDialogue here — keep it true so the HUD stays hidden
+        // and the dialogue node appears FIRST before movement controls restore.
+        // IsInDialogue will naturally become false when the dialogue ends.
+        CheckAndResumeMinigame();
+    }
+
+    private void CheckAndResumeMinigame()
+    {
+        if (_pendingMinigameNextNode != null)
+        {
+            bool isWon = PlayerPrefs.GetInt("FishingMinigameWon", 0) == 1 ||
+                         PlayerPrefs.GetInt("TCGMinigameWon", 0) == 1 ||
+                         PlayerPrefs.GetInt("ReactionMinigameWon", 0) == 1 ||
+                         PlayerPrefs.GetInt("TumbangPresoMinigameWon", 0) == 1 ||
+                         PlayerPrefs.GetInt("MinigameWon", 0) == 1;
+
+            if (isWon)
+            {
+                StartCoroutine(ResumePostMinigameDialogue());
+            }
+            else
+            {
+                _pendingMinigameNextNode = null;
+                _pendingMinigameNPCName = null;
+                EndDialogue(); // Cleanly end dialogue mode, restoring the player movement controls and main HUD!
+            }
+
+            PlayerPrefs.SetInt("FishingMinigameWon", 0);
+            PlayerPrefs.SetInt("TCGMinigameWon", 0);
+            PlayerPrefs.SetInt("ReactionMinigameWon", 0);
+            PlayerPrefs.SetInt("TumbangPresoMinigameWon", 0);
+            PlayerPrefs.SetInt("MinigameWon", 0);
+            PlayerPrefs.Save();
+        }
+    }
+
+    private System.Collections.IEnumerator ResumePostMinigameDialogue()
+    {
+        yield return new WaitForSeconds(1f); // 1s matches the outro circle animation duration
+        
+        InteractableNPC targetNPC = null;
+        if (!string.IsNullOrEmpty(_pendingMinigameNPCName))
+        {
+            GameObject npcGo = GameObject.Find(_pendingMinigameNPCName);
+            if (npcGo != null) targetNPC = npcGo.GetComponent<InteractableNPC>();
+        }
+        
+        DialogueNode node = _pendingMinigameNextNode;
+        _pendingMinigameNextNode = null;
+        _pendingMinigameNPCName = null;
+        
+        Animator anim = targetNPC != null ? targetNPC.GetComponent<Animator>() : null;
+        StartDialogue(node, anim, targetNPC);
     }
 
     /// <summary>
@@ -62,6 +130,9 @@ public class DialogueManager : MonoBehaviour
         _currentNPCAnimator = npcAnimator;
         _currentNPC = npc;
         IsInDialogue = true;
+
+        StarterAssets.StarterAssetsInputs inputs = FindFirstObjectByType<StarterAssets.StarterAssetsInputs>();
+        if (inputs != null) inputs.move = Vector2.zero;
 
         // Hide the proximity Talk button
         if (InteractionManager.Instance != null && InteractionManager.Instance.talkButton != null)
@@ -254,7 +325,8 @@ public class DialogueManager : MonoBehaviour
             if (choiceEventTrimmed.StartsWith("StartMinigame", System.StringComparison.OrdinalIgnoreCase))
             {
                 PendingMinigameChoice = choice;
-                _pendingMinigameNextNode = choice.nextNode; // Store nextNode NOW before any clone destroys the choice reference
+                _pendingMinigameNextNode = choice.nextNode; 
+                if (_currentNPC != null) _pendingMinigameNPCName = _currentNPC.gameObject.name;
                 
                 // Hide the ENTIRE dialogue box (so it doesn't show during LoadingScene transitions)
                 if (uiController != null) uiController.HideDialogueForMinigame();
@@ -486,6 +558,13 @@ public class DialogueManager : MonoBehaviour
             if (_currentNPC.disableAfterInteraction)
             {
                 _currentNPC.interactionEnabled = false;
+            }
+            else if (_currentNPC.defaultDialogue != null && _currentNPC.npcAnimator != null)
+            {
+                // Re-enable interaction so the Talk button can reappear after the conversation ends.
+                // This is important when OnDialogueEnd fires a DisableInteraction() event but the NPC
+                // is meant to be re-talkable (e.g., Lola Bebang after a "No" choice).
+                _currentNPC.interactionEnabled = true;
             }
         }
 

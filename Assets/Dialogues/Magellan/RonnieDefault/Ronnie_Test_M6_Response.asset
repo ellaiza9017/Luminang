@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Ronnie_Test_M6_Response
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Ronnie
+  speakerPortrait: {fileID: 0}
+  dialogueText: Ang kahoy nga akong ginagamit gikan sa bukid sa Bohol, gipadala dinhi
+    pinaagi sa sakayan... Oh, did you understand that?
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: dili ko kasabot
+    nextNode: {fileID: 11400000, guid: 0b08b60250354592bf877333816235c0, type: 2}
+    isWrong: 0
+    choiceEvent: ConversationTest_Correct
+    expectedSTTWord: 
+  - choiceText: Maayong aldaw
+    nextNode: {fileID: 11400000, guid: c585457729a74603bed4443ac77b3293, type: 2}
+    isWrong: 1
+    choiceEvent: 
+    expectedSTTWord: 
+  - choiceText: kumusta
+    nextNode: {fileID: 11400000, guid: c585457729a74603bed4443ac77b3293, type: 2}
+    isWrong: 1
+    choiceEvent: 
+    expectedSTTWord: 

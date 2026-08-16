@@ -42,8 +42,8 @@ public class SceneFader : MonoBehaviour
             imageObj.transform.SetParent(fadeObj.transform);
             Image img = imageObj.AddComponent<Image>();
             
-            // Using a soft white/blue tint for a "premium" feel instead of black
-            img.color = new Color(0.9f, 0.95f, 1f, 1f); 
+            // Using black for the fade instead of the bright white flash
+            img.color = Color.black; 
             
             RectTransform rect = imageObj.GetComponent<RectTransform>();
             rect.anchorMin = Vector2.zero;

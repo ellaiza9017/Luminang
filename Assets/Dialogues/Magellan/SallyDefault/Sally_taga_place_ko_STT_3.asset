@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+<<<<<<<< HEAD:Assets/Dialogues/CalleCrisologo_New/LolaNida_Node_3_Succ.asset
+  m_Name: LolaNida_Node_3_Succ
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: LOLA NIDA
+  speakerPortrait: {fileID: 0}
+  dialogueText: 'Ket idi! You''re connecting language with the history of Ilocos!'
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: ''
+    nextNode: {fileID: 11400000, guid: c7a30c034e7656f086e72c55737fb7b6, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 
+========
+  m_Name: Sally_taga_place_ko_STT_3
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Sally
+  speakerPortrait: {fileID: 0}
+  dialogueText: 'Now tell me where you are from in Cebuano: "taga {place} ko"!'
+  translatedText: ''
+  animationTrigger: ''
+  triggerEventName: ''
+  endEventName: ''
+  choices:
+  - choiceText: ''
+    nextNode: {fileID: 11400000, guid: e1a10001000000000000000000000007, type: 2}
+    isWrong: 0
+    choiceEvent: ''
+    expectedSTTWord: taga {place} ko
+>>>>>>>> origin/magellanCross-TCG-Directions-minigamesIncluded:Assets/Dialogues/Magellan/SallyDefault/Sally_taga_place_ko_STT_3.asset

@@ -19,6 +19,12 @@ public class InteractionManager : MonoBehaviour
     [Tooltip("The Text component inside the Talk Button.")]
     public TextMeshProUGUI buttonText;
 
+    [Header("Audio Settings")]
+    [Tooltip("The AudioSource to play the SFX from. If left empty, it will try to find one on this GameObject.")]
+    public AudioSource sfxSource;
+    [Tooltip("The SFX clip to play when the talk button is clicked (e.g. BubbleClick).")]
+    public AudioClip talkButtonSFX;
+
     [Header("Player Settings")]
     [Tooltip("Tag of your player character.")]
     public string playerTag = "Player";
@@ -141,6 +147,14 @@ public class InteractionManager : MonoBehaviour
     private void OnButtonClicked()
     {
         Debug.Log($"[InteractionManager] OnButtonClicked! _currentNearest is {(_currentNearest != null ? _currentNearest.gameObject.name : "NULL")}");
+        
+        // Play SFX
+        if (talkButtonSFX != null)
+        {
+            if (sfxSource == null) sfxSource = GetComponent<AudioSource>();
+            if (sfxSource != null) sfxSource.PlayOneShot(talkButtonSFX);
+        }
+
         if (_currentNearest != null)
         {
             // Hide the button so they can't spam it during dialogue

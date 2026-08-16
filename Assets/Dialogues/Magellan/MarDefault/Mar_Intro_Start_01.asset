@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Mar_Intro_Start_01
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Mar
+  speakerPortrait: {fileID: 21300000, guid: 2e5c6d5b3cf6cb843b38c59528bb5268, type: 3}
+  dialogueText: Taho! Get you taho here! You over there! Want another free taho?
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: Yes
+    nextNode: {fileID: 11400000, guid: 512b5d8d85970a14e94db5654c798073, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 
+  - choiceText: No
+    nextNode: {fileID: 11400000, guid: 790e5c225b219824faa8349672e71d29, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 

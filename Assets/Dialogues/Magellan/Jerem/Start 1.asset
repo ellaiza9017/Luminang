@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Start 1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Jerem
+  speakerPortrait: {fileID: 0}
+  dialogueText: Oh! Hi there! Are you a visitor too? I'm trying to master Cebuano
+    introductions. Care to practice with me?
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: Sure
+    nextNode: {fileID: 11400000, guid: 76ecc1595f18dbc47bcd9ce1a5887e95, type: 2}
+    isWrong: 0
+    choiceEvent: StartMinigame_Identity
+    expectedSTTWord: 
+  - choiceText: Sorry
+    nextNode: {fileID: 11400000, guid: 907d50e95edf7b049aaf6debd2c4b1af, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 

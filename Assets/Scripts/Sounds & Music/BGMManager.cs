@@ -52,6 +52,7 @@ public class BGMManager : MonoBehaviour
         }
         else
         {
+            Instance.MergeSettings(this);
             Destroy(gameObject);
         }
     }
@@ -158,5 +159,61 @@ public class BGMManager : MonoBehaviour
         }
 
         audioSource.volume = targetVolume;
+    }
+
+    public void MergeSettings(BGMManager other)
+    {
+        if (other == null) return;
+
+        // Copy default clip if we don't have one, or if this scene-specific instance overrides it
+        if (other.defaultClip != null)
+        {
+            string otherSceneName = other.gameObject.scene.name;
+            if (!string.IsNullOrEmpty(otherSceneName))
+            {
+                bool exists = false;
+                foreach (var entry in this.sceneBGMList)
+                {
+                    if (entry.sceneNameContains.Equals(otherSceneName, System.StringComparison.OrdinalIgnoreCase))
+                    {
+                        exists = true;
+                        entry.clip = other.defaultClip;
+                        entry.volumeMultiplier = other.defaultVolumeMultiplier;
+                        break;
+                    }
+                }
+                if (!exists)
+                {
+                    this.sceneBGMList.Add(new SceneBGM
+                    {
+                        sceneNameContains = otherSceneName,
+                        clip = other.defaultClip,
+                        volumeMultiplier = other.defaultVolumeMultiplier
+                    });
+                }
+            }
+        }
+
+        // Merge any specific list mappings
+        foreach (var otherEntry in other.sceneBGMList)
+        {
+            if (otherEntry == null || string.IsNullOrEmpty(otherEntry.sceneNameContains)) continue;
+            
+            bool exists = false;
+            foreach (var myEntry in this.sceneBGMList)
+            {
+                if (myEntry.sceneNameContains.Equals(otherEntry.sceneNameContains, System.StringComparison.OrdinalIgnoreCase))
+                {
+                    exists = true;
+                    myEntry.clip = otherEntry.clip;
+                    myEntry.volumeMultiplier = otherEntry.volumeMultiplier;
+                    break;
+                }
+            }
+            if (!exists)
+            {
+                this.sceneBGMList.Add(otherEntry);
+            }
+        }
     }
 }

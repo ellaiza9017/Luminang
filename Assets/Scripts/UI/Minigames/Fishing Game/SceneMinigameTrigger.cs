@@ -27,6 +27,9 @@ public class SceneMinigameTrigger : MonoBehaviour
         FishingGameConfig.TargetLanguage = targetLanguage;
         FishingGameConfig.CategoryFilter = categoryFilter;
 
+        // Disable main game joysticks and touchpads so they don't block minigame UI input
+        DisableMainGameControls();
+
         // 2. Tell the minigame where to return to when it finishes
         PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
         PlayerPrefs.Save();
@@ -48,6 +51,68 @@ public class SceneMinigameTrigger : MonoBehaviour
         else
         {
             SceneManager.LoadScene(minigameSceneName);
+        }
+    }
+
+    /// <summary>
+    /// Disables main game mobile touchpads, joysticks, and movement controls in background scenes 
+    /// so they don't block clicks/taps during minigames!
+    /// </summary>
+    public static void DisableMainGameControls()
+    {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene s = SceneManager.GetSceneAt(i);
+            if (!s.isLoaded) continue;
+
+            string sceneName = s.name.ToLower();
+            if (sceneName.Contains("minigame") || sceneName.Contains("tcg") || sceneName.Contains("reaction") || sceneName.Contains("tumbang")) continue;
+
+            foreach (GameObject root in s.GetRootGameObjects())
+            {
+                foreach (Transform t in root.GetComponentsInChildren<Transform>(true))
+                {
+                    if (t.name.Contains("StarterAssetsInputs") || 
+                        t.name.Contains("Touchpad") || 
+                        t.name.Contains("Joystick") || 
+                        t.name.Contains("Movement_Controls") || 
+                        t.name.Contains("UI_Virtual_Touchpad"))
+                    {
+                        t.gameObject.SetActive(false);
+                        UnityEngine.UI.Image img = t.GetComponent<UnityEngine.UI.Image>();
+                        if (img != null) img.raycastTarget = false;
+                    }
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Re-enables main game controls when returning to the main world.
+    /// </summary>
+    public static void EnableMainGameControls()
+    {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene s = SceneManager.GetSceneAt(i);
+            if (!s.isLoaded) continue;
+
+            foreach (GameObject root in s.GetRootGameObjects())
+            {
+                foreach (Transform t in root.GetComponentsInChildren<Transform>(true))
+                {
+                    if (t.name.Contains("StarterAssetsInputs") || 
+                        t.name.Contains("Touchpad") || 
+                        t.name.Contains("Joystick") || 
+                        t.name.Contains("Movement_Controls") || 
+                        t.name.Contains("UI_Virtual_Touchpad"))
+                    {
+                        t.gameObject.SetActive(true);
+                        UnityEngine.UI.Image img = t.GetComponent<UnityEngine.UI.Image>();
+                        if (img != null) img.raycastTarget = true;
+                    }
+                }
+            }
         }
     }
 }

@@ -19,9 +19,4 @@ MonoBehaviour:
   animationTrigger: Salute
   triggerEventName: 
   endEventName: 
-  choices:
-  - choiceText: 
-    nextNode: {fileID: 11400000, guid: aca03f4207c3c444a9dd83ce84ca0b2b, type: 2}
-    isWrong: 0
-    choiceEvent: 
-    expectedSTTWord: 
+  choices: []

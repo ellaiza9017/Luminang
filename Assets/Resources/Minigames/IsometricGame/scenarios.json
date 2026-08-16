@@ -1,0 +1,417 @@
+[
+  {
+    "scenarioIndex": 1,
+    "errandTitle": "To the Palengke",
+    "context": "Rodrick is standing at the South Gate, looking at the note from Lola Nida.",
+    "dialogue": "Okay, first errand. Lola Nida's note says...",
+    "phraseId": "directions_032",
+    "choices": [
+      "Go down",
+      "Go up",
+      "Go there"
+    ],
+    "correctChoiceIndex": 0,
+    "useSTT": true,
+    "mistakeDialogue": "Someone saw you going up the plaza! Finish your errands first before playing!",
+    "sttFailDialogue": "I think we jumbled the words there a bit",
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 2,
+    "errandTitle": "To the Palengke",
+    "context": "Rodrick reaches a small stone staircase going down to the lower street level.",
+    "dialogue": "Okay! Next instruction says... Uh oh.",
+    "phraseId": "directions_030",
+    "choices": [
+      "Turn left",
+      "Turn right",
+      "Go up"
+    ],
+    "correctChoiceIndex": 1,
+    "useSTT": false,
+    "mistakeDialogue": "What are you doing at the fountain? If you want a drink go buy one at the Market!",
+    "lolaNidaPortraitIndex": 5,
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 3,
+    "errandTitle": "To the Palengke",
+    "context": "Rodrick arrives at the busy entrance of the Palengke (Market), marked by a bright awning.",
+    "dialogue": "Okay, getting close. The note says...",
+    "phraseId": "directions_028",
+    "choices": [
+      "Turn right",
+      "Go straight",
+      "Stop here"
+    ],
+    "correctChoiceIndex": 1,
+    "useSTT": true,
+    "mistakeDialogue": "Rodrick, why are you knocking on the Mayor's gate? Walk straight!",
+    "lolaNidaPortraitIndex": 1,
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 4,
+    "errandTitle": "To the Palengke",
+    "context": "Rodrick stands in front of the Palengke entrance.",
+    "dialogue": "The note says...",
+    "phraseId": "directions_033",
+    "choices": [
+      "Stop here",
+      "Follow me",
+      "Turn left"
+    ],
+    "correctChoiceIndex": 0,
+    "useSTT": false,
+    "mistakeDialogue": "You walked right past the market! Stop at the awning!",
+    "mistakeAnimation": "Confused",
+    "lolaNidaPortraitIndex": 3
+  },
+  {
+    "scenarioIndex": 5,
+    "errandTitle": "To the Palengke",
+    "context": "Aling Riza sees him from her vegetable stall and waves at him.",
+    "dialogue": "She's calling me! What did she say?",
+    "phraseId": "directions_034",
+    "choices": [
+      "Go straight",
+      "Wait here",
+      "Come here"
+    ],
+    "correctChoiceIndex": 2,
+    "useSTT": true,
+    "mistakeDialogue": "Aling Riza is calling you to the vegetables, not the fish!",
+    "sttFailDialogue": "Hold on, I didn't quite catch that..",
+    "mistakeAnimation": "Confused",
+    "lolaNidaPortraitIndex": 4
+  },
+  {
+    "scenarioIndex": 6,
+    "errandTitle": "To the Church (Simbahan)",
+    "context": "Rodrick reaches a T-intersection. Left goes to the church, right goes to the river.",
+    "dialogue": "Delivering Padre Mario's candle is next. The note says...",
+    "phraseId": "directions_028",
+    "choices": [
+      "Turn right",
+      "Turn left",
+      "Go straight"
+    ],
+    "correctChoiceIndex": 2,
+    "useSTT": false,
+    "mistakeDialogue": "Are you swimming with the ducks?! The church is straight ahead!",
+    "lolaNidaPortraitIndex": 5,
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 7,
+    "errandTitle": "To the Church (Simbahan)",
+    "context": "Rodrick stands at the bottom of the grand stone steps leading to the Church courtyard.",
+    "dialogue": "Okay, where to now...?",
+    "phraseId": "directions_031",
+    "choices": [
+      "Go down",
+      "Go up",
+      "Stop here"
+    ],
+    "correctChoiceIndex": 1,
+    "useSTT": true,
+    "mistakeDialogue": "what are you, a rabbit trying to jump that bridge?",
+    "sttFailDialogue": "That's a mouthful. Let me repeat it...",
+    "lolaNidaPortraitIndex": 4,
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 8,
+    "errandTitle": "To the Church (Simbahan)",
+    "context": "Rodrick is in the courtyard, looking at the massive wooden doors across the plaza.",
+    "dialogue": "Almost there! Note says...",
+    "phraseId": "directions_029",
+    "choices": [
+      "Turn left",
+      "Go there",
+      "Turn right"
+    ],
+    "correctChoiceIndex": 0,
+    "useSTT": false,
+    "mistakeDialogue": "What are you doing knocking on someone else's house?!",
+    "lolaNidaPortraitIndex": 1,
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 9,
+    "errandTitle": "To the Church (Simbahan)",
+    "context": "Padre Mario takes the candle, but needs to go inside to get a receipt.",
+    "dialogue": "Okay Father! ...Wait, what did he tell me to do?",
+    "phraseId": "directions_037",
+    "choices": [
+      "Wait here",
+      "Follow me",
+      "Go straight"
+    ],
+    "correctChoiceIndex": 0,
+    "useSTT": true,
+    "mistakeDialogue": "Rodrick! Have some respect, let the Father fetch the paper!",
+    "sttFailDialogue": "I should practice saying that while I wait...",
+    "lolaNidaPortraitIndex": 3,
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 10,
+    "errandTitle": "To the Magellan Garden",
+    "context": "Leaving the church, Rodrick must head to the gardens via a sloping dirt path.",
+    "dialogue": "Time to find Ronnie Antukin. The note says...",
+    "phraseId": "directions_032",
+    "choices": [
+      "Turn right",
+      "Go down",
+      "Wait here"
+    ],
+    "correctChoiceIndex": 1,
+    "useSTT": false,
+    "mistakeDialogue": "You can't walk through walls, boy! Take the path going down!",
+    "sttFailDialogue": "Uhh... N-naog? Let me try again.",
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 11,
+    "errandTitle": "To the Magellan Garden",
+    "context": "The dirt path forks. Left goes to a locked gate, right goes to the gazebo path.",
+    "dialogue": "A fork in the road! Lola Nida wrote...",
+    "phraseId": "directions_029",
+    "choices": [
+      "Turn left",
+      "Turn right",
+      "Go up"
+    ],
+    "correctChoiceIndex": 0,
+    "useSTT": true,
+    "mistakeDialogue": "Where are you going now..?!",
+    "sttFailDialogue": "My city accent is showing... let me try again.",
+    "mistakeAnimation": "Confused",
+    "lolaNidaPortraitIndex": 3
+  },
+  {
+    "scenarioIndex": 12,
+    "errandTitle": "To the Magellan Garden",
+    "context": "Rodrick is now in a long, straight pathway lined with very tall, thick green hedges.",
+    "dialogue": "It's like a maze here. Note says...",
+    "phraseId": "directions_028",
+    "choices": [
+      "Go there",
+      "Turn right",
+      "Go straight"
+    ],
+    "correctChoiceIndex": 2,
+    "useSTT": false,
+    "mistakeDialogue": "Are you cutting through my precious gumamelas?! Stay on the path!",
+    "sttFailDialogue": "Wait, I forgot how to pronounce this one...",
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 13,
+    "errandTitle": "To the Magellan Garden",
+    "context": "At the end of the hedge path, Rodrick reaches a fork. The gazebo is to the left.",
+    "dialogue": "Almost there! Lola Nida's note says...",
+    "phraseId": "directions_029",
+    "choices": [
+      "Turn right",
+      "Go straight",
+      "Turn left"
+    ],
+    "correctChoiceIndex": 2,
+    "useSTT": false,
+    "mistakeDialogue": "The garden is to the left! Where are you walking?!",
+    "lolaNidaPortraitIndex": 2,
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 14,
+    "errandTitle": "To the Magellan Garden",
+    "context": "Rodrick sees the wooden Gazebo up ahead. Mang Totoy is asleep on the bench inside.",
+    "dialogue": "There's the garden. Lola Nida wrote...",
+    "phraseId": "directions_033",
+    "choices": [
+      "Stop here",
+      "Come here",
+      "Follow me"
+    ],
+    "correctChoiceIndex": 0,
+    "useSTT": true,
+    "mistakeDialogue": "You missed the garden! Are you blind? Stop there!",
+    "sttFailDialogue": "Let me read that out loud to make sure I got it...",
+    "lolaNidaPortraitIndex": 5,
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 15,
+    "errandTitle": "Neneng Said?",
+    "context": "A local kid notices Rodrick looks lost outside the gazebo.",
+    "dialogue": "Hey Neneng! Sorry, I didn't hear what she said..",
+    "phraseId": "directions_036",
+    "choices": [
+      "Follow me",
+      "Wait here",
+      "Turn left"
+    ],
+    "correctChoiceIndex": 0,
+    "useSTT": true,
+    "mistakeDialogue": "The child is trying to help you! Follow her!",
+    "sttFailDialogue": "Wait, I should repeat that to her so she knows I understand.",
+    "lolaNidaPortraitIndex": 4,
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 16,
+    "errandTitle": "To the Barangay Hall",
+    "context": "The kid leads Rodrick to a corner with a brightly painted store.",
+    "dialogue": "Okay, okay, I'm right behind you... wait, where?",
+    "phraseId": "directions_030",
+    "choices": [
+      "Turn right",
+      "Go up",
+      "Turn left"
+    ],
+    "correctChoiceIndex": 0,
+    "useSTT": true,
+    "mistakeDialogue": "You're going to get bitten by the dogs! Turn the other way!",
+    "sttFailDialogue": "Hold up, let me practice my pronunciation!",
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 17,
+    "errandTitle": "To the Barangay Hall",
+    "context": "They reach a small wooden footbridge arching upward over a muddy creek.",
+    "dialogue": "Got it. I should...",
+    "phraseId": "directions_030",
+    "choices": [
+      "Go down",
+      "Go straight",
+      "Turn right"
+    ],
+    "correctChoiceIndex": 2,
+    "useSTT": false,
+    "mistakeDialogue": "Rodrick! Do not ruin your shoes in the mud, use the bridge!",
+    "sttFailDialogue": "Wait, how do I say 'up' again?",
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 18,
+    "errandTitle": "To the Barangay Hall",
+    "context": "They arrive across the street from the blue Barangay Hall building. The kid points at it.",
+    "dialogue": "Thanks kid! Okay, now let's go...",
+    "phraseId": "directions_028",
+    "choices": [
+      "Go straight",
+      "Stop here",
+      "Come here"
+    ],
+    "correctChoiceIndex": 0,
+    "useSTT": false,
+    "mistakeDialogue": "You aren't taking a tricycle! The hall is right across from you!",
+    "sttFailDialogue": "Let me shout it back to him... wait, what was it?",
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 19,
+    "errandTitle": "To the Barangay Hall",
+    "context": "They arrive across the street from the blue Barangay Hall building. The kid points at it.",
+    "dialogue": "Point the way Neneng!",
+    "phraseId": "directions_035",
+    "choices": [
+      "Follow me",
+      "Stop here",
+      "Go there"
+    ],
+    "correctChoiceIndex": 2,
+    "useSTT": true,
+    "mistakeDialogue": "You aren't taking a tricycle! The hall is right across from you!",
+    "sttFailDialogue": "Let me shout it back to him... wait, what was it?",
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 20,
+    "errandTitle": "Return to Lola Nida",
+    "context": "Kapitan Mando spots Rodrick from the Barangay Hall porch and waves him over.",
+    "dialogue": "Oh, the Kapitan is waving to me!",
+    "phraseId": "directions_034",
+    "choices": [
+      "Follow me",
+      "Come here",
+      "Turn right"
+    ],
+    "correctChoiceIndex": 1,
+    "useSTT": false,
+    "mistakeDialogue": "The Kapitan is holding something for you, approach him!",
+    "sttFailDialogue": "I need to reply properly. How do I say it?",
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 21,
+    "errandTitle": "Return to Lola Nida",
+    "context": "Rodrick must head back. He enters the main Plaza intersection.",
+    "dialogue": "Okay, back to the store! The note says...",
+    "phraseId": "directions_029",
+    "choices": [
+      "Turn left",
+      "Turn right",
+      "Go down"
+    ],
+    "correctChoiceIndex": 0,
+    "useSTT": false,
+    "mistakeDialogue": "Hey hey! It's time to come back to the store!",
+    "sttFailDialogue": "My brain is tired. Let me focus on the pronunciation...",
+    "lolaNidaPortraitIndex": 4,
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 22,
+    "errandTitle": "Return to Lola Nida",
+    "context": "The street is now filled with a parade! A dancer waves at Rodrick to join the line.",
+    "dialogue": "Whoa, the fiesta started! I should...",
+    "phraseId": "directions_036",
+    "choices": [
+      "Follow me",
+      "Go straight",
+      "Wait here"
+    ],
+    "correctChoiceIndex": 0,
+    "useSTT": false,
+    "mistakeDialogue": "You are blocking the dancers! Follow their line!",
+    "sttFailDialogue": "I should say it back so they know I'm following!",
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 23,
+    "errandTitle": "Return to Lola Nida",
+    "context": ".",
+    "dialogue": "Oh! We're close to the store now!",
+    "phraseId": "directions_029",
+    "choices": [
+      "Come here",
+      "Go there",
+      "Turn left"
+    ],
+    "correctChoiceIndex": 2,
+    "useSTT": true,
+    "mistakeDialogue": "Where are you going?! I have lechon for you! Wait there!",
+    "sttFailDialogue": "I'm too hungry to speak straight! Wait, let me try...",
+    "mistakeAnimation": "Confused"
+  },
+  {
+    "scenarioIndex": 24,
+    "errandTitle": "Return to Lola Nida",
+    "context": "Rodrick finally reaches the South Gate. Lola Nida is outside holding a plate of food.",
+    "dialogue": "Food! Finally! She said...",
+    "phraseId": "directions_034",
+    "choices": [
+      "Come here",
+      "Go there",
+      "Wait here"
+    ],
+    "correctChoiceIndex": 0,
+    "useSTT": true,
+    "mistakeDialogue": "Where are you going?! I have lechon for you! Come here!",
+    "lolaNidaPortraitIndex": 2,
+    "mistakeAnimation": "Confused"
+  }
+]

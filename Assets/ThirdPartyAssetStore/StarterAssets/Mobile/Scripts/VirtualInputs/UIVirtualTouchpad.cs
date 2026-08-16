@@ -68,7 +68,8 @@ namespace StarterAssets
                 bool isDesktop = SystemInfo.deviceType == DeviceType.Desktop;
                 float deltaTime = isDesktop ? 1f : (Time.deltaTime > 0f ? Time.deltaTime : 1f);
 
-                Vector2 scaledDelta = (_currentDelta * _screenFactor * lookSensitivity) / deltaTime;
+                // Lowered sensitivity globally by multiplying by 0.5f as requested
+                Vector2 scaledDelta = (_currentDelta * _screenFactor * lookSensitivity * 0.5f) / deltaTime;
 
                 if (invertX) scaledDelta.x = -scaledDelta.x;
                 if (invertY) scaledDelta.y = -scaledDelta.y;

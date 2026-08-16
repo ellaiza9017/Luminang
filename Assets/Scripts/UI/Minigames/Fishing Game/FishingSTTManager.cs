@@ -54,6 +54,17 @@ public class FishingSTTManager : MonoBehaviour
     private string targetWord = "";
     private bool isSTTActive = false;
 
+    public bool IsSTTActive => isSTTActive;
+    public string TargetWord => targetWord;
+
+    public void SimulateSuccess(string spokenWord = "")
+    {
+        if (!isSTTActive) return;
+        ShowResultOverlay(true);
+        UpdateTitle(GetRandomCorrectFeedback(), colorRight);
+        StartCoroutine(EndSTTFlow(true));
+    }
+
     // We store these to restore if needed
     private Vector2 panelOffscreenPos;
     private Vector2 panelOnscreenPos;

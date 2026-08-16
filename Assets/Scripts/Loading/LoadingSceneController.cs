@@ -12,6 +12,9 @@ public class LoadingSceneController : MonoBehaviour
     public Animator loadingAnimator;
     public StartCrystalBounce crystalBounce;
 
+    [Tooltip("Assign the RectTransform of the circle/reveal image so it can shrink on outro.")]
+    public RectTransform outroCircleRect;
+
     [Header("Animations")]
     public string introAnimation = "LoadingReveal";
     public string outroAnimation = "LoadingOutro";
@@ -70,8 +73,8 @@ public class LoadingSceneController : MonoBehaviour
         if (canvas != null)
         {
             canvas.renderMode = RenderMode.ScreenSpaceOverlay; // Force overlay mode
-            canvas.sortingOrder = 100;
-            Debug.Log("[LoadingScene] Canvas set to Overlay with sorting order 100");
+            canvas.sortingOrder = 32000;
+            Debug.Log("[LoadingScene] Canvas set to Overlay with sorting order 32000");
         }
 
         // Save the caller scene as early as possible
@@ -98,7 +101,13 @@ public class LoadingSceneController : MonoBehaviour
         callerScene = SceneManager.GetActiveScene().name;
         Debug.Log("[LoadingScene] PrepareAndShow - Target: " + sceneToLoad + ", Caller: " + callerScene);
         
-        // Ensure animator is fresh and ready
+        // CRITICAL: Reset the alpha because it was set to 0 during the previous outro!
+        if (loadingCanvasGroup != null) loadingCanvasGroup.alpha = 1f;
+
+        // CRITICAL: Reset the circle to zero so the intro can expand it again
+        if (outroCircleRect != null) outroCircleRect.sizeDelta = Vector2.zero;
+
+        // CRITICAL: Re-enable animator so the intro animation can play
         if (loadingAnimator != null)
         {
             loadingAnimator.enabled = true;
@@ -150,10 +159,10 @@ public class LoadingSceneController : MonoBehaviour
         if (uiOpt == null) uiOpt = gameObject.AddComponent<RaycastOptimization>();
         uiOpt.OptimizeHierarchy(gameObject);
 
-        // PREVENT CAMERA CONFLICTS: Only untag if we DON'T want the background visible
+        // PREVENT CAMERA CONFLICTS: Only disable cameras if we DON'T want the background visible
         if (!SceneLoader.keepBackgroundPersistent)
         {
-            UntagCamerasInScene(callerScene);
+            DisableCamerasInScene(callerScene);
             // PREVENT INPUT CONFLICTS: Disable old EventSystems
             DisableEventSystemsInScene(callerScene);
         }
@@ -162,53 +171,102 @@ public class LoadingSceneController : MonoBehaviour
             Debug.Log("[LoadingScene] KEEPING BACKGROUND: Skipping camera untagging.");
         }
 
-        // 3. Load Target Scene in Background
-        Debug.Log("[LoadingScene] Starting Async Load for: " + sceneToLoad);
+        // 3. Load Target Scene in Background — but ONLY if it's not already in memory!
+        //    (When exiting a minigame, the main world was kept alive, so it's already there.)
+        Debug.Log("[LoadingScene] Checking if already loaded: " + sceneToLoad);
+        Scene alreadyLoadedScene = SceneManager.GetSceneByName(sceneToLoad);
+        bool sceneAlreadyInMemory = alreadyLoadedScene.IsValid() && alreadyLoadedScene.isLoaded;
+
+        AsyncOperation operation = null;
         float startTime = Time.time;
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
-        operation.allowSceneActivation = false;
 
-        float displayedProgress = 0f;
-        while (operation.progress < 0.9f || (Time.time - startTime) < minimumLoadTime)
+        if (sceneAlreadyInMemory)
         {
-            float realProgress = operation.progress / 0.9f;
-            float timeProgress = (Time.time - startTime) / minimumLoadTime;
-            float targetProgress = Mathf.Min(realProgress, timeProgress);
-
-            displayedProgress = Mathf.MoveTowards(displayedProgress, targetProgress, 1.5f * Time.deltaTime);
-
-            if (loadingText != null)
+            Debug.Log("[LoadingScene] Scene already in memory - skipping async load: " + sceneToLoad);
+            // Still show the progress bar filling to 100% over minimumLoadTime for polish
+            float displayedProgress = 0f;
+            while ((Time.time - startTime) < minimumLoadTime)
             {
-                int percent = Mathf.RoundToInt(displayedProgress * 100f);
-                loadingText.text = "Loading Assets... " + percent + "%";
-                if (loadingFill != null) loadingFill.fillAmount = displayedProgress;
+                float timeProgress = (Time.time - startTime) / minimumLoadTime;
+                displayedProgress = Mathf.MoveTowards(displayedProgress, timeProgress, 1.5f * Time.deltaTime);
+                if (loadingText != null)
+                {
+                    int percent = Mathf.RoundToInt(displayedProgress * 100f);
+                    loadingText.text = "Loading Assets... " + percent + "%";
+                    if (loadingFill != null) loadingFill.fillAmount = displayedProgress;
+                }
+                yield return null;
             }
-            yield return null;
+            if (loadingText != null) loadingText.text = "Loading Assets... 100%";
+            if (loadingFill != null) loadingFill.fillAmount = 1f;
         }
-
-        if (loadingText != null)
+        else
         {
-            loadingText.text = "Loading Assets... 100%";
-        }
+            Debug.Log("[LoadingScene] Starting Async Load for: " + sceneToLoad);
+            operation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
+            operation.allowSceneActivation = false;
 
-        // Wait for visual bar to catch up smoothly
-        while (displayedProgress < 0.99f)
-        {
-            displayedProgress = Mathf.MoveTowards(displayedProgress, 1f, 2f * Time.deltaTime);
-            if (loadingFill != null) loadingFill.fillAmount = displayedProgress;
-            yield return null;
+            float displayedProgress = 0f;
+            while (operation.progress < 0.9f || (Time.time - startTime) < minimumLoadTime)
+            {
+                float realProgress = operation.progress / 0.9f;
+                float timeProgress = (Time.time - startTime) / minimumLoadTime;
+                float targetProgress = Mathf.Min(realProgress, timeProgress);
+
+                displayedProgress = Mathf.MoveTowards(displayedProgress, targetProgress, 1.5f * Time.deltaTime);
+
+                if (loadingText != null)
+                {
+                    int percent = Mathf.RoundToInt(displayedProgress * 100f);
+                    loadingText.text = "Loading Assets... " + percent + "%";
+                    if (loadingFill != null) loadingFill.fillAmount = displayedProgress;
+                }
+                yield return null;
+            }
+
+            if (loadingText != null) loadingText.text = "Loading Assets... 100%";
+
+            // Wait for visual bar to catch up smoothly
+            while (displayedProgress < 0.99f)
+            {
+                displayedProgress = Mathf.MoveTowards(displayedProgress, 1f, 2f * Time.deltaTime);
+                if (loadingFill != null) loadingFill.fillAmount = displayedProgress;
+                yield return null;
+            }
         }
 
         Debug.Log("[LoadingScene] Loading complete, activating scene...");
 
-        // 4. Activate the new scene and cleanup old one
-        operation.allowSceneActivation = true;
-        
-        // Wait for activation to properly complete
-        while (!operation.isDone) yield return null;
-        
-        // Multiple frames to let the new scene's Awake/Start/Physics settle
-        for(int i=0; i<5; i++) yield return null;
+        // 4. Unload the CALLER scene early ONLY if we are EXITING a minigame back to the main world.
+        //    When ENTERING a minigame, we must NOT unload the main world (player needs to return there).
+        //    Detection: if sceneToLoad matches PreviousScene, we are going BACK = exiting minigame.
+        string previousScenePref = PlayerPrefs.GetString("PreviousScene", "");
+        bool isExitingMinigame = (!string.IsNullOrEmpty(previousScenePref) && sceneToLoad == previousScenePref);
+
+        if (isExitingMinigame &&
+            !SceneLoader.keepBackgroundPersistent &&
+            !string.IsNullOrEmpty(callerScene) &&
+            callerScene != sceneToLoad &&
+            callerScene != gameObject.scene.name)
+        {
+            Debug.Log("[LoadingScene] Exiting minigame - unloading caller BEFORE activation: " + callerScene);
+            Scene s = SceneManager.GetSceneByName(callerScene);
+            if (s.IsValid() && s.isLoaded)
+            {
+                var unloadOp = SceneManager.UnloadSceneAsync(s);
+                while (!unloadOp.isDone) yield return null;
+            }
+        }
+
+        // 5. Activate the new scene
+        if (operation != null)
+        {
+            operation.allowSceneActivation = true;
+            while (!operation.isDone) yield return null;
+        }
+
+        // Multiple frames to let Awake/Start/Physics settle
+        for (int i = 0; i < 10; i++) yield return null;
 
         Debug.Log("[LoadingScene] Scene activated, setting active...");
 
@@ -216,86 +274,105 @@ public class LoadingSceneController : MonoBehaviour
         if (loadedScene.IsValid())
         {
             SceneManager.SetActiveScene(loadedScene);
-            Debug.Log("[LoadingScene] " + sceneToLoad + " is now active. Enabling roots...");
-            
-            // CRITICAL FIX: Ensure all objects in the new scene are turned ON
+            Debug.Log("[LoadingScene] " + sceneToLoad + " is now active.");
+
             foreach (GameObject obj in loadedScene.GetRootGameObjects())
-            {
                 obj.SetActive(true);
+
+            // CRITICAL: If the scene was already in memory (we kept it alive during minigame),
+            // restore all components that were disabled when we entered the minigame.
+            if (sceneAlreadyInMemory)
+            {
+                Debug.Log("[LoadingScene] Restoring scene components after minigame exit: " + sceneToLoad);
+                RestoreSceneComponents(loadedScene);
+
+                // CRITICAL: Start() won't re-run since scene was never destroyed.
+                // Manually notify DialogueManager to reset IsInDialogue and resume post-minigame dialogue.
+                if (DialogueManager.Instance != null)
+                {
+                    Debug.Log("[LoadingScene] Notifying DialogueManager of return from minigame.");
+                    DialogueManager.Instance.OnReturnFromMinigame();
+                }
             }
 
-            // REFRESH CAMERA REFERENCES: Ensure players in the new scene find the new camera
             RefreshPlayerCameras(loadedScene);
         }
 
-        // Give Unity a moment to settle after activation (prevents lag during outro)
-        yield return new WaitForSeconds(0.3f);
-        
-        // 5. Simple Fade Outro
-        Debug.Log("[LoadingScene] Starting Fade Outro...");
+        // Let the new scene's first frame render (prevents the 1-frame flash)
+        for (int i = 0; i < 5; i++) yield return null;
 
-        // CLEANUP: Disable own Camera and EventSystem to resolve conflicts
-        DisableOwnRedundantObjects();
-
-        // UNLOAD PREVIOUS SCENE BEFORE THE FADE STARTS
-        // NEW: If we want persistence, we keep the scene but HIDE the objects (except the camera)
-        if (SceneLoader.keepBackgroundPersistent)
+        // 6. OUTRO: shrink the circle back to zero
+        //    CRITICAL: Disable the Animator first — it will fight any script-driven sizeDelta changes
+        Debug.Log("[LoadingScene] Starting Outro (circle close)...");
+        if (loadingAnimator != null)
         {
-            Debug.Log("[LoadingScene] Persistence Active: Hiding map objects but keeping video camera alive.");
-            Scene s = SceneManager.GetSceneByName(callerScene);
-            if (s.IsValid() && s.isLoaded)
+            loadingAnimator.enabled = false;
+        }
+
+        // Auto-detect the circle rect if not assigned
+        if (outroCircleRect == null)
+        {
+            // Walk all RectTransforms in the loading scene root objects looking for the big one
+            foreach (GameObject rootObj in gameObject.scene.GetRootGameObjects())
             {
-                foreach (GameObject obj in s.GetRootGameObjects())
+                foreach (var rt in rootObj.GetComponentsInChildren<RectTransform>(true))
                 {
-                    // If it's NOT a camera, hide it!
-                    if (obj.GetComponentInChildren<Camera>() == null)
+                    if (rt.sizeDelta.x > 800f)
                     {
-                        obj.SetActive(false);
-                    }
-                    else
-                    {
-                        // It IS a camera object, keep it but maybe disable its UI if it has any
-                        Canvas c = obj.GetComponentInChildren<Canvas>();
-                        if (c != null) c.enabled = false;
+                        outroCircleRect = rt;
+                        break;
                     }
                 }
+                if (outroCircleRect != null) break;
             }
         }
-        else if (!string.IsNullOrEmpty(callerScene) && callerScene != sceneToLoad && callerScene != gameObject.scene.name)
+
+        if (outroCircleRect != null)
         {
-            Debug.Log("[LoadingScene] Unloading caller: " + callerScene);
-            Scene s = SceneManager.GetSceneByName(callerScene);
-            if (s.IsValid() && s.isLoaded) SceneManager.UnloadSceneAsync(s);
+            // Ensure the circle is at full size before we start shrinking
+            // (in case the animator left it at a weird value)
+            outroCircleRect.sizeDelta = new Vector2(2500f, 2500f);
+
+            Vector2 startSize = outroCircleRect.sizeDelta;
+            Vector2 targetSize = Vector2.zero;
+            float elapsed = 0f;
+            while (elapsed < transitionTime)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                float t = Mathf.SmoothStep(0f, 1f, elapsed / transitionTime);
+                outroCircleRect.sizeDelta = Vector2.Lerp(startSize, targetSize, t);
+                yield return null;
+            }
+            outroCircleRect.sizeDelta = Vector2.zero;
+        }
+        else
+        {
+            Debug.LogWarning("[LoadingScene] outroCircleRect not found — using alpha fade fallback!");
+            float fastTransition = transitionTime;
+            float timer2 = 0f;
+            while (timer2 < fastTransition)
+            {
+                timer2 += Time.unscaledDeltaTime;
+                if (loadingCanvasGroup != null) loadingCanvasGroup.alpha = 1f - (timer2 / fastTransition);
+                yield return null;
+            }
         }
 
-        // Wait for the new scene to catch its breath (REDUCED to show player drop)
-        yield return new WaitForSecondsRealtime(0.1f);
+        // 7. Now hide our own camera/EventSystem (AFTER outro, so circle was visible against the new scene)
+        DisableOwnRedundantObjects();
 
-        // Simple Alpha Fade (FASTER)
-        float fastTransition = transitionTime * 0.5f; 
-        float timer2 = 0f;
-        while(timer2 < fastTransition)
-        {
-            timer2 += Time.unscaledDeltaTime;
-            if (loadingCanvasGroup != null) loadingCanvasGroup.alpha = 1f - (timer2 / fastTransition);
-            yield return null;
-        }
+        // Give 1 extra frame before hiding everything
+        yield return null;
 
-        Debug.Log("[LoadingScene] Transition complete.");
+        Debug.Log("[LoadingScene] Transition complete. Hiding loading scene.");
         if (loadingCanvasGroup != null) loadingCanvasGroup.alpha = 0f;
-        
-        foreach (GameObject obj in gameObject.scene.GetRootGameObjects())
-        {
-            obj.SetActive(false);
-        }
-    
-        // Reset priority to normal
-        Application.backgroundLoadingPriority = ThreadPriority.BelowNormal;
-        
-        // Reset SceneLoader flag 
-        SceneLoader.ResetLoadingFlag();
 
-        // NEW: Final Global Cleanup
+        foreach (GameObject obj in gameObject.scene.GetRootGameObjects())
+            obj.SetActive(false);
+
+        // Reset priority and flags
+        Application.backgroundLoadingPriority = ThreadPriority.BelowNormal;
+        SceneLoader.ResetLoadingFlag();
         CleanupGlobalConflicts();
     }
 
@@ -328,7 +405,9 @@ public class LoadingSceneController : MonoBehaviour
         }
     }
 
-    private void UntagCamerasInScene(string sceneName)
+    // Instead of UNTAGGING cameras (permanent, destructive), just DISABLE them.
+    // This is fully reversible — RestoreSceneComponents re-enables them.
+    private void DisableCamerasInScene(string sceneName)
     {
         Scene s = SceneManager.GetSceneByName(sceneName);
         if (!s.IsValid() || !s.isLoaded) return;
@@ -338,11 +417,41 @@ public class LoadingSceneController : MonoBehaviour
             Camera[] cameras = obj.GetComponentsInChildren<Camera>(true);
             foreach (Camera cam in cameras)
             {
-                if (cam.CompareTag("MainCamera"))
-                {
-                    Debug.Log("[LoadingScene] Untagging MainCamera in: " + sceneName);
-                    cam.tag = "Untagged";
-                }
+                Debug.Log("[LoadingScene] Disabling Camera (not untagging) in: " + sceneName);
+                cam.enabled = false;
+            }
+        }
+    }
+
+    // Restores cameras, EventSystems, and AudioListeners that were disabled when entering a minigame.
+    private void RestoreSceneComponents(Scene scene)
+    {
+        if (!scene.IsValid()) return;
+
+        foreach (GameObject obj in scene.GetRootGameObjects())
+        {
+            // Re-enable cameras
+            Camera[] cameras = obj.GetComponentsInChildren<Camera>(true);
+            foreach (Camera cam in cameras)
+            {
+                cam.enabled = true;
+                Debug.Log("[LoadingScene] Restored Camera: " + cam.name);
+            }
+
+            // Re-enable EventSystems
+            UnityEngine.EventSystems.EventSystem[] systems = obj.GetComponentsInChildren<UnityEngine.EventSystems.EventSystem>(true);
+            foreach (var es in systems)
+            {
+                es.enabled = true;
+                Debug.Log("[LoadingScene] Restored EventSystem: " + es.name);
+            }
+
+            // Re-enable AudioListeners
+            AudioListener[] listeners = obj.GetComponentsInChildren<AudioListener>(true);
+            foreach (var al in listeners)
+            {
+                al.enabled = true;
+                Debug.Log("[LoadingScene] Restored AudioListener: " + al.name);
             }
         }
     }

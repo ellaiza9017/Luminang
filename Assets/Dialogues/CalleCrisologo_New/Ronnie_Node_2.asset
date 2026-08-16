@@ -10,6 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+<<<<<<<< HEAD:Assets/Dialogues/CalleCrisologo_New/VendorKyros_Node_2.asset
+  m_Name: VendorKyros_Node_2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: VENDOR KYROS
+  speakerPortrait: {fileID: 0}
+  dialogueText: 'As the sun sets and the streetlamps begin to glow, the greeting changes with the time of day.
+In Ilokano, ''naimbag a rabii'' means ''good evening.'''
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: ShowTeachingPanel:naimbag a rabii:bg_morning
+  endEventName: 
+  choices:
+  - choiceText: ''
+    nextNode: {fileID: 11400000, guid: 076c0a97ec6b585f9469f76916581249, type: 2}
+========
   m_Name: Ronnie_Node_2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: RONNIE
@@ -23,6 +38,7 @@ In Ilokano, ''ti nagan ko ket...'' means ''my name is...'''
   choices:
   - choiceText: ''
     nextNode: {fileID: 11400000, guid: 55c3c4d0c2cc5e768cc01dc419703480, type: 2}
+>>>>>>>> origin/magellanCross-TCG-Directions-minigamesIncluded:Assets/Dialogues/CalleCrisologo_New/Ronnie_Node_2.asset
     isWrong: 0
     choiceEvent: 
     expectedSTTWord: 

@@ -26,7 +26,7 @@ MonoBehaviour:
     choiceEvent: 
     expectedSTTWord: 
   - choiceText: Paalam
-    nextNode: {fileID: 11400000, guid: 76679bdf28e62f845ad88e1817e15ea9, type: 2}
-    isWrong: 1
+    nextNode: {fileID: 0}
+    isWrong: 0
     choiceEvent: 
     expectedSTTWord: 

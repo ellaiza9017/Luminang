@@ -1,8 +1,8 @@
 {
   "languages": [
     {
-      "languageName": "the language",
-      "languageKey": "the language",
+      "languageName": "Ilokano",
+      "languageKey": "ilokano",
       "chapters": [
         {
           "chapterIndex": 1,
@@ -14,7 +14,7 @@
               "lessonTitle": "Greetings",
               "description": "Learn essential daily greetings like 'good morning', 'good afternoon', and 'how are you?' to communicate naturally with the locals.",
               "learnings": [
-                "Say hello and goodbye in the local language",
+                "Say hello and goodbye in Ilokano",
                 "Use time-based greetings (morning, afternoon, evening)",
                 "Ask how someone is doing and respond naturally",
                 "Recognize common greeting phrases used in daily life"
@@ -27,7 +27,7 @@
               "lessonTitle": "Expressions of Gratitude",
               "description": "Learn polite expressions such as 'thank you', 'excuse me', and 'I am sorry' to show respect and build goodwill.",
               "learnings": [
-                "Say thank you and thank you very much in the local language",
+                "Say thank you and thank you very much in Ilokano",
                 "Express sincere apologies when needed",
                 "Use polite filler words like excuse me",
                 "Respond gracefully when someone thanks you"
@@ -40,7 +40,7 @@
               "lessonTitle": "Responses",
               "description": "Master essential response words like 'yes', 'no', 'okay', and 'I understand' to quickly reply during conversations.",
               "learnings": [
-                "Say yes, no, and okay in the local language",
+                "Say yes, no, and okay in Ilokano",
                 "Express understanding or lack of understanding",
                 "Respond to simple questions with confidence",
                 "Distinguish between agreement and disagreement in context"
@@ -56,7 +56,7 @@
                 "State your name and ask for someone else's name",
                 "Say where you are from",
                 "Ask and answer questions about personal identity",
-                "Form simple introductory sentences in the local language"
+                "Form simple introductory sentences in Ilokano"
               ],
               "rewards": { "coins": 60, "xp": 120 }
             }
@@ -98,7 +98,7 @@
               "lessonTitle": "Count",
               "description": "Learn to count from one to ten, enabling you to buy goods, tell time, and understand quantities.",
               "learnings": [
-                "Count from one to ten in the local language",
+                "Count from one to ten in Ilokano",
                 "Recognize number words when spoken",
                 "Use numbers to describe quantities",
                 "Apply counting in everyday market and trade scenarios"
@@ -130,7 +130,7 @@
               "lessonTitle": "Linking Verbs",
               "description": "Learn words that connect subjects to descriptions, such as 'am', 'is', 'become', and 'feel'.",
               "learnings": [
-                "Use to be equivalents in the local language (am, is, are)",
+                "Use to be equivalents in Ilokano (am, is, are)",
                 "Express states and conditions using linking verbs",
                 "Describe feelings and appearances with linking verbs",
                 "Distinguish action verbs from linking verbs in context"
@@ -144,7 +144,7 @@
               "description": "Learn personal pronouns like 'I', 'you', 'he/she', 'we', and 'they' to talk about yourself and others naturally.",
               "learnings": [
                 "Use first, second, and third person pronouns",
-                "Refer to yourself and others correctly in the local language",
+                "Refer to yourself and others correctly in Ilokano",
                 "Use plural pronouns like we, they, us, and them",
                 "Substitute proper nouns with the right pronoun in a sentence"
               ],
@@ -157,7 +157,7 @@
               "description": "Learn essential question words like 'what', 'who', 'where', 'when', 'why', and 'how' to gather information.",
               "learnings": [
                 "Use the seven question words: what, who, where, when, why, how, how many",
-                "Form simple questions in the local language",
+                "Form simple questions in Ilokano",
                 "Identify what type of answer a question is asking for",
                 "Combine interrogatives with other vocabulary to ask more complex questions"
               ],
@@ -178,7 +178,7 @@
                 "Recall and apply vocabulary from all previous lessons",
                 "Demonstrate correct use of grammar and sentence structure",
                 "Respond accurately under timed assessment conditions",
-                "Earn your the language Completion Badge upon passing"
+                "Earn your Ilokano Completion Badge upon passing"
               ],
               "rewards": { "coins": 150, "xp": 300 }
             }

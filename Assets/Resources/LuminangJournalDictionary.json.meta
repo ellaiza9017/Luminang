@@ -1,0 +1,244 @@
+{
+  "journal_entries": [
+    {
+      "id": "ilo_greet_001",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "naimbag a bigat",
+      "pronunciation": "nah-eem-bahg ah bee-gaht",
+      "meaning": "good morning",
+      "sample_sentence": {
+        "native": "Naimbag a bigat, Ading! Kumusta ka?",
+        "translation": "Good morning, little one! How are you?"
+      },
+      "usage_note": "Used in the morning as a polite greeting. 'Ading' means younger sibling or a term of endearment.",
+      "sound_file": null,
+      "date_learned": "2026-07-10"
+    },
+    {
+      "id": "ceb_greet_001",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "maayong buntag",
+      "pronunciation": "mah-ah-yong boon-tahg",
+      "meaning": "good morning",
+      "sample_sentence": {
+        "native": "Maayong buntag, Ate! Kumusta ka?",
+        "translation": "Good morning, older sister! How are you?"
+      },
+      "usage_note": "Used in the morning to greet someone warmly. 'Ate' is a respectful term for an older female.",
+      "sound_file": null,
+      "date_learned": "2026-07-10"
+    },
+    {
+      "id": "ilo_greet_002",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "kumusta ka?",
+      "pronunciation": "koo-moos-tah kah",
+      "meaning": "how are you?",
+      "sample_sentence": {
+        "native": "Kumusta ka, Manong? Nasayaat ka kadi?",
+        "translation": "How are you, older brother? Are you doing well?"
+      },
+      "usage_note": "A very common everyday greeting. 'Manong' is a respectful term for an older male.",
+      "sound_file": null,
+      "date_learned": "2026-07-10"
+    },
+    {
+      "id": "ceb_greet_002",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "kumusta ka?",
+      "pronunciation": "koo-moos-tah kah",
+      "meaning": "how are you?",
+      "sample_sentence": {
+        "native": "Kumusta ka, Kuya? Maayo ka ba?",
+        "translation": "How are you, older brother? Are you doing well?"
+      },
+      "usage_note": "Used universally at any time of day. 'Kuya' is a respectful address for an older male.",
+      "sound_file": null,
+      "date_learned": "2026-07-10"
+    },
+    {
+      "id": "ilo_greet_003",
+      "language": "Ilokano",
+      "category": "Greetings",
+      "phrase": "agpakada akon",
+      "pronunciation": "ahg-pah-kah-dah ah-kon",
+      "meaning": "goodbye",
+      "sample_sentence": {
+        "native": "Agpakada akon. Agkita tayo manen!",
+        "translation": "Goodbye. We will see each other again!"
+      },
+      "usage_note": "Said when leaving. It is common to add a warm closing phrase after it.",
+      "sound_file": null,
+      "date_learned": "2026-07-10"
+    },
+    {
+      "id": "ceb_greet_003",
+      "language": "Cebuano",
+      "category": "Greetings",
+      "phrase": "paalam",
+      "pronunciation": "pah-ah-lahm",
+      "meaning": "goodbye",
+      "sample_sentence": {
+        "native": "Paalam na ko. Magkita ra ta pag-usab!",
+        "translation": "Goodbye. We will meet again!"
+      },
+      "usage_note": "A general farewell used in both formal and informal settings.",
+      "sound_file": null,
+      "date_learned": "2026-07-10"
+    },
+    {
+      "id": "ilo_grat_001",
+      "language": "Ilokano",
+      "category": "Gratitude",
+      "phrase": "agyamanak",
+      "pronunciation": "ahg-yah-mah-nahk",
+      "meaning": "thank you",
+      "sample_sentence": {
+        "native": "Agyamanak iti tulong mo, Manang!",
+        "translation": "Thank you for your help, older sister!"
+      },
+      "usage_note": "The standard way to express thanks. Add 'unay' after it to mean 'thank you very much'.",
+      "sound_file": null,
+      "date_learned": "2026-07-10"
+    },
+    {
+      "id": "ceb_grat_001",
+      "language": "Cebuano",
+      "category": "Gratitude",
+      "phrase": "salamat",
+      "pronunciation": "sah-lah-maht",
+      "meaning": "thank you",
+      "sample_sentence": {
+        "native": "Daghang salamat sa imong tabang, Manang!",
+        "translation": "Thank you very much for your help, older sister!"
+      },
+      "usage_note": "Add 'daghang' before salamat to say 'thank you very much'. Very commonly used.",
+      "sound_file": null,
+      "date_learned": "2026-07-10"
+    },
+    {
+      "id": "ilo_grat_002",
+      "language": "Ilokano",
+      "category": "Gratitude",
+      "phrase": "pakawanen nak",
+      "pronunciation": "pah-kah-wah-nen nahk",
+      "meaning": "I am sorry",
+      "sample_sentence": {
+        "native": "Pakawanen nak, saan ko nga intensiyon.",
+        "translation": "I am sorry, it was not my intention."
+      },
+      "usage_note": "Used to sincerely apologize. More heartfelt than a casual sorry.",
+      "sound_file": null,
+      "date_learned": "2026-07-11"
+    },
+    {
+      "id": "ceb_grat_002",
+      "language": "Cebuano",
+      "category": "Gratitude",
+      "phrase": "pasayloa ko",
+      "pronunciation": "pah-sigh-loh-ah koh",
+      "meaning": "I am sorry",
+      "sample_sentence": {
+        "native": "Pasayloa ko, wala ko kabalo.",
+        "translation": "I am sorry, I did not know."
+      },
+      "usage_note": "A sincere apology. Use 'sorry' informally or 'pasayloa ko' in more formal or heartfelt contexts.",
+      "sound_file": null,
+      "date_learned": "2026-07-11"
+    },
+    {
+      "id": "ilo_resp_001",
+      "language": "Ilokano",
+      "category": "Responses",
+      "phrase": "wen",
+      "pronunciation": "wen",
+      "meaning": "yes",
+      "sample_sentence": {
+        "native": "Wen, mabalin!",
+        "translation": "Yes, it is okay!"
+      },
+      "usage_note": "The standard Ilokano word for 'yes'. Short, direct, and used in all situations.",
+      "sound_file": null,
+      "date_learned": "2026-07-11"
+    },
+    {
+      "id": "ceb_resp_001",
+      "language": "Cebuano",
+      "category": "Responses",
+      "phrase": "oo",
+      "pronunciation": "oh-oh",
+      "meaning": "yes",
+      "sample_sentence": {
+        "native": "Oo, sige! Moabot ko.",
+        "translation": "Yes, okay! I will come."
+      },
+      "usage_note": "'Oo' is the casual yes. In formal situations, 'Opo' is used to show deeper respect.",
+      "sound_file": null,
+      "date_learned": "2026-07-11"
+    },
+    {
+      "id": "ilo_resp_002",
+      "language": "Ilokano",
+      "category": "Responses",
+      "phrase": "diak maawatan",
+      "pronunciation": "dyahk mah-ah-wah-tahn",
+      "meaning": "I don't understand",
+      "sample_sentence": {
+        "native": "Diak maawatan, mabalin kadi nga paulitenmo?",
+        "translation": "I don't understand, can you please repeat?"
+      },
+      "usage_note": "Very useful when learning — pair it with a request to repeat or speak slowly.",
+      "sound_file": null,
+      "date_learned": "2026-07-11"
+    },
+    {
+      "id": "ceb_resp_002",
+      "language": "Cebuano",
+      "category": "Responses",
+      "phrase": "dili ko kasabot",
+      "pronunciation": "dee-lee koh kah-sah-boht",
+      "meaning": "I don't understand",
+      "sample_sentence": {
+        "native": "Dili ko kasabot. Pwede nimo uliton?",
+        "translation": "I don't understand. Can you repeat that?"
+      },
+      "usage_note": "A polite way to ask for clarification. Pair with 'hinay-hinay lang' (slowly please) if needed.",
+      "sound_file": null,
+      "date_learned": "2026-07-11"
+    },
+    {
+      "id": "ilo_req_001",
+      "language": "Ilokano",
+      "category": "Requests",
+      "phrase": "tulunganak",
+      "pronunciation": "too-loo-ngah-nahk",
+      "meaning": "help me",
+      "sample_sentence": {
+        "native": "Tulunganak man please, nadaan ak.",
+        "translation": "Please help me, I am lost."
+      },
+      "usage_note": "A direct plea for help. Adding 'man' softens it slightly, making it more polite.",
+      "sound_file": null,
+      "date_learned": "2026-07-11"
+    },
+    {
+      "id": "ceb_req_001",
+      "language": "Cebuano",
+      "category": "Requests",
+      "phrase": "tabangi ko",
+      "pronunciation": "tah-bah-ngee koh",
+      "meaning": "help me",
+      "sample_sentence": {
+        "native": "Tabangi ko please, nawala ako.",
+        "translation": "Please help me, I am lost."
+      },
+      "usage_note": "A direct request for assistance. Adding 'please' keeps it friendly in casual conversation.",
+      "sound_file": null,
+      "date_learned": "2026-07-11"
+    }
+  ]
+}

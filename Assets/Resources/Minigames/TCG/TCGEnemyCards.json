@@ -1,0 +1,436 @@
+{
+  "cards": [
+    {
+      "id": "tcg_enemy_greetings_001_01",
+      "phraseId": "greetings_001",
+      "spriteName": "GoodMorning",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/GoodMorning",
+      "situationText": "You walk into your morning lecture and greet your teacher.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_001_02",
+      "phraseId": "greetings_001",
+      "spriteName": "GoodMorning2",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/GoodMorning2",
+      "situationText": "You greet all your neighbors at early morning.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_002_01",
+      "phraseId": "greetings_002",
+      "spriteName": "GoodAfternoon",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/GoodAfternoon",
+      "situationText": "You meet your friend at a park at 2:00 PM and you greet them.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_002_02",
+      "phraseId": "greetings_002",
+      "spriteName": "GoodAfternoon2",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/GoodAfternoon2",
+      "situationText": "You walk past your neighbor under the warm afternoon sun.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_003_01",
+      "phraseId": "greetings_003",
+      "spriteName": "goodEvening",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/goodEvening",
+      "situationText": "You attend an event in the evening and greet people.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_003_02",
+      "phraseId": "greetings_003",
+      "spriteName": "goodEvening2",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/goodEvening2",
+      "situationText": "You meet your friends at a night with a greeting.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_004_01",
+      "phraseId": "greetings_004",
+      "spriteName": "hello",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/hello",
+      "situationText": "You meet a new classmate who just joined your class today.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_004_02",
+      "phraseId": "greetings_004",
+      "spriteName": "hello2",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/hello2",
+      "situationText": "You give a wave to a group of friends.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_005_01",
+      "phraseId": "greetings_005",
+      "spriteName": "howAreYou",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/howAreYou",
+      "situationText": "You want to catch up with a friend you haven't seen in a while.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_005_02",
+      "phraseId": "greetings_005",
+      "spriteName": "howAreYou.png2",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/howAreYou.png2",
+      "situationText": "You start a conversation with someone who just recovered from being sick.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_006_01",
+      "phraseId": "greetings_006",
+      "spriteName": "ImFine",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/ImFine2",
+      "situationText": "A friend asks how are you.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_006_02",
+      "phraseId": "greetings_006",
+      "spriteName": "ImFine2",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/ImFine",
+      "situationText": "Someone asks if you're struggling but you can do it!",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_007_01",
+      "phraseId": "greetings_007",
+      "spriteName": "Goodbye",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/Goodbye",
+      "situationText": "You are leaving your friend's house after a visit.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_007_02",
+      "phraseId": "greetings_007",
+      "spriteName": "Goodbye2",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/Goodbye2",
+      "situationText": "You end a video call with someone.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_008_01",
+      "phraseId": "greetings_008",
+      "spriteName": "GoodDay",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/GoodDay",
+      "situationText": "You wish someone a good day.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_greetings_008_02",
+      "phraseId": "greetings_008",
+      "spriteName": "GoodDay2",
+      "spritePath": "Sprites/Mini Games/TCG/Greetings_Images/GoodDay2",
+      "situationText": "You greet someone at a daytime event.",
+      "category": "Greetings"
+    },
+    {
+      "id": "tcg_enemy_gratitude_009_01",
+      "phraseId": "gratitude_009",
+      "spriteName": "thankYou",
+      "spritePath": "Sprites/Mini Games/TCG/Gratitude_Images/thankYou",
+      "situationText": "Someone holds the door open for you.",
+      "category": "Gratitude"
+    },
+    {
+      "id": "tcg_enemy_gratitude_009_02",
+      "phraseId": "gratitude_009",
+      "spriteName": "thankYou2",
+      "spritePath": "Sprites/Mini Games/TCG/Gratitude_Images/thankYou2",
+      "situationText": "You thank someone for a small favor.",
+      "category": "Gratitude"
+    },
+    {
+      "id": "tcg_enemy_gratitude_010_01",
+      "phraseId": "gratitude_010",
+      "spriteName": "thankYouVeryMuch",
+      "spritePath": "Sprites/Mini Games/TCG/Gratitude_Images/thankYouVeryMuch",
+      "situationText": "A doctor successfully treats your injury.",
+      "category": "Gratitude"
+    },
+    {
+      "id": "tcg_enemy_gratitude_010_02",
+      "phraseId": "gratitude_010",
+      "spriteName": "ThankYouVeryMuch2",
+      "spritePath": "Sprites/Mini Games/TCG/Gratitude_Images/ThankYouVeryMuch2",
+      "situationText": "A stranger returns your lost wallet that has very important things.",
+      "category": "Gratitude"
+    },
+    {
+      "id": "tcg_enemy_gratitude_011_01",
+      "phraseId": "gratitude_011",
+      "spriteName": "ThankYouForYourHelp",
+      "spritePath": "Sprites/Mini Games/TCG/Gratitude_Images/ThankYouForYourHelp",
+      "situationText": "Someone help fix your broken computer.",
+      "category": "Gratitude"
+    },
+    {
+      "id": "tcg_enemy_gratitude_011_02",
+      "phraseId": "gratitude_011",
+      "spriteName": "ThankYouForYourHelp2",
+      "spritePath": "Sprites/Mini Games/TCG/Gratitude_Images/ThankYouForYourHelp2",
+      "situationText": "A classmate explains a difficult topic.",
+      "category": "Gratitude"
+    },
+    {
+      "id": "tcg_enemy_gratitude_012_01",
+      "phraseId": "gratitude_012",
+      "spriteName": "iAmSorry",
+      "spritePath": "Sprites/Mini Games/TCG/Gratitude_Images/iAmSorry",
+      "situationText": "You bump into someone on a crowded store.",
+      "category": "Gratitude"
+    },
+    {
+      "id": "tcg_enemy_gratitude_012_02",
+      "phraseId": "gratitude_012",
+      "spriteName": "iAmSorry2",
+      "spritePath": "Sprites/Mini Games/TCG/Gratitude_Images/iAmSorry2",
+      "situationText": "You spill a friend's cup of coffee.",
+      "category": "Gratitude"
+    },
+    {
+      "id": "tcg_enemy_gratitude_013_01",
+      "phraseId": "gratitude_013",
+      "spriteName": "ExcuseMe",
+      "spritePath": "Sprites/Mini Games/TCG/Gratitude_Images/ExcuseMe",
+      "situationText": "You want to get a someone's attention.",
+      "category": "Gratitude"
+    },
+    {
+      "id": "tcg_enemy_gratitude_013_02",
+      "phraseId": "gratitude_013",
+      "spriteName": "ExcuseMe2",
+      "spritePath": "Sprites/Mini Games/TCG/Gratitude_Images/ExcuseMe2",
+      "situationText": "You reach past someone for a store item.",
+      "category": "Gratitude"
+    },
+    {
+      "id": "tcg_enemy_responses_014_01",
+      "phraseId": "responses_014",
+      "spriteName": "Yes",
+      "spritePath": "Sprites/Mini Games/TCG/Responses_Images/Yes",
+      "situationText": "You agree to join someone for lunch.",
+      "category": "Responses"
+    },
+    {
+      "id": "tcg_enemy_responses_014_02",
+      "phraseId": "responses_014",
+      "spriteName": "Yes2",
+      "spritePath": "Sprites/Mini Games/TCG/Responses_Images/Yes2",
+      "situationText": "You confirm you are a member of a team.",
+      "category": "Responses"
+    },
+    {
+      "id": "tcg_enemy_responses_015_01",
+      "phraseId": "responses_015",
+      "spriteName": "No",
+      "spritePath": "Sprites/Mini Games/TCG/Responses_Images/No",
+      "situationText": "You decline dessert after a meal.",
+      "category": "Responses"
+    },
+    {
+      "id": "tcg_enemy_responses_015_02",
+      "phraseId": "responses_015",
+      "spriteName": "No2",
+      "spritePath": "Sprites/Mini Games/TCG/Responses_Images/No2",
+      "situationText": "You're still drawing something and someone asks if you are done.",
+      "category": "Responses"
+    },
+    {
+      "id": "tcg_enemy_responses_016_01",
+      "phraseId": "responses_016",
+      "spriteName": "Okay2",
+      "spritePath": "Sprites/Mini Games/TCG/Responses_Images/Okay",
+      "situationText": "Your friend asks you to wait.",
+      "category": "Responses"
+    },
+    {
+      "id": "tcg_enemy_responses_016_02",
+      "phraseId": "responses_016",
+      "spriteName": "Okay",
+      "spritePath": "Sprites/Mini Games/TCG/Responses_Images/Okay2",
+      "situationText": "Your friend suggests eating lunch together.",
+      "category": "Responses"
+    },
+    {
+      "id": "tcg_enemy_responses_017_01",
+      "phraseId": "responses_017",
+      "spriteName": "iUnderstand",
+      "spritePath": "Sprites/Mini Games/TCG/Responses_Images/iUnderstand",
+      "situationText": "The teacher explains the game rules and you understood.",
+      "category": "Responses"
+    },
+    {
+      "id": "tcg_enemy_responses_017_02",
+      "phraseId": "responses_017",
+      "spriteName": "iUnderstand2",
+      "spritePath": "Sprites/Mini Games/TCG/Responses_Images/iUnderstand2",
+      "situationText": "Someone explains why it's important to be careful crossing roads.",
+      "category": "Responses"
+    },
+    {
+      "id": "tcg_enemy_responses_018_01",
+      "phraseId": "responses_018",
+      "spriteName": "iDontUnderstand",
+      "spritePath": "Sprites/Mini Games/TCG/Responses_Images/iDontUnderstand",
+      "situationText": "You read an instruction you cannot understand.",
+      "category": "Responses"
+    },
+    {
+      "id": "tcg_enemy_responses_018_02",
+      "phraseId": "responses_018",
+      "spriteName": "iDontUnderstand2",
+      "spritePath": "Sprites/Mini Games/TCG/Responses_Images/iDontUnderstand2",
+      "situationText": "Someone speaks a language you do not know.",
+      "category": "Responses"
+    },
+    {
+      "id": "tcg_enemy_identity_019_01",
+      "phraseId": "identity_019",
+      "spriteName": "whatisYourName",
+      "spritePath": "Sprites/Mini Games/TCG/Identity_Images/whatisYourName",
+      "situationText": "You ask the name of a new kid at the park.",
+      "category": "Identity"
+    },
+    {
+      "id": "tcg_enemy_identity_019_02",
+      "phraseId": "identity_019",
+      "spriteName": "whatisYourName2",
+      "spritePath": "Sprites/Mini Games/TCG/Identity_Images/whatisYourName2",
+      "situationText": "You meet someone for the first time.",
+      "category": "Identity"
+    },
+    {
+      "id": "tcg_enemy_identity_020_01",
+      "phraseId": "identity_020",
+      "spriteName": "myNameIs",
+      "spritePath": "Sprites/Mini Games/TCG/Identity_Images/myNameIs",
+      "situationText": "You introduce yourself in front of class.",
+      "category": "Identity"
+    },
+    {
+      "id": "tcg_enemy_identity_020_02",
+      "phraseId": "identity_020",
+      "spriteName": "myNameIs2",
+      "spritePath": "Sprites/Mini Games/TCG/Identity_Images/myNameIs2",
+      "situationText": "You tell a new friend your name.",
+      "category": "Identity"
+    },
+    {
+      "id": "tcg_enemy_identity_021_01",
+      "phraseId": "identity_021",
+      "spriteName": "whereAreYouFrom",
+      "spritePath": "Sprites/Mini Games/TCG/Identity_Images/whereAreYouFrom",
+      "situationText": "You ask your new friend where they live.",
+      "category": "Identity"
+    },
+    {
+      "id": "tcg_enemy_identity_021_02",
+      "phraseId": "identity_021",
+      "spriteName": "whereAreYouFrom2",
+      "spritePath": "Sprites/Mini Games/TCG/Identity_Images/whereAreYouFrom2",
+      "situationText": "You see a new neighbor just moved in and want to know where they moved from.",
+      "category": "Identity"
+    },
+    {
+      "id": "tcg_enemy_identity_022_01",
+      "phraseId": "identity_022",
+      "spriteName": "iAmFrom",
+      "spritePath": "Sprites/Mini Games/TCG/Identity_Images/iAmFrom",
+      "situationText": "A classmate asks where you're from.",
+      "category": "Identity"
+    },
+    {
+      "id": "tcg_enemy_identity_022_02",
+      "phraseId": "identity_022",
+      "spriteName": "iAmFrom2",
+      "spritePath": "Sprites/Mini Games/TCG/Identity_Images/iAmFrom2",
+      "situationText": "Someone at a festival asks where you traveled from.",
+      "category": "Identity"
+    },
+    {
+      "id": "tcg_enemy_requests_023_01",
+      "phraseId": "requests_023",
+      "spriteName": "HelpMe2",
+      "spritePath": "Sprites/Mini Games/TCG/Request_Images/HelpMe2",
+      "situationText": "You are carrying a tall stack of books that is about to wobble and fall.",
+      "category": "Requests"
+    },
+    {
+      "id": "tcg_enemy_requests_023_02",
+      "phraseId": "requests_023",
+      "spriteName": "HelpMe",
+      "spritePath": "Sprites/Mini Games/TCG/Request_Images/HelpMe",
+      "situationText": "You need help carrying a heavy box immediately!",
+      "category": "Requests"
+    },
+    {
+      "id": "tcg_enemy_requests_024_01",
+      "phraseId": "requests_024",
+      "spriteName": "CanYouHelpMe",
+      "spritePath": "Sprites/Mini Games/TCG/Request_Images/CanYouHelpMe",
+      "situationText": "You are trying to fix a bicycle, but it is hard to do it by yourself.",
+      "category": "Requests"
+    },
+    {
+      "id": "tcg_enemy_requests_024_02",
+      "phraseId": "requests_024",
+      "spriteName": "CanYouHelpMe2",
+      "spritePath": "Sprites/Mini Games/TCG/Request_Images/CanYouHelpMe2",
+      "situationText": "You cannot solve a math homework problem and want a classmate's help.",
+      "category": "Requests"
+    },
+    {
+      "id": "tcg_enemy_requests_025_01",
+      "phraseId": "requests_025",
+      "spriteName": "PleaseWait",
+      "spritePath": "Sprites/Mini Games/TCG/Request_Images/PleaseWait",
+      "situationText": "The shopkeeper is about to leave but you still need to ask something.",
+      "category": "Requests"
+    },
+    {
+      "id": "tcg_enemy_requests_025_02",
+      "phraseId": "requests_025",
+      "spriteName": "PleaseWait2",
+      "spritePath": "Sprites/Mini Games/TCG/Request_Images/PleaseWait2",
+      "situationText": "Everyone is ready to leave but you forgot your wallet.",
+      "category": "Requests"
+    },
+    {
+      "id": "tcg_enemy_requests_026_01",
+      "phraseId": "requests_026",
+      "spriteName": "GiveMeItem",
+      "spritePath": "Sprites/Mini Games/TCG/Request_Images/GiveMeItem",
+      "situationText": "You need to get your phone but someone else is closer to it.",
+      "category": "Requests"
+    },
+    {
+      "id": "tcg_enemy_requests_026_02",
+      "phraseId": "requests_026",
+      "spriteName": "GiveMeItem2",
+      "spritePath": "Sprites/Mini Games/TCG/Request_Images/GiveMeItem2",
+      "situationText": "You want the salt shaker passed to you from across the dinner table.",
+      "category": "Requests"
+    },
+    {
+      "id": "tcg_enemy_requests_027_01",
+      "phraseId": "requests_027",
+      "spriteName": "CanIAsk",
+      "spritePath": "Sprites/Mini Games/TCG/Request_Images/CanIAsk",
+      "situationText": "You want to ask where the restroom is.",
+      "category": "Requests"
+    },
+    {
+      "id": "tcg_enemy_requests_027_02",
+      "phraseId": "requests_027",
+      "spriteName": "CanIAsk2",
+      "spritePath": "Sprites/Mini Games/TCG/Request_Images/CanIAsk2",
+      "situationText": "You want to politely interrupt a coworker to ask a quick question.",
+      "category": "Requests"
+    }
+  ]
+}

@@ -21,7 +21,7 @@ MonoBehaviour:
   endEventName: 
   choices:
   - choiceText: Yes
-    nextNode: {fileID: 11400000, guid: 36b6ba2528f05a441bc17a8a15a69802, type: 2}
+    nextNode: {fileID: 11400000, guid: 89e4805553200744692d8c98dd8303cf, type: 2}
     isWrong: 0
     choiceEvent: StartMinigame_Requests
     expectedSTTWord: 

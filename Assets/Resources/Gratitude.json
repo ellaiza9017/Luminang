@@ -1,0 +1,212 @@
+[
+  {
+    "situationText": "Someone handed you a pencil that you dropped. Express normal gratitude.",
+    "correctPhraseId": "gratitude_009",
+    "distractors": [
+      {
+        "phraseId": "gratitude_010",
+        "feedback": "Hmm, they just handed you a pencil! 'Thank you very much' is a bit too extreme for this small act."
+      },
+      {
+        "phraseId": "gratitude_012",
+        "feedback": "You didn't do anything wrong, so you don't need to apologize!"
+      }
+    ]
+  },
+  {
+    "situationText": "Your neighbor spent 5 hours helping you fix your broken roof. Express extreme gratitude!",
+    "correctPhraseId": "gratitude_010",
+    "distractors": [
+      {
+        "phraseId": "gratitude_009",
+        "feedback": "Hmm... they spent 5 hours helping you! A simple 'Thank you' isn't enough. Try expressing extreme gratitude!"
+      },
+      {
+        "phraseId": "greetings_004",
+        "feedback": "We are trying to thank them, not say hello!"
+      }
+    ]
+  },
+  {
+    "situationText": "You are trying to pass through a crowded market and someone is blocking your way. What do you say?",
+    "correctPhraseId": "gratitude_013",
+    "distractors": [
+      {
+        "phraseId": "gratitude_012",
+        "feedback": "You are just trying to pass, you didn't bump into them yet! Try asking them politely to move."
+      },
+      {
+        "phraseId": "greetings_001",
+        "feedback": "Saying 'Good morning' is nice, but it won't tell them you need to pass through!"
+      }
+    ]
+  },
+  {
+    "situationText": "A kind stranger helped you carry your heavy bags all the way to the bus station. Thank them specifically for their help!",
+    "correctPhraseId": "gratitude_011",
+    "distractors": [
+      {
+        "phraseId": "gratitude_009",
+        "feedback": "That's close! But they helped you with a specific task, so you should thank them specifically for their help."
+      },
+      {
+        "phraseId": "gratitude_013",
+        "feedback": "You only say 'Excuse me' if you need to pass by or get their attention. They just helped you!"
+      }
+    ]
+  },
+  {
+    "situationText": "You accidentally stepped on your friend's foot! You should apologize.",
+    "correctPhraseId": "gratitude_012",
+    "distractors": [
+      {
+        "phraseId": "gratitude_013",
+        "feedback": "Hmm, 'Excuse me' is for when you want to pass by. You actually hurt them, so you need to say you are sorry!"
+      },
+      {
+        "phraseId": "gratitude_009",
+        "feedback": "You stepped on them! Why would you thank them? You should apologize instead."
+      }
+    ]
+  },
+  {
+    "situationText": "The vendor gave you your change after you bought some candy. Express normal gratitude.",
+    "correctPhraseId": "gratitude_009",
+    "distractors": [
+      {
+        "phraseId": "gratitude_010",
+        "feedback": "They only gave you your change, which is normal! Extreme gratitude is a bit too much here."
+      },
+      {
+        "phraseId": "greetings_007",
+        "feedback": "You should thank them for the change before saying goodbye!"
+      }
+    ]
+  },
+  {
+    "situationText": "Your teacher gave you a very beautiful and expensive book as an award. Express extreme gratitude!",
+    "correctPhraseId": "gratitude_010",
+    "distractors": [
+      {
+        "phraseId": "gratitude_009",
+        "feedback": "That's a very big award! A simple 'Thank you' isn't enough. Express extreme gratitude!"
+      },
+      {
+        "phraseId": "gratitude_011",
+        "feedback": "They didn't really 'help' you with a task, they gave you a grand gift! Use extreme gratitude."
+      }
+    ]
+  },
+  {
+    "situationText": "You need to ask the busy vendor a question, but they are looking away. Get their attention politely.",
+    "correctPhraseId": "gratitude_013",
+    "distractors": [
+      {
+        "phraseId": "gratitude_012",
+        "feedback": "You don't need to apologize to them, you just need to get their attention politely!"
+      },
+      {
+        "phraseId": "greetings_004",
+        "feedback": "'Hello' works, but the more polite and proper way to interrupt a busy stranger is 'Excuse me'."
+      }
+    ]
+  },
+  {
+    "situationText": "Your classmate helped you solve a very hard math problem. Thank them specifically for their help!",
+    "correctPhraseId": "gratitude_011",
+    "distractors": [
+      {
+        "phraseId": "gratitude_009",
+        "feedback": "That is correct, but since they assisted you with a task, thanking them specifically for the 'help' is much better!"
+      },
+      {
+        "phraseId": "gratitude_010",
+        "feedback": "You could say 'Thank you very much', but there is a phrase specifically for thanking someone for their 'help'."
+      }
+    ]
+  },
+  {
+    "situationText": "You accidentally knocked over your Lola's glass of water. You should apologize!",
+    "correctPhraseId": "gratitude_012",
+    "distractors": [
+      {
+        "phraseId": "gratitude_013",
+        "feedback": "Saying 'Excuse me' isn't enough when you break or spill something. You must say sorry!"
+      },
+      {
+        "phraseId": "gratitude_009",
+        "feedback": "You spilled her water! You definitely shouldn't say thank you."
+      }
+    ]
+  },
+  {
+    "situationText": "[MEMORY] You wake up and see the sun shining. Greet your family for the start of the day!",
+    "correctPhraseId": "greetings_001",
+    "distractors": [
+      {
+        "phraseId": "greetings_003",
+        "feedback": "Look at the sun! It's the start of the day, not the night."
+      },
+      {
+        "phraseId": "gratitude_009",
+        "feedback": "You just woke up, you should greet them first before saying thank you!"
+      }
+    ]
+  },
+  {
+    "situationText": "[MEMORY] You meet a new friend and want to ask about their well-being. What do you say?",
+    "correctPhraseId": "greetings_005",
+    "distractors": [
+      {
+        "phraseId": "greetings_006",
+        "feedback": "That's what you say if YOU are doing well! You need to ask THEM how they are doing."
+      },
+      {
+        "phraseId": "greetings_007",
+        "feedback": "You just met them! It's too early to say goodbye."
+      }
+    ]
+  },
+  {
+    "situationText": "[MEMORY] Your friend asks 'How are you?'. You are feeling great. How do you respond?",
+    "correctPhraseId": "greetings_006",
+    "distractors": [
+      {
+        "phraseId": "greetings_005",
+        "feedback": "They already asked you that! Now you need to answer them."
+      },
+      {
+        "phraseId": "gratitude_009",
+        "feedback": "You can thank them for asking later, but first tell them how you feel!"
+      }
+    ]
+  },
+  {
+    "situationText": "[MEMORY] It is 7:00 PM and the moon is out. Greet your neighbor!",
+    "correctPhraseId": "greetings_003",
+    "distractors": [
+      {
+        "phraseId": "greetings_002",
+        "feedback": "It's 7:00 PM, the sun has gone down! It is no longer the afternoon."
+      },
+      {
+        "phraseId": "greetings_001",
+        "feedback": "It's nighttime, not morning!"
+      }
+    ]
+  },
+  {
+    "situationText": "[MEMORY] The school bell rings and it is time to go home. What do you say to your teacher?",
+    "correctPhraseId": "greetings_007",
+    "distractors": [
+      {
+        "phraseId": "greetings_004",
+        "feedback": "You are leaving, not arriving! Say goodbye."
+      },
+      {
+        "phraseId": "gratitude_013",
+        "feedback": "You aren't trying to pass by them, you are leaving for the day."
+      }
+    ]
+  }
+]

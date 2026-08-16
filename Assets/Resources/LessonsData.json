@@ -1,0 +1,414 @@
+{
+  "languages": [
+    {
+      "languageName": "Ilokano",
+      "languageKey": "ilokano",
+      "chapters": [
+        {
+          "chapterIndex": 1,
+          "chapterTitle": "Conversational & Social",
+          "lessons": [
+            {
+              "levelNumber": 1,
+              "categoryKey": "Greetings",
+              "lessonTitle": "Greetings",
+              "description": "Learn essential daily greetings like 'good morning', 'good afternoon', and 'how are you?' to communicate naturally with the locals.",
+              "learnings": [
+                "Say hello and goodbye in Ilokano",
+                "Use time-based greetings (morning, afternoon, evening)",
+                "Ask how someone is doing and respond naturally",
+                "Recognize common greeting phrases used in daily life"
+              ],
+              "rewards": { "coins": 50, "xp": 100 }
+            },
+            {
+              "levelNumber": 2,
+              "categoryKey": "Gratitude",
+              "lessonTitle": "Expressions of Gratitude",
+              "description": "Learn polite expressions such as 'thank you', 'excuse me', and 'I am sorry' to show respect and build goodwill.",
+              "learnings": [
+                "Say thank you and thank you very much in Ilokano",
+                "Express sincere apologies when needed",
+                "Use polite filler words like excuse me",
+                "Respond gracefully when someone thanks you"
+              ],
+              "rewards": { "coins": 50, "xp": 100 }
+            },
+            {
+              "levelNumber": 3,
+              "categoryKey": "Responses",
+              "lessonTitle": "Responses (Yes / No / Maybe)",
+              "description": "Master essential response words like 'yes', 'no', 'okay', and 'I understand' to quickly reply during conversations.",
+              "learnings": [
+                "Say yes, no, and okay in Ilokano",
+                "Express understanding or lack of understanding",
+                "Respond to simple questions with confidence",
+                "Distinguish between agreement and disagreement in context"
+              ],
+              "rewards": { "coins": 50, "xp": 100 }
+            },
+            {
+              "levelNumber": 4,
+              "categoryKey": "Identity",
+              "lessonTitle": "Identity Expressions",
+              "description": "Learn to introduce yourself by sharing your name, asking for others' names, and stating where you are from.",
+              "learnings": [
+                "State your name and ask for someone else's name",
+                "Say where you are from",
+                "Ask and answer questions about personal identity",
+                "Form simple introductory sentences in Ilokano"
+              ],
+              "rewards": { "coins": 60, "xp": 120 }
+            }
+          ]
+        },
+        {
+          "chapterIndex": 2,
+          "chapterTitle": "Functional & Navigational",
+          "lessons": [
+            {
+              "levelNumber": 5,
+              "categoryKey": "Requests",
+              "lessonTitle": "Requests",
+              "description": "Learn practical phrases to ask for help, request items, and ask others to wait or give you something.",
+              "learnings": [
+                "Ask for help in polite and direct ways",
+                "Make requests using can you constructions",
+                "Ask someone to wait or pause",
+                "Request objects or items from another person"
+              ],
+              "rewards": { "coins": 65, "xp": 130 }
+            },
+            {
+              "levelNumber": 6,
+              "categoryKey": "Directions",
+              "lessonTitle": "Directions",
+              "description": "Navigate your surroundings by learning directional commands like 'turn left', 'go straight', 'stop here', and 'come here'.",
+              "learnings": [
+                "Give and follow directions (left, right, straight)",
+                "Use movement commands (go, come, follow, stop)",
+                "Indicate specific locations (here, there)",
+                "Guide someone step by step to a destination"
+              ],
+              "rewards": { "coins": 65, "xp": 130 }
+            },
+            {
+              "levelNumber": 7,
+              "categoryKey": "Count",
+              "lessonTitle": "Count",
+              "description": "Learn to count from one to ten, enabling you to buy goods, tell time, and understand quantities.",
+              "learnings": [
+                "Count from one to ten in Ilokano",
+                "Recognize number words when spoken",
+                "Use numbers to describe quantities",
+                "Apply counting in everyday market and trade scenarios"
+              ],
+              "rewards": { "coins": 65, "xp": 130 }
+            }
+          ]
+        },
+        {
+          "chapterIndex": 3,
+          "chapterTitle": "Grammatical Foundations",
+          "lessons": [
+            {
+              "levelNumber": 8,
+              "categoryKey": "Action Verbs",
+              "lessonTitle": "Action Verbs",
+              "description": "Learn common physical action verbs like 'eat', 'drink', 'sleep', 'go', and 'come' to describe everyday activities.",
+              "learnings": [
+                "Understand action words used in daily activities",
+                "Use verbs like eat, drink, go, come, and sleep",
+                "Apply action verbs in simple spoken sentences",
+                "Recognize action verbs when heard in conversation"
+              ],
+              "rewards": { "coins": 75, "xp": 150 }
+            },
+            {
+              "levelNumber": 9,
+              "categoryKey": "Linking Verbs",
+              "lessonTitle": "Linking Verbs",
+              "description": "Learn words that connect subjects to descriptions, such as 'am', 'is', 'become', and 'feel'.",
+              "learnings": [
+                "Use to be equivalents in Ilokano (am, is, are)",
+                "Express states and conditions using linking verbs",
+                "Describe feelings and appearances with linking verbs",
+                "Distinguish action verbs from linking verbs in context"
+              ],
+              "rewards": { "coins": 75, "xp": 150 }
+            },
+            {
+              "levelNumber": 10,
+              "categoryKey": "Pronouns",
+              "lessonTitle": "Pronouns",
+              "description": "Learn personal pronouns like 'I', 'you', 'he/she', 'we', and 'they' to talk about yourself and others naturally.",
+              "learnings": [
+                "Use first, second, and third person pronouns",
+                "Refer to yourself and others correctly in Ilokano",
+                "Use plural pronouns like we, they, us, and them",
+                "Substitute proper nouns with the right pronoun in a sentence"
+              ],
+              "rewards": { "coins": 75, "xp": 150 }
+            },
+            {
+              "levelNumber": 11,
+              "categoryKey": "Interrogatives",
+              "lessonTitle": "Interrogatives",
+              "description": "Learn essential question words like 'what', 'who', 'where', 'when', 'why', and 'how' to gather information.",
+              "learnings": [
+                "Use the seven question words: what, who, where, when, why, how, how many",
+                "Form simple questions in Ilokano",
+                "Identify what type of answer a question is asking for",
+                "Combine interrogatives with other vocabulary to ask more complex questions"
+              ],
+              "rewards": { "coins": 80, "xp": 160 }
+            }
+          ]
+        },
+        {
+          "chapterIndex": 4,
+          "chapterTitle": "Sentence Building",
+          "lessons": [
+            {
+              "levelNumber": 12,
+              "categoryKey": "Sentence Building",
+              "lessonTitle": "Sentence Building",
+              "description": "Combine pronouns, action verbs, and linking verbs to construct basic statements and simple questions.",
+              "learnings": [
+                "Combine subject, verb, and object into a full sentence",
+                "Use pronouns, action verbs, and linking verbs together",
+                "Build statements and simple questions",
+                "Understand basic Ilokano sentence structure and word order"
+              ],
+              "rewards": { "coins": 90, "xp": 180 }
+            }
+          ]
+        },
+        {
+          "chapterIndex": 5,
+          "chapterTitle": "Final Assessment",
+          "lessons": [
+            {
+              "levelNumber": 13,
+              "categoryKey": "Final Assessment",
+              "lessonTitle": "Final Assessment Test",
+              "description": "Test your knowledge of greetings, grammar, directions, and sentence building in this comprehensive final review.",
+              "learnings": [
+                "Recall and apply vocabulary from all previous lessons",
+                "Demonstrate correct use of grammar and sentence structure",
+                "Respond accurately under timed assessment conditions",
+                "Earn your Ilokano Completion Badge upon passing"
+              ],
+              "rewards": { "coins": 150, "xp": 300 }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "languageName": "Cebuano",
+      "languageKey": "cebuano",
+      "chapters": [
+        {
+          "chapterIndex": 1,
+          "chapterTitle": "Conversational & Social",
+          "lessons": [
+            {
+              "levelNumber": 1,
+              "categoryKey": "Greetings",
+              "lessonTitle": "Greetings",
+              "description": "Learn essential daily greetings like 'good morning', 'good afternoon', and 'how are you?' to communicate naturally with the locals.",
+              "learnings": [
+                "Say hello and goodbye in Cebuano",
+                "Use time-based greetings (morning, afternoon, evening)",
+                "Ask how someone is doing and respond naturally",
+                "Recognize common greeting phrases used in Visayan daily life"
+              ],
+              "rewards": { "coins": 50, "xp": 100 }
+            },
+            {
+              "levelNumber": 2,
+              "categoryKey": "Gratitude",
+              "lessonTitle": "Expressions of Gratitude",
+              "description": "Learn polite expressions such as 'thank you', 'excuse me', and 'I am sorry' to show respect and build goodwill.",
+              "learnings": [
+                "Say thank you and thank you very much in Cebuano",
+                "Apologize sincerely using local expressions",
+                "Use polite phrases like excuse me in the right context",
+                "Respond when someone expresses thanks to you"
+              ],
+              "rewards": { "coins": 50, "xp": 100 }
+            },
+            {
+              "levelNumber": 3,
+              "categoryKey": "Responses",
+              "lessonTitle": "Responses (Yes / No / Maybe)",
+              "description": "Master essential response words like 'yes', 'no', 'okay', and 'I understand' to quickly reply during conversations.",
+              "learnings": [
+                "Say yes, no, and okay in Cebuano",
+                "Express understanding or lack of understanding",
+                "Respond to simple questions with confidence",
+                "Distinguish between agreement and disagreement in context"
+              ],
+              "rewards": { "coins": 50, "xp": 100 }
+            },
+            {
+              "levelNumber": 4,
+              "categoryKey": "Identity",
+              "lessonTitle": "Identity Expressions",
+              "description": "Learn to introduce yourself by sharing your name, asking for others' names, and stating where you are from.",
+              "learnings": [
+                "State your name and ask for someone else's name in Cebuano",
+                "Say where you are from",
+                "Ask and answer questions about personal identity",
+                "Form simple introductory sentences in Cebuano"
+              ],
+              "rewards": { "coins": 60, "xp": 120 }
+            }
+          ]
+        },
+        {
+          "chapterIndex": 2,
+          "chapterTitle": "Functional & Navigational",
+          "lessons": [
+            {
+              "levelNumber": 5,
+              "categoryKey": "Requests",
+              "lessonTitle": "Requests",
+              "description": "Learn practical phrases to ask for help, request items, and ask others to wait or give you something.",
+              "learnings": [
+                "Ask for help in polite and direct ways",
+                "Make requests using can you constructions",
+                "Ask someone to wait or pause",
+                "Request objects or items from another person"
+              ],
+              "rewards": { "coins": 65, "xp": 130 }
+            },
+            {
+              "levelNumber": 6,
+              "categoryKey": "Directions",
+              "lessonTitle": "Directions",
+              "description": "Navigate your surroundings by learning directional commands like 'turn left', 'go straight', 'stop here', and 'come here'.",
+              "learnings": [
+                "Give and follow directions (left, right, straight) in Cebuano",
+                "Use movement commands (go, come, follow, stop)",
+                "Indicate specific locations (here, there)",
+                "Guide someone step by step to a destination"
+              ],
+              "rewards": { "coins": 65, "xp": 130 }
+            },
+            {
+              "levelNumber": 7,
+              "categoryKey": "Count",
+              "lessonTitle": "Count",
+              "description": "Learn to count from one to ten, enabling you to buy goods, tell time, and understand quantities.",
+              "learnings": [
+                "Count from one to ten in Cebuano",
+                "Recognize number words when spoken",
+                "Use numbers to describe quantities",
+                "Apply counting in everyday market and trade scenarios"
+              ],
+              "rewards": { "coins": 65, "xp": 130 }
+            }
+          ]
+        },
+        {
+          "chapterIndex": 3,
+          "chapterTitle": "Grammatical Foundations",
+          "lessons": [
+            {
+              "levelNumber": 8,
+              "categoryKey": "Action Verbs",
+              "lessonTitle": "Action Verbs",
+              "description": "Learn common physical action verbs like 'eat', 'drink', 'sleep', 'go', and 'come' to describe everyday activities.",
+              "learnings": [
+                "Understand action words used in daily activities",
+                "Use verbs like eat, drink, go, come, and sleep in Cebuano",
+                "Apply action verbs in simple spoken sentences",
+                "Recognize action verbs when heard in conversation"
+              ],
+              "rewards": { "coins": 75, "xp": 150 }
+            },
+            {
+              "levelNumber": 9,
+              "categoryKey": "Linking Verbs",
+              "lessonTitle": "Linking Verbs",
+              "description": "Learn words that connect subjects to descriptions, such as 'am', 'is', 'become', and 'feel'.",
+              "learnings": [
+                "Use to be equivalents in Cebuano (am, is, are)",
+                "Express states and conditions using linking verbs",
+                "Describe feelings and appearances with linking verbs",
+                "Distinguish action verbs from linking verbs in context"
+              ],
+              "rewards": { "coins": 75, "xp": 150 }
+            },
+            {
+              "levelNumber": 10,
+              "categoryKey": "Pronouns",
+              "lessonTitle": "Pronouns",
+              "description": "Learn personal pronouns like 'I', 'you', 'he/she', 'we', and 'they' to talk about yourself and others naturally.",
+              "learnings": [
+                "Use first, second, and third person pronouns in Cebuano",
+                "Refer to yourself and others correctly",
+                "Use plural pronouns like we, they, us, and them",
+                "Substitute proper nouns with the right pronoun in a sentence"
+              ],
+              "rewards": { "coins": 75, "xp": 150 }
+            },
+            {
+              "levelNumber": 11,
+              "categoryKey": "Interrogatives",
+              "lessonTitle": "Interrogatives",
+              "description": "Learn essential question words like 'what', 'who', 'where', 'when', 'why', and 'how' to gather information.",
+              "learnings": [
+                "Use the seven question words: what, who, where, when, why, how, how many",
+                "Form simple questions in Cebuano",
+                "Identify what type of answer a question is asking for",
+                "Combine interrogatives with other vocabulary to ask more complex questions"
+              ],
+              "rewards": { "coins": 80, "xp": 160 }
+            }
+          ]
+        },
+        {
+          "chapterIndex": 4,
+          "chapterTitle": "Sentence Building",
+          "lessons": [
+            {
+              "levelNumber": 12,
+              "categoryKey": "Sentence Building",
+              "lessonTitle": "Sentence Building",
+              "description": "Combine pronouns, action verbs, and linking verbs to construct basic statements and simple questions.",
+              "learnings": [
+                "Combine subject, verb, and object into a full sentence",
+                "Use pronouns, action verbs, and linking verbs together",
+                "Build statements and simple questions in Cebuano",
+                "Understand basic Cebuano sentence structure and word order"
+              ],
+              "rewards": { "coins": 90, "xp": 180 }
+            }
+          ]
+        },
+        {
+          "chapterIndex": 5,
+          "chapterTitle": "Final Assessment",
+          "lessons": [
+            {
+              "levelNumber": 13,
+              "categoryKey": "Final Assessment",
+              "lessonTitle": "Final Assessment Test",
+              "description": "Test your knowledge of greetings, grammar, directions, and sentence building in this comprehensive final review.",
+              "learnings": [
+                "Recall and apply vocabulary from all previous lessons",
+                "Demonstrate correct use of grammar and sentence structure",
+                "Respond accurately under timed assessment conditions",
+                "Earn your Cebuano Completion Badge upon passing"
+              ],
+              "rewards": { "coins": 150, "xp": 300 }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

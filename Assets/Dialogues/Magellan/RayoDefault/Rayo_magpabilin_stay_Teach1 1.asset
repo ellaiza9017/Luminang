@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Rayo_magpabilin_stay_Teach1 1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Rayo
+  speakerPortrait: {fileID: 0}
+  dialogueText: "For example: 'Magpabilin sa makadiyot.' \nThat means: 'Stay for
+    a little while.'"
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: edcf2a63a00c69240bad0a8a4cf05107, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Jen_when_Teach1 2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Jen
+  speakerPortrait: {fileID: 0}
+  dialogueText: You can use it whenever you want to know when something will happen,
+    when it happened, or when an event is going to begin.
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: bff504f585d6cab45b552f37d3da0ec9, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 
