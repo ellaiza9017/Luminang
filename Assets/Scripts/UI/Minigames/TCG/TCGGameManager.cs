@@ -111,11 +111,36 @@ namespace Luminang.UI.Minigames
         private Vector2 playerPlayedSlotOriginalAnchoredPos;
         private Vector3 playerPlayedSlotOriginalScale;
 
+        [Header("Debug & Cheats")]
+        [Tooltip("(Editor only) Start from this round number (1 = first round)")]
+        public int startingRound = 1;
+        [Tooltip("(Editor only) Override how many cards you have left to start. Max 99.")]
+        public int startingCardsLeft = 25;
+
         private void Awake()
         {
-            if (Instance == null) Instance = this;
-            else Destroy(gameObject);
+            Instance = this;
         }
+
+        private void OnDestroy()
+        {
+            if (Instance == this) Instance = null;
+        }
+
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            if (Application.isPlaying && hasGameStarted)
+            {
+                cardsLeft = startingCardsLeft;
+                if (roundPool != null && roundPool.Count > 0)
+                {
+                    currentRoundIndex = Mathf.Clamp(startingRound - 1, 0, roundPool.Count - 1);
+                }
+                UpdateHUD();
+            }
+        }
+#endif
 
         private IEnumerator Start()
         {
@@ -292,8 +317,19 @@ namespace Luminang.UI.Minigames
             #endif
 
             #if ENABLE_LEGACY_INPUT_MANAGER
-            if (Input.GetKeyDown(KeyCode.Q)) DebugWinGame();
-            if (Input.GetKeyDown(KeyCode.E)) DebugLoseGame();
+            if (Input.GetKeyDown(KeyCode.Q)) DebugWinGame(); // Existing cheat
+            if (Input.GetKeyDown(KeyCode.E)) DebugLoseGame(); // Existing cheat
+
+            // Custom user requested cheats:
+            if (Input.GetKeyDown(KeyCode.W)) DebugWinGame();
+            if (Input.GetKeyDown(KeyCode.L)) DebugLoseGame();
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                Debug.Log("<color=yellow>[Cheat]</color> P pressed - Pass Round!");
+                isInteractionLocked = true;
+                if (audioSource != null && correctSFX != null) audioSource.PlayOneShot(correctSFX);
+                StartCoroutine(HandleRoundSuccess());
+            }
             #endif
             #endif
         }
@@ -328,6 +364,11 @@ namespace Luminang.UI.Minigames
             hasGameStarted = true;
             cardsLeft = initialCardsLeft;
             currentRoundIndex = 0;
+
+#if UNITY_EDITOR
+            if (startingCardsLeft != 25) cardsLeft = startingCardsLeft;
+            // Round index is updated later after BuildRoundPool, because we need to know total rounds!
+#endif
 
             UpdateHUD();
             BuildRoundPool();
@@ -1137,7 +1178,8 @@ namespace Luminang.UI.Minigames
 
         public void RestartGame()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            // Use MinigameReloader so we don't accidentally unload the main game (Magellan) background scene
+            MinigameReloader.ReloadActiveMinigame();
         }
 
         public void QuitGame()
@@ -1240,5 +1282,6 @@ namespace Luminang.UI.Minigames
             Debug.LogWarning($"[TCGGameManager] Could not load sprite at: {spritePath}");
             onComplete?.Invoke(null);
         }
+
     }
 }

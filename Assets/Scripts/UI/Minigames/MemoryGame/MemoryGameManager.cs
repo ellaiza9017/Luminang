@@ -136,6 +136,11 @@ public class MemoryGameManager : MonoBehaviour
 
     private List<CardData> deck = new List<CardData>();
     private List<MemoryCard> allCards = new List<MemoryCard>();
+    [Header("Editor Debug")]
+    [Tooltip("Change this in inspector to set starting hearts (1-5)")]
+    [Range(1, 5)]
+    public int startingHearts = 5;
+
     private MemoryCard firstSelectedCard = null;
     private MemoryCard secondSelectedCard = null;
     
@@ -161,9 +166,34 @@ public class MemoryGameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        // Scene-local singleton: just overwrite instance instead of destroying game object
+        // so seamless additive loading (Try Again) doesn't kill the new game object.
+        Instance = this;
+
+        // Dynamically override isIlokano if a target language was passed via PlayerPrefs from Magellan
+        string passedLang = PlayerPrefs.GetString("MemoryGameLanguage", "");
+        if (!string.IsNullOrEmpty(passedLang))
+        {
+            isIlokano = passedLang.ToLower().Contains("ilokano");
+            Debug.Log($"[MemoryGameManager] Language overridden by PlayerPrefs to: {(isIlokano ? "Ilokano" : "Cebuano")}");
+        }
     }
+
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (Application.isPlaying && hasGameStarted)
+        {
+            currentHearts = Mathf.Clamp(startingHearts, 1, 5);
+            UpdateHeartsUI();
+        }
+    }
+#endif
 
     private void Start()
     {
@@ -208,9 +238,21 @@ public class MemoryGameManager : MonoBehaviour
     private void StartGame()
     {
         hasGameStarted = true;
+        currentHearts = startingHearts;
         InitializeCards();
         UpdatePairsUI();
         UpdateHeartsUI();
+    }
+
+    private void Update()
+    {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (UnityEngine.InputSystem.Keyboard.current != null)
+        {
+            if (UnityEngine.InputSystem.Keyboard.current.wKey.wasPressedThisFrame) ShowWinScreen();
+            if (UnityEngine.InputSystem.Keyboard.current.lKey.wasPressedThisFrame) ShowLoseScreen();
+        }
+#endif
     }
 
     private void InitializeCards()
@@ -345,11 +387,13 @@ public class MemoryGameManager : MonoBehaviour
             shuffledVerbs[randomIndex] = temp;
         }
 
-        foreach (var verb in shuffledVerbs)
+        for (int i = 0; i < shuffledVerbs.Count; i++)
         {
+            MemoryGamePhraseData verb = shuffledVerbs[i];
             GameObject wordObj = Instantiate(draggableWordPrefab, dragOptionsParent);
             MemoryDraggableWord dragScript = wordObj.GetComponent<MemoryDraggableWord>();
-            dragScript.Setup(verb.phraseId, verb.ilokanoTerm); // Assuming Ilokano for now
+            string termToDisplay = isIlokano ? verb.ilokanoTerm : verb.cebuanoTerm;
+            dragScript.Setup(verb.phraseId, termToDisplay);
         }
     }
 
@@ -904,7 +948,7 @@ public class MemoryGameManager : MonoBehaviour
     public void OnTryAgainClicked()
     {
         if (AudioManager.instance != null && buttonClickSFX != null) AudioManager.instance.PlaySFX(buttonClickSFX);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        MinigameReloader.ReloadActiveMinigame();
     }
 
     public void OnQuitClicked()

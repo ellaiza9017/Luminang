@@ -131,27 +131,18 @@ namespace Luminang.UI.Minigames.IsometricGame
 
             bool tapped = false;
 
-            #if ENABLE_INPUT_SYSTEM
-            if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
+            if (UnityEngine.InputSystem.Pointer.current != null && UnityEngine.InputSystem.Pointer.current.press.wasPressedThisFrame)
             {
                 tapped = true;
             }
-            else if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+            else if (UnityEngine.InputSystem.Touchscreen.current != null && UnityEngine.InputSystem.Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
             {
                 tapped = true;
             }
-            else if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+            else if (UnityEngine.InputSystem.Mouse.current != null && UnityEngine.InputSystem.Mouse.current.leftButton.wasPressedThisFrame)
             {
                 tapped = true;
             }
-            #endif
-
-            #if ENABLE_LEGACY_INPUT_MANAGER
-            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
-            {
-                tapped = true;
-            }
-            #endif
 
             if (!tapped) return;
 
@@ -210,6 +201,8 @@ namespace Luminang.UI.Minigames.IsometricGame
         {
             if (_introStarted) return;
             _introStarted = true;
+
+            gameObject.SetActive(true); // <--- CRITICAL FIX: Ensure the component is active so Update() and Coroutines run
 
             if (dialogueLines == null || dialogueLines.Count == 0)
             {

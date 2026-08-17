@@ -327,28 +327,41 @@ public class MainLoading : MonoBehaviour
         if (SceneLoader.keepBackgroundPersistent)
         {
             Debug.Log("[MainLoading] Persistence Active: Hiding objects but keeping video camera alive.");
-            Scene s = SceneManager.GetSceneByName(callerScene);
-            if (s.IsValid() && s.isLoaded)
+            for (int i = 0; i < SceneManager.sceneCount; i++)
             {
-                foreach (GameObject obj in s.GetRootGameObjects())
+                Scene s = SceneManager.GetSceneAt(i);
+                if (s.name != sceneToLoad && s.name != gameObject.scene.name)
                 {
-                    if (obj.GetComponentInChildren<Camera>() == null)
+                    if (s.IsValid() && s.isLoaded)
                     {
-                        obj.SetActive(false);
-                    }
-                    else
-                    {
-                        Canvas c = obj.GetComponentInChildren<Canvas>();
-                        if (c != null) c.enabled = false;
+                        foreach (GameObject obj in s.GetRootGameObjects())
+                        {
+                            if (obj.GetComponentInChildren<Camera>() == null)
+                            {
+                                obj.SetActive(false);
+                            }
+                            else
+                            {
+                                Canvas c = obj.GetComponentInChildren<Canvas>();
+                                if (c != null) c.enabled = false;
+                            }
+                        }
                     }
                 }
             }
         }
-        else if (!string.IsNullOrEmpty(callerScene) && callerScene != sceneToLoad && callerScene != gameObject.scene.name)
+        else
         {
-            Debug.Log("[MainLoading] Unloading caller: " + callerScene);
-            Scene s = SceneManager.GetSceneByName(callerScene);
-            if (s.IsValid() && s.isLoaded) SceneManager.UnloadSceneAsync(s);
+            // NORMAL LOAD: Unload EVERY scene except the loading scene and target scene!
+            for (int i = 0; i < SceneManager.sceneCount; i++)
+            {
+                Scene s = SceneManager.GetSceneAt(i);
+                if (s.name != sceneToLoad && s.name != gameObject.scene.name)
+                {
+                    Debug.Log("[MainLoading] Unloading redundant scene: " + s.name);
+                    if (s.IsValid() && s.isLoaded) SceneManager.UnloadSceneAsync(s);
+                }
+            }
         }
 
         // Wait for the new scene to catch its breath (REDUCED to show player drop)

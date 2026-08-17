@@ -1,0 +1,37 @@
+[
+  {
+    "id": "interrogatives_075",
+    "english": "what",
+    "scenario": "when asking about a thing or information"
+  },
+  {
+    "id": "interrogatives_076",
+    "english": "who",
+    "scenario": "when asking about a person"
+  },
+  {
+    "id": "interrogatives_077",
+    "english": "where",
+    "scenario": "when asking about a place or location"
+  },
+  {
+    "id": "interrogatives_078",
+    "english": "when",
+    "scenario": "when asking about a time or day"
+  },
+  {
+    "id": "interrogatives_079",
+    "english": "why",
+    "scenario": "when asking for a reason"
+  },
+  {
+    "id": "interrogatives_080",
+    "english": "how",
+    "scenario": "when asking about the way something is done"
+  },
+  {
+    "id": "interrogatives_081",
+    "english": "how many",
+    "scenario": "when asking about the number of things or people"
+  }
+]

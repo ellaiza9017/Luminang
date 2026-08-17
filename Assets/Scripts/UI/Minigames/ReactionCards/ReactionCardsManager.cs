@@ -37,6 +37,7 @@ public class ReactionCardsManager : MonoBehaviour
     [Tooltip("The name of the JSON file in Resources (e.g., 'Gratitude')")]
     public string jsonFileName = "Gratitude";
     public List<ReactionCardImageMapping> imageMappings;
+    public Sprite defaultMemorySprite;
 
     [Header("Core UI")]
     public TextMeshProUGUI questionText;
@@ -84,8 +85,16 @@ public class ReactionCardsManager : MonoBehaviour
 
     private List<GratitudeRoundData> roundPool = new List<GratitudeRoundData>();
     private GratitudeRoundData currentRoundData;
+
+#if UNITY_EDITOR
+    [Header("--- EDITOR DEBUG (hidden in build) ---")]
+    public int currentHearts = 5;
+    public int currentRoundNumber = 1;
+#else
     private int currentHearts = 5;
     private int currentRoundNumber = 1;
+#endif
+
     private int totalRounds = 15;
     private bool isInputBlocked = false;
     private bool hasGameStarted = false;
@@ -100,6 +109,21 @@ public class ReactionCardsManager : MonoBehaviour
     {
         Instance = this;
     }
+
+#if UNITY_EDITOR
+    private void Update()
+    {
+        // EDITOR CHEATS — stripped from builds completely
+        // W → instantly trigger Win Screen
+        // L → instantly trigger Lose Screen
+        // P → pass STT (advance round without speaking)
+        var kb = UnityEngine.InputSystem.Keyboard.current;
+        if (kb == null) return;
+        if (kb.wKey.wasPressedThisFrame) ShowWinScreen();
+        if (kb.lKey.wasPressedThisFrame) ShowLoseScreen();
+        if (kb.pKey.wasPressedThisFrame) CompleteSTTAndAdvanceRound();
+    }
+#endif
 
     private void Start()
     {
@@ -150,7 +174,8 @@ public class ReactionCardsManager : MonoBehaviour
         if (!string.IsNullOrEmpty(overrideJson))
         {
             jsonFileName = overrideJson;
-            // We do NOT clear it here so that if the player hits "Try Again", it still remembers the correct category!
+            // NOTE: We do NOT clear the key here — we keep it so Try Again still loads the right JSON.
+            // It gets cleared in QuitToMenu() and RestartGame() when the player actually exits.
         }
 
         // Load JSON
@@ -161,7 +186,42 @@ public class ReactionCardsManager : MonoBehaviour
             JsonWrapper wrapper = JsonUtility.FromJson<JsonWrapper>(wrappedJson);
             if (wrapper != null && wrapper.items != null)
             {
-                roundPool = new List<GratitudeRoundData>(wrapper.items);
+                List<GratitudeRoundData> allLoaded = new List<GratitudeRoundData>(wrapper.items);
+                List<GratitudeRoundData> standardRounds = new List<GratitudeRoundData>();
+                List<GratitudeRoundData> memoryRounds = new List<GratitudeRoundData>();
+
+                // Separate memory rounds from standard rounds
+                foreach (var item in allLoaded)
+                {
+                    if (!string.IsNullOrEmpty(item.situationText) && item.situationText.TrimStart().StartsWith("[MEMORY]", System.StringComparison.OrdinalIgnoreCase))
+                    {
+                        memoryRounds.Add(item);
+                    }
+                    else
+                    {
+                        standardRounds.Add(item);
+                    }
+                }
+
+                // If there are memory rounds, pick up to 6 of them randomly
+                if (memoryRounds.Count > 0)
+                {
+                    for (int i = 0; i < memoryRounds.Count; i++)
+                    {
+                        GratitudeRoundData temp = memoryRounds[i];
+                        int randomIndex = Random.Range(i, memoryRounds.Count);
+                        memoryRounds[i] = memoryRounds[randomIndex];
+                        memoryRounds[randomIndex] = temp;
+                    }
+
+                    int memoryCountToTake = Mathf.Min(6, memoryRounds.Count);
+                    for (int i = 0; i < memoryCountToTake; i++)
+                    {
+                        standardRounds.Add(memoryRounds[i]);
+                    }
+                }
+
+                roundPool = standardRounds;
             }
         }
         else
@@ -220,6 +280,10 @@ public class ReactionCardsManager : MonoBehaviour
         if (foundSprite != null)
         {
             polaroidPic.sprite = foundSprite;
+        }
+        else if (currentRoundData.situationText.TrimStart().StartsWith("[MEMORY]", System.StringComparison.OrdinalIgnoreCase) && defaultMemorySprite != null)
+        {
+            polaroidPic.sprite = defaultMemorySprite;
         }
         else
         {
@@ -531,16 +595,21 @@ public class ReactionCardsManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Keep category alive — MinigameReloader reloads the same scene so it needs the pref.
+        // It will be cleared once the player fully quits instead.
+        MinigameReloader.ReloadActiveMinigame();
     }
 
     public void QuitToMenu()
     {
+        // Clear the category now that the player is fully exiting the minigame.
+        PlayerPrefs.DeleteKey("ReactionCardCategory");
         string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
         PlayerPrefs.SetString("PreviousScene", prevScene);
         SceneLoader.ResetLoadingFlag();
         SceneLoader.targetSceneForLoading = prevScene;
         SceneLoader.keepBackgroundPersistent = false;
+        PlayerPrefs.Save();
         UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 }

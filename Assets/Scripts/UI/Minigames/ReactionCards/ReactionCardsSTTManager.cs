@@ -53,8 +53,9 @@ public class ReactionCardsSTTManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        // Scene-local singleton: just overwrite instance instead of destroying game object
+        // so seamless additive loading doesn't kill the new game object.
+        Instance = this;
     }
 
     void Start()
@@ -186,6 +187,20 @@ public class ReactionCardsSTTManager : MonoBehaviour
             // ----------------------
 
             bool success = scorePercent >= 80f;
+
+            if (!success)
+            {
+                // Fallback: check if the transcript contains any of the slash-separated valid target parts
+                string[] targetParts = targetWord.Split(new[] { '/', '|' }, System.StringSplitOptions.RemoveEmptyEntries);
+                foreach (string part in targetParts)
+                {
+                    if (transcript.ToLower().Contains(part.Trim().ToLower()))
+                    {
+                        success = true;
+                        break;
+                    }
+                }
+            }
 
             if (success)
             {

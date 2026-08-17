@@ -107,6 +107,9 @@ public class ObjectiveManager : MonoBehaviour
             PlayerPrefs.Save();
         }
 
+        // NEW: Automatically fetch the correct objective from Supabase!
+        SyncObjectiveWithDatabase();
+
         // Broadcast the initial objective so all Indicators sync up
         OnObjectiveChanged?.Invoke(CurrentObjective);
         
@@ -145,6 +148,55 @@ public class ObjectiveManager : MonoBehaviour
         OnObjectiveChanged?.Invoke(cleanObjective);
         
         UpdateVisibility();
+    }
+
+    [System.Serializable]
+    private class ObjectiveItemData { public string id; public string objective; }
+    [System.Serializable]
+    private class ObjectiveCategoryData { public string category; public ObjectiveItemData[] items; }
+    [System.Serializable]
+    private class ObjectivesRootData { public ObjectiveCategoryData[] objectives; }
+
+    /// <summary>
+    /// Fetches the JSON file for the active language, checks the user's completed objectives
+    /// in the database, and sets CurrentObjective to the first uncompleted one.
+    /// </summary>
+    public void SyncObjectiveWithDatabase()
+    {
+        if (UserProfileManager.Instance == null || UserProfileManager.Instance.CurrentProfile == null) return;
+        
+        string activeLanguage = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+        string jsonFileName = activeLanguage == "Cebuano" ? "Cebuano Objectives" : "Ilokano Objectives";
+        
+        TextAsset jsonAsset = Resources.Load<TextAsset>(jsonFileName);
+        if (jsonAsset == null)
+        {
+            Debug.LogError($"[ObjectiveManager] Could not find {jsonFileName} in Resources!");
+            return;
+        }
+
+        ObjectivesRootData rootData = JsonUtility.FromJson<ObjectivesRootData>(jsonAsset.text);
+        if (rootData == null || rootData.objectives == null) return;
+
+        var profile = UserProfileManager.Instance.CurrentProfile;
+        var completedList = activeLanguage == "Cebuano" ? profile.CompletedObjectivesCebuano : profile.CompletedObjectivesIlokano;
+        if (completedList == null) completedList = new System.Collections.Generic.List<string>();
+
+        // Find the first objective ID that is NOT in the completed list
+        foreach (var category in rootData.objectives)
+        {
+            foreach (var item in category.items)
+            {
+                if (!completedList.Contains(item.id))
+                {
+                    Debug.Log($"[ObjectiveManager] Database Sync: Found current objective -> {item.id}: {item.objective}");
+                    SetObjective(item.objective);
+                    return;
+                }
+            }
+        }
+        
+        Debug.Log("[ObjectiveManager] Database Sync: All objectives completed!");
     }
 
     [Header("Counter Logic")]

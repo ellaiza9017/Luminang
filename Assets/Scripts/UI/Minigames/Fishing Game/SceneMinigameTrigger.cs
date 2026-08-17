@@ -23,9 +23,29 @@ public class SceneMinigameTrigger : MonoBehaviour
 
     private System.Collections.IEnumerator MinigameTransitionRoutine()
     {
-        // 1. Set the config for the fishing game (other minigames might ignore this)
+        // 1. Set the config for the fishing game
         FishingGameConfig.TargetLanguage = targetLanguage;
         FishingGameConfig.CategoryFilter = categoryFilter;
+
+        // Set config for SariSari Chismis game
+        SariSariGameConfig.TargetLanguage = targetLanguage;
+        SariSariGameConfig.TargetCategory = categoryFilter;
+
+        // Set config for Memory Game (uses PlayerPrefs)
+        PlayerPrefs.SetString("MemoryGameLanguage", targetLanguage);
+        PlayerPrefs.SetString("MemoryGameCategory", categoryFilter);
+        
+        // Set config for Tumbang Preso
+        TumbangPresoGameConfig.TargetLanguage = targetLanguage;
+        TumbangPresoGameConfig.CategoryFilter = categoryFilter;
+        
+        // Set config for Reaction Cards (uses PlayerPrefs for category)
+        PlayerPrefs.SetString("ReactionCardCategory", categoryFilter);
+        
+        // Set config for Tusok-Tusok (uses PlayerPrefs for category)
+        PlayerPrefs.SetString("TusokTusokCategory", categoryFilter);
+        
+        PlayerPrefs.Save();
 
         // Disable main game joysticks and touchpads so they don't block minigame UI input
         DisableMainGameControls();

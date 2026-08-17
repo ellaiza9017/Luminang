@@ -44,6 +44,12 @@ public class WordsListManager : MonoBehaviour
         RefreshList();
     }
 
+    private void OnEnable()
+    {
+        _currentLanguage = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+        if (_journalData != null) RefreshList();
+    }
+
     private void LoadData()
     {
         if (journalJsonFile != null)

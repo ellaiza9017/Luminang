@@ -35,7 +35,7 @@ public class SceneLoader : MonoBehaviour
         // OR if we are transitioning into any major feature scene (like Language Select or Prologue).
         bool isHeavyScene = (sceneName == "Calle_Crisologo" || sceneName == "Magellan's_Cross" || 
                              sceneName == "LanguageSelectionScene" || sceneName == "PrologueScene" || 
-                             sceneName == "CreateCharacterScene");
+                             sceneName == "CreateCharacterScene" || sceneName == "ShopScene");
         
         // Always show the loading screen for these heavy scenes!
         bool shouldShowLoadingScreen = isHeavyScene;
@@ -59,6 +59,38 @@ public class SceneLoader : MonoBehaviour
         {
             Debug.Log("[SceneLoader] Normal (Direct) loading for: " + sceneName);
             StartCoroutine(LoadSceneWithFade(sceneName));
+        }
+    }
+
+    public void LoadSceneAdditive(string sceneName)
+    {
+        Debug.Log("[SceneLoader] Additive loading for: " + sceneName);
+        
+        // Optional: Save the previous scene just in case the new scene needs to know
+        previousScene = SceneManager.GetActiveScene().name;
+        
+        bool isHeavyScene = (sceneName == "ShopScene" || sceneName == "Calle_Crisologo" || sceneName == "Magellan's_Cross" || 
+                             sceneName == "LanguageSelectionScene" || sceneName == "PrologueScene" || 
+                             sceneName == "CreateCharacterScene");
+
+        if (isHeavyScene && useLoadingScreenForGameScene)
+        {
+            Debug.Log("[SceneLoader] Using loading screen for ADDITIVE transition to: " + sceneName);
+            targetSceneForLoading = sceneName;
+            keepBackgroundPersistent = true; // KEEP THE BACKGROUND ALIVE!
+            
+            if (IsSceneLoaded(loadingSceneName))
+            {
+                ActivateScene(loadingSceneName);
+            }
+            else
+            {
+                SceneManager.LoadScene(loadingSceneName, LoadSceneMode.Additive);
+            }
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
         }
     }
 

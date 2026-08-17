@@ -22,7 +22,7 @@ public class UpdateOutfitData : MonoBehaviour
 
             // Shirts/Dresses
             { "AdvShirt", ("Lakbay Vest", "Made for little explorers who are always ready for the next adventure.", 375) },
-            { "baro'tSaya", ("Baro't Saya", "A timeless Filipina outfit that celebrates grace and tradition.", 650) },
+            { "baro'tSaya1", ("Baro't Saya", "A timeless Filipina outfit that celebrates grace and tradition.", 650) },
             { "barong", ("Barong Tagalog", "A proudly Filipino classic, perfect for special occasions.", 400) },
             { "blackShirt", ("Black Tee", "Simple, comfy, and goes with just about anything.", 100) },
             { "bunnyShirt", ("Kuneho Tee", "A soft little shirt with an extra dose of cuteness.", 250) },
@@ -59,30 +59,68 @@ public class UpdateOutfitData : MonoBehaviour
         };
 
         int count = 0;
-        // Find all OutfitItems in the scene (even if they are hidden/disabled)
-        OutfitItem[] allItems = Object.FindObjectsByType<OutfitItem>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         
-        foreach (var item in allItems)
+        // Find ALL prefabs in the project
+        string[] guids = AssetDatabase.FindAssets("t:Prefab");
+        foreach (string guid in guids)
         {
-            // If the GameObject's name matches one in our dictionary, update it
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            if (prefab == null) continue;
+
+            // Search the prefab and all its children for OutfitItems!
+            OutfitItem[] itemsInPrefab = prefab.GetComponentsInChildren<OutfitItem>(true);
+            bool prefabModified = false;
+
+            foreach (var item in itemsInPrefab)
+            {
+                if (data.TryGetValue(item.gameObject.name, out var info))
+                {
+                    item.itemName = info.name;
+                    item.itemDescription = info.desc;
+                    item.price = info.price; // Apply the new tiered price
+                    
+                    EditorUtility.SetDirty(item);
+                    prefabModified = true;
+                    count++;
+                }
+            }
+
+            if (prefabModified)
+            {
+                PrefabUtility.SavePrefabAsset(prefab);
+            }
+        }
+
+        // Also update any loose ones in the active scene just in case
+        OutfitItem[] sceneItems = Object.FindObjectsByType<OutfitItem>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        bool sceneModified = false;
+        foreach (var item in sceneItems)
+        {
             if (data.TryGetValue(item.gameObject.name, out var info))
             {
                 item.itemName = info.name;
                 item.itemDescription = info.desc;
-                item.price = info.price; // Apply the new tiered price
+                item.price = info.price;
                 EditorUtility.SetDirty(item);
+                sceneModified = true;
                 count++;
             }
         }
 
-        if (count > 0)
+        if (sceneModified)
         {
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
-            Debug.Log($"Successfully updated {count} OutfitItems! Please save the scene (Ctrl+S).");
+        }
+
+        if (count > 0)
+        {
+            AssetDatabase.SaveAssets();
+            Debug.Log($"Successfully updated {count} OutfitItems across prefabs and the active scene!");
         }
         else
         {
-            Debug.LogWarning("No matching OutfitItems found in the scene. Make sure you are in the CreateCharacterScene!");
+            Debug.LogWarning("No matching OutfitItems found anywhere!");
         }
     }
 }

@@ -47,8 +47,13 @@ public class MemoryGameSTTManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        // Scene-local singleton for seamless additive loading
+        Instance = this;
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
     }
 
     void Start()
@@ -67,6 +72,18 @@ public class MemoryGameSTTManager : MonoBehaviour
             Button btn = speakButtonImg.GetComponent<Button>();
             if (btn != null) btn.onClick.AddListener(OnSpeakButtonClicked);
         }
+    }
+
+    private void Update()
+    {
+        #if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (isSTTActive && UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            Debug.Log("[Cheat] P pressed: Forcing STT success.");
+            UpdateSTTStatus("Correct!", colorCorrect, false, false);
+            StartCoroutine(EndSTTFlow(true));
+        }
+        #endif
     }
 
     private void EnsureDependencies()
@@ -171,6 +188,19 @@ public class MemoryGameSTTManager : MonoBehaviour
             Debug.Log($"<color=green>Final Score:</color> {backendScore:F1}%");
 
             bool success = backendScore >= 80f;
+
+            // Manual fallbacks for known Whisper hallucination issues
+            if (!success && !string.IsNullOrEmpty(transcript))
+            {
+                string lowerTranscript = transcript.ToLower();
+                string lowerTarget = currentTargetSentence.ToLower();
+
+                if (lowerTarget == "umay" && (lowerTranscript.Contains("umay") || lowerTranscript.Contains("um maio") || lowerTranscript.Contains("o mãe") || lowerTranscript.Contains("umai") || lowerTranscript.Contains("who may") || lowerTranscript.Contains("oh my") || lowerTranscript.Contains("my") || lowerTranscript.Contains("mayo")))
+                {
+                    success = true;
+                    Debug.Log("<color=magenta>Fallback activated for 'umay'!</color>");
+                }
+            }
 
             if (success)
             {

@@ -3830,7 +3830,7 @@ MonoBehaviour:
   audioSource: {fileID: 1177990463}
   buttonClickSFX: {fileID: 8300000, guid: d71ef51224ec98e44be6d75751a71e09, type: 3}
   correctSFX: {fileID: 8300000, guid: 80743e35226f6fa4eb990cb43774f9ce, type: 3}
-  wrongSFX: {fileID: 0}
+  wrongSFX: {fileID: 8300000, guid: d03d8f851ecd2c044925ebabea9c6863, type: 3}
   winSFX: {fileID: 8300000, guid: 05b943cbb18652d469f3509eb2ca0482, type: 3}
   loseSFX: {fileID: 8300000, guid: e04159bcbe939ea418c9b6c0505af5d0, type: 3}
   cardSlideSFX: {fileID: 8300000, guid: af6cd2862a1765c40b5628ec7d35f9f6, type: 3}

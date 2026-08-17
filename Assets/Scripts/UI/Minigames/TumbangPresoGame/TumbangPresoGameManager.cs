@@ -131,20 +131,23 @@ public class TumbangPresoGameManager : MonoBehaviour
     
     private Dictionary<string, LuminangPhrase> globalDictionary = new Dictionary<string, LuminangPhrase>();
     
-        private void Awake()
+    private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        // Scene-local singleton: just overwrite instance instead of destroying game object
+        // so seamless additive loading (Try Again) doesn't kill the new game object.
+        Instance = this;
     }
 
 #if UNITY_EDITOR
     private void Update()
     {
-        // EDITOR CHEATS - press W to Win, L to Lose
         var kb = UnityEngine.InputSystem.Keyboard.current;
-        if (kb == null) return;
-        if (kb.wKey.wasPressedThisFrame) ShowWinScreen();
-        if (kb.lKey.wasPressedThisFrame) ShowLoseScreen();
+        if (kb != null)
+        {
+            if (kb.wKey.wasPressedThisFrame) ShowWinScreen();
+            if (kb.lKey.wasPressedThisFrame) ShowLoseScreen();
+            if (kb.pKey.wasPressedThisFrame && TumbangPresoSTTManager.Instance != null) TumbangPresoSTTManager.Instance.ProcessCorrectSTT();
+        }
     }
 #endif
 
@@ -362,14 +365,26 @@ public class TumbangPresoGameManager : MonoBehaviour
                 can.textPanelCanvasGroup.alpha = 1f;
             }
             
-            // Look up the translation (Using Ilokano for now, as requested)
+            // Look up the translation based on the target language
             if (globalDictionary.ContainsKey(phraseId))
             {
                 LuminangPhrase phraseData = globalDictionary[phraseId];
                 if (can.choiceText != null)
                 {
+                    string text = "";
+                    string lang = TumbangPresoGameConfig.TargetLanguage.ToLower();
+                    
+                    if (lang == "cebuano") text = phraseData.cebuano;
+                    else if (lang == "ilokano") text = phraseData.ilokano;
+                    else text = phraseData.english;
+                    
+                    // If there are multiple translations separated by a slash, just take the first one that fits
+                    if (!string.IsNullOrEmpty(text) && text.Contains("/"))
+                    {
+                        text = text.Split('/')[0].Trim();
+                    }
+                    
                     // Capitalize the first letter for aesthetics
-                    string text = phraseData.ilokano;
                     if (!string.IsNullOrEmpty(text))
                     {
                         text = char.ToUpper(text[0]) + text.Substring(1);
@@ -520,8 +535,7 @@ public class TumbangPresoGameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        if (uiAudioSource != null && buttonClickSFX != null) uiAudioSource.PlayOneShot(buttonClickSFX);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        MinigameReloader.ReloadActiveMinigame();
     }
 
     public void QuitToMenu()

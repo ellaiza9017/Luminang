@@ -71,8 +71,10 @@ public class FishingSTTManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        // Overwrite instance instead of Destroy(gameObject). 
+        // This is a scene-local manager, so the old one will automatically be destroyed
+        // when the old scene is fully unloaded by the seamless MinigameReloader.
+        Instance = this;
     }
 
     void Start()

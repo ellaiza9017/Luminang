@@ -36,30 +36,39 @@ public class LoadingSceneController : MonoBehaviour
         // Ensure target is set early
         if (string.IsNullOrEmpty(sceneToLoad)) sceneToLoad = SceneLoader.targetSceneForLoading;
 
-        // NEW: Background Persistence Logic
-        Debug.Log("[LoadingScene] Awake - Persistence Flag: " + SceneLoader.keepBackgroundPersistent);
-
-        if (SceneLoader.keepBackgroundPersistent)
+        // NEW: Always disable LoadingScene cameras so it never renders its own URP Skybox.
+        // Since we stopped disabling the caller's camera early, the caller's camera will safely render
+        // the background behind the UI Canvas until the new scene is ready.
+        foreach (GameObject root in gameObject.scene.GetRootGameObjects())
         {
-            foreach (GameObject root in gameObject.scene.GetRootGameObjects())
+            foreach (Camera cam in root.GetComponentsInChildren<Camera>(true))
             {
-                // Disable all Cameras in the LoadingScene
-                foreach (Camera cam in root.GetComponentsInChildren<Camera>(true))
-                {
-                    cam.enabled = false;
-                }
+                cam.enabled = false;
+            }
 
-                // Disable all AudioListeners in the LoadingScene
-                foreach (AudioListener al in root.GetComponentsInChildren<AudioListener>(true))
-                {
-                    al.enabled = false;
-                }
+            // Disable AudioListeners to prevent 2 audio listener warnings
+            foreach (AudioListener al in root.GetComponentsInChildren<AudioListener>(true))
+            {
+                al.enabled = false;
+            }
 
-                // Disable all EventSystems in the LoadingScene
+            if (SceneLoader.keepBackgroundPersistent)
+            {
+                // Disable EventSystems only if we are keeping background persistent
+                // (Otherwise we disable the caller's event system later)
                 foreach (UnityEngine.EventSystems.EventSystem es in root.GetComponentsInChildren<UnityEngine.EventSystems.EventSystem>(true))
                 {
                     es.enabled = false;
                 }
+            }
+        }
+
+        if (outroCircleRect != null && outroCircleRect.parent != null)
+        {
+            RectTransform parentRt = outroCircleRect.parent.GetComponent<RectTransform>();
+            if (parentRt != null)
+            {
+                parentRt.localScale = new Vector3(5f, 5f, 1f);
             }
         }
     }
@@ -105,7 +114,20 @@ public class LoadingSceneController : MonoBehaviour
         if (loadingCanvasGroup != null) loadingCanvasGroup.alpha = 1f;
 
         // CRITICAL: Reset the circle to zero so the intro can expand it again
-        if (outroCircleRect != null) outroCircleRect.sizeDelta = Vector2.zero;
+        if (outroCircleRect != null) 
+        {
+            outroCircleRect.sizeDelta = Vector2.zero;
+            // PREVENT 5-FRAME FLASH ON WIDESCREEN: 
+            // Scale the parent mask to be massive so the edges don't reveal the background.
+            if (outroCircleRect.parent != null)
+            {
+                RectTransform parentRt = outroCircleRect.parent.GetComponent<RectTransform>();
+                if (parentRt != null)
+                {
+                    parentRt.localScale = new Vector3(5f, 5f, 1f);
+                }
+            }
+        }
 
         // CRITICAL: Re-enable animator so the intro animation can play
         if (loadingAnimator != null)
@@ -160,10 +182,12 @@ public class LoadingSceneController : MonoBehaviour
         uiOpt.OptimizeHierarchy(gameObject);
 
         // PREVENT CAMERA CONFLICTS: Only disable cameras if we DON'T want the background visible
+        // MODIFICATION: Do not disable the caller's camera immediately! Let it stay rendered behind the loading screen
+        // so the user never sees an empty skybox. It will be unloaded safely at the end of the load process anyway.
         if (!SceneLoader.keepBackgroundPersistent)
         {
-            DisableCamerasInScene(callerScene);
-            // PREVENT INPUT CONFLICTS: Disable old EventSystems
+            // We'll leave the cameras ON, but disable the EventSystem immediately to prevent accidental clicks
+            // while the loading screen is animating.
             DisableEventSystemsInScene(callerScene);
         }
         else
@@ -258,24 +282,26 @@ public class LoadingSceneController : MonoBehaviour
             foreach (GameObject obj in loadedScene.GetRootGameObjects())
                 obj.SetActive(true);
 
-            // 4. Unload the CALLER scene early ONLY if we are EXITING a minigame back to the main world.
-            //    Detection: if sceneToLoad matches PreviousScene, we are going BACK = exiting minigame.
-            //    We do this AFTER activation to prevent Unity hanging on unloading the last main scene.
             string previousScenePref = PlayerPrefs.GetString("PreviousScene", "");
             bool isExitingMinigame = (!string.IsNullOrEmpty(previousScenePref) && sceneToLoad == previousScenePref);
 
-            if (isExitingMinigame &&
-                !SceneLoader.keepBackgroundPersistent &&
-                !string.IsNullOrEmpty(callerScene) &&
-                callerScene != sceneToLoad &&
-                callerScene != gameObject.scene.name)
+            // 4. Unload redundant scenes (Sweep everything except the new scene and the loading scene)
+            if (SceneLoader.keepBackgroundPersistent)
             {
-                Debug.Log("[LoadingScene] Exiting minigame - unloading caller AFTER activation: " + callerScene);
-                Scene s = SceneManager.GetSceneByName(callerScene);
-                if (s.IsValid() && s.isLoaded)
+                Debug.Log("[LoadingScene] Persistence Active: Leaving background scenes fully intact.");
+                // We do NOT hide objects here. We want them visible as a background behind the additive scene (like Shop).
+            }
+            else
+            {
+                // NORMAL LOAD / MINIGAME EXIT: Unload EVERY scene except the loading scene and target scene!
+                for (int i = 0; i < SceneManager.sceneCount; i++)
                 {
-                    var unloadOp = SceneManager.UnloadSceneAsync(s);
-                    while (!unloadOp.isDone) yield return null;
+                    Scene s = SceneManager.GetSceneAt(i);
+                    if (s.name != sceneToLoad && s.name != gameObject.scene.name)
+                    {
+                        Debug.Log("[LoadingScene] Unloading redundant scene: " + s.name);
+                        if (s.IsValid() && s.isLoaded) SceneManager.UnloadSceneAsync(s);
+                    }
                 }
             }
 
@@ -285,14 +311,25 @@ public class LoadingSceneController : MonoBehaviour
             {
                 Debug.Log("[LoadingScene] Restoring scene components after minigame exit: " + sceneToLoad);
                 RestoreSceneComponents(loadedScene);
+            }
 
-                // CRITICAL: Start() won't re-run since scene was never destroyed.
-                // Manually notify DialogueManager to reset IsInDialogue and resume post-minigame dialogue.
-                if (DialogueManager.Instance != null)
-                {
-                    Debug.Log("[LoadingScene] Notifying DialogueManager of return from minigame.");
-                    DialogueManager.Instance.OnReturnFromMinigame();
-                }
+            // CRITICAL: Re-enable movement controls, joysticks, and touchpads that were disabled
+            // by SceneMinigameTrigger.DisableMainGameControls() when entering a scene-based minigame.
+            // This must always fire when exiting any minigame, not just keep-alive ones.
+            if (isExitingMinigame)
+            {
+                Debug.Log("[LoadingScene] Re-enabling main game controls after minigame exit.");
+                SceneMinigameTrigger.EnableMainGameControls();
+            }
+
+            // Notify DialogueManager to restore the HUD and resume post-minigame dialogue.
+            // This must fire whether the scene was kept alive OR freshly reloaded — because
+            // DialogueManager lives in DontDestroyOnLoad and stays in "IsInDialogue = true"
+            // even if Magellan's Cross was fully destroyed and reloaded fresh.
+            if (isExitingMinigame && DialogueManager.Instance != null)
+            {
+                Debug.Log("[LoadingScene] Notifying DialogueManager of return from minigame.");
+                DialogueManager.Instance.OnReturnFromMinigame();
             }
 
             RefreshPlayerCameras(loadedScene);
@@ -364,16 +401,16 @@ public class LoadingSceneController : MonoBehaviour
         // Give 1 extra frame before hiding everything
         yield return null;
 
-        Debug.Log("[LoadingScene] Transition complete. Hiding loading scene.");
+        Debug.Log("[LoadingScene] Transition complete. Unloading loading scene.");
         if (loadingCanvasGroup != null) loadingCanvasGroup.alpha = 0f;
 
-        foreach (GameObject obj in gameObject.scene.GetRootGameObjects())
-            obj.SetActive(false);
-
-        // Reset priority and flags
+        // Reset priority and flags before we destroy ourselves
         Application.backgroundLoadingPriority = ThreadPriority.BelowNormal;
         SceneLoader.ResetLoadingFlag();
         CleanupGlobalConflicts();
+
+        // 8. UNLOAD OURSELVES completely to prevent duplicates building up
+        SceneManager.UnloadSceneAsync(gameObject.scene);
     }
 
     private void CleanupGlobalConflicts()

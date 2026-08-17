@@ -1,0 +1,549 @@
+[
+  {
+    "englishDialogue": "Hi! I ___ Ana. And you?",
+    "ilokanoDialogue": "Kumusta! Siak ___ Ana. Ket sika?",
+    "cebuanoDialogue": "Kumusta! Ako ___ Ana. Ikaw?",
+    "situationText": "They are introducing themselves and identifying who they are right now.",
+    "correctPhraseId": "linking_verbs_056",
+    "englishFeedback": "That's right! You're talking about yourself.",
+    "ilokanoFeedback": "Wen, umiso ka! Ti maipapan kenka ti pagsasaritaem.",
+    "cebuanoFeedback": "Sakto! Mahitungod kini kanimo ang imong gisulti.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_065",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A friendly young woman smiling and introducing herself.",
+    "acceptablePhraseIds": [
+      "linking_verbs_056"
+    ],
+    "npcKeyword": "introduction"
+  },
+  {
+    "englishDialogue": "I'm the new student. I ___ excited!",
+    "ilokanoDialogue": "Siak ti baro nga estudyante. Siak ___ naragsak!",
+    "cebuanoDialogue": "Ako ang bag-ong estudyante. Ako ___ excited!",
+    "situationText": "They are identifying themselves as the new student right now.",
+    "correctPhraseId": "linking_verbs_056",
+    "englishFeedback": "That's right! You're talking about yourself.",
+    "ilokanoFeedback": "Wen, umiso ka! Ti maipapan kenka ti pagsasaritaem.",
+    "cebuanoFeedback": "Sakto! Mahitungod kini kanimo ang imong gisulti.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_065",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A cheerful new student carrying a backpack and waving.",
+    "npcKeyword": "student",
+    "acceptablePhraseIds": [
+      "linking_verbs_056",
+      "linking_verbs_065",
+      "linking_verbs_061",
+      "linking_verbs_062"
+    ]
+  },
+  {
+    "englishDialogue": "Maria ___ happy today.",
+    "ilokanoDialogue": "Ni Maria ___ naragsak ita.",
+    "cebuanoDialogue": "Si Maria ___ malipayon karon.",
+    "situationText": "They are describing Maria's current state as one person.",
+    "correctPhraseId": "linking_verbs_057",
+    "englishFeedback": "That's right! You're describing one person or thing.",
+    "ilokanoFeedback": "Wen, umiso ka! Iladladam ti maymaysa a tao wenno banag.",
+    "cebuanoFeedback": "Sakto! Gihulagway nimo ang usa ka tawo o butang.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_065",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A cheerful friend pointing toward Maria, who is smiling nearby.",
+    "npcKeyword": "happy",
+    "acceptablePhraseIds": [
+      "linking_verbs_057",
+      "linking_verbs_062",
+      "linking_verbs_065",
+      "linking_verbs_063",
+      "linking_verbs_064"
+    ]
+  },
+  {
+    "englishDialogue": "Careful! The soup ___ hot.",
+    "ilokanoDialogue": "Agannad! Ti sabaw ___ napudot.",
+    "cebuanoDialogue": "Pag-amping! Ang sabaw ___ init.",
+    "situationText": "They are describing the soup's current condition as one thing.",
+    "correctPhraseId": "linking_verbs_057",
+    "englishFeedback": "That's right! You're describing one person or thing.",
+    "ilokanoFeedback": "Wen, umiso ka! Iladladam ti maymaysa a tao wenno banag.",
+    "cebuanoFeedback": "Sakto! Gihulagway nimo ang usa ka tawo o butang.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_065",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A careful food vendor holding a steaming bowl of hot soup.",
+    "npcKeyword": "soup",
+    "acceptablePhraseIds": [
+      "linking_verbs_057",
+      "linking_verbs_062",
+      "linking_verbs_063",
+      "linking_verbs_064"
+    ]
+  },
+  {
+    "englishDialogue": "You and Carlo ___ ready, right?",
+    "ilokanoDialogue": "Sika ken ni Carlo ___ nakasagana, saan kadi?",
+    "cebuanoDialogue": "Ikaw ug si Carlo ___ andam na, diba?",
+    "situationText": "They are talking about you and Carlo together right now.",
+    "correctPhraseId": "linking_verbs_058",
+    "englishFeedback": "That's right! You're talking about more than one person or thing.",
+    "ilokanoFeedback": "Wen, umiso ka! Ti pagsasaritaem ket maipapan iti ad-adu ngem iti maymaysa a tao wenno banag.",
+    "cebuanoFeedback": "Sakto! Mahitungod kini sa labaw sa usa ka tawo o butang.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_065",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A friend standing beside another classmate, both carrying their bags and ready to go.",
+    "npcKeyword": "together",
+    "acceptablePhraseIds": [
+      "linking_verbs_058",
+      "linking_verbs_060",
+      "linking_verbs_062"
+    ]
+  },
+  {
+    "englishDialogue": "The children ___ outside.",
+    "ilokanoDialogue": "Dagiti ubbing ___ adda iti ruar.",
+    "cebuanoDialogue": "Ang mga bata ___ naa sa gawas.",
+    "situationText": "They are describing several children who are outside right now.",
+    "correctPhraseId": "linking_verbs_058",
+    "englishFeedback": "That's right! You're talking about more than one person or thing.",
+    "ilokanoFeedback": "Wen, umiso ka! Ti pagsasaritaem ket maipapan iti ad-adu ngem iti maymaysa a tao wenno banag.",
+    "cebuanoFeedback": "Sakto! Mahitungod kini sa labaw sa usa ka tawo o butang.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_065",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A neighbor pointing at several children playing outside.",
+    "npcKeyword": "children",
+    "acceptablePhraseIds": [
+      "linking_verbs_058",
+      "linking_verbs_060",
+      "linking_verbs_064",
+      "linking_verbs_063"
+    ]
+  },
+  {
+    "englishDialogue": "The classroom ___ quiet yesterday.",
+    "ilokanoDialogue": "Ti siled-pagadalan ___ naulimek idi kalman.",
+    "cebuanoDialogue": "Ang classroom ___ hilom gahapon.",
+    "situationText": "They are describing one classroom's condition at a specific time in the past.",
+    "correctPhraseId": "linking_verbs_059",
+    "englishFeedback": "That's right! You're talking about one person or thing in the past.",
+    "ilokanoFeedback": "Wen, umiso ka! Ti pagsasaritaem ket maipapan iti maymaysa a tao wenno banag idi napalabas.",
+    "cebuanoFeedback": "Sakto! Mahitungod kini sa usa ka tawo o butang sa nangagi.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_065",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A teacher standing in a quiet classroom after the school day.",
+    "npcKeyword": "classroom",
+    "acceptablePhraseIds": [
+      "linking_verbs_059",
+      "linking_verbs_062",
+      "linking_verbs_063",
+      "linking_verbs_064"
+    ]
+  },
+  {
+    "englishDialogue": "The food ___ great yesterday.",
+    "ilokanoDialogue": "Ti makan ___ naimas idi kalman.",
+    "cebuanoDialogue": "Ang pagkaon ___ lami gahapon.",
+    "situationText": "They are describing one food item and its quality at a past event.",
+    "correctPhraseId": "linking_verbs_059",
+    "englishFeedback": "That's right! You're talking about one person or thing in the past.",
+    "ilokanoFeedback": "Wen, umiso ka! Ti pagsasaritaem ket maipapan iti maymaysa a tao wenno banag idi napalabas.",
+    "cebuanoFeedback": "Sakto! Mahitungod kini sa usa ka tawo o butang sa nangagi.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_065",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A happy guest remembering the food from a family celebration.",
+    "npcKeyword": "celebration",
+    "acceptablePhraseIds": [
+      "linking_verbs_059",
+      "linking_verbs_062"
+    ]
+  },
+  {
+    "englishDialogue": "We ___ tired after the trip.",
+    "ilokanoDialogue": "Dakami ___ nabannog kalpasan ti biahe.",
+    "cebuanoDialogue": "Kami ___ gikapoy human sa byahe.",
+    "situationText": "They are describing how they and another person experienced a past trip.",
+    "correctPhraseId": "linking_verbs_060",
+    "englishFeedback": "That's right! You're talking about more than one person or thing in the past.",
+    "ilokanoFeedback": "Wen, umiso ka! Ti pagsasaritaem ket maipapan iti ad-adu ngem iti maymaysa a tao wenno banag idi napalabas.",
+    "cebuanoFeedback": "Sakto! Mahitungod kini sa labaw sa usa ka tawo o butang sa nangagi.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_065",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A tired traveler sitting with a backpack after a long journey.",
+    "npcKeyword": "trip",
+    "acceptablePhraseIds": [
+      "linking_verbs_060",
+      "linking_verbs_058",
+      "linking_verbs_065",
+      "linking_verbs_061",
+      "linking_verbs_062"
+    ]
+  },
+  {
+    "englishDialogue": "You ___ excited yesterday.",
+    "ilokanoDialogue": "Dakayo ___ naragsak idi kalman.",
+    "cebuanoDialogue": "Kamo ___ excited gahapon.",
+    "situationText": "They are describing how you felt at a past event.",
+    "correctPhraseId": "linking_verbs_060",
+    "englishFeedback": "That's right! You're talking about more than one person or thing in the past.",
+    "ilokanoFeedback": "Wen, umiso ka! Ti pagsasaritaem ket maipapan iti ad-adu ngem iti maymaysa a tao wenno banag idi napalabas.",
+    "cebuanoFeedback": "Sakto! Mahitungod kini sa labaw sa usa ka tawo o butang sa nangagi.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_065",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A friend laughing and pointing at you while remembering yesterday.",
+    "npcKeyword": "friends",
+    "acceptablePhraseIds": [
+      "linking_verbs_060",
+      "linking_verbs_062",
+      "linking_verbs_065"
+    ]
+  },
+  {
+    "englishDialogue": "He ___ a skilled musician.",
+    "ilokanoDialogue": "Nagbalin isuna ___ nasanay a musikero.",
+    "cebuanoDialogue": "Nahimong ___ hanas nga musikero siya.",
+    "situationText": "They are describing a person changing into a new role or state after practice.",
+    "correctPhraseId": "linking_verbs_061",
+    "englishFeedback": "Exactly! You're describing a change into a new state.",
+    "ilokanoFeedback": "Umiso! Iladladadaw ti panagbalbaliw iti baro a kasasaad.",
+    "cebuanoFeedback": "Sakto! Gihulagway nimo ang pagbag-o ngadto sa bag-ong kahimtang.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_057",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_065",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A fan pointing at a skilled young musician playing a guitar.",
+    "npcKeyword": "musician",
+    "acceptablePhraseIds": [
+      "linking_verbs_061",
+      "linking_verbs_057",
+      "linking_verbs_059"
+    ]
+  },
+  {
+    "englishDialogue": "She ___ more confident.",
+    "ilokanoDialogue": "Nagbalin isuna ___ nataltalek.",
+    "cebuanoDialogue": "Nahimong ___ mas kumpiyansa siya.",
+    "situationText": "They are describing a person changing into a more confident state.",
+    "correctPhraseId": "linking_verbs_061",
+    "englishFeedback": "Exactly! You're describing a change into a new state.",
+    "ilokanoFeedback": "Umiso! Iladladadaw ti panagbalbaliw iti baro a kasasaad.",
+    "cebuanoFeedback": "Sakto! Gihulagway nimo ang pagbag-o ngadto sa bag-ong kahimtang.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_057",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_065",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A teacher pointing at a confident female student smiling with new friends.",
+    "npcKeyword": "confidence",
+    "acceptablePhraseIds": [
+      "linking_verbs_061",
+      "linking_verbs_062",
+      "linking_verbs_057",
+      "linking_verbs_059",
+      "linking_verbs_065"
+    ]
+  },
+  {
+    "englishDialogue": "The sky ___ darker now.",
+    "ilokanoDialogue": "Ti langit ___ kasla nasipnget ita.",
+    "cebuanoDialogue": "Ang langit ___ murag mas ngitngit karon.",
+    "situationText": "They are describing how the sky appears to them, without claiming that it actually changed.",
+    "correctPhraseId": "linking_verbs_062",
+    "englishFeedback": "Exactly! You're describing how someone or something appears.",
+    "ilokanoFeedback": "Umiso! Iladladadaw no kasano a makita wenno agparang ti maysa a tao wenno banag.",
+    "cebuanoFeedback": "Sakto! Gihulagway nimo kung unsa ang dagway sa usa ka tawo o butang.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_057",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A concerned friend looking up at a darkening sky.",
+    "npcKeyword": "sky",
+    "acceptablePhraseIds": [
+      "linking_verbs_062",
+      "linking_verbs_057",
+      "linking_verbs_061"
+    ]
+  },
+  {
+    "englishDialogue": "He ___ nervous today.",
+    "ilokanoDialogue": "Isuna ___ kasla kinakabahan ita.",
+    "cebuanoDialogue": "Siya ___ murag gikulbaan karon.",
+    "situationText": "They are describing the impression that a person gives them, not stating what they actually feel.",
+    "correctPhraseId": "linking_verbs_062",
+    "englishFeedback": "Exactly! You're describing how someone or something appears.",
+    "ilokanoFeedback": "Umiso! Iladladadaw no kasano a makita wenno agparang ti maysa a tao wenno banag.",
+    "cebuanoFeedback": "Sakto! Gihulagway nimo kung unsa ang dagway sa usa ka tawo o butang.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_057",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A stage crew member pointing at a nervous performer holding a microphone.",
+    "npcKeyword": "performance",
+    "acceptablePhraseIds": [
+      "linking_verbs_062",
+      "linking_verbs_057",
+      "linking_verbs_065",
+      "linking_verbs_059"
+    ]
+  },
+  {
+    "englishDialogue": "Please ___ calm.",
+    "ilokanoDialogue": "___ a natalna, pangngaasik.",
+    "cebuanoDialogue": "___ nga kalma, palihog.",
+    "situationText": "They are telling you to stay calm while a problem is being fixed.",
+    "correctPhraseId": "linking_verbs_063",
+    "englishFeedback": "Correct! The situation is about continuing in the same state.",
+    "ilokanoFeedback": "Umiso! Ti sitwasion ket maipapan iti panagtultuloy iti isu met laeng a kasasaad.",
+    "cebuanoFeedback": "Sakto! Mahitungod kini sa pagpadayon sa samang kahimtang.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_057",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A calm staff member reassuring someone while a problem is being fixed.",
+    "npcKeyword": "calm",
+    "acceptablePhraseIds": [
+      "linking_verbs_063",
+      "linking_verbs_064"
+    ]
+  },
+  {
+    "englishDialogue": "The building ___ empty.",
+    "ilokanoDialogue": "Ti building ___ agtalinaed a awan ti agnaed.",
+    "cebuanoDialogue": "Ang building ___ nagpabilin nga walay nagpuyo.",
+    "situationText": "They are describing a building that continued to have the same empty condition for years.",
+    "correctPhraseId": "linking_verbs_063",
+    "englishFeedback": "Correct! The situation is about continuing in the same state.",
+    "ilokanoFeedback": "Umiso! Ti sitwasion ket maipapan iti panagtultuloy iti isu met laeng a kasasaad.",
+    "cebuanoFeedback": "Sakto! Mahitungod kini sa pagpadayon sa samang kahimtang.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_057",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A local resident pointing at an old empty building.",
+    "npcKeyword": "building",
+    "acceptablePhraseIds": [
+      "linking_verbs_063",
+      "linking_verbs_057",
+      "linking_verbs_059",
+      "linking_verbs_064",
+      "linking_verbs_062"
+    ]
+  },
+  {
+    "englishDialogue": "Please ___ here.",
+    "ilokanoDialogue": "___ ditoy, pangngaasik.",
+    "cebuanoDialogue": "___ diri, palihog.",
+    "situationText": "They are telling you to stay in this specific place.",
+    "correctPhraseId": "linking_verbs_064",
+    "englishFeedback": "Correct! The situation is about continuing in the same place or situation.",
+    "ilokanoFeedback": "Umiso! Ti sitwasion ket maipapan iti panagtultuloy iti isu met laeng a lugar wenno sitwasion.",
+    "cebuanoFeedback": "Sakto! Mahitungod kini sa pagpadayon sa samang lugar o sitwasyon.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_057",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A friend holding a wallet and preparing to buy tickets at a busy station.",
+    "npcKeyword": "tickets",
+    "acceptablePhraseIds": [
+      "linking_verbs_064",
+      "linking_verbs_063"
+    ]
+  },
+  {
+    "englishDialogue": "___ with your group.",
+    "ilokanoDialogue": "___ a kadua ti grupo mo.",
+    "cebuanoDialogue": "___ uban sa imong grupo.",
+    "situationText": "They are telling someone to continue with their group until another person arrives.",
+    "correctPhraseId": "linking_verbs_064",
+    "englishFeedback": "Correct! The situation is about continuing in the same place or situation.",
+    "ilokanoFeedback": "Umiso! Ti sitwasion ket maipapan iti panagtultuloy iti isu met laeng a lugar wenno sitwasion.",
+    "cebuanoFeedback": "Sakto! Mahitungod kini sa pagpadayon sa samang lugar o sitwasyon.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_057",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A responsible student standing with classmates while waiting for their teacher.",
+    "npcKeyword": "group",
+    "acceptablePhraseIds": [
+      "linking_verbs_064",
+      "linking_verbs_063"
+    ]
+  },
+  {
+    "englishDialogue": "I ___ nervous today.",
+    "ilokanoDialogue": "___ ti panagkabain ita.",
+    "cebuanoDialogue": "___ ko nga gikulbaan ko karon.",
+    "situationText": "They are directly stating their own present emotional experience.",
+    "correctPhraseId": "linking_verbs_065",
+    "englishFeedback": "That's right! You're describing how you experience something.",
+    "ilokanoFeedback": "Wen, umiso ka! Iladladadaw no ania ti riknam iti maysa a banag.",
+    "cebuanoFeedback": "Sakto! Gihulagway nimo kung unsa ang imong gibati.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_057",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A nervous student holding note cards before giving a class presentation.",
+    "npcKeyword": "presentation",
+    "acceptablePhraseIds": [
+      "linking_verbs_065",
+      "linking_verbs_056",
+      "linking_verbs_059",
+      "linking_verbs_062"
+    ]
+  },
+  {
+    "englishDialogue": "I ___ much better now.",
+    "ilokanoDialogue": "___ a nasaysayaatak ita.",
+    "cebuanoDialogue": "___ nako nga mas maayo na ko karon.",
+    "situationText": "They are directly stating their own present condition after resting.",
+    "correctPhraseId": "linking_verbs_065",
+    "englishFeedback": "That's right! You're describing how you experience something.",
+    "ilokanoFeedback": "Wen, umiso ka! Iladladadaw no ania ti riknam iti maysa a banag.",
+    "cebuanoFeedback": "Sakto! Gihulagway nimo kung unsa ang imong gibati.",
+    "distractors": [
+      {
+        "phraseId": "linking_verbs_057",
+        "feedback": "Oops! That's a completely different word."
+      },
+      {
+        "phraseId": "linking_verbs_061",
+        "feedback": "Oops! This word doesn't make any sense here."
+      }
+    ],
+    "npcDescription": "A relaxed friend sitting comfortably after taking a short rest.",
+    "npcKeyword": "rest",
+    "acceptablePhraseIds": [
+      "linking_verbs_065",
+      "linking_verbs_056"
+    ]
+  }
+]

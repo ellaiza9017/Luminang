@@ -26,6 +26,7 @@ public class ShopDetailPanel : MonoBehaviour
     [Header("Colors")]
     public Color equippedColor  = Color.green;
     public Color notEquippedColor = Color.white;
+    public Color priceColor = new Color(1f, 0.85f, 0f);
 
     // ---- State ----
     private OutfitItem currentItem;
@@ -109,7 +110,7 @@ public class ShopDetailPanel : MonoBehaviour
         if (!currentItemIsOwned)
         {
             actionButtonLabel.text = "Buy Item";
-            if (statusText != null) { statusText.text = $"{currentItem.price} coins"; statusText.color = new Color(1f, 0.85f, 0f); }
+            if (statusText != null) { statusText.text = $"{currentItem.price} coins"; statusText.color = priceColor; }
             return;
         }
 

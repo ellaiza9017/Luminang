@@ -974,12 +974,37 @@ public class AssessmentManager : MonoBehaviour
     
     private void Update()
     {
-#if UNITY_EDITOR
-        if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.pKey.wasPressedThisFrame)
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (UnityEngine.InputSystem.Keyboard.current != null)
         {
-            if (isRecording) StopRecording();
-            Debug.Log("<color=yellow>[CHEAT] Bypassing Question via P key!</color>");
-            OnAnswerSubmitted(true, 1f);
+            // Shift + P = Skip Entire Assessment
+            if ((UnityEngine.InputSystem.Keyboard.current.leftShiftKey.isPressed || UnityEngine.InputSystem.Keyboard.current.rightShiftKey.isPressed) && 
+                UnityEngine.InputSystem.Keyboard.current.pKey.wasPressedThisFrame)
+            {
+                Debug.Log("<color=yellow>[CHEAT] Skipping Entire Assessment!</color>");
+                if (isRecording) StopRecording();
+                
+                // Max out scores
+                totalScore = allQuestions.Count;
+                convSocialScore = 15;
+                convSocialTotal = 15;
+                funcNavScore = 15;
+                funcNavTotal = 15;
+                grammarScore = 20;
+                grammarTotal = 20;
+                
+                // End test
+                currentQuestionIndex = allQuestions.Count;
+                HideAllPanels();
+                ShowResults();
+            }
+            // P = Skip Current Question
+            else if (UnityEngine.InputSystem.Keyboard.current.pKey.wasPressedThisFrame)
+            {
+                if (isRecording) StopRecording();
+                Debug.Log("<color=yellow>[CHEAT] Bypassing Question via P key!</color>");
+                OnAnswerSubmitted(true, 1f);
+            }
         }
 #endif
 

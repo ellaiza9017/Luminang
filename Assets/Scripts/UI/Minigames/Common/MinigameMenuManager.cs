@@ -37,7 +37,7 @@ public class MinigameMenuManager : MonoBehaviour
     public void RestartMinigame()
     {
         if (sfxSource != null && buttonClickSFX != null) sfxSource.PlayOneShot(buttonClickSFX);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        MinigameReloader.ReloadActiveMinigame();
     }
 
     public void QuitMinigame()

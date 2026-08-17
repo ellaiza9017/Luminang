@@ -164,6 +164,15 @@ MonoBehaviour:
   - sceneNameContains: MemoryGameScene
     clip: {fileID: 8300000, guid: 5122c1127c1d53346891cc5a07e7f4a4, type: 3}
     volumeMultiplier: 0.5
+  - sceneNameContains: ShopScene
+    clip: {fileID: 8300000, guid: 9df55647de5b46d4f8f8e406a286c9b7, type: 3}
+    volumeMultiplier: 0.5
+  - sceneNameContains: CharacterCustomizationScene
+    clip: {fileID: 8300000, guid: 9df55647de5b46d4f8f8e406a286c9b7, type: 3}
+    volumeMultiplier: 0.5
+  - sceneNameContains: Magellan's_Cross
+    clip: {fileID: 8300000, guid: 6e55f91d1c1a7744b99bcc6590352f49, type: 3}
+    volumeMultiplier: 0.5
   defaultClip: {fileID: 8300000, guid: e76b3a43171539c4f93b2d49778a824c, type: 3}
   defaultVolumeMultiplier: 0.5
   crossfadeDuration: 1

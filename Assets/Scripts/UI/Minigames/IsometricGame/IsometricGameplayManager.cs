@@ -276,6 +276,21 @@ namespace Luminang.UI.Minigames.IsometricGame
         private int _currentCorrectChoiceIndex = 0;
         private bool _gameplayStarted = false;
 
+#if UNITY_EDITOR
+        [Header("Editor Debug")]
+        [Tooltip("(Editor Only) Change this value to instantly update the health bars")]
+        [Range(1, 5)] public int startingPatience = 5;
+
+        private void OnValidate()
+        {
+            if (Application.isPlaying && _gameplayStarted)
+            {
+                _currentPatience = Mathf.Clamp(startingPatience, 1, MaxPatience);
+                UpdatePatienceUI();
+            }
+        }
+#endif
+
         private void Awake()
         {
             Instance = this;
@@ -347,6 +362,18 @@ namespace Luminang.UI.Minigames.IsometricGame
                 if (keyboard.digit7Key.wasPressedThisFrame) JumpToScenario(6);
                 if (keyboard.digit8Key.wasPressedThisFrame) JumpToScenario(7);
                 if (keyboard.digit9Key.wasPressedThisFrame) JumpToScenario(8);
+
+                // Win/Lose cheats
+                if (keyboard.wKey.wasPressedThisFrame)
+                {
+                    Debug.Log("<color=yellow>[Cheat]</color> W pressed - Win Minigame!");
+                    ShowWinScreen();
+                }
+                if (keyboard.lKey.wasPressedThisFrame)
+                {
+                    Debug.Log("<color=yellow>[Cheat]</color> L pressed - Lose Minigame!");
+                    ShowLoseScreen();
+                }
             }
             #endif
 
@@ -370,6 +397,10 @@ namespace Luminang.UI.Minigames.IsometricGame
             if (Input.GetKeyDown(KeyCode.Alpha7)) JumpToScenario(6);
             if (Input.GetKeyDown(KeyCode.Alpha8)) JumpToScenario(7);
             if (Input.GetKeyDown(KeyCode.Alpha9)) JumpToScenario(8);
+            
+            // Win/Lose cheats
+            if (Input.GetKeyDown(KeyCode.W)) ShowWinScreen();
+            if (Input.GetKeyDown(KeyCode.L)) ShowLoseScreen();
             #endif
 #endif
         }
@@ -1339,7 +1370,8 @@ namespace Luminang.UI.Minigames.IsometricGame
         public void RestartGame()
         {
             if (audioSource != null && buttonClickClip != null) audioSource.PlayOneShot(buttonClickClip);
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            // Use MinigameReloader to prevent destroying Magellan scene
+            MinigameReloader.ReloadActiveMinigame();
         }
 
         // Call this from the WinPanel's "Continue" Button OnClick()
@@ -1462,27 +1494,18 @@ namespace Luminang.UI.Minigames.IsometricGame
             bool dismissed = false;
             while (!dismissed)
             {
-                #if ENABLE_INPUT_SYSTEM
-                if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
+                if (UnityEngine.InputSystem.Pointer.current != null && UnityEngine.InputSystem.Pointer.current.press.wasPressedThisFrame)
                 {
                     dismissed = true;
                 }
-                else if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+                else if (UnityEngine.InputSystem.Touchscreen.current != null && UnityEngine.InputSystem.Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
                 {
                     dismissed = true;
                 }
-                else if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+                else if (UnityEngine.InputSystem.Mouse.current != null && UnityEngine.InputSystem.Mouse.current.leftButton.wasPressedThisFrame)
                 {
                     dismissed = true;
                 }
-                #endif
-
-                #if ENABLE_LEGACY_INPUT_MANAGER
-                if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
-                {
-                    dismissed = true;
-                }
-                #endif
 
                 yield return null;
             }

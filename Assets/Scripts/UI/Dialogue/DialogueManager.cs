@@ -373,6 +373,16 @@ public class DialogueManager : MonoBehaviour
                 }
             }
 
+            // Shop: Open the ShopScene additively 
+            if (choiceEventTrimmed.Equals("OpenShop", System.StringComparison.OrdinalIgnoreCase))
+            {
+                Debug.Log("<color=cyan>[DialogueManager] choiceEvent triggered OpenShop.</color>");
+                SceneLoader.ResetLoadingFlag();
+                SceneLoader.targetSceneForLoading = "ShopScene";
+                SceneLoader.keepBackgroundPersistent = true;
+                UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+            }
+
             // All other events: broadcast to ALL NPCs in case speaker changed mid-conversation
             BroadcastDialogueEvent(choiceEventTrimmed);
         }
@@ -707,6 +717,16 @@ public class DialogueManager : MonoBehaviour
             {
                 Debug.LogWarning($"[DialogueManager] ConversationTest event '{cleanEventName}' fired but ConversationTestManager.Instance is null. Make sure a ConversationTestManager GameObject is in the scene.");
             }
+        }
+
+        // 3.5 Shop: Open the ShopScene additively 
+        if (cleanEventName.Equals("OpenShop", System.StringComparison.OrdinalIgnoreCase))
+        {
+            Debug.Log("<color=cyan>[DialogueManager] Global Event triggered OpenShop.</color>");
+            SceneLoader.ResetLoadingFlag();
+            SceneLoader.targetSceneForLoading = "ShopScene";
+            SceneLoader.keepBackgroundPersistent = true;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
         }
 
         // 4. Forward to ALL NPCs — the one with the event mapping will handle it

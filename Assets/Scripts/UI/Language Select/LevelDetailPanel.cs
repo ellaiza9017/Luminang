@@ -127,6 +127,15 @@ public class LevelDetailPanel : MonoBehaviour
     // Private State
     // ──────────────────────────────────────────────────
 
+        [System.Serializable]
+    private class ObjectivesData { public System.Collections.Generic.List<CategoryObjectives> objectives; }
+    
+    [System.Serializable]
+    private class CategoryObjectives { public string category; public System.Collections.Generic.List<ObjectiveItem> items; }
+    
+    [System.Serializable]
+    private class ObjectiveItem { public string id; public string objective; }
+
     private LessonsDataWrapper _data;
     private string _currentLanguage = "ilokano";
     private string _currentCategoryKey;
@@ -249,12 +258,28 @@ public class LevelDetailPanel : MonoBehaviour
 
             if (startButtonLabel != null)
             {
-                if (isCompleted)
-                    startButtonLabel.text = "Play Again";
-                else if (isLocked)
-                    startButtonLabel.text = "Start Lesson"; // Or "Locked", but user requested "Start Lesson" grayed out
+                if (isLocked)
+                {
+                    startButtonLabel.text = "Start Lesson";
+                }
                 else
-                    startButtonLabel.text = "Start Lesson"; // Current unlocked lesson
+                {
+                    int compCount = GetCompletedObjectivesCount(categoryKey, _currentLanguage);
+                    int totCount = GetTotalObjectivesCount(categoryKey, _currentLanguage);
+                    
+                    if (isCompleted || (totCount > 0 && compCount >= totCount))
+                    {
+                        startButtonLabel.text = "Play Again";
+                    }
+                    else if (compCount > 0 && compCount < totCount)
+                    {
+                        startButtonLabel.text = "Continue";
+                    }
+                    else
+                    {
+                        startButtonLabel.text = "Start Lesson";
+                    }
+                }
             }
         }
         else
@@ -343,13 +368,113 @@ public class LevelDetailPanel : MonoBehaviour
                 Destroy(child.gameObject);
     }
 
+
+    private int GetCompletedObjectivesCount(string categoryKey, string language)
+    {
+        if (UserProfileManager.Instance == null || UserProfileManager.Instance.CurrentProfile == null) return 0;
+        
+        string filename = (language.ToLower() == "cebuano") ? "Cebuano Objectives" : "Ilokano Objectives";
+        TextAsset jsonAsset = Resources.Load<TextAsset>(filename);
+        if (jsonAsset == null) return 0;
+        
+        ObjectivesData objData = JsonUtility.FromJson<ObjectivesData>(jsonAsset.text);
+        if (objData == null || objData.objectives == null) return 0;
+        
+        CategoryObjectives catData = objData.objectives.Find(c => string.Equals(c.category, categoryKey, System.StringComparison.OrdinalIgnoreCase));
+        if (catData == null || catData.items == null) return 0;
+        
+        System.Collections.Generic.List<string> completedList = (language.ToLower() == "cebuano") 
+            ? UserProfileManager.Instance.CurrentProfile.CompletedObjectivesCebuano
+            : UserProfileManager.Instance.CurrentProfile.CompletedObjectivesIlokano;
+            
+        int count = 0;
+        foreach (var item in catData.items)
+        {
+            if (completedList.Contains(item.id)) count++;
+        }
+        return count;
+    }
+    
+    private int GetTotalObjectivesCount(string categoryKey, string language)
+    {
+        string filename = (language.ToLower() == "cebuano") ? "Cebuano Objectives" : "Ilokano Objectives";
+        TextAsset jsonAsset = Resources.Load<TextAsset>(filename);
+        if (jsonAsset == null) return 0;
+        
+        ObjectivesData objData = JsonUtility.FromJson<ObjectivesData>(jsonAsset.text);
+        if (objData == null || objData.objectives == null) return 0;
+        
+        CategoryObjectives catData = objData.objectives.Find(c => string.Equals(c.category, categoryKey, System.StringComparison.OrdinalIgnoreCase));
+        if (catData == null || catData.items == null) return 0;
+        
+        return catData.items.Count;
+    }
+
     private void OnStartButtonPressed()
     {
         if (string.IsNullOrEmpty(_currentCategoryKey)) return;
 
-        if (LessonIntroPanel.Instance != null)
-            LessonIntroPanel.Instance.ShowForCategory(_currentCategoryKey);
+        // Remember the selected lesson category so Magellan's Cross knows what to load!
+        if (UserProfileManager.Instance != null && UserProfileManager.Instance.CurrentProfile != null)
+        {
+            // Update last_category_id or similar if needed. For now, we just save the string in PlayerPrefs as the 'ActiveQuest'
+            PlayerPrefs.SetString("ActiveQuest", _currentCategoryKey);
+            PlayerPrefs.Save();
+        }
+
+        StartCoroutine(StartTransitionRoutine());
+    }
+
+    private System.Collections.IEnumerator StartTransitionRoutine()
+    {
+        // 1. Close the Book!
+        if (BookSelectionManager.Instance != null)
+        {
+            BookSelectionManager.Instance.CloseBook();
+            
+            // Wait for half the close animation
+            float waitTime = (BookSelectionManager.Instance.openSprites != null) 
+                ? (BookSelectionManager.Instance.openSprites.Length * BookSelectionManager.Instance.openCloseTimePerFrame) / 2f 
+                : 0.5f;
+            yield return new WaitForSeconds(waitTime);
+        }
+
+        // 2. Load the scene based on language and Intro flags
+        string activeLang = PlayerPrefs.GetString("SelectedLanguage", _currentLanguage);
+        bool isCebuano = activeLang.ToLower() == "cebuano";
+        string targetScene = "";
+
+        if (UserProfileManager.Instance != null && UserProfileManager.Instance.CurrentProfile != null)
+        {
+            var profile = UserProfileManager.Instance.CurrentProfile;
+            if (isCebuano)
+            {
+                if (!profile.HasSeenCebuIntro) targetScene = "CebuIntroScene";
+                else targetScene = "Magellan's_Cross";
+            }
+            else
+            {
+                if (!profile.HasSeenIlocosIntro) targetScene = "IlocosIntroScene"; // Adjust if different
+                else targetScene = "Calle_Crisologo";
+            }
+        }
         else
-            Debug.LogWarning("[LevelDetailPanel] LessonIntroPanel.Instance not found.");
+        {
+            // Fallback
+            targetScene = isCebuano ? "Magellan's_Cross" : "Calle_Crisologo";
+        }
+
+        // Use SceneLoader to smoothly transition with the loading screen
+        var sceneLoader = Object.FindFirstObjectByType<SceneLoader>();
+        if (sceneLoader == null)
+        {
+            Debug.Log("[LevelDetailPanel] No SceneLoader found in the scene. Creating a temporary one to trigger the loading screen.");
+            GameObject tempLoaderObj = new GameObject("TempSceneLoader");
+            sceneLoader = tempLoaderObj.AddComponent<SceneLoader>();
+            sceneLoader.useLoadingScreenForGameScene = true;
+            sceneLoader.loadingSceneName = "LoadingScene";
+        }
+        
+        sceneLoader.LoadScene(targetScene);
     }
 }

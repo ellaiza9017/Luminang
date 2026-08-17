@@ -18,5 +18,5 @@ MonoBehaviour:
   translatedText: 
   animationTrigger: 
   triggerEventName: 
-  endEventName: Tindahan
+  endEventName: OpenShop
   choices: []

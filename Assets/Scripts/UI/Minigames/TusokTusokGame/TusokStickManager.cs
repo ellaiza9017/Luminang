@@ -27,6 +27,11 @@ public class TusokStickManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
+
     public int GetFoodCount(TusokWokItem.FoodType foodType)
     {
         int count = 0;

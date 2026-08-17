@@ -269,8 +269,40 @@ public class ShopManager : MonoBehaviour
 
     private void GoBack()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(
-            UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex - 1);
+        // Delay re-enabling EventSystems by 0.25 seconds to prevent the mouse click from passing through
+        GameObject enabler = new GameObject("EventSystemReenabler");
+        DontDestroyOnLoad(enabler);
+        var mono = enabler.AddComponent<ShopExitHelper>();
+        mono.StartCoroutine(mono.ReenableNextFrame(gameObject.scene));
+
+        // Notify the player's OutfitManager in the main scene to refresh the player's outfit
+        var allOutfitManagers = FindObjectsByType<OutfitManager>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (var outfitManager in allOutfitManagers)
+        {
+            if (outfitManager.gameObject.scene != gameObject.scene)
+            {
+                outfitManager.LoadOutfit(UserProfileManager.Instance.GetEquippedOutfitData());
+            }
+        }
+        
+        // Notify the Player Info Panel to update the portrait image
+        var infoPanels = FindObjectsByType<PlayerInfoPanel>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (var panel in infoPanels)
+        {
+            panel.UpdatePanelData();
+        }
+
+        if (UnityEngine.SceneManagement.SceneManager.sceneCount > 1)
+        {
+            // It was loaded additively over another scene, so we just unload it!
+            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(gameObject.scene);
+        }
+        else
+        {
+            // Fallback if they ran the scene directly
+            UnityEngine.SceneManagement.SceneManager.LoadScene(
+                UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
 
     // ---- Helpers ----
@@ -344,50 +376,27 @@ public class ShopManager : MonoBehaviour
 }
 
 // ============================================================
-// Per-card badge helper — OWNED / Equipped / price
+// Per-card badge helper ï¿½ OWNED / Equipped / price
 // ============================================================
-public class ShopFrameUI : MonoBehaviour
+// Per-card badge helper (Moved to ShopFrameUI.cs)
+// ============================================================
+public class ShopExitHelper : MonoBehaviour
 {
-    private OutfitItem myItem;
-    private ShopManager myManager;
-    private TMP_Text nameLabel;
-    private TMP_Text ownershipLabel;
-
-    public void Init(OutfitItem item, ShopManager manager)
+    public System.Collections.IEnumerator ReenableNextFrame(UnityEngine.SceneManagement.Scene unloadedScene)
     {
-        myItem = item;
-        myManager = manager;
-        Transform nameTrans = myManager.FindChildRecursive(transform, "ItemName");
-        if (nameTrans != null) nameLabel = nameTrans.GetComponent<TMP_Text>();
-        Transform ownerTrans = myManager.FindChildRecursive(transform, "Ownership");
-        if (ownerTrans != null) ownershipLabel = ownerTrans.GetComponent<TMP_Text>();
-        if (nameLabel != null) nameLabel.text = string.IsNullOrEmpty(item.itemName) ? item.name : item.itemName;
-    }
-
-    public void RefreshVisuals()
-    {
-        if (myItem == null || myManager == null) return;
-        bool isOwned  = myItem.price <= 0 || myManager.ownedItems.Contains(myItem.name);
-        bool isEquipped = IsItemEquipped();
-        if (ownershipLabel == null) return;
-        ownershipLabel.gameObject.SetActive(true);
-        if (isEquipped)         { ownershipLabel.text = "Equipped";              ownershipLabel.color = myManager.equippedColor; }
-        else if (isOwned)       { ownershipLabel.text = "OWNED";                 ownershipLabel.color = myManager.ownedColor;    }
-        else                    { ownershipLabel.text = $"{myItem.price} \ud83e\ude99"; ownershipLabel.color = myManager.priceColor;    }
-    }
-
-    private bool IsItemEquipped()
-    {
-        if (myManager?.characterManager == null) return false;
-        var equipped = myManager.characterManager.GetEquippedNames();
-        return (myItem.slot switch
+        // Wait 0.25 seconds to guarantee the mouse click has been completely consumed
+        // and doesn't accidentally trigger the PlayerInfoPanel underneath the shop!
+        yield return new WaitForSeconds(0.25f);
+        
+        foreach (var es in FindObjectsByType<UnityEngine.EventSystems.EventSystem>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
-            OutfitItem.Slot.Hair        => equipped.hair,
-            OutfitItem.Slot.Top         => equipped.top,
-            OutfitItem.Slot.Bottom      => equipped.bottom,
-            OutfitItem.Slot.Shoes       => equipped.shoes,
-            OutfitItem.Slot.Accessories => equipped.accessories,
-            _                           => null
-        }) == myItem.gameObject.name;
+            if (es.gameObject.scene != unloadedScene) es.enabled = true;
+        }
+        foreach (var al in FindObjectsByType<AudioListener>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (al.gameObject.scene != unloadedScene) al.enabled = true;
+        }
+        
+        Destroy(gameObject);
     }
 }

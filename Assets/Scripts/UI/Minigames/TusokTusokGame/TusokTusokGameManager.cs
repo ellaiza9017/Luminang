@@ -126,6 +126,15 @@ public class TusokTusokGameManager : MonoBehaviour
     [Tooltip("If left empty, the game will automatically try to load a JSON file from Resources matching the SelectedCategory.")]
     public TextAsset fallbackJsonData;
 
+    [Header("Editor Debug")]
+    [Tooltip("Change this in inspector to set starting round (0-19)")]
+    [Range(0, 19)]
+    public int startingRoundIndex = 0;
+    
+    [Tooltip("Change this in inspector to set starting hearts (1-5)")]
+    [Range(1, 5)]
+    public int startingHearts = 5;
+
     private List<CountingRoundData> rounds = new List<CountingRoundData>();
     private int currentRoundIndex = 0;
     private int currentHearts = 5;
@@ -136,12 +145,50 @@ public class TusokTusokGameManager : MonoBehaviour
         Instance = this;
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (Application.isPlaying && hasGameStarted)
+        {
+            currentHearts = Mathf.Clamp(startingHearts, 1, 5);
+            UpdateHeartsUI();
+            
+            // Allow skipping rounds via inspector
+            if (startingRoundIndex != currentRoundIndex && startingRoundIndex < rounds.Count)
+            {
+                currentRoundIndex = startingRoundIndex;
+                StartRound();
+            }
+        }
+    }
+#endif
+
     private void Start()
     {
+        currentRoundIndex = startingRoundIndex;
+        currentHearts = startingHearts;
+
         LoadData();
         submitButton.onClick.AddListener(OnSubmitClicked);
         if (translateButton != null) translateButton.onClick.AddListener(OnTranslateClicked);
         ShowHowToPlay();
+    }
+
+    private void Update()
+    {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        // Win/Lose cheats
+        if (UnityEngine.InputSystem.Keyboard.current != null)
+        {
+            if (UnityEngine.InputSystem.Keyboard.current.wKey.wasPressedThisFrame) ShowWinScreen();
+            if (UnityEngine.InputSystem.Keyboard.current.lKey.wasPressedThisFrame) ShowLoseScreen();
+        }
+#endif
     }
 
 
@@ -723,7 +770,7 @@ public class TusokTusokGameManager : MonoBehaviour
     public void RestartGame()
     {
         if (audioSource != null && buttonClickSFX != null) audioSource.PlayOneShot(buttonClickSFX);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        MinigameReloader.ReloadActiveMinigame();
     }
 
     public void QuitToMenu()

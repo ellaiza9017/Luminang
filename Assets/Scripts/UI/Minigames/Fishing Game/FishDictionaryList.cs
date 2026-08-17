@@ -91,6 +91,12 @@ public class FishDictionaryList : MonoBehaviour
             // 2. Create the dictionary entry in the list, and use the exact picture of that specific fish!
             CreateListItem(assignedPhrase, theFish.iconSprite, wordToDisplay);
         }
+
+        // 3. Disable any extra fishes that didn't get an assignment (e.g. 7 words but 8 fishes)
+        for (int i = itemsToSpawn; i < swimmingFishes.Length; i++)
+        {
+            swimmingFishes[i].gameObject.SetActive(false);
+        }
     }
 
     void CreateListItem(PhraseData phraseData, Sprite fishSprite, string word)

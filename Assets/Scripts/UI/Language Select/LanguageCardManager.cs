@@ -113,9 +113,17 @@ public class LanguageCardManager : MonoBehaviour
 
     public void SelectLanguage(string languageName)
     {
-        if (categoryListManager != null) categoryListManager.SetActiveLanguage(languageName);
-        if (wordsListManager != null) wordsListManager.SetLanguage(languageName);
-        if (levelDetailPanel != null) levelDetailPanel.SetLanguage(languageName);
+        PlayerPrefs.SetString("SelectedLanguage", languageName);
+        PlayerPrefs.Save();
+
+        var catManager = categoryListManager != null ? categoryListManager : UnityEngine.Object.FindFirstObjectByType<CategoryListManager>();
+        if (catManager != null) catManager.SetActiveLanguage(languageName);
+
+        var wordsManager = wordsListManager != null ? wordsListManager : UnityEngine.Object.FindFirstObjectByType<WordsListManager>();
+        if (wordsManager != null) wordsManager.SetLanguage(languageName);
+
+        var levelPanel = levelDetailPanel != null ? levelDetailPanel : UnityEngine.Object.FindFirstObjectByType<LevelDetailPanel>();
+        if (levelPanel != null) levelPanel.SetLanguage(languageName);
 
         if (BookSelectionManager.Instance != null)
         {

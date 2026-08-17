@@ -19,6 +19,11 @@
       "malem",
       "taga"
     ],
+    "cebuanoDistractorWords": [
+      "taga",
+      "ko",
+      "diri"
+    ],
     "acceptablePhraseIds": [
       "identity_019"
     ]
@@ -42,6 +47,11 @@
       "ket",
       "dispensaren",
       "ak"
+    ],
+    "cebuanoDistractorWords": [
+      "salamat",
+      "ako",
+      "si"
     ],
     "acceptablePhraseIds": [
       "identity_019"
@@ -67,6 +77,11 @@
       "malem",
       "kumusta"
     ],
+    "cebuanoDistractorWords": [
+      "maayo",
+      "hapon",
+      "sige"
+    ],
     "acceptablePhraseIds": [
       "identity_020"
     ]
@@ -90,6 +105,11 @@
       "malem",
       "tulong",
       "naimbag"
+    ],
+    "cebuanoDistractorWords": [
+      "buntag",
+      "maayo",
+      "unsay"
     ],
     "acceptablePhraseIds": [
       "identity_020"
@@ -115,6 +135,11 @@
       "saan",
       "nak"
     ],
+    "cebuanoDistractorWords": [
+      "sige",
+      "dili",
+      "salamat"
+    ],
     "acceptablePhraseIds": [
       "identity_021"
     ]
@@ -138,6 +163,11 @@
       "unay",
       "rabii",
       "okay"
+    ],
+    "cebuanoDistractorWords": [
+      "unay",
+      "gabii",
+      "sige"
     ],
     "acceptablePhraseIds": [
       "identity_021"
@@ -163,6 +193,11 @@
       "iti",
       "ka"
     ],
+    "cebuanoDistractorWords": [
+      "nga",
+      "ug",
+      "si"
+    ],
     "acceptablePhraseIds": [
       "identity_022"
     ]
@@ -187,6 +222,11 @@
       "nagan",
       "ko"
     ],
+    "cebuanoDistractorWords": [
+      "gabii",
+      "ngalan",
+      "si"
+    ],
     "acceptablePhraseIds": [
       "identity_022"
     ]
@@ -200,7 +240,7 @@
     "correctPhraseId": "greetings_001",
     "englishFeedback": "Have a good day!",
     "ilokanoFeedback": "Naimbag nga aldawmo!",
-    "cebuanoFeedback": "Maayong adlaw nimo!",
+    "cebuanoFeedback": "Maayong aldaw nimo!",
     "npcDescription": "A guy in white sando holding his plastic bag full of goods.",
     "npcKeyword": "morning",
     "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
@@ -209,6 +249,11 @@
     "distractorWords": [
       "ko",
       "okay",
+      "kumusta"
+    ],
+    "cebuanoDistractorWords": [
+      "ko",
+      "sige",
       "kumusta"
     ],
     "acceptablePhraseIds": [
@@ -235,6 +280,11 @@
       "ko",
       "saan"
     ],
+    "cebuanoDistractorWords": [
+      "paalam",
+      "ko",
+      "dili"
+    ],
     "acceptablePhraseIds": [
       "greetings_002"
     ]
@@ -258,6 +308,11 @@
       "iti",
       "nak",
       "maawatan"
+    ],
+    "cebuanoDistractorWords": [
+      "ug",
+      "ko",
+      "kasabot"
     ],
     "acceptablePhraseIds": [
       "greetings_003"
@@ -283,6 +338,11 @@
       "malem",
       "nagan"
     ],
+    "cebuanoDistractorWords": [
+      "daghang",
+      "hapon",
+      "ngalan"
+    ],
     "acceptablePhraseIds": [
       "greetings_004"
     ]
@@ -306,6 +366,11 @@
       "taga",
       "ti",
       "akon"
+    ],
+    "cebuanoDistractorWords": [
+      "taga",
+      "ug",
+      "namo"
     ],
     "acceptablePhraseIds": [
       "greetings_005"
@@ -331,6 +396,11 @@
       "rabii",
       "ka"
     ],
+    "cebuanoDistractorWords": [
+      "hapon",
+      "gabii",
+      "si"
+    ],
     "acceptablePhraseIds": [
       "greetings_006"
     ]
@@ -355,6 +425,11 @@
       "kumusta",
       "naimbag"
     ],
+    "cebuanoDistractorWords": [
+      "ug",
+      "kumusta",
+      "maayong"
+    ],
     "acceptablePhraseIds": [
       "greetings_007"
     ]
@@ -363,7 +438,7 @@
     "npcType": "MomSurprised",
     "englishDialogue": "Oh! Good day!",
     "ilokanoDialogue": "Ay! Naimbag nga aldaw!",
-    "cebuanoDialogue": "Hala! Maayong adlaw!",
+    "cebuanoDialogue": "Hala! Maayong aldaw!",
     "situationText": "Greet her back!",
     "correctPhraseId": "greetings_008",
     "englishFeedback": "Sorry, I was just surprised!",
@@ -378,6 +453,11 @@
       "ket",
       "tulong",
       "a"
+    ],
+    "cebuanoDistractorWords": [
+      "ko",
+      "maayo",
+      "salamat"
     ],
     "acceptablePhraseIds": [
       "greetings_008"
@@ -403,6 +483,11 @@
       "aldaw",
       "nagan"
     ],
+    "cebuanoDistractorWords": [
+      "buntag",
+      "aldaw",
+      "ngalan"
+    ],
     "acceptablePhraseIds": [
       "gratitude_009"
     ]
@@ -426,6 +511,11 @@
       "aldaw",
       "nga",
       "nasayaat"
+    ],
+    "cebuanoDistractorWords": [
+      "aldaw",
+      "nga",
+      "maayo"
     ],
     "acceptablePhraseIds": [
       "gratitude_010"
@@ -451,6 +541,11 @@
       "ko",
       "saan"
     ],
+    "cebuanoDistractorWords": [
+      "aldaw",
+      "ko",
+      "dili"
+    ],
     "acceptablePhraseIds": [
       "gratitude_011"
     ]
@@ -474,6 +569,11 @@
       "mo",
       "okay",
       "dispensaren"
+    ],
+    "cebuanoDistractorWords": [
+      "mo",
+      "sige",
+      "tabi"
     ],
     "acceptablePhraseIds": [
       "gratitude_012"
@@ -499,6 +599,11 @@
       "rabii",
       "naimbag"
     ],
+    "cebuanoDistractorWords": [
+      "asa",
+      "gabii",
+      "maayong"
+    ],
     "acceptablePhraseIds": [
       "gratitude_013"
     ]
@@ -507,7 +612,7 @@
     "npcType": "GuySando",
     "englishDialogue": "Wow, the sun is blazing! It's really hot outside today, right?",
     "ilokanoDialogue": "Nakapud-pudot itatta! Napudot kadi ti ruar?",
-    "cebuanoDialogue": "Init ba sa gawas?",
+    "cebuanoDialogue": "Hala, init kaayo sa gawas karon, diba?",
     "situationText": "Say 'Yes'!",
     "correctPhraseId": "responses_014",
     "englishFeedback": "I knew it.",
@@ -520,6 +625,11 @@
     "cebuanoWrongFeedback": "'{0}'? Mura'g naay sayop! Sulayi og tan-aw ang han-ay sa mga pulong.",
     "distractorWords": [
       "unay",
+      "kumusta",
+      "ka?"
+    ],
+    "cebuanoDistractorWords": [
+      "daghang",
       "kumusta",
       "ka?"
     ],
@@ -547,6 +657,11 @@
       "rabii",
       "ko"
     ],
+    "cebuanoDistractorWords": [
+      "maayo",
+      "gabii",
+      "ko"
+    ],
     "acceptablePhraseIds": [
       "responses_015"
     ]
@@ -555,7 +670,7 @@
     "npcType": "MomSurprised",
     "englishDialogue": "I'm in a huge rush! Please let me go first, okay?",
     "ilokanoDialogue": "Nagap-apuraak! Okay lang kadi no siak umuna?",
-    "cebuanoDialogue": "Okay ra ba kon ako mag-una?",
+    "cebuanoDialogue": "Nagdali-dali ko! Okay ra ba kon ako mag-una?",
     "situationText": "Say 'Okay'!",
     "correctPhraseId": "responses_016",
     "englishFeedback": "Thank you so much!",
@@ -570,6 +685,11 @@
       "nagan",
       "ka?",
       "sadino"
+    ],
+    "cebuanoDistractorWords": [
+      "ngalan",
+      "ka?",
+      "asa"
     ],
     "acceptablePhraseIds": [
       "responses_016"
@@ -595,6 +715,11 @@
       "nasayaat",
       "dispensaren"
     ],
+    "cebuanoDistractorWords": [
+      "maayo",
+      "maayong",
+      "tabi"
+    ],
     "acceptablePhraseIds": [
       "responses_017"
     ]
@@ -603,7 +728,7 @@
     "npcType": "JudgingLady",
     "englishDialogue": "Mmm... hrm... I think I saw you before... mmm... wait... or maybe... actually, nevermind.",
     "ilokanoDialogue": "Mmm... hrm... Kasla nakitaka idin... ay... mmm... wenno... ngem, saanen.",
-    "cebuanoDialogue": "Moadto ba ka sa merkado unya?",
+    "cebuanoDialogue": "Mmm... hrm... Mura'g nakita na tika... ay... mmm... o basin... ayaw nalang.",
     "situationText": "Tell her 'I don't understand'.",
     "correctPhraseId": "responses_018",
     "englishFeedback": "Nevermind then.",
@@ -618,6 +743,11 @@
       "dispensaren",
       "pakawanen",
       "sadino"
+    ],
+    "cebuanoDistractorWords": [
+      "tabi",
+      "paalam",
+      "asa"
     ],
     "acceptablePhraseIds": [
       "responses_018"

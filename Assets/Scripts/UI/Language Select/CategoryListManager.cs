@@ -141,6 +141,13 @@ public class CategoryListManager : MonoBehaviour
 
     private void Awake()
     {
+        if (gameObject.name == "ProfilePicFrame" || gameObject.name == "LanguageProgressSlider")
+        {
+            Debug.LogWarning($"[CategoryListManager] Self-destructing invalid component on {gameObject.name}");
+            Destroy(this);
+            return;
+        }
+
         ParseJsonFiles();
         MergeData();
     }
@@ -158,6 +165,23 @@ public class CategoryListManager : MonoBehaviour
         yield return null; // wait one frame
         if (!string.IsNullOrEmpty(_selectedCategory))
             SelectCategory(_selectedCategory);
+    }
+
+    private void OnEnable()
+    {
+        // Always read the global selection when we wake up!
+        string savedLang = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+        if (savedLang.Equals("Cebuano", System.StringComparison.OrdinalIgnoreCase))
+            _activeLanguage = Language.Cebuano;
+        else
+            _activeLanguage = Language.Ilokano;
+
+        // Force a rebuild with the correct language
+        if (_lessonsData != null)
+        {
+            MergeData();
+            BuildCategoryList();
+        }
     }
 
     // ──────────────────────────────────────────────────
@@ -411,6 +435,11 @@ public class CategoryListManager : MonoBehaviour
         // Fire so the right panel updates immediately
         if (!string.IsNullOrEmpty(_selectedCategory))
             SelectCategory(_selectedCategory);
+    }
+
+    public string GetActiveLanguageName()
+    {
+        return _activeLanguage == Language.Ilokano ? "ilokano" : "cebuano";
     }
 
     // ──────────────────────────────────────────────────

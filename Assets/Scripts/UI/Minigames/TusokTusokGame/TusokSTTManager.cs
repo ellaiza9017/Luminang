@@ -49,6 +49,11 @@ public class TusokSTTManager : MonoBehaviour
         Instance = this;
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
+
     void Start()
     {
         EnsureDependencies();
@@ -71,6 +76,19 @@ public class TusokSTTManager : MonoBehaviour
             Button btn = speakButton.GetComponent<Button>();
             if (btn != null) btn.onClick.AddListener(OnSpeakButtonClicked);
         }
+    }
+
+    private void Update()
+    {
+        #if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (isSTTActive && UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            Debug.Log("[Cheat] P pressed: Forcing STT success.");
+            TusokTusokGameManager.Instance.UpdateChatBubbleColorText("Excellent! Correct!", TusokTusokGameManager.Instance.sttCorrectColor);
+            TusokTusokGameManager.Instance.SetManongSprite(true);
+            StartCoroutine(TransitionToNextWord());
+        }
+        #endif
     }
 
     private void EnsureDependencies()

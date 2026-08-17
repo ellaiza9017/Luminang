@@ -6429,11 +6429,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2413503354441061703, guid: 71d184410a6e62a449ce20990317bfa2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -128.99988
+      value: -195
       objectReference: {fileID: 0}
     - target: {fileID: 2413503354441061703, guid: 71d184410a6e62a449ce20990317bfa2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -94
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 2413503354441061703, guid: 71d184410a6e62a449ce20990317bfa2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14292,6 +14292,7 @@ MonoBehaviour:
   paradeMarchRodrickStop: {fileID: 997634340}
   paradeMarchPlayerStop: {fileID: 1157917794}
   paradeMarchDuration: 5
+  startingPatience: 5
 --- !u!114 &1375384888
 MonoBehaviour:
   m_ObjectHideFlags: 0

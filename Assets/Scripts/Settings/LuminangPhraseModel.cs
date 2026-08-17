@@ -19,4 +19,5 @@ public class LuminangPhrase
     public string ilokano_target;
     public string cebuano_target;
     public List<string> ilokano_required_tokens;
+    public List<string> cebuano_required_tokens;
 }

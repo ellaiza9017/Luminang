@@ -45,6 +45,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Hub/CharacterCustomizationScene.unity
     guid: bda05c22fa2a3a144aaecbdb729a4a04
   - enabled: 1
+    path: Assets/Scenes/CutScenes/CebuIntroScene.unity
+    guid: a86fa5fd3f1eb024a9abf4841965c65b
+  - enabled: 1
+    path: Assets/Scenes/Environments/Magellan's_Cross.unity
+    guid: f22e8b4fc4cb3e3409b7ce42335a7238
+  - enabled: 1
     path: Assets/Scenes/MiniGames/FishingGameScene.unity
     guid: ce74d42815571444488ca576c1ea13c6
   - enabled: 1
@@ -65,6 +71,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGames/FinalAssessmentScene.unity
     guid: e9d2bfb3034dc8144ba77fcd4c1baac1
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/IsometricGameScene.unity
+    guid: ee4b7c6b407dd8d458e9fb1029e7fab4
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/TCGScene.unity
+    guid: 2c0f2cd3527b4684eaa61a58969c2a2a
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/MemoryGameScene.unity
+    guid: e3f82b8395185d645a60a4d73dc3f950
+  - enabled: 1
+    path: Assets/Scenes/Hub/ShopScene.unity
+    guid: cb18df192dc4f074aa5b51f9441fed8e
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: d2afdb32aa936b84f96cb58f959024df, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

@@ -120,8 +120,8 @@ public class FishingQuizManager : MonoBehaviour
 
     void LoadQuizData()
     {
-        // Load the greetings scenario data from the Resources folder (mobile friendly)
-        TextAsset jsonFile = Resources.Load<TextAsset>("Greetings");
+        string fileName = string.IsNullOrEmpty(FishingGameConfig.CategoryFilter) ? "Greetings" : FishingGameConfig.CategoryFilter;
+        TextAsset jsonFile = Resources.Load<TextAsset>(fileName);
         
         if (jsonFile != null)
         {
@@ -148,6 +148,12 @@ public class FishingQuizManager : MonoBehaviour
                     questionPool[i] = questionPool[randomIndex];
                     questionPool[randomIndex] = temp;
                 }
+
+                // Set rounds and baits dynamically based on the category's size
+                totalRounds = questionPool.Count;
+                if (fileName == "Greetings") totalBaits = 20;
+                else if (fileName == "Interrogatives") totalBaits = 19;
+                else totalBaits = totalRounds + 5;
             }
         }
         else
@@ -471,7 +477,7 @@ public class FishingQuizManager : MonoBehaviour
     // Call this from the "Try Again" Button OnClick()
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        MinigameReloader.ReloadActiveMinigame();
     }
 
     // Call this from the WinPanel's "Continue" Button OnClick()

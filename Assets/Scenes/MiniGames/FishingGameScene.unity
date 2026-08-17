@@ -2158,7 +2158,12 @@ MonoBehaviour:
   losePanel: {fileID: 1383511017}
   winCoinsText: {fileID: 1180161293}
   loseCoinsText: {fileID: 824014511}
-  winStars: []
+  winStars:
+  - {fileID: 2207821322691029337}
+  - {fileID: 2207821322691029336}
+  - {fileID: 2207821322691029335}
+  - {fileID: 2207821322691029334}
+  - {fileID: 2207821322691029333}
   activeStarSprite: {fileID: 21300000, guid: f41481cca60bf1d4fa6da20d943c98d5, type: 3}
   inactiveStarSprite: {fileID: 21300000, guid: d8bb47967b53d9a4cbaa74b1433bc2d7, type: 3}
   howToPlayGroup: {fileID: 828336527}
@@ -2225,8 +2230,8 @@ MonoBehaviour:
   colorProcessing: {r: 0, g: 0.7019608, b: 0.7019608, a: 1}
   colorRight: {r: 0, g: 0.5188679, b: 0, a: 1}
   colorWrong: {r: 0.5, g: 0, b: 0, a: 1}
-  sfxSource: {fileID: 0}
-  buttonClickSFX: {fileID: 0}
+  sfxSource: {fileID: 477867333}
+  buttonClickSFX: {fileID: 8300000, guid: d71ef51224ec98e44be6d75751a71e09, type: 3}
 --- !u!82 &477867333
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8109,7 +8114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7ec1b372286c7448651e37c64cc044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishTouchHandler
-  fishCamera: {fileID: 1938437587}
 --- !u!114 &1938437590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9013,6 +9017,61 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1383511021}
   m_SourcePrefab: {fileID: 100100000, guid: f505311fbc4c08142b5441676b25a831, type: 3}
+--- !u!114 &2207821322691029333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1286546308641447325, guid: f505311fbc4c08142b5441676b25a831, type: 3}
+  m_PrefabInstance: {fileID: 2207821322691029332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &2207821322691029334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5310754140211275440, guid: f505311fbc4c08142b5441676b25a831, type: 3}
+  m_PrefabInstance: {fileID: 2207821322691029332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &2207821322691029335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6083666010553888222, guid: f505311fbc4c08142b5441676b25a831, type: 3}
+  m_PrefabInstance: {fileID: 2207821322691029332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &2207821322691029336 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 415498006731784623, guid: f505311fbc4c08142b5441676b25a831, type: 3}
+  m_PrefabInstance: {fileID: 2207821322691029332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &2207821322691029337 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8693855176655557779, guid: f505311fbc4c08142b5441676b25a831, type: 3}
+  m_PrefabInstance: {fileID: 2207821322691029332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &7701646051526980370
 PrefabInstance:
   m_ObjectHideFlags: 0

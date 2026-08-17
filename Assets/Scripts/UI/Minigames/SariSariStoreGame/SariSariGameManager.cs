@@ -36,7 +36,8 @@ public class ChismisRoundData
     public string npcDescription;
     public string npcKeyword;
     public List<string> acceptablePhraseIds;
-    public List<string> distractorWords;
+    public List<string> distractorWords;        // Ilokano distractor tokens
+    public List<string> cebuanoDistractorWords; // Cebuano distractor tokens
 }
 
 public class SariSariGameManager : MonoBehaviour
@@ -101,6 +102,12 @@ public class SariSariGameManager : MonoBehaviour
     public AudioClip[] slideInSfxs;
     public AudioClip dropSfx;
 
+    [Header("Debug / Cheat Settings")]
+    [Tooltip("(Editor only) Start from this round number (1 = first round)")]
+    public int startingRound = 1;
+    [Tooltip("(Editor only) Start with this many lives (candies). Max 5.")]
+    public int startingLives = 5;
+
     private List<ChismisRoundData> activeSessionRounds = new List<ChismisRoundData>();
     private int currentRoundIndex = 0;
     private int lives = 5; // The 5 Candies
@@ -114,15 +121,30 @@ public class SariSariGameManager : MonoBehaviour
         Instance = this;
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
+
     private void Start()
     {
         // Hide NPCs initially
         if (leftTambay != null) leftTambay.gameObject.SetActive(false);
         if (rightTambay != null) rightTambay.gameObject.SetActive(false);
         if (tindera != null) tindera.gameObject.SetActive(false);
-        
+
+#if UNITY_EDITOR
+        // Apply cheat inspector overrides
+        lives = Mathf.Clamp(startingLives, 1, 5);
+#endif
+
         LoadMasterDictionary();
         LoadAndBuildSessionRounds();
+
+#if UNITY_EDITOR
+        // Jump to the specified starting round (1-based in inspector, 0-based internally)
+        currentRoundIndex = Mathf.Clamp(startingRound - 1, 0, activeSessionRounds.Count - 1);
+#endif
 
         if (howToPlayGroup != null && howToPlayPanel != null)
         {
@@ -152,12 +174,23 @@ public class SariSariGameManager : MonoBehaviour
 
     private void LoadAndBuildSessionRounds()
     {
-        // 1. Load the JSON pool based on config
-        string category = string.IsNullOrEmpty(SariSariGameConfig.TargetCategory) ? "IdentityExpressions" : SariSariGameConfig.TargetCategory;
+        // 1. Resolve the JSON filename from the config.
+        //    The trigger's categoryFilter may be a short name (e.g. "Identity") OR the full JSON filename.
+        //    We map short names to the actual filenames here so both work.
+        string rawCategory = string.IsNullOrEmpty(SariSariGameConfig.TargetCategory) ? "IdentityExpressions" : SariSariGameConfig.TargetCategory;
+        string category = rawCategory switch
+        {
+            "Identity"   => "IdentityExpressions",
+            "Responses"  => "IdentityExpressions", // fallback - same file has responses
+            "Greetings"  => "IdentityExpressions", // fallback - same file has greetings
+            "Gratitude"  => "IdentityExpressions", // fallback - same file has gratitude
+            _            => rawCategory             // already a full filename
+        };
+
         TextAsset jsonAsset = Resources.Load<TextAsset>(category);
         if (jsonAsset == null)
         {
-            Debug.LogError($"Could not find {category}.json in Resources!");
+            Debug.LogError($"[SariSari] Could not find {category}.json in Resources! (rawCategory was '{rawCategory}')");
             return;
         }
 
@@ -246,9 +279,12 @@ public class SariSariGameManager : MonoBehaviour
         if (tindera != null) tindera.SetIdle();
         if (leftTambay != null) leftTambay.SetIdle();
         
-        if (currentRoundIndex >= activeSessionRounds.Count)
+        if (currentRoundIndex < 0 || currentRoundIndex >= activeSessionRounds.Count)
         {
-            Debug.Log("Game Won! Session complete.");
+            if (currentRoundIndex < 0)
+                Debug.LogError($"[SariSari] currentRoundIndex is {currentRoundIndex} (negative!). Rounds loaded: {activeSessionRounds.Count}");
+            else
+                Debug.Log("Game Won! Session complete.");
             ShowWinScreen();
             return;
         }
@@ -340,20 +376,34 @@ public class SariSariGameManager : MonoBehaviour
         LuminangPhrase targetPhrase = phraseDictionary.FirstOrDefault(p => p.id == round.correctPhraseId);
         if (targetPhrase == null) return;
 
-        // 3. Determine the correct words
+        // 3. Determine the correct words based on the ACTIVE target language
+        string targetLanguage = SariSariGameConfig.TargetLanguage.ToLower();
+        bool isCebuano = targetLanguage == "cebuano";
+
         List<string> correctWords = new List<string>();
-        if (targetPhrase.type == "template" && !string.IsNullOrEmpty(targetPhrase.ilokano_target))
+        if (targetPhrase.type == "template")
         {
-            // For templates like "taga {place} ak", split the raw target to include the `{place}` token as a block
-            correctWords.AddRange(targetPhrase.ilokano_target.Split(' '));
-        }
-        else if (targetPhrase.ilokano_required_tokens != null && targetPhrase.ilokano_required_tokens.Count > 0)
-        {
-            correctWords.AddRange(targetPhrase.ilokano_required_tokens);
+            // For templates, ALWAYS split the full target string (e.g. "taga {place} ko")
+            // This ensures the {place}/{name} token is present so an input block slot is created.
+            // DO NOT use requiredTokens here — those are for validation only, not block spawning.
+            string templateTarget = isCebuano ? targetPhrase.cebuano_target : targetPhrase.ilokano_target;
+            if (!string.IsNullOrEmpty(templateTarget))
+            {
+                correctWords.AddRange(templateTarget.Split(' '));
+            }
+            else
+            {
+                // Last resort fallback: use the base phrase
+                string nativePhrase = isCebuano ? targetPhrase.cebuano : targetPhrase.ilokano;
+                correctWords.AddRange(nativePhrase.Split(' '));
+            }
         }
         else
         {
-            correctWords.AddRange(targetPhrase.ilokano.Split(' '));
+            // Fixed phrase: split the native translation into individual word tokens
+            string nativePhrase = isCebuano ? targetPhrase.cebuano : targetPhrase.ilokano;
+            if (string.IsNullOrEmpty(nativePhrase)) nativePhrase = targetPhrase.ilokano;
+            correctWords.AddRange(nativePhrase.Split(' '));
         }
 
         // 4. Spawn an empty slot in the SentenceBox for every correct word
@@ -362,11 +412,20 @@ public class SariSariGameManager : MonoBehaviour
             Instantiate(wordSlotPrefab, sentenceBox);
         }
 
-        // 5. Gather all correct words + distractor words, capped at 6 total
+        // 5. Pick distractors from the language-appropriate list
+        List<string> distractors = isCebuano
+            ? (round.cebuanoDistractorWords != null && round.cebuanoDistractorWords.Count > 0
+                ? round.cebuanoDistractorWords
+                : round.distractorWords)   // fallback to Ilokano if Cebuano not set
+            : round.distractorWords;
+
+        // 6. Gather all correct words + distractor words, capped at 6 total
+        //    NOTE: {variable} tokens like {place} MUST be included — SariSariWordBlock renders them
+        //    as draggable "(Type place..)" input blocks that become editable when dropped into a slot.
         List<string> allWords = new List<string>(correctWords);
-        if (round.distractorWords != null)
+        if (distractors != null)
         {
-            foreach (string distractor in round.distractorWords)
+            foreach (string distractor in distractors)
             {
                 if (allWords.Count >= 6) break;
                 allWords.Add(distractor);
@@ -374,7 +433,7 @@ public class SariSariGameManager : MonoBehaviour
         }
         Shuffle(allWords);
 
-        // 6. Spawn the draggable WordBlocks into the WordBank
+        // 7. Spawn the draggable WordBlocks into the WordBank
         foreach (string word in allWords)
         {
             GameObject blockObj = Instantiate(wordBlockPrefab, wordBoxGroup);
@@ -429,8 +488,16 @@ public class SariSariGameManager : MonoBehaviour
         
         if (targetLanguage == "cebuano")
         {
-            // Handle Cebuano target words (Fallback to normal string split if no required tokens exist for cebuano yet)
-            correctWords.AddRange(targetPhrase.cebuano.Split(' '));
+            // For templates, split the FULL cebuano_target (includes {place}/{name} tokens)
+            // This must match exactly how SpawnWordBlocks lays out the slots.
+            if (targetPhrase.type == "template" && !string.IsNullOrEmpty(targetPhrase.cebuano_target))
+            {
+                correctWords.AddRange(targetPhrase.cebuano_target.Split(' '));
+            }
+            else
+            {
+                correctWords.AddRange(targetPhrase.cebuano.Split(' '));
+            }
         }
         else
         {
@@ -750,6 +817,7 @@ public class SariSariGameManager : MonoBehaviour
         int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
         PlayerPrefs.SetInt("PlayerCoins", currentCoins + coinsEarned);
         PlayerPrefs.SetInt("SariSariMinigameWon", 1);
+        PlayerPrefs.SetInt("MinigameWon", 1);
         PlayerPrefs.Save();
     }
 
@@ -769,6 +837,8 @@ public class SariSariGameManager : MonoBehaviour
 
         int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
         PlayerPrefs.SetInt("PlayerCoins", currentCoins + 2); // 2 consolation coins
+        PlayerPrefs.SetInt("SariSariMinigameWon", 0);
+        PlayerPrefs.SetInt("MinigameWon", 0);
         PlayerPrefs.Save();
     }
 
@@ -780,8 +850,8 @@ public class SariSariGameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        // Re-loads the current minigame scene from the beginning
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Use MinigameReloader so we don't accidentally unload the main game (Magellan) background scene
+        MinigameReloader.ReloadActiveMinigame();
     }
 
     public void QuitToMenu()
@@ -818,7 +888,26 @@ public class SariSariGameManager : MonoBehaviour
         }
     }
 
+
 #if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (Application.isPlaying && hasGameStarted)
+        {
+            lives = Mathf.Clamp(startingLives, 1, 5);
+            if (activeSessionRounds != null && activeSessionRounds.Count > 0)
+            {
+                currentRoundIndex = Mathf.Clamp(startingRound - 1, 0, activeSessionRounds.Count - 1);
+            }
+            
+            UpdateLivesUI();
+            if (roundTextUI != null && activeSessionRounds != null) 
+            {
+                roundTextUI.text = $"Round: {currentRoundIndex + 1}/{activeSessionRounds.Count}";
+            }
+        }
+    }
+
     private void Update()
     {
         try 
@@ -828,13 +917,18 @@ public class SariSariGameManager : MonoBehaviour
             {
                 if (keyboard.pKey != null && keyboard.pKey.wasPressedThisFrame)
                 {
-                    Debug.Log("<color=magenta>CHEAT: Forced Pass (P)</color>");
+                    Debug.Log("<color=magenta>CHEAT: Forced Pass STT (P)</color>");
                     OnSTTSuccess();
                 }
-                else if (keyboard.fKey != null && keyboard.fKey.wasPressedThisFrame)
+                else if (keyboard.wKey != null && keyboard.wKey.wasPressedThisFrame)
                 {
-                    Debug.Log("<color=magenta>CHEAT: Forced Fail (F)</color>");
-                    OnSTTFailure("CHEAT FAILED");
+                    Debug.Log("<color=magenta>CHEAT: Forced Win (W)</color>");
+                    ShowWinScreen();
+                }
+                else if (keyboard.lKey != null && keyboard.lKey.wasPressedThisFrame)
+                {
+                    Debug.Log("<color=magenta>CHEAT: Forced Lose (L)</color>");
+                    ShowLoseScreen();
                 }
             }
         }

@@ -2250,6 +2250,46 @@ MonoBehaviour:
     npcSprite: {fileID: 21300000, guid: 588a649baac66ed4cb8cc663f533813a, type: 3}
   - keyword: jeepney
     npcSprite: {fileID: 21300000, guid: eeaa8b0fa1b1d2547b321efb328fbc62, type: 3}
+  - keyword: rest
+    npcSprite: {fileID: 21300000, guid: 1bee58a46c2c5934b85bc8d7d9481881, type: 3}
+  - keyword: presentation
+    npcSprite: {fileID: 21300000, guid: 49419147112abab41a2278f8cd1459c0, type: 3}
+  - keyword: group
+    npcSprite: {fileID: 21300000, guid: 0f23777327b6803468d1ceb4197540ba, type: 3}
+  - keyword: tickets
+    npcSprite: {fileID: 21300000, guid: f7f5908374d92274eb5f3a1950ed002d, type: 3}
+  - keyword: building
+    npcSprite: {fileID: 21300000, guid: 8bc317f360ca1e54fa6b2d0edb697658, type: 3}
+  - keyword: calm
+    npcSprite: {fileID: 21300000, guid: be03ffd614b48a6409af0884062333d9, type: 3}
+  - keyword: performance
+    npcSprite: {fileID: 21300000, guid: 185a97b28b3fba3438376c91086aa400, type: 3}
+  - keyword: sky
+    npcSprite: {fileID: 21300000, guid: 26ac3033729840e4183ed457858e9be9, type: 3}
+  - keyword: confidence
+    npcSprite: {fileID: 21300000, guid: 0512ed4834b895648ac665f10e244a46, type: 3}
+  - keyword: musician
+    npcSprite: {fileID: 21300000, guid: 07c95bb1bf184134f899b93adc3ad12f, type: 3}
+  - keyword: friends
+    npcSprite: {fileID: 21300000, guid: ee540a1602a33134e90b4a8c628f5fbd, type: 3}
+  - keyword: trip
+    npcSprite: {fileID: 21300000, guid: 2a710174049da804cbc7b17d27ad8bb1, type: 3}
+  - keyword: celebration
+    npcSprite: {fileID: 21300000, guid: dca14cc88eb0af746b2d9e7ec1f9be65, type: 3}
+  - keyword: classroom
+    npcSprite: {fileID: 21300000, guid: 07d8d2280a5104047818746dcf8ad209, type: 3}
+  - keyword: children
+    npcSprite: {fileID: 21300000, guid: ce8147e05cda1824e985782cf3b35bb4, type: 3}
+  - keyword: together
+    npcSprite: {fileID: 21300000, guid: 1fb72804e11eceb4bb8d62eb2bdb8727, type: 3}
+  - keyword: soup
+    npcSprite: {fileID: 21300000, guid: 0eedd29318e8a2a47b346f551bca4fc0, type: 3}
+  - keyword: happy
+    npcSprite: {fileID: 21300000, guid: ae02f7ff4e6409b47a9fdd345791d6f6, type: 3}
+  - keyword: student
+    npcSprite: {fileID: 21300000, guid: ada30e81c15ad404d86047d10e6e75a9, type: 3}
+  - keyword: introduction
+    npcSprite: {fileID: 21300000, guid: a80208b15a07bbc45bc24d4a9b58e82a, type: 3}
   defaultNpcSprite: {fileID: 21300000, guid: 7965c4baf28fcc7478f96ef8ca5b066c, type: 3}
   cans:
   - {fileID: 982302877}
@@ -3056,7 +3096,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7ec1b372286c7448651e37c64cc044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishTouchHandler
-  fishCamera: {fileID: 939036436}
 --- !u!114 &939036434
 MonoBehaviour:
   m_ObjectHideFlags: 0

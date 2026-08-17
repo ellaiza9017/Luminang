@@ -22,6 +22,11 @@ public class TusokRecallManager : MonoBehaviour
         LoadPhrases();
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
+
     private void LoadPhrases()
     {
         TextAsset jsonAsset = Resources.Load<TextAsset>("LuminangPhrases");

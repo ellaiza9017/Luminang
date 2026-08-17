@@ -26,10 +26,16 @@ public class TumbangPresoSwipeController : MonoBehaviour
     private Vector2 lowestTouchPosition; // Tracks the bottom of the pull-back
     private bool isDragging = false;
     private bool isCocked = false; 
+    
+    [Header("--- DEBUG INFO ---")]
     public bool isInputBlocked = false;
     
     void Update()
     {
+        if (Time.frameCount % 120 == 0) 
+        {
+            Debug.Log($"[TumbangPreso] Heartbeat! isInputBlocked: {isInputBlocked}, Pointer.current is null: {(UnityEngine.InputSystem.Pointer.current == null)}");
+        }
         HandleInput();
     }
     
@@ -37,17 +43,35 @@ public class TumbangPresoSwipeController : MonoBehaviour
     {
         if (isInputBlocked) return;
         
-        var pointer = Pointer.current;
-        if (pointer == null) return;
+        bool wasPressed = false;
+        bool isPressed = false;
+        bool wasReleased = false;
+        Vector2 position = Vector2.zero;
 
-        bool wasPressed = pointer.press.wasPressedThisFrame;
-        bool isPressed = pointer.press.isPressed;
-        bool wasReleased = pointer.press.wasReleasedThisFrame;
-        Vector2 position = pointer.position.ReadValue();
+        // Use New Input System specifically (Mouse and Touchscreen)
+        if (UnityEngine.InputSystem.Touchscreen.current != null && UnityEngine.InputSystem.Touchscreen.current.touches.Count > 0)
+        {
+            var touch = UnityEngine.InputSystem.Touchscreen.current.touches[0];
+            position = touch.position.ReadValue();
+            
+            var phase = touch.phase.ReadValue();
+            wasPressed = (phase == UnityEngine.InputSystem.TouchPhase.Began);
+            isPressed = (phase == UnityEngine.InputSystem.TouchPhase.Moved || phase == UnityEngine.InputSystem.TouchPhase.Stationary);
+            wasReleased = (phase == UnityEngine.InputSystem.TouchPhase.Ended || phase == UnityEngine.InputSystem.TouchPhase.Canceled);
+        }
+        else if (UnityEngine.InputSystem.Mouse.current != null)
+        {
+            var mouse = UnityEngine.InputSystem.Mouse.current;
+            position = mouse.position.ReadValue();
+            wasPressed = mouse.leftButton.wasPressedThisFrame;
+            isPressed = mouse.leftButton.isPressed;
+            wasReleased = mouse.leftButton.wasReleasedThisFrame;
+        }
 
         if (wasPressed)
         {
             startTouchPosition = position;
+
             lowestTouchPosition = position;
             isDragging = true;
             isCocked = false;

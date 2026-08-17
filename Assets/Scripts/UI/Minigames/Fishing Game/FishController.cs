@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
-public class FishController : MonoBehaviour
+public class FishController : MonoBehaviour, IPointerClickHandler
 {
     [Header("Animation Settings")]
     public Sprite[] frames;
@@ -204,6 +205,14 @@ public class FishController : MonoBehaviour
             scale.x = Mathf.Abs(scale.x) * direction;
             transform.localScale = scale;
         }
+    }
+
+    // Called natively by the EventSystem when Physics2DRaycaster detects a click on this collider
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (isCaught) return;
+        Debug.Log($"[FishController] EventSystem explicitly clicked the fish: {gameObject.name}");
+        HandleClick();
     }
 
     // Called externally by FishTouchHandler when this fish is tapped on mobile/desktop

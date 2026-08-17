@@ -45,8 +45,9 @@ public class TumbangPresoSTTManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        // Scene-local singleton: just overwrite instance instead of destroying game object
+        // so seamless additive loading doesn't kill the new game object.
+        Instance = this;
     }
 
     void Start()
@@ -189,21 +190,37 @@ public class TumbangPresoSTTManager : MonoBehaviour
             if (!success && DatasetManager.Instance != null && TumbangPresoGameManager.Instance != null)
             {
                 var data = TumbangPresoGameManager.Instance.GetCurrentSituationData();
-                if (data != null && data.acceptablePhraseIds != null)
+                if (data != null)
                 {
                     string langToUse = TumbangPresoGameConfig.TargetLanguage;
-                    foreach (string phraseId in data.acceptablePhraseIds)
+                    
+                    // Always check the main correct phrase, plus any acceptable ones
+                    System.Collections.Generic.List<string> phrasesToCheck = new System.Collections.Generic.List<string> { data.correctPhraseId };
+                    if (data.acceptablePhraseIds != null)
+                    {
+                        phrasesToCheck.AddRange(data.acceptablePhraseIds);
+                    }
+
+                    foreach (string phraseId in phrasesToCheck)
                     {
                         PhraseEntry entry = DatasetManager.Instance.GetPhraseById(phraseId);
                         if (entry != null)
                         {
                             string altTarget = entry.GetPhrase(langToUse);
-                            // Re-evaluate synchronously (approximate using string match or custom logic, but for now exact contains)
-                            if (transcript.ToLower().Contains(altTarget.ToLower()))
+                            
+                            // Split by slash in case there are multiple valid translations (e.g. "ket / siak ti")
+                            string[] targetParts = altTarget.Split(new[] { '/', '|' }, System.StringSplitOptions.RemoveEmptyEntries);
+                            
+                            foreach (string part in targetParts)
                             {
-                                success = true;
-                                break;
+                                if (transcript.ToLower().Contains(part.Trim().ToLower()))
+                                {
+                                    success = true;
+                                    break;
+                                }
                             }
+                            
+                            if (success) break;
                         }
                     }
                 }
@@ -221,6 +238,16 @@ public class TumbangPresoSTTManager : MonoBehaviour
             }
         });
     }
+
+#if UNITY_EDITOR
+    public void ProcessCorrectSTT()
+    {
+        if (!isSTTActive) return;
+        TumbangPresoGameManager.Instance.UpdateSituationPromptText("Cheat: STT Passed!", TumbangPresoGameManager.Instance.sttCorrectColor);
+        TumbangPresoGameManager.Instance.ShowFeedbackPopup(true);
+        StartCoroutine(EndSTTFlow(true));
+    }
+#endif
 
     private void OnTranscriptionError(string error)
     {
