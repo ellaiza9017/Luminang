@@ -178,6 +178,36 @@ public class PhraseEvaluator : MonoBehaviour
         }
     }
 
+    public void ParseIntent(string transcribedText, string allowedIntents, string contextPrompt, Action<IntentResponse> callback)
+    {
+        StartCoroutine(ParseIntentCoroutine(transcribedText, allowedIntents, contextPrompt, callback));
+    }
+
+    private IEnumerator ParseIntentCoroutine(string transcribedText, string allowedIntents, string contextPrompt, Action<IntentResponse> callback)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("transcribed_text", transcribedText);
+        form.AddField("allowed_intents", allowedIntents);
+        form.AddField("context_prompt", contextPrompt);
+
+        using (UnityWebRequest request = UnityWebRequest.Post($"{BACKEND_URL}/parse_intent", form))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                string json = request.downloadHandler.text;
+                var response = JsonUtility.FromJson<IntentResponse>(json);
+                callback?.Invoke(response);
+            }
+            else
+            {
+                Debug.LogError($"ParseIntent API Error: {request.error}\n{request.downloadHandler.text}");
+                callback?.Invoke(new IntentResponse { intent = "Error", transcript = transcribedText, slots_json = "{}" });
+            }
+        }
+    }
+
     // Helper classes for JSON Deserialization
 
     [Serializable]
@@ -224,5 +254,13 @@ public class PhraseEvaluator : MonoBehaviour
     {
         public string transcript;
         public List<MatchItem> matches;
+    }
+
+    [Serializable]
+    public class IntentResponse
+    {
+        public string transcript;
+        public string intent;
+        public string slots_json;
     }
 }

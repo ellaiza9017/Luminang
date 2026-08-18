@@ -496,6 +496,10 @@ public class SariSariGameManager : MonoBehaviour
             {
                 correctWords.AddRange(targetPhrase.cebuano_target.Split(' '));
             }
+            else if (targetPhrase.cebuano_required_tokens != null && targetPhrase.cebuano_required_tokens.Count > 0)
+            {
+                correctWords.AddRange(targetPhrase.cebuano_required_tokens);
+            }
             else
             {
                 correctWords.AddRange(targetPhrase.cebuano.Split(' '));

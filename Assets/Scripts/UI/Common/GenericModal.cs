@@ -41,6 +41,17 @@ public class GenericModal : MonoBehaviour
         // Always take over as the active instance. Never destroy itself.
         Instance = this;
 
+        // FORCE this modal to always render on top of EVERYTHING, 
+        // even if it belongs to a background scene and a foreground scene is loaded additively!
+        Canvas canvas = gameObject.GetComponent<Canvas>();
+        if (canvas == null)
+        {
+            canvas = gameObject.AddComponent<Canvas>();
+            gameObject.AddComponent<UnityEngine.UI.GraphicRaycaster>();
+        }
+        canvas.overrideSorting = true;
+        canvas.sortingOrder = 9999;
+
         // Get or add CanvasGroup for fading
         canvasGroup = modalPanel.GetComponent<CanvasGroup>();
         if (canvasGroup == null) canvasGroup = modalPanel.AddComponent<CanvasGroup>();

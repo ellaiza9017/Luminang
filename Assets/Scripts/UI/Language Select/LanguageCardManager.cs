@@ -86,8 +86,18 @@ public class LanguageCardManager : MonoBehaviour
         PlayerPrefs.SetString("SelectedLanguage", languageName);
         PlayerPrefs.Save();
 
-        var catManager = categoryListManager != null ? categoryListManager : UnityEngine.Object.FindFirstObjectByType<CategoryListManager>();
-        if (catManager != null) catManager.SetActiveLanguage(languageName);
+        if (categoryListManager != null)
+        {
+            categoryListManager.SetActiveLanguage(languageName);
+        }
+        else
+        {
+            var allCatManagers = UnityEngine.Object.FindObjectsByType<CategoryListManager>(FindObjectsSortMode.None);
+            foreach (var manager in allCatManagers)
+            {
+                if (manager != null) manager.SetActiveLanguage(languageName);
+            }
+        }
 
         var wordsManager = wordsListManager != null ? wordsListManager : UnityEngine.Object.FindFirstObjectByType<WordsListManager>();
         if (wordsManager != null) wordsManager.SetLanguage(languageName);

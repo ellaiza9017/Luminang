@@ -180,7 +180,11 @@ public class CategoryListManager : MonoBehaviour
         if (_lessonsData != null)
         {
             MergeData();
+            AutoSelectNextLesson();
             BuildCategoryList();
+            
+            if (!string.IsNullOrEmpty(_selectedCategory))
+                SelectCategory(_selectedCategory);
         }
     }
 
@@ -424,10 +428,7 @@ public class CategoryListManager : MonoBehaviour
         // MergeData first so _chapters reflects the new language
         MergeData();
 
-        // Now pick the first lesson of the new language
-        _selectedCategory = "";
-        if (_chapters.Count > 0 && _chapters[0].lessons.Count > 0)
-            _selectedCategory = _chapters[0].lessons[0].categoryKey;
+        AutoSelectNextLesson();
 
         BuildCategoryList();
         StartCoroutine(ForceLayoutRebuild());
@@ -435,6 +436,51 @@ public class CategoryListManager : MonoBehaviour
         // Fire so the right panel updates immediately
         if (!string.IsNullOrEmpty(_selectedCategory))
             SelectCategory(_selectedCategory);
+    }
+
+    private void AutoSelectNextLesson()
+    {
+        // Pick the next available lesson (first one that is unlocked but not yet completed)
+        _selectedCategory = "";
+        bool foundNextLesson = false;
+        
+        foreach (var chapter in _chapters)
+        {
+            foreach (var lesson in chapter.lessons)
+            {
+                if (!lesson.isLocked && !lesson.isCompleted)
+                {
+                    _selectedCategory = lesson.categoryKey;
+                    foundNextLesson = true;
+                    break;
+                }
+            }
+            if (foundNextLesson) break;
+        }
+
+        // Fallback: If all are completed, select the last available lesson
+        if (!foundNextLesson && _chapters.Count > 0)
+        {
+            var lastChapter = _chapters[_chapters.Count - 1];
+            if (lastChapter.lessons.Count > 0)
+            {
+                _selectedCategory = lastChapter.lessons[lastChapter.lessons.Count - 1].categoryKey;
+            }
+        }
+
+        // Expand the chapter that contains the selected lesson, collapse all others
+        foreach (var chapter in _chapters)
+        {
+            chapter.isExpanded = false;
+            foreach (var lesson in chapter.lessons)
+            {
+                if (lesson.categoryKey == _selectedCategory)
+                {
+                    chapter.isExpanded = true;
+                    break;
+                }
+            }
+        }
     }
 
     public string GetActiveLanguageName()

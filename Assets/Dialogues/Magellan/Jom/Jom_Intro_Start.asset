@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Jom
   speakerPortrait: {fileID: 21300000, guid: d01af24494056374182e13118c0585e2, type: 3}
-  dialogueText: 'Maayong aldaw, traveler!  '
+  dialogueText: 'Maayong adlaw, traveler!  '
   translatedText: 
   voiceClip: {fileID: 8300000, guid: 8db6c4e01b954444b9f12fe2a66514cd, type: 3}
   animationTrigger: 
   triggerEventName: StoryQuest
   endEventName: 
   choices:
-  - choiceText: Maayong Aldaw!
+  - choiceText: Maayong adlaw!
     nextNode: {fileID: 11400000, guid: 8a75d43ca3bd42447a8a31e1a63646fe, type: 2}
     isWrong: 0
     choiceEvent: 

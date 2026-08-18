@@ -14,6 +14,15 @@ public static class SceneNavigationManager
     public static void HideCurrentSceneImmediate()
     {
         Scene active = SceneManager.GetActiveScene();
+        
+        // LanguageSelectionScene is a 2D UI scene. Hiding its canvases ruins the transition 
+        // into the LoadingScreen (showing the empty skybox) and hides the GenericModal 
+        // which the Customization scene relies on for its Back button.
+        if (active.name == "LanguageSelectionScene")
+        {
+            return;
+        }
+
         foreach (GameObject root in active.GetRootGameObjects())
         {
             // Instantly kill all Canvases (Pause Menu, HUD, etc.)

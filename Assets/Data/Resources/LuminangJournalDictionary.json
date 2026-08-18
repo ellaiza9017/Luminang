@@ -214,12 +214,12 @@
       "id": "ceb_greetings_008",
       "language": "Cebuano",
       "category": "Greetings",
-      "phrase": "Maayong aldaw",
-      "pronunciation": "mah-ah-yong ahl-daw",
+      "phrase": "Maayong adlaw",
+      "pronunciation": "mah-ah-yong ahd-law",
       "meaning": "good day",
       "sample_sentence": {
-        "native": "Maayong aldaw, unsay ako ika-alagad?",
-        "translation": "Good day, how can I serve you?"
+        "native": "Maayong adlaw, unsay ako ika-alagad?",
+        "translation": "Good day, how can I help you?"
       },
       "usage_note": "Used generally throughout the daytime.",
       "sound_file": "ceb_greetings_008"

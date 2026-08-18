@@ -18,7 +18,7 @@ MonoBehaviour:
     'naog' means 'go down.'
   translatedText: 
   animationTrigger: 
-  triggerEventName: ShowTeachingPanel:maayongAldaw
+  triggerEventName: ShowTeachingPanel:maayongAdlaw
   endEventName: 
   choices:
   - choiceText: 

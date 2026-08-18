@@ -168,6 +168,16 @@ public class LevelDetailPanel : MonoBehaviour
         // Panel starts empty — CategoryListManager.FireInitialSelection() populates it one frame later
     }
 
+    private void OnEnable()
+    {
+        // Ensure we always have the correct language when the panel turns on
+        string savedLang = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+        _currentLanguage = savedLang.ToLower();
+
+        if (!string.IsNullOrEmpty(_currentCategoryKey))
+            ShowDetails(_currentCategoryKey);
+    }
+
     // ──────────────────────────────────────────────────
     // Public API
     // ──────────────────────────────────────────────────

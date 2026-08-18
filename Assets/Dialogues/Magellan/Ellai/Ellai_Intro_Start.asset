@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Ellai
   speakerPortrait: {fileID: 21300000, guid: b96d8c4f1b10b3e49acce404fb9d0f4c, type: 3}
-  dialogueText: 'Maayong aldaw, traveler! Tiptip tweeted that a new adventurer was
+  dialogueText: 'Maayong adlaw, traveler! Tiptip tweeted that a new adventurer was
     exploring Cebu! I guess that''s you. '
   translatedText: 
   voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}

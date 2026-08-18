@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Lola Nida
   speakerPortrait: {fileID: 0}
-  dialogueText: Maayong Aldaw!
+  dialogueText: Maayong adlaw!
   translatedText: 
   voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 
   choices:
-  - choiceText: Maayong Aldaw
+  - choiceText: Maayong adlaw
     nextNode: {fileID: 11400000, guid: 76679bdf28e62f845ad88e1817e15ea9, type: 2}
     isWrong: 0
     choiceEvent: 

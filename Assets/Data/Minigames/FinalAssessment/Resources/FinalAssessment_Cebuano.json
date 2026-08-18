@@ -7,7 +7,7 @@
       "native_context": "",
       "correct_answer": "maayong buntag",
       "wrong_choices": [
-        "Maayong aldaw",
+        "Maayong adlaw",
         "maayong gabii",
         "paalam"
       ],
@@ -22,7 +22,7 @@
       "wrong_choices": [
         "malem",
         "rabii",
-        "aldaw"
+        "adlaw"
       ],
       "quiz_type": "FIB"
     },
@@ -46,7 +46,7 @@
       "native_context": "",
       "correct_answer": "kumusta",
       "wrong_choices": [
-        "Maayong aldaw",
+        "Maayong adlaw",
         "paalam",
         "kumusta ka?"
       ],
@@ -60,7 +60,7 @@
       "correct_answer": "kumusta ka?",
       "wrong_choices": [
         "maayong gabii",
-        "Maayong aldaw",
+        "Maayong adlaw",
         "maayong buntag"
       ],
       "quiz_type": "SB"
@@ -73,7 +73,7 @@
       "correct_answer": "maayo ra ko",
       "wrong_choices": [
         "maayong hapon",
-        "Maayong aldaw",
+        "Maayong adlaw",
         "kumusta ka?"
       ],
       "quiz_type": "MC"
@@ -96,7 +96,7 @@
       "category": "Greetings",
       "english_prompt": "good day",
       "native_context": "",
-      "correct_answer": "Maayong aldaw",
+      "correct_answer": "Maayong adlaw",
       "wrong_choices": [
         "maayong buntag",
         "kumusta ka?",

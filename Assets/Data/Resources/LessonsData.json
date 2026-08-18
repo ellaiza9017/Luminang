@@ -200,11 +200,11 @@
         },
         {
           "chapterIndex": 4,
-          "chapterTitle": "Final Assessment",
+          "chapterTitle": "Final Quest",
           "lessons": [
             {
               "levelNumber": 12,
-              "categoryKey": "Final Assessment",
+              "categoryKey": "Assessment",
               "lessonTitle": "Final Assessment Test",
               "description": "Test your knowledge of greetings, grammar, directions, and sentence building in this comprehensive final review.",
               "learnings": [
@@ -422,11 +422,11 @@
         },
         {
           "chapterIndex": 4,
-          "chapterTitle": "Final Assessment",
+          "chapterTitle": "Final Quest",
           "lessons": [
             {
               "levelNumber": 12,
-              "categoryKey": "Final Assessment",
+              "categoryKey": "Assessment",
               "lessonTitle": "Final Assessment Test",
               "description": "Test your knowledge of greetings, grammar, directions, and sentence building in this comprehensive final review.",
               "learnings": [

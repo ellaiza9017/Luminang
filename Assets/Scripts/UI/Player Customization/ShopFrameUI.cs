@@ -53,8 +53,8 @@ public class ShopFrameUI : MonoBehaviour
 
         // "None" items are placeholders — they're not purchasable and should never show
         // OWNED or EQUIPPED labels. Hide all status labels and just show nothing.
-        bool isNoneItem = myItem.name.IndexOf("none", System.StringComparison.OrdinalIgnoreCase) >= 0
-                       || myItem.itemName.IndexOf("none", System.StringComparison.OrdinalIgnoreCase) >= 0;
+        bool isNoneItem = (myItem.name != null && myItem.name.IndexOf("none", System.StringComparison.OrdinalIgnoreCase) >= 0)
+                       || (myItem.itemName != null && myItem.itemName.IndexOf("none", System.StringComparison.OrdinalIgnoreCase) >= 0);
 
         if (isNoneItem)
         {

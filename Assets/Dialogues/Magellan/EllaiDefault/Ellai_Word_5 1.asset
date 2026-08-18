@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Ellai
   speakerPortrait: {fileID: 21300000, guid: e0eb872fb28ba424f909f04b2cf1a3c0, type: 3}
-  dialogueText: 'Ready to give it a try? Greet the day and say ''Maayong Aldaw!'' '
+  dialogueText: 'Ready to give it a try? Greet the day and say ''Maayong adlaw!'' '
   translatedText: 
   animationTrigger: 
   triggerEventName: 
@@ -24,4 +24,4 @@ MonoBehaviour:
     nextNode: {fileID: 11400000, guid: 8387db705136bda4eb758d0d56e43fd0, type: 2}
     isWrong: 0
     choiceEvent: 
-    expectedSTTWord: Maayong aldaw
+    expectedSTTWord: Maayong adlaw

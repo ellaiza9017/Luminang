@@ -27,7 +27,7 @@ MonoBehaviour:
     isWrong: 0
     choiceEvent: ConversationTest_Correct
     expectedSTTWord: 
-  - choiceText: Maayong aldaw
+  - choiceText: Maayong adlaw
     nextNode: {fileID: 11400000, guid: c585457729a74603bed4443ac77b3293, type: 2}
     isWrong: 1
     choiceEvent: 

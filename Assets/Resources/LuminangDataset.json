@@ -7,7 +7,7 @@
     { "category": "Greetings", "english": "how are you", "ilokano": "kumusta ka", "cebuano": "kumusta ka", "maranao": "kumusta ka" },
     { "category": "Greetings", "english": "I am fine", "ilokano": "nasayaatak", "cebuano": "maayo ra ko", "maranao": "mapia ako" },
     { "category": "Greetings", "english": "goodbye", "ilokano": "pakada", "cebuano": "paalam", "maranao": "salam" },
-    { "category": "Greetings", "english": "good day", "ilokano": "naimbag nga aldaw", "cebuano": "maayong aldaw", "maranao": "mapia a gawi'i" },
+    { "category": "Greetings", "english": "good day", "ilokano": "naimbag nga aldaw", "cebuano": "maayong adlaw", "maranao": "mapia a gawi'i" },
     { "category": "Gratitude", "english": "thank you", "ilokano": "agyamanak", "cebuano": "salamat", "maranao": "mapiya salamat" },
     { "category": "Gratitude", "english": "thank you very much", "ilokano": "agyamanak unay", "cebuano": "daghang salamat", "maranao": "mapiya salamat a dako" },
     { "category": "Gratitude", "english": "thank you for help", "ilokano": "agyamanak iti tulong mo", "cebuano": "salamat sa imong tabang", "maranao": "salamat sa tulong mo" },
