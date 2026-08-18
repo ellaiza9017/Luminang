@@ -12,7 +12,7 @@
         "translation": "Good morning to all of you."
       },
       "usage_note": "Formal morning greeting.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_001"
+      "sound_file": "ilo_greetings_001"
     },
     {
       "id": "ceb_greetings_001",
@@ -26,7 +26,7 @@
         "translation": "Good morning, where are you headed?"
       },
       "usage_note": "Standard morning greeting.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_001"
+      "sound_file": "ceb_greetings_001"
     },
     {
       "id": "ilo_greetings_002",
@@ -40,7 +40,7 @@
         "translation": "Good afternoon to you, older brother."
       },
       "usage_note": "Standard afternoon greeting.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_002"
+      "sound_file": "ilo_greetings_002"
     },
     {
       "id": "ceb_greetings_002",
@@ -54,7 +54,7 @@
         "translation": "Good afternoon to all of you."
       },
       "usage_note": "Standard afternoon greeting.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_002"
+      "sound_file": "ceb_greetings_002"
     },
     {
       "id": "ilo_greetings_003",
@@ -68,7 +68,7 @@
         "translation": "Good evening, have you eaten?"
       },
       "usage_note": "Standard evening greeting.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_003"
+      "sound_file": "ilo_greetings_003"
     },
     {
       "id": "ceb_greetings_003",
@@ -82,7 +82,7 @@
         "translation": "Good evening, let's eat."
       },
       "usage_note": "Standard evening greeting.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_003"
+      "sound_file": "ceb_greetings_003"
     },
     {
       "id": "ilo_greetings_004",
@@ -96,7 +96,7 @@
         "translation": "Hello, long time no see."
       },
       "usage_note": "General greeting derived from Spanish 'como esta'.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_004"
+      "sound_file": "ilo_greetings_004"
     },
     {
       "id": "ceb_greetings_004",
@@ -110,7 +110,7 @@
         "translation": "Hello, long time no see."
       },
       "usage_note": "General greeting derived from Spanish 'como esta'.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_004"
+      "sound_file": "ceb_greetings_004"
     },
     {
       "id": "ilo_greetings_005",
@@ -124,7 +124,7 @@
         "translation": "How are you? Are you doing well?"
       },
       "usage_note": "Used to ask how someone is doing.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_005"
+      "sound_file": "ilo_greetings_005"
     },
     {
       "id": "ceb_greetings_005",
@@ -138,7 +138,7 @@
         "translation": "How are you? Are you okay?"
       },
       "usage_note": "Used to ask how someone is doing.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_005"
+      "sound_file": "ceb_greetings_005"
     },
     {
       "id": "ilo_greetings_006",
@@ -152,7 +152,7 @@
         "translation": "I'm fine too, thank you."
       },
       "usage_note": "Standard response to 'how are you'.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_006"
+      "sound_file": "ilo_greetings_006"
     },
     {
       "id": "ceb_greetings_006",
@@ -166,7 +166,7 @@
         "translation": "I'm fine, thank you."
       },
       "usage_note": "Standard response to 'how are you'.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_006"
+      "sound_file": "ceb_greetings_006"
     },
     {
       "id": "ilo_greetings_007",
@@ -180,7 +180,7 @@
         "translation": "I am leaving now, until next time."
       },
       "usage_note": "Formal way of saying goodbye.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_007"
+      "sound_file": "ilo_greetings_007"
     },
     {
       "id": "ceb_greetings_007",
@@ -194,7 +194,7 @@
         "translation": "Goodbye, take care always."
       },
       "usage_note": "Standard goodbye.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_007"
+      "sound_file": "ceb_greetings_007"
     },
     {
       "id": "ilo_greetings_008",
@@ -208,7 +208,7 @@
         "translation": "Good day, how can I help?"
       },
       "usage_note": "Used generally throughout the daytime.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_greetings_008"
+      "sound_file": "ilo_greetings_008"
     },
     {
       "id": "ceb_greetings_008",
@@ -222,7 +222,7 @@
         "translation": "Good day, how can I serve you?"
       },
       "usage_note": "Used generally throughout the daytime.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_greetings_008"
+      "sound_file": "ceb_greetings_008"
     },
     {
       "id": "ilo_gratitude_009",
@@ -236,7 +236,7 @@
         "translation": "Thank you for your gift."
       },
       "usage_note": "Standard way to say thank you.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_gratitude_009"
+      "sound_file": "ilo_gratitude_009"
     },
     {
       "id": "ceb_gratitude_009",
@@ -250,7 +250,7 @@
         "translation": "Thank you for what you gave."
       },
       "usage_note": "Standard way to say thank you.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_gratitude_009"
+      "sound_file": "ceb_gratitude_009"
     },
     {
       "id": "ilo_gratitude_010",
@@ -264,7 +264,7 @@
         "translation": "Thank you very much for your kindness."
       },
       "usage_note": "Used for deep gratitude.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_gratitude_010"
+      "sound_file": "ilo_gratitude_010"
     },
     {
       "id": "ceb_gratitude_010",
@@ -278,7 +278,7 @@
         "translation": "Thank you very much for your goodness."
       },
       "usage_note": "Used for deep gratitude.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_gratitude_010"
+      "sound_file": "ceb_gratitude_010"
     },
     {
       "id": "ilo_gratitude_011",
@@ -292,7 +292,7 @@
         "translation": "Thank you for your help to me yesterday."
       },
       "usage_note": "Used to thank someone specifically for assistance.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_gratitude_011"
+      "sound_file": "ilo_gratitude_011"
     },
     {
       "id": "ceb_gratitude_011",
@@ -306,7 +306,7 @@
         "translation": "Thank you for your help yesterday."
       },
       "usage_note": "Used to thank someone specifically for assistance.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_gratitude_011"
+      "sound_file": "ceb_gratitude_011"
     },
     {
       "id": "ilo_gratitude_012",
@@ -320,7 +320,7 @@
         "translation": "I am sorry that I am late."
       },
       "usage_note": "Used to ask for forgiveness.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_gratitude_012"
+      "sound_file": "ilo_gratitude_012"
     },
     {
       "id": "ceb_gratitude_012",
@@ -334,7 +334,7 @@
         "translation": "Forgive me that I am late."
       },
       "usage_note": "Used to ask for forgiveness.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_gratitude_012"
+      "sound_file": "ceb_gratitude_012"
     },
     {
       "id": "ilo_gratitude_013",
@@ -348,7 +348,7 @@
         "translation": "Excuse me, may I pass."
       },
       "usage_note": "Used to excuse oneself or ask to pass.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_gratitude_013"
+      "sound_file": "ilo_gratitude_013"
     },
     {
       "id": "ceb_gratitude_013",
@@ -362,7 +362,7 @@
         "translation": "Excuse me, I will pass."
       },
       "usage_note": "Used when passing between or in front of people.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_gratitude_013"
+      "sound_file": "ceb_gratitude_013"
     },
     {
       "id": "ilo_responses_014",
@@ -376,7 +376,7 @@
         "translation": "Yes, I am going there."
       },
       "usage_note": "Standard affirmative.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_responses_014"
+      "sound_file": "ilo_responses_014"
     },
     {
       "id": "ceb_responses_014",
@@ -390,7 +390,7 @@
         "translation": "Yes, I will go."
       },
       "usage_note": "Standard affirmative.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_responses_014"
+      "sound_file": "ceb_responses_014"
     },
     {
       "id": "ilo_responses_015",
@@ -404,7 +404,7 @@
         "translation": "I do not know."
       },
       "usage_note": "Standard negative.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_responses_015"
+      "sound_file": "ilo_responses_015"
     },
     {
       "id": "ceb_responses_015",
@@ -418,7 +418,7 @@
         "translation": "I do not know."
       },
       "usage_note": "Standard negative for verbs and adjectives.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_responses_015"
+      "sound_file": "ceb_responses_015"
     },
     {
       "id": "ilo_responses_016",
@@ -432,7 +432,7 @@
         "translation": "Okay, sure I'm going now."
       },
       "usage_note": "Adopted from English, used casually.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_responses_016"
+      "sound_file": "ilo_responses_016"
     },
     {
       "id": "ceb_responses_016",
@@ -446,7 +446,7 @@
         "translation": "Okay, let's meet later."
       },
       "usage_note": "Used to agree or say okay.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_responses_016"
+      "sound_file": "ceb_responses_016"
     },
     {
       "id": "ilo_responses_017",
@@ -460,7 +460,7 @@
         "translation": "I understand what you are saying."
       },
       "usage_note": "Used to acknowledge comprehension.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_responses_017"
+      "sound_file": "ilo_responses_017"
     },
     {
       "id": "ceb_responses_017",
@@ -474,7 +474,7 @@
         "translation": "I understand what you mean."
       },
       "usage_note": "Used to acknowledge comprehension.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_responses_017"
+      "sound_file": "ceb_responses_017"
     },
     {
       "id": "ilo_responses_018",
@@ -488,7 +488,7 @@
         "translation": "I don't understand, please repeat."
       },
       "usage_note": "Used when one is confused or cannot hear.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_responses_018"
+      "sound_file": "ilo_responses_018"
     },
     {
       "id": "ceb_responses_018",
@@ -502,7 +502,7 @@
         "translation": "I don't understand, please repeat."
       },
       "usage_note": "Used when one is confused or cannot comprehend.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_responses_018"
+      "sound_file": "ceb_responses_018"
     },
     {
       "id": "ilo_identity_019",
@@ -516,7 +516,7 @@
         "translation": "What is your name, friend?"
       },
       "usage_note": "Asking for someone's name.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_identity_019"
+      "sound_file": "ilo_identity_019"
     },
     {
       "id": "ceb_identity_019",
@@ -530,7 +530,7 @@
         "translation": "What is your name, friend?"
       },
       "usage_note": "Asking for someone's name.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_identity_019"
+      "sound_file": "ceb_identity_019"
     },
     {
       "id": "ilo_identity_020",
@@ -544,7 +544,7 @@
         "translation": "My name is Juan."
       },
       "usage_note": "Introducing oneself.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_identity_020"
+      "sound_file": "ilo_identity_020"
     },
     {
       "id": "ceb_identity_020",
@@ -558,7 +558,7 @@
         "translation": "I am Juan."
       },
       "usage_note": "Introducing oneself.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_identity_020"
+      "sound_file": "ceb_identity_020"
     },
     {
       "id": "ilo_identity_021",
@@ -572,7 +572,7 @@
         "translation": "Where are you from here in the province?"
       },
       "usage_note": "Asking for someone's origin.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_identity_021"
+      "sound_file": "ilo_identity_021"
     },
     {
       "id": "ceb_identity_021",
@@ -586,7 +586,7 @@
         "translation": "Where are you from in Mindanao?"
       },
       "usage_note": "Asking for someone's origin.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_identity_021"
+      "sound_file": "ceb_identity_021"
     },
     {
       "id": "ilo_identity_022",
@@ -600,7 +600,7 @@
         "translation": "I am from Vigan."
       },
       "usage_note": "Stating one's origin.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_identity_022"
+      "sound_file": "ilo_identity_022"
     },
     {
       "id": "ceb_identity_022",
@@ -614,7 +614,7 @@
         "translation": "I am from Cebu."
       },
       "usage_note": "Stating one's origin.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_identity_022"
+      "sound_file": "ceb_identity_022"
     },
     {
       "id": "ilo_requests_023",
@@ -628,7 +628,7 @@
         "translation": "Please help me carry this."
       },
       "usage_note": "Asking for assistance.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_requests_023"
+      "sound_file": "ilo_requests_023"
     },
     {
       "id": "ceb_requests_023",
@@ -642,7 +642,7 @@
         "translation": "Help me lift this."
       },
       "usage_note": "Asking for assistance.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_requests_023"
+      "sound_file": "ceb_requests_023"
     },
     {
       "id": "ilo_requests_024",
@@ -656,7 +656,7 @@
         "translation": "Can you help me with my assignment?"
       },
       "usage_note": "A polite request for help.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_requests_024"
+      "sound_file": "ilo_requests_024"
     },
     {
       "id": "ceb_requests_024",
@@ -670,7 +670,7 @@
         "translation": "Can you help me with my task?"
       },
       "usage_note": "A polite request for help.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_requests_024"
+      "sound_file": "ceb_requests_024"
     },
     {
       "id": "ilo_requests_025",
@@ -684,7 +684,7 @@
         "translation": "Wait for me at the corner."
       },
       "usage_note": "Asking someone to wait.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_requests_025"
+      "sound_file": "ilo_requests_025"
     },
     {
       "id": "ceb_requests_025",
@@ -698,7 +698,7 @@
         "translation": "Wait for me outside."
       },
       "usage_note": "Asking someone to wait.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_requests_025"
+      "sound_file": "ceb_requests_025"
     },
     {
       "id": "ilo_requests_026",
@@ -712,7 +712,7 @@
         "translation": "Please give me that pencil."
       },
       "usage_note": "Asking for an object.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_requests_026"
+      "sound_file": "ilo_requests_026"
     },
     {
       "id": "ceb_requests_026",
@@ -726,7 +726,7 @@
         "translation": "Give me some water."
       },
       "usage_note": "Asking for an object.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_requests_026"
+      "sound_file": "ceb_requests_026"
     },
     {
       "id": "ilo_requests_027",
@@ -740,7 +740,7 @@
         "translation": "Can I ask where the church is?"
       },
       "usage_note": "Asking for permission to ask a question.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_requests_027"
+      "sound_file": "ilo_requests_027"
     },
     {
       "id": "ceb_requests_027",
@@ -754,7 +754,7 @@
         "translation": "Can I ask where the bathroom is?"
       },
       "usage_note": "Asking for permission to ask a question.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_requests_027"
+      "sound_file": "ceb_requests_027"
     },
     {
       "id": "ilo_directions_028",
@@ -768,7 +768,7 @@
         "translation": "Just go straight until the end."
       },
       "usage_note": "Giving directional instruction.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_028"
+      "sound_file": "ilo_directions_028"
     },
     {
       "id": "ceb_directions_028",
@@ -782,7 +782,7 @@
         "translation": "Just continue straight."
       },
       "usage_note": "Giving directional instruction.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_028"
+      "sound_file": "ceb_directions_028"
     },
     {
       "id": "ilo_directions_029",
@@ -796,7 +796,7 @@
         "translation": "Turn left at the corner."
       },
       "usage_note": "Direction to the left.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_029"
+      "sound_file": "ilo_directions_029"
     },
     {
       "id": "ceb_directions_029",
@@ -810,7 +810,7 @@
         "translation": "Turn left when you reach the corner."
       },
       "usage_note": "Direction to the left.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_029"
+      "sound_file": "ceb_directions_029"
     },
     {
       "id": "ilo_directions_030",
@@ -824,7 +824,7 @@
         "translation": "Turn right when you see the tree."
       },
       "usage_note": "Direction to the right.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_030"
+      "sound_file": "ilo_directions_030"
     },
     {
       "id": "ceb_directions_030",
@@ -838,7 +838,7 @@
         "translation": "Turn right after the bridge."
       },
       "usage_note": "Direction to the right.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_030"
+      "sound_file": "ceb_directions_030"
     },
     {
       "id": "ilo_directions_031",
@@ -852,7 +852,7 @@
         "translation": "Go up the mountain."
       },
       "usage_note": "Direction upwards.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_031"
+      "sound_file": "ilo_directions_031"
     },
     {
       "id": "ceb_directions_031",
@@ -866,7 +866,7 @@
         "translation": "Go up the stairs."
       },
       "usage_note": "Direction upwards.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_031"
+      "sound_file": "ceb_directions_031"
     },
     {
       "id": "ilo_directions_032",
@@ -880,7 +880,7 @@
         "translation": "Go down from there."
       },
       "usage_note": "Direction downwards.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_032"
+      "sound_file": "ilo_directions_032"
     },
     {
       "id": "ceb_directions_032",
@@ -894,7 +894,7 @@
         "translation": "Go downstairs."
       },
       "usage_note": "Direction downwards.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_032"
+      "sound_file": "ceb_directions_032"
     },
     {
       "id": "ilo_directions_033",
@@ -908,7 +908,7 @@
         "translation": "Stop here at the corner."
       },
       "usage_note": "Instruction to halt.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_033"
+      "sound_file": "ilo_directions_033"
     },
     {
       "id": "ceb_directions_033",
@@ -922,7 +922,7 @@
         "translation": "Stop here for a moment."
       },
       "usage_note": "Instruction to halt.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_033"
+      "sound_file": "ceb_directions_033"
     },
     {
       "id": "ilo_directions_034",
@@ -936,7 +936,7 @@
         "translation": "Come here, I have something to say."
       },
       "usage_note": "Calling someone over.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_034"
+      "sound_file": "ilo_directions_034"
     },
     {
       "id": "ceb_directions_034",
@@ -950,7 +950,7 @@
         "translation": "Come here near me."
       },
       "usage_note": "Calling someone over.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_034"
+      "sound_file": "ceb_directions_034"
     },
     {
       "id": "ilo_directions_035",
@@ -964,7 +964,7 @@
         "translation": "Go there to the store."
       },
       "usage_note": "Pointing somewhere away.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_035"
+      "sound_file": "ilo_directions_035"
     },
     {
       "id": "ceb_directions_035",
@@ -978,7 +978,7 @@
         "translation": "Go there ahead."
       },
       "usage_note": "Pointing somewhere away.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_035"
+      "sound_file": "ceb_directions_035"
     },
     {
       "id": "ilo_directions_036",
@@ -992,7 +992,7 @@
         "translation": "Follow me so you don't get lost."
       },
       "usage_note": "Guiding someone.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_036"
+      "sound_file": "ilo_directions_036"
     },
     {
       "id": "ceb_directions_036",
@@ -1006,7 +1006,7 @@
         "translation": "Follow me heading to the house."
       },
       "usage_note": "Guiding someone.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_036"
+      "sound_file": "ceb_directions_036"
     },
     {
       "id": "ilo_directions_037",
@@ -1020,7 +1020,7 @@
         "translation": "Wait here a bit."
       },
       "usage_note": "Asking someone to stay put.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_directions_037"
+      "sound_file": "ilo_directions_037"
     },
     {
       "id": "ceb_directions_037",
@@ -1034,7 +1034,7 @@
         "translation": "Wait here while I go."
       },
       "usage_note": "Asking someone to stay put.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_directions_037"
+      "sound_file": "ceb_directions_037"
     },
     {
       "id": "ilo_count_038",
@@ -1048,7 +1048,7 @@
         "translation": "I only want one."
       },
       "usage_note": "Number one.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_038"
+      "sound_file": "ilo_count_038"
     },
     {
       "id": "ceb_count_038",
@@ -1062,7 +1062,7 @@
         "translation": "One piece, please."
       },
       "usage_note": "Number one.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_038"
+      "sound_file": "ceb_count_038"
     },
     {
       "id": "ilo_count_039",
@@ -1076,7 +1076,7 @@
         "translation": "Buy two pieces of bread."
       },
       "usage_note": "Number two.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_039"
+      "sound_file": "ilo_count_039"
     },
     {
       "id": "ceb_count_039",
@@ -1090,7 +1090,7 @@
         "translation": "Two people are talking."
       },
       "usage_note": "Number two.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_039"
+      "sound_file": "ceb_count_039"
     },
     {
       "id": "ilo_count_040",
@@ -1104,7 +1104,7 @@
         "translation": "Three bottles of water."
       },
       "usage_note": "Number three.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_040"
+      "sound_file": "ilo_count_040"
     },
     {
       "id": "ceb_count_040",
@@ -1118,7 +1118,7 @@
         "translation": "Three of us are going."
       },
       "usage_note": "Number three.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_040"
+      "sound_file": "ceb_count_040"
     },
     {
       "id": "ilo_count_041",
@@ -1132,7 +1132,7 @@
         "translation": "They have four cars."
       },
       "usage_note": "Number four.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_041"
+      "sound_file": "ilo_count_041"
     },
     {
       "id": "ceb_count_041",
@@ -1146,7 +1146,7 @@
         "translation": "The trip is four days long."
       },
       "usage_note": "Number four.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_041"
+      "sound_file": "ceb_count_041"
     },
     {
       "id": "ilo_count_042",
@@ -1160,7 +1160,7 @@
         "translation": "The change is five pesos."
       },
       "usage_note": "Number five.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_042"
+      "sound_file": "ilo_count_042"
     },
     {
       "id": "ceb_count_042",
@@ -1174,7 +1174,7 @@
         "translation": "There are five siblings."
       },
       "usage_note": "Number five.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_042"
+      "sound_file": "ceb_count_042"
     },
     {
       "id": "ilo_count_043",
@@ -1188,7 +1188,7 @@
         "translation": "I waited for six months."
       },
       "usage_note": "Number six.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_043"
+      "sound_file": "ilo_count_043"
     },
     {
       "id": "ceb_count_043",
@@ -1202,7 +1202,7 @@
         "translation": "The trip is six hours."
       },
       "usage_note": "Number six.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_043"
+      "sound_file": "ceb_count_043"
     },
     {
       "id": "ilo_count_044",
@@ -1216,7 +1216,7 @@
         "translation": "I repeated it seven times."
       },
       "usage_note": "Number seven.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_044"
+      "sound_file": "ilo_count_044"
     },
     {
       "id": "ceb_count_044",
@@ -1230,7 +1230,7 @@
         "translation": "He has seven dogs."
       },
       "usage_note": "Number seven.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_044"
+      "sound_file": "ceb_count_044"
     },
     {
       "id": "ilo_count_045",
@@ -1244,7 +1244,7 @@
         "translation": "He was eight years old then."
       },
       "usage_note": "Number eight.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_045"
+      "sound_file": "ilo_count_045"
     },
     {
       "id": "ceb_count_045",
@@ -1258,7 +1258,7 @@
         "translation": "I bought eight of them."
       },
       "usage_note": "Number eight.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_045"
+      "sound_file": "ceb_count_045"
     },
     {
       "id": "ilo_count_046",
@@ -1272,7 +1272,7 @@
         "translation": "She has nine children."
       },
       "usage_note": "Number nine.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_046"
+      "sound_file": "ilo_count_046"
     },
     {
       "id": "ceb_count_046",
@@ -1286,7 +1286,7 @@
         "translation": "Pregnant for nine months."
       },
       "usage_note": "Number nine.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_046"
+      "sound_file": "ceb_count_046"
     },
     {
       "id": "ilo_count_047",
@@ -1300,7 +1300,7 @@
         "translation": "Ten people went."
       },
       "usage_note": "Number ten.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_count_047"
+      "sound_file": "ilo_count_047"
     },
     {
       "id": "ceb_count_047",
@@ -1314,7 +1314,7 @@
         "translation": "Ten years have passed."
       },
       "usage_note": "Number ten.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_count_047"
+      "sound_file": "ceb_count_047"
     },
     {
       "id": "ilo_action_verbs_048",
@@ -1328,7 +1328,7 @@
         "translation": "Let's eat now."
       },
       "usage_note": "To consume food.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_048"
+      "sound_file": "ilo_action_verbs_048"
     },
     {
       "id": "ceb_action_verbs_048",
@@ -1342,7 +1342,7 @@
         "translation": "Let's eat now."
       },
       "usage_note": "To consume food.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_048"
+      "sound_file": "ceb_action_verbs_048"
     },
     {
       "id": "ilo_action_verbs_049",
@@ -1356,7 +1356,7 @@
         "translation": "Drink a lot of water."
       },
       "usage_note": "To consume liquid.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_049"
+      "sound_file": "ilo_action_verbs_049"
     },
     {
       "id": "ceb_action_verbs_049",
@@ -1370,7 +1370,7 @@
         "translation": "Drink a lot of water."
       },
       "usage_note": "To consume liquid.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_049"
+      "sound_file": "ceb_action_verbs_049"
     },
     {
       "id": "ilo_action_verbs_050",
@@ -1384,7 +1384,7 @@
         "translation": "I am going to school."
       },
       "usage_note": "To move from one place to another.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_050"
+      "sound_file": "ilo_action_verbs_050"
     },
     {
       "id": "ceb_action_verbs_050",
@@ -1398,7 +1398,7 @@
         "translation": "I will go to the market."
       },
       "usage_note": "To move from one place to another.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_050"
+      "sound_file": "ceb_action_verbs_050"
     },
     {
       "id": "ilo_action_verbs_051",
@@ -1412,7 +1412,7 @@
         "translation": "Come to the house."
       },
       "usage_note": "To move towards the speaker.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_051"
+      "sound_file": "ilo_action_verbs_051"
     },
     {
       "id": "ceb_action_verbs_051",
@@ -1426,7 +1426,7 @@
         "translation": "Come here to the house."
       },
       "usage_note": "To move towards the speaker.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_051"
+      "sound_file": "ceb_action_verbs_051"
     },
     {
       "id": "ilo_action_verbs_052",
@@ -1440,7 +1440,7 @@
         "translation": "I am going to sleep now."
       },
       "usage_note": "To rest with closed eyes.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_052"
+      "sound_file": "ilo_action_verbs_052"
     },
     {
       "id": "ceb_action_verbs_052",
@@ -1454,7 +1454,7 @@
         "translation": "I will sleep now."
       },
       "usage_note": "To rest with closed eyes.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_052"
+      "sound_file": "ceb_action_verbs_052"
     },
     {
       "id": "ilo_action_verbs_053",
@@ -1468,7 +1468,7 @@
         "translation": "I will see you tomorrow."
       },
       "usage_note": "To perceive with eyes.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_053"
+      "sound_file": "ilo_action_verbs_053"
     },
     {
       "id": "ceb_action_verbs_053",
@@ -1482,7 +1482,7 @@
         "translation": "I can see the sea now."
       },
       "usage_note": "To perceive with eyes.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_053"
+      "sound_file": "ceb_action_verbs_053"
     },
     {
       "id": "ilo_action_verbs_054",
@@ -1496,7 +1496,7 @@
         "translation": "Can you hear the song?"
       },
       "usage_note": "To perceive sound.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_054"
+      "sound_file": "ilo_action_verbs_054"
     },
     {
       "id": "ceb_action_verbs_054",
@@ -1510,7 +1510,7 @@
         "translation": "Listen to what he is saying."
       },
       "usage_note": "To listen or hear.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_054"
+      "sound_file": "ceb_action_verbs_054"
     },
     {
       "id": "ilo_action_verbs_055",
@@ -1524,7 +1524,7 @@
         "translation": "Speak loudly."
       },
       "usage_note": "To talk.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_action_verbs_055"
+      "sound_file": "ilo_action_verbs_055"
     },
     {
       "id": "ceb_action_verbs_055",
@@ -1538,7 +1538,7 @@
         "translation": "Speak the truth."
       },
       "usage_note": "To talk.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_action_verbs_055"
+      "sound_file": "ceb_action_verbs_055"
     },
     {
       "id": "ilo_linking_verbs_056",
@@ -1552,7 +1552,7 @@
         "translation": "I am the teacher here."
       },
       "usage_note": "First person linking verb.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_056"
+      "sound_file": "ilo_linking_verbs_056"
     },
     {
       "id": "ceb_linking_verbs_056",
@@ -1566,7 +1566,7 @@
         "translation": "I am Maria."
       },
       "usage_note": "First person linking verb.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_056"
+      "sound_file": "ceb_linking_verbs_056"
     },
     {
       "id": "ilo_linking_verbs_057",
@@ -1580,7 +1580,7 @@
         "translation": "He/she is my sibling."
       },
       "usage_note": "Third person singular linking verb.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_057"
+      "sound_file": "ilo_linking_verbs_057"
     },
     {
       "id": "ceb_linking_verbs_057",
@@ -1594,7 +1594,7 @@
         "translation": "He/she is the one who did that."
       },
       "usage_note": "Third person singular linking verb.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_057"
+      "sound_file": "ceb_linking_verbs_057"
     },
     {
       "id": "ilo_linking_verbs_058",
@@ -1608,7 +1608,7 @@
         "translation": "They are good people."
       },
       "usage_note": "Plural linking verb.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_058"
+      "sound_file": "ilo_linking_verbs_058"
     },
     {
       "id": "ceb_linking_verbs_058",
@@ -1622,7 +1622,7 @@
         "translation": "They are my friends."
       },
       "usage_note": "Plural linking verb.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_058"
+      "sound_file": "ceb_linking_verbs_058"
     },
     {
       "id": "ilo_linking_verbs_059",
@@ -1636,7 +1636,7 @@
         "translation": "He was a teacher."
       },
       "usage_note": "Past tense linking verb.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_059"
+      "sound_file": "ilo_linking_verbs_059"
     },
     {
       "id": "ceb_linking_verbs_059",
@@ -1650,7 +1650,7 @@
         "translation": "He became a doctor."
       },
       "usage_note": "Past tense linking verb.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_059"
+      "sound_file": "ceb_linking_verbs_059"
     },
     {
       "id": "ilo_linking_verbs_060",
@@ -1664,7 +1664,7 @@
         "translation": "They were still children then."
       },
       "usage_note": "Plural past tense linking verb.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_060"
+      "sound_file": "ilo_linking_verbs_060"
     },
     {
       "id": "ceb_linking_verbs_060",
@@ -1678,7 +1678,7 @@
         "translation": "They were the ones together yesterday."
       },
       "usage_note": "Plural past tense linking verb.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_060"
+      "sound_file": "ceb_linking_verbs_060"
     },
     {
       "id": "ilo_linking_verbs_061",
@@ -1692,7 +1692,7 @@
         "translation": "He/she will become a doctor."
       },
       "usage_note": "To transition into something.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_061"
+      "sound_file": "ilo_linking_verbs_061"
     },
     {
       "id": "ceb_linking_verbs_061",
@@ -1706,7 +1706,7 @@
         "translation": "This will become a big tree."
       },
       "usage_note": "To transition into something.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_061"
+      "sound_file": "ceb_linking_verbs_061"
     },
     {
       "id": "ilo_linking_verbs_062",
@@ -1720,7 +1720,7 @@
         "translation": "It seems like it will rain."
       },
       "usage_note": "To appear a certain way.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_062"
+      "sound_file": "ilo_linking_verbs_062"
     },
     {
       "id": "ceb_linking_verbs_062",
@@ -1734,7 +1734,7 @@
         "translation": "This food seems delicious."
       },
       "usage_note": "To appear a certain way.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_062"
+      "sound_file": "ceb_linking_verbs_062"
     },
     {
       "id": "ilo_linking_verbs_063",
@@ -1748,7 +1748,7 @@
         "translation": "Remain good."
       },
       "usage_note": "To continue in a state.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_063"
+      "sound_file": "ilo_linking_verbs_063"
     },
     {
       "id": "ceb_linking_verbs_063",
@@ -1762,7 +1762,7 @@
         "translation": "I will remain loyal to you."
       },
       "usage_note": "To continue in a state.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_063"
+      "sound_file": "ceb_linking_verbs_063"
     },
     {
       "id": "ilo_linking_verbs_064",
@@ -1776,7 +1776,7 @@
         "translation": "Stay here in the house."
       },
       "usage_note": "To stay in a place.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_064"
+      "sound_file": "ilo_linking_verbs_064"
     },
     {
       "id": "ceb_linking_verbs_064",
@@ -1790,7 +1790,7 @@
         "translation": "Stay here."
       },
       "usage_note": "To stay in a place.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_064"
+      "sound_file": "ceb_linking_verbs_064"
     },
     {
       "id": "ilo_linking_verbs_065",
@@ -1804,7 +1804,7 @@
         "translation": "I feel the cold."
       },
       "usage_note": "To experience a sensation.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_linking_verbs_065"
+      "sound_file": "ilo_linking_verbs_065"
     },
     {
       "id": "ceb_linking_verbs_065",
@@ -1818,7 +1818,7 @@
         "translation": "I feel the heat."
       },
       "usage_note": "To experience a sensation.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_linking_verbs_065"
+      "sound_file": "ceb_linking_verbs_065"
     },
     {
       "id": "ilo_pronouns_066",
@@ -1832,7 +1832,7 @@
         "translation": "I am the one who made this."
       },
       "usage_note": "First person singular pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_066"
+      "sound_file": "ilo_pronouns_066"
     },
     {
       "id": "ceb_pronouns_066",
@@ -1846,7 +1846,7 @@
         "translation": "I am the one who made this."
       },
       "usage_note": "First person singular pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_066"
+      "sound_file": "ceb_pronouns_066"
     },
     {
       "id": "ilo_pronouns_067",
@@ -1860,7 +1860,7 @@
         "translation": "You are the one going."
       },
       "usage_note": "Second person singular pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_067"
+      "sound_file": "ilo_pronouns_067"
     },
     {
       "id": "ceb_pronouns_067",
@@ -1874,7 +1874,7 @@
         "translation": "Are you the one running?"
       },
       "usage_note": "Second person singular pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_067"
+      "sound_file": "ceb_pronouns_067"
     },
     {
       "id": "ilo_pronouns_068",
@@ -1888,7 +1888,7 @@
         "translation": "He/she is my sibling."
       },
       "usage_note": "Third person singular pronoun (gender neutral).",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_068"
+      "sound_file": "ilo_pronouns_068"
     },
     {
       "id": "ceb_pronouns_068",
@@ -1902,7 +1902,7 @@
         "translation": "He/she is my friend."
       },
       "usage_note": "Third person singular pronoun (gender neutral).",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_068"
+      "sound_file": "ceb_pronouns_068"
     },
     {
       "id": "ilo_pronouns_069",
@@ -1916,7 +1916,7 @@
         "translation": "She/he is the teacher."
       },
       "usage_note": "Third person singular pronoun (gender neutral).",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_069"
+      "sound_file": "ilo_pronouns_069"
     },
     {
       "id": "ceb_pronouns_069",
@@ -1930,7 +1930,7 @@
         "translation": "She/he is the one who cooked."
       },
       "usage_note": "Third person singular pronoun (gender neutral).",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_069"
+      "sound_file": "ceb_pronouns_069"
     },
     {
       "id": "ilo_pronouns_070",
@@ -1944,7 +1944,7 @@
         "translation": "We were the ones who went there."
       },
       "usage_note": "First person plural exclusive pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_070"
+      "sound_file": "ilo_pronouns_070"
     },
     {
       "id": "ceb_pronouns_070",
@@ -1958,7 +1958,7 @@
         "translation": "We (exclusive) will go tomorrow."
       },
       "usage_note": "First person plural pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_070"
+      "sound_file": "ceb_pronouns_070"
     },
     {
       "id": "ilo_pronouns_071",
@@ -1972,7 +1972,7 @@
         "translation": "They are my friends."
       },
       "usage_note": "Third person plural pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_071"
+      "sound_file": "ilo_pronouns_071"
     },
     {
       "id": "ceb_pronouns_071",
@@ -1986,7 +1986,7 @@
         "translation": "They are the ones who won."
       },
       "usage_note": "Third person plural pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_071"
+      "sound_file": "ceb_pronouns_071"
     },
     {
       "id": "ilo_pronouns_072",
@@ -2000,7 +2000,7 @@
         "translation": "Give it to me."
       },
       "usage_note": "First person objective pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_072"
+      "sound_file": "ilo_pronouns_072"
     },
     {
       "id": "ceb_pronouns_072",
@@ -2014,7 +2014,7 @@
         "translation": "Give that to me."
       },
       "usage_note": "First person objective pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_072"
+      "sound_file": "ceb_pronouns_072"
     },
     {
       "id": "ilo_pronouns_073",
@@ -2028,7 +2028,7 @@
         "translation": "Help us."
       },
       "usage_note": "First person plural objective pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_073"
+      "sound_file": "ilo_pronouns_073"
     },
     {
       "id": "ceb_pronouns_073",
@@ -2042,7 +2042,7 @@
         "translation": "Help us."
       },
       "usage_note": "First person plural objective pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_073"
+      "sound_file": "ceb_pronouns_073"
     },
     {
       "id": "ilo_pronouns_074",
@@ -2056,7 +2056,7 @@
         "translation": "Tell them."
       },
       "usage_note": "Third person plural objective pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_pronouns_074"
+      "sound_file": "ilo_pronouns_074"
     },
     {
       "id": "ceb_pronouns_074",
@@ -2070,7 +2070,7 @@
         "translation": "Tell them."
       },
       "usage_note": "Third person plural objective pronoun.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_pronouns_074"
+      "sound_file": "ceb_pronouns_074"
     },
     {
       "id": "ilo_interrogatives_075",
@@ -2084,7 +2084,7 @@
         "translation": "What is your name?"
       },
       "usage_note": "Question word for things/ideas.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_075"
+      "sound_file": "ilo_interrogatives_075"
     },
     {
       "id": "ceb_interrogatives_075",
@@ -2098,7 +2098,7 @@
         "translation": "What is this?"
       },
       "usage_note": "Question word for things/ideas.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_075"
+      "sound_file": "ceb_interrogatives_075"
     },
     {
       "id": "ilo_interrogatives_076",
@@ -2112,7 +2112,7 @@
         "translation": "Who is your companion?"
       },
       "usage_note": "Question word for people.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_076"
+      "sound_file": "ilo_interrogatives_076"
     },
     {
       "id": "ceb_interrogatives_076",
@@ -2126,7 +2126,7 @@
         "translation": "Who is he/she?"
       },
       "usage_note": "Question word for people.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_076"
+      "sound_file": "ceb_interrogatives_076"
     },
     {
       "id": "ilo_interrogatives_077",
@@ -2140,7 +2140,7 @@
         "translation": "Where is your house?"
       },
       "usage_note": "Question word for places.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_077"
+      "sound_file": "ilo_interrogatives_077"
     },
     {
       "id": "ceb_interrogatives_077",
@@ -2154,7 +2154,7 @@
         "translation": "Where are you going?"
       },
       "usage_note": "Question word for places.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_077"
+      "sound_file": "ceb_interrogatives_077"
     },
     {
       "id": "ilo_interrogatives_078",
@@ -2168,7 +2168,7 @@
         "translation": "When will you come?"
       },
       "usage_note": "Question word for time.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_078"
+      "sound_file": "ilo_interrogatives_078"
     },
     {
       "id": "ceb_interrogatives_078",
@@ -2182,7 +2182,7 @@
         "translation": "When will you arrive?"
       },
       "usage_note": "Question word for time.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_078"
+      "sound_file": "ceb_interrogatives_078"
     },
     {
       "id": "ilo_interrogatives_079",
@@ -2196,7 +2196,7 @@
         "translation": "Why are you crying?"
       },
       "usage_note": "Question word for reason.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_079"
+      "sound_file": "ilo_interrogatives_079"
     },
     {
       "id": "ceb_interrogatives_079",
@@ -2210,7 +2210,7 @@
         "translation": "Why are you angry?"
       },
       "usage_note": "Question word for reason.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_079"
+      "sound_file": "ceb_interrogatives_079"
     },
     {
       "id": "ilo_interrogatives_080",
@@ -2224,7 +2224,7 @@
         "translation": "How do you cook pinakbet?"
       },
       "usage_note": "Question word for method.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_080"
+      "sound_file": "ilo_interrogatives_080"
     },
     {
       "id": "ceb_interrogatives_080",
@@ -2238,7 +2238,7 @@
         "translation": "How did you make that?"
       },
       "usage_note": "Question word for method.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_080"
+      "sound_file": "ceb_interrogatives_080"
     },
     {
       "id": "ilo_interrogatives_081",
@@ -2252,7 +2252,7 @@
         "translation": "How old are you? (How many years)"
       },
       "usage_note": "Question word for quantity.",
-      "sound_file": "Sounds & Music/Word Sounds/Ilokano/ilo_interrogatives_081"
+      "sound_file": "ilo_interrogatives_081"
     },
     {
       "id": "ceb_interrogatives_081",
@@ -2266,7 +2266,7 @@
         "translation": "How much is a kilo of rice?"
       },
       "usage_note": "Question word for quantity.",
-      "sound_file": "Sounds & Music/Word Sounds/Cebuano/ceb_interrogatives_081"
+      "sound_file": "ceb_interrogatives_081"
     }
   ]
 }

@@ -262,9 +262,34 @@ public class JournalBookManager : MonoBehaviour
         if (soundButton != null) soundButton.interactable = false;
     }
 
+    private AudioSource _audioSource;
+
+    private void Awake()
+    {
+        _audioSource = gameObject.GetComponent<AudioSource>();
+        if (_audioSource == null)
+        {
+            _audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
+
     private void PlaySound()
     {
-        Debug.Log("Playing sound... (Sound files not yet implemented)");
-        // Add AudioSource logic here later
+        if (_selectedEntry == null || string.IsNullOrEmpty(_selectedEntry.sound_file))
+        {
+            Debug.LogWarning("No sound file path provided for this entry.");
+            return;
+        }
+
+        AudioClip clip = Resources.Load<AudioClip>(_selectedEntry.sound_file);
+        if (clip != null)
+        {
+            _audioSource.clip = clip;
+            _audioSource.Play();
+        }
+        else
+        {
+            Debug.LogError($"Failed to load AudioClip at Resources path: {_selectedEntry.sound_file}");
+        }
     }
 }

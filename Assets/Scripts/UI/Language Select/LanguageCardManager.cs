@@ -55,40 +55,10 @@ public class LanguageCardManager : MonoBehaviour
 
     private void UpdateProgressTexts()
     {
-        int totalIlo = 0;
-        int totalCeb = 0;
+        int totalIlo = 12;
+        int totalCeb = 12;
 
-        // 1. Calculate TOTAL lessons (quests) from LessonsData JSON
-        if (lessonsDataJson != null)
-        {
-            MinimalLessonsData data = JsonUtility.FromJson<MinimalLessonsData>(lessonsDataJson.text);
-            if (data != null && data.languages != null)
-            {
-                foreach (var lang in data.languages)
-                {
-                    int lessonCount = 0;
-                    if (lang.chapters != null)
-                    {
-                        foreach (var chap in lang.chapters)
-                        {
-                            if (chap.lessons != null)
-                                lessonCount += chap.lessons.Count;
-                        }
-                    }
-
-                    if (string.Equals(lang.languageKey, "ilokano", System.StringComparison.OrdinalIgnoreCase))
-                        totalIlo = lessonCount;
-                    else if (string.Equals(lang.languageKey, "cebuano", System.StringComparison.OrdinalIgnoreCase))
-                        totalCeb = lessonCount;
-                }
-            }
-        }
-        else
-        {
-            Debug.LogWarning("[LanguageCardManager] LessonsData JSON File is not assigned, cannot calculate total lessons!");
-        }
-
-        // 2. Calculate COMPLETED lessons from Supabase (UserProfileManager)
+        // Calculate COMPLETED lessons from Supabase (UserProfileManager)
         int completedIlo = 0;
         int completedCeb = 0;
 

@@ -39,6 +39,11 @@ public class TeachingOverlayPanel : MonoBehaviour
     [Header("Movement Controls")]
     public GameObject movementControls;
 
+    [Header("Pronunciation Audio")]
+    public Button playPronunciationButton;
+    private AudioSource _audioSource;
+    private JournalData _journalData;
+
     [Header("Animation")]
     public float fadeDuration = 0.3f;
 
@@ -59,6 +64,20 @@ public class TeachingOverlayPanel : MonoBehaviour
         }
 
         ApplyTextOutlines();
+
+        _audioSource = gameObject.GetComponent<AudioSource>();
+        if (_audioSource == null) _audioSource = gameObject.AddComponent<AudioSource>();
+
+        TextAsset dictAsset = Resources.Load<TextAsset>("LuminangJournalDictionary");
+        if (dictAsset != null)
+        {
+            _journalData = JsonUtility.FromJson<JournalData>(dictAsset.text);
+        }
+
+        if (playPronunciationButton != null)
+        {
+            playPronunciationButton.onClick.AddListener(PlayPronunciationAudio);
+        }
 
         gameObject.SetActive(false);
     }
@@ -214,6 +233,8 @@ public class TeachingOverlayPanel : MonoBehaviour
             StartCoroutine(AutoSkipNoMic());
         }
 
+        SetupPronunciationButton();
+
         HideMovementControls(true);
 
         gameObject.SetActive(true);
@@ -248,6 +269,61 @@ public class TeachingOverlayPanel : MonoBehaviour
             promptText.text = string.IsNullOrEmpty(_targetWord)
                 ? "Tap the mic and speak!"
                 : $"Tap and speak the word <b>\"{_targetWord}\"</b> into the mic";
+        }
+    }
+
+    private void SetupPronunciationButton()
+    {
+        if (playPronunciationButton == null) return;
+        
+        playPronunciationButton.gameObject.SetActive(false);
+
+        if (string.IsNullOrEmpty(_targetWord) || _journalData == null || _journalData.journal_entries == null) 
+            return;
+
+        string currentRegion = PhraseEvaluator.Instance != null && PhraseEvaluator.Instance.CurrentRegion == RegionMode.Cebuano ? "Cebuano" : "Ilokano";
+        
+        foreach (var entry in _journalData.journal_entries)
+        {
+            if (string.Equals(entry.phrase, _targetWord, System.StringComparison.OrdinalIgnoreCase) && 
+                string.Equals(entry.language, currentRegion, System.StringComparison.OrdinalIgnoreCase))
+            {
+                if (!string.IsNullOrEmpty(entry.sound_file))
+                {
+                    playPronunciationButton.gameObject.SetActive(true);
+                    playPronunciationButton.interactable = true;
+                }
+                break;
+            }
+        }
+    }
+
+    private void PlayPronunciationAudio()
+    {
+        if (string.IsNullOrEmpty(_targetWord) || _journalData == null || _journalData.journal_entries == null) return;
+        
+        string currentRegion = PhraseEvaluator.Instance != null && PhraseEvaluator.Instance.CurrentRegion == RegionMode.Cebuano ? "Cebuano" : "Ilokano";
+
+        foreach (var entry in _journalData.journal_entries)
+        {
+            if (string.Equals(entry.phrase, _targetWord, System.StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(entry.language, currentRegion, System.StringComparison.OrdinalIgnoreCase))
+            {
+                if (!string.IsNullOrEmpty(entry.sound_file))
+                {
+                    AudioClip clip = Resources.Load<AudioClip>(entry.sound_file);
+                    if (clip != null)
+                    {
+                        _audioSource.clip = clip;
+                        _audioSource.Play();
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"[TeachingOverlayPanel] Could not load audio clip at Resources path: {entry.sound_file}");
+                    }
+                }
+                break;
+            }
         }
     }
 
