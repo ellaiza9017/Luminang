@@ -16,6 +16,7 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: b0005a31d88d5f846a85b409de4bccc3, type: 3}
   dialogueText: 'Dili! Got it. That''s how I can say ''no.'' '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -40,6 +40,8 @@ public class AssessmentManager : MonoBehaviour
     public Sprite ilokanoBackground;
     public Sprite cebuanoBackground;
 
+    private int pendingRewardCoins = 0;
+
     [Header("--- CATEGORY INTROS ---")]
     public GameObject categoryIntrosGroup;   // The dark overlay (has UIFadeAnimator)
     public GameObject categoryIntroPanel;    // The actual panel GameObject (gets safe pop-in)
@@ -238,9 +240,7 @@ public class AssessmentManager : MonoBehaviour
     {
         // Pulls whatever language the player actually chose in the previous scene
         selectedLanguage = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
-#if UNITY_EDITOR
-        selectedLanguage = "Ilokano"; // FORCE ILOKANO FOR TESTING
-#endif
+
         EnsureDependencies();
         
         if (sttMicButton != null) sttMicButton.onClick.AddListener(OnMicButtonClicked);
@@ -1453,9 +1453,7 @@ public class AssessmentManager : MonoBehaviour
 
         if (coinRewardText != null) coinRewardText.text = coins.ToString();
 
-        // Update player coins
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + coins);
+        pendingRewardCoins = coins;
 
         // Update category breakdown
         if (convSocialBar != null) convSocialBar.value = (convSocialTotal > 0) ? (convSocialScore / convSocialTotal) : 0f;
@@ -1472,15 +1470,21 @@ public class AssessmentManager : MonoBehaviour
 
     public void ReturnToMap()
     {
+        if (resultsPanel != null && resultsPanel.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         if (audioSource != null && nextQuestionSfx != null) audioSource.PlayOneShot(nextQuestionSfx);
         PlayerPrefs.SetInt("FinalAssessment_Completed", 1);
         PlayerPrefs.Save();
         
-        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        PlayerPrefs.SetString("PreviousScene", prevScene);
-        SceneLoader.ResetLoadingFlag();
-        SceneLoader.targetSceneForLoading = prevScene;
-        SceneLoader.keepBackgroundPersistent = false;
+        string selectedLanguage = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+        string targetScene = selectedLanguage + "EndingScene"; // CebuanoEndingScene or IlokanoEndingScene
+        
+        SceneLoader.ResetLoadingFlag(); 
+        SceneLoader.targetSceneForLoading = targetScene; 
+        SceneLoader.keepBackgroundPersistent = false; 
         UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 

@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: 'For example: ''Ikaw ang akong higala.'' That means: ''You are my
     friend.'' Here, ikaw means ''you.'''
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

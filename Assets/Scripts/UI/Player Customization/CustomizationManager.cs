@@ -54,6 +54,17 @@ public class CustomizationManager : MonoBehaviour
 
     async void Start()
     {
+        // Disable all EventSystems and AudioListeners from OTHER (background) scenes.
+        // This prevents clicks inside Customization from hitting UI in background scenes.
+        foreach (var es in FindObjectsByType<UnityEngine.EventSystems.EventSystem>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (es.gameObject.scene != gameObject.scene) es.enabled = false;
+        }
+        foreach (var al in FindObjectsByType<AudioListener>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (al.gameObject.scene != gameObject.scene) al.enabled = false;
+        }
+
         // Auto-fetch the singleton modal if the inspector slot lost its reference
         if (modal == null) 
         {

@@ -16,6 +16,7 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: cf385c5c4168f354ca622b8557a81b73, type: 3}
   dialogueText: 'Wonderful! My garden story is complete. '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: It's nice conversing with you! If you ever forget any of the words
     you've learned here, you can always come find me and visit this lesson again.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: HideTeachingPanel
   endEventName: 

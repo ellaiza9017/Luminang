@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: In Cebuano, 'makita' means 'see' or 'to see something.' Like seeing
     a giant chocolate cake!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -3696,7 +3696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7ec1b372286c7448651e37c64cc044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishTouchHandler
-  fishCamera: {fileID: 1101272489}
 --- !u!114 &1101272487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4934,6 +4933,65 @@ MonoBehaviour:
   - situationText: '[MEMORY] The school bell rings and it is time to go home. What
       do you say to your teacher?'
     cardImage: {fileID: 21300000, guid: f03c4a428fa886b4ab522129476b8b76, type: 3}
+  - situationText: 'Your teacher asks who wants to answer the first question. You
+      raise your hand and say, \"___ want to answer!\" '
+    cardImage: {fileID: 21300000, guid: ed3f50541b56fab458f9c945060b52a4, type: 3}
+  - situationText: Your classmate is sitting beside you during an activity. You ask,
+      \"___ have a pencil I can borrow?\"
+    cardImage: {fileID: 21300000, guid: 931586a6a2765a94eb98a1bf78763a1e, type: 3}
+  - situationText: Your brother is chosen as the team captain for your school's basketball
+      game. You tell your friend, \"___ is our team captain.\"
+    cardImage: {fileID: 21300000, guid: 229820c727f238546b9e664c7aee6e2c, type: 3}
+  - situationText: Your sister wins first place in the school's drawing contest.
+      You proudly tell your classmate, \"___ won the contest!\"
+    cardImage: {fileID: 21300000, guid: 4d7c559b7b93d804d98db8cc4b01c7bc, type: 3}
+  - situationText: You and your seatmate are cleaning your classroom before dismissal.
+      You say, \"___ are cleaning our area.\"
+    cardImage: {fileID: 21300000, guid: 4344bc060f5e8bf44a7fd56c9619f02a, type: 3}
+  - situationText: You see three of your classmates practicing for the school program.
+      You tell your teacher, \"___ are practicing outside.\"
+    cardImage: {fileID: 21300000, guid: 3db5252ffda66494cbde58c7d981e47d, type: 3}
+  - situationText: Your teacher returns your notebook after checking your work. You
+      reach for it and say, \"Please give ___ my notebook.\"
+    cardImage: {fileID: 21300000, guid: 9e0be0aa1e59a1849a496c4df5c6fa42, type: 3}
+  - situationText: You and your friends are waiting for your snacks at the school
+      canteen. You tell the cashier, \"Please give the snacks to ___.\"
+    cardImage: {fileID: 21300000, guid: c5116d28a0a349547b47eba4e626023d, type: 3}
+  - situationText: You see your friends playing basketball at the school court. You
+      tell your classmate, \"I saw ___ playing basketball.\"
+    cardImage: {fileID: 21300000, guid: 2f9edef1875ad0c449549fc050109664, type: 3}
+  - situationText: '[MEMORY]Let''s see if you remember. After running during P.E.,
+      you tell your friend, \"I ____ tired.\"'
+    cardImage: {fileID: 21300000, guid: e9c5e36ee2a4af34482dba1359d6e2df, type: 3}
+  - situationText: '[MEMORY] After basketball practice, you tell your friend about
+      your brother and say, \"He ____ tired.\"'
+    cardImage: {fileID: 21300000, guid: d7df02f96c41aae45a2a8a4825766d8a, type: 3}
+  - situationText: '[MEMORY] Your teacher asks about your group after an activity.
+      You answer, \"We ____ ready.\"'
+    cardImage: {fileID: 21300000, guid: 014adfba836944546a674f31d51c0218, type: 3}
+  - situationText: '[MEMORY] It''s lunchtime, and you tell your friend, \"I will
+      ____ my lunch.\"'
+    cardImage: {fileID: 21300000, guid: 215efe934c4c31641b67a405a5a13e14, type: 3}
+  - situationText: '[MEMORY] You just finished playing outside and you''re thirsty.
+      You tell your friend, \"I am gonna ____ water.\"'
+    cardImage: {fileID: 21300000, guid: b154a7d037617b94db0224708f4d0b44, type: 3}
+  - situationText: '[MEMORY] It''s recess, and you and your friends are outside the
+      school canteen. You invite them, saying, \"Let''s ____ to the canteen.\"'
+    cardImage: {fileID: 21300000, guid: 3db8754515b9ce546abd6b47ddaa144f, type: 3}
+  - situationText: '[MEMORY] Your friend is waiting for you in the classroom and
+      calls, \"Can you ____ here?\"'
+    cardImage: {fileID: 21300000, guid: 2fa700e1a66e0784cb99496b72be47c1, type: 3}
+  - situationText: '[MEMORY] You open your pencil case and find only one pencil inside.
+      Complete the sentence: \"I have ____ pencil.\"'
+    cardImage: {fileID: 21300000, guid: 840a15d49484c0e4e87ca34a14ad26fe, type: 3}
+  - situationText: '[MEMORY] You check your school bag and find exactly two notebooks
+      inside. Complete the sentence: \"I have ____ notebooks.\"'
+    cardImage: {fileID: 21300000, guid: 8b8c3494957f11b4aa9f7c109121da24, type: 3}
+  - situationText: '[MEMORY] Outside the classroom, you see exactly three students
+      waiting for their teacher. Complete the sentence: \"There are ____ students
+      waiting.\"'
+    cardImage: {fileID: 21300000, guid: 37ca2612bf25ad341ba611761070cdcb, type: 3}
+  defaultMemorySprite: {fileID: 0}
   questionText: {fileID: 289512918}
   polaroidPic: {fileID: 54112845}
   polaroidMask: {fileID: 190255662}
@@ -4982,6 +5040,9 @@ MonoBehaviour:
   - {fileID: 1271147243}
   activeStar: {fileID: 21300000, guid: f41481cca60bf1d4fa6da20d943c98d5, type: 3}
   inactiveStar: {fileID: 21300000, guid: d8bb47967b53d9a4cbaa74b1433bc2d7, type: 3}
+  currentHearts: 5
+  currentRoundNumber: 1
+  forceInspectorJsonInEditor: 0
 --- !u!4 &1978841508
 Transform:
   m_ObjectHideFlags: 0

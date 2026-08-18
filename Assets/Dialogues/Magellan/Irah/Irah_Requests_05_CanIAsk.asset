@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: If someone looks busy or If you need to interrupt someone to ask
     for directions, it's polite to start with 'Pwede ko mangutana?'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:canIAsk
   endEventName: 

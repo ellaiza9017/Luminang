@@ -50,7 +50,21 @@ public class ShopFrameUI : MonoBehaviour
     public void RefreshVisuals()
     {
         if (myItem == null || myManager == null) return;
-        bool isOwned  = myItem.price <= 0 || myManager.ownedItems.Contains(myItem.name);
+
+        // "None" items are placeholders — they're not purchasable and should never show
+        // OWNED or EQUIPPED labels. Hide all status labels and just show nothing.
+        bool isNoneItem = myItem.name.IndexOf("none", System.StringComparison.OrdinalIgnoreCase) >= 0
+                       || myItem.itemName.IndexOf("none", System.StringComparison.OrdinalIgnoreCase) >= 0;
+
+        if (isNoneItem)
+        {
+            if (coinIcon != null)          coinIcon.SetActive(false);
+            if (coinsLabel != null)        coinsLabel.gameObject.SetActive(false);
+            if (ownedEquippedLabel != null) ownedEquippedLabel.gameObject.SetActive(false);
+            return;
+        }
+
+        bool isOwned    = myItem.price <= 0 || myManager.ownedItems.Contains(myItem.name);
         bool isEquipped = IsItemEquipped();
         
         if (isEquipped)
@@ -87,6 +101,7 @@ public class ShopFrameUI : MonoBehaviour
             }
         }
     }
+
 
     private bool IsItemEquipped()
     {

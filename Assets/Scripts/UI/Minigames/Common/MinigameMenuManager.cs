@@ -47,12 +47,7 @@ public class MinigameMenuManager : MonoBehaviour
         PlayerPrefs.SetInt("MinigameWon", 0);
         PlayerPrefs.Save();
 
-        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        PlayerPrefs.SetString("PreviousScene", prevScene);
-        SceneLoader.ResetLoadingFlag();
-        SceneLoader.targetSceneForLoading = prevScene;
-        SceneLoader.keepBackgroundPersistent = false;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     public void OpenHowToPlay()

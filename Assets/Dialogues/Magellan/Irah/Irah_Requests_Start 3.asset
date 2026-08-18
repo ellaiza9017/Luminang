@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: 'If you''re ever in a pinch and need help right away, you can just
     say ''Tabangi ko!'' '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:helpMe
   endEventName: 

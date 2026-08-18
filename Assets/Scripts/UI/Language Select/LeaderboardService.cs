@@ -77,7 +77,8 @@ public class LeaderboardService : MonoBehaviour
                     ProfileId                  = profile.Id,
                     Username                   = profile.Username ?? "Unknown",
                     AvatarUrl                  = profile.AvatarUrl,
-                    OverallCoins               = profile.OverallCoins,
+                    OverallCoins               = profile.OverallCoins, // For ranking
+                    CurrentCoins               = profile.Coins,        // For display
                     UsernameFinalizedAt        = profile.UsernameFinalizedAt,
                     LastActive                 = profile.LastActive,
                     IlokanoObjectivesCompleted = iloObjectives,

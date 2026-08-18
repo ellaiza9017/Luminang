@@ -1,17 +1,12 @@
 {
   "objectives": [
     {
-      "category": "Intro",
+      "category": "Greetings",
       "items": [
         {
           "id": "ceb_01",
           "objective": "Look around for clues"
-        }
-      ]
-    },
-    {
-      "category": "Greetings",
-      "items": [
+        },
         {
           "id": "ceb_02",
           "objective": "Talk to Tiptip"
@@ -61,11 +56,11 @@
         },
         {
           "id": "ceb_10",
-          "objective": "Converse with Ronnie"
+          "objective": "Help Jerem introduce himself"
         },
         {
           "id": "ceb_11",
-          "objective": "Help Jerem introduce himself"
+          "objective": "Converse with Ronnie"
         }
       ]
     },

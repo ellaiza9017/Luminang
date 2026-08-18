@@ -15,13 +15,14 @@ MonoBehaviour:
   speakerName: Ronnie
   speakerPortrait: {fileID: 0}
   dialogueText: Hmm, try saying 'taga' then your place, then 'ko'!
-  translatedText: ''
+  translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8db6c4e01b954444b9f12fe2a66514cd, type: 3}
   animationTrigger: headShake
   triggerEventName: 
   endEventName: ConversationTest_Wrong
   choices:
-  - choiceText: ''
+  - choiceText: 
     nextNode: {fileID: 11400000, guid: e9025789c231417fb8ac40f48717d138, type: 2}
     isWrong: 0
-    choiceEvent: ''
+    choiceEvent: 
     expectedSTTWord: taga {place} ko

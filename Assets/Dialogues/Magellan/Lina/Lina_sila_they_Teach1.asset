@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: Sometimes we talk about a group we're not part of. In Cebuano, that's
     sila.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:they
   endEventName: 

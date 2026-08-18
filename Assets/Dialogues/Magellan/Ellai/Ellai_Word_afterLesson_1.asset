@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: Until then, keep practicing your Cebuano and enjoy connecting with
     the wonderful people of Cebu. Paalam, and see you again soon!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

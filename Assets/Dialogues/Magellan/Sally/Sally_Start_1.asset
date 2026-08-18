@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: 'Getting to know new people is one of my favorite things to do. Would
     you like to learn how Cebuanos introduce themselves? '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

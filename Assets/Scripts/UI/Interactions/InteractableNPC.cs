@@ -6,7 +6,10 @@ using System.Collections.Generic;
 public class InteractableNPC : InteractableBase
 {
     [Header("Dialogue Settings")]
-    [Tooltip("The casual dialogue used when the NPC has nothing specific to do with the current quest.")]
+    [Tooltip("The dialogue used BEFORE the player reaches this NPC's quest (e.g. 'I'm busy right now').")]
+    public DialogueNode preQuestDialogue;
+
+    [Tooltip("The casual dialogue used when the NPC has nothing specific to do with the current quest (e.g. post-quest chatter).")]
     public DialogueNode defaultDialogue;
 
     [Header("Quest Integration")]
@@ -88,10 +91,101 @@ public class InteractableNPC : InteractableBase
                     return qd.dialogueNode;
                 }
             }
+
+            // 2. Pre-Quest Check
+            // If they have quests, but none of them are completed yet, they are in the "Before Quest" phase
+            if (questDialogues.Count > 0 && preQuestDialogue != null)
+            {
+                bool hasFinishedAny = false;
+                foreach (var qd in questDialogues)
+                {
+                    if (ObjectiveManager.Instance.IsObjectiveCompleted(qd.requiredObjective))
+                    {
+                        hasFinishedAny = true;
+                        break;
+                    }
+                }
+
+                if (!hasFinishedAny)
+                {
+                    if (preQuestDialogue != null)
+                    {
+                        return preQuestDialogue;
+                    }
+                    else
+                    {
+                        return GetGeneratedPreQuestDialogue();
+                    }
+                }
+            }
         }
 
-        // 2. Fallback to default dialogue
-        return defaultDialogue;
+        // 3. Fallback to default dialogue (Post-Quest or generic)
+        if (defaultDialogue != null)
+        {
+            return defaultDialogue;
+        }
+        else if (questDialogues != null && questDialogues.Count > 0)
+        {
+            // If they had quests but have no default post-quest dialogue set in inspector, generate a generic one
+            return GetGeneratedPostQuestDialogue();
+        }
+        
+        return null;
+    }
+
+    private DialogueNode _generatedPreQuest;
+    private DialogueNode GetGeneratedPreQuestDialogue()
+    {
+        if (_generatedPreQuest == null)
+        {
+            // Clean up the NPC's GameObject name
+            string cleanName = gameObject.name.Replace("NPC", "").Replace("_", " ").Replace("Rigged", "").Replace("Casual", "").Replace("vendor", "").Replace("barista", "").Trim();
+            if (cleanName.Length > 0) 
+                cleanName = char.ToUpper(cleanName[0]) + cleanName.Substring(1);
+            
+            if (cleanName.ToLower() == "mar-taho") cleanName = "Mar";
+
+            // Load the actual DialogueNode asset from the Resources folder!
+            string resourcePath = $"PreQuestDialogues/PreQuest_{cleanName}";
+            _generatedPreQuest = Resources.Load<DialogueNode>(resourcePath);
+
+            // If we couldn't find one for this specific NPC, generate a generic fallback just in case
+            if (_generatedPreQuest == null)
+            {
+                _generatedPreQuest = ScriptableObject.CreateInstance<DialogueNode>();
+                _generatedPreQuest.speakerName = cleanName;
+                _generatedPreQuest.dialogueText = "I'm a bit busy right now. We can talk later!";
+            }
+        }
+        return _generatedPreQuest;
+    }
+
+    private DialogueNode _generatedPostQuest;
+    private DialogueNode GetGeneratedPostQuestDialogue()
+    {
+        if (_generatedPostQuest == null)
+        {
+            // Clean up the NPC's GameObject name
+            string cleanName = gameObject.name.Replace("NPC", "").Replace("_", " ").Replace("Rigged", "").Replace("Casual", "").Replace("vendor", "").Replace("barista", "").Trim();
+            if (cleanName.Length > 0) 
+                cleanName = char.ToUpper(cleanName[0]) + cleanName.Substring(1);
+            
+            if (cleanName.ToLower() == "mar-taho") cleanName = "Mar";
+
+            // Load the actual DialogueNode asset from the Resources folder!
+            string resourcePath = $"PostQuestDialogues/PostQuest_{cleanName}";
+            _generatedPostQuest = Resources.Load<DialogueNode>(resourcePath);
+
+            // If we couldn't find one for this specific NPC, generate a generic fallback just in case
+            if (_generatedPostQuest == null)
+            {
+                _generatedPostQuest = ScriptableObject.CreateInstance<DialogueNode>();
+                _generatedPostQuest.speakerName = cleanName;
+                _generatedPostQuest.dialogueText = "Thank you for your help earlier!";
+            }
+        }
+        return _generatedPostQuest;
     }
 
     public void EnableInteraction() 
@@ -183,11 +277,34 @@ public class InteractableNPC : InteractableBase
         }
         else
         {
-            // Only disable interaction if we don't have defaultDialogue enabled
-            if (defaultDialogue == null)
+            bool isPreQuest = false;
+            if (questDialogues != null && questDialogues.Count > 0 && ObjectiveManager.Instance != null)
             {
-                interactionEnabled = false;
+                bool hasFinishedAny = false;
+                foreach (var qd in questDialogues)
+                {
+                    if (ObjectiveManager.Instance.IsObjectiveCompleted(qd.requiredObjective))
+                    {
+                        hasFinishedAny = true;
+                        break;
+                    }
+                }
+                if (!hasFinishedAny) isPreQuest = true;
             }
+
+            // Determine if interaction should be allowed based on the phase
+            bool canInteract = false;
+            if (isPreQuest)
+            {
+                // We now auto-generate a fallback, so they can ALWAYS interact in pre-quest!
+                canInteract = true; 
+            }
+            else
+            {
+                canInteract = (defaultDialogue != null);
+            }
+
+            interactionEnabled = canInteract && (npcAnimator != null);
             
             if (hideUntilObjective)
             {

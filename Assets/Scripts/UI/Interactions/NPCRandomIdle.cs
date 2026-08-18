@@ -33,7 +33,7 @@ public class NPCRandomIdle : MonoBehaviour
 
     private void StartRandomIdle()
     {
-        if (_animator != null && randomIdleStates != null && randomIdleStates.Length > 0 && !_isPausedForInteraction)
+        if (_animator != null && _animator.runtimeAnimatorController != null && randomIdleStates != null && randomIdleStates.Length > 0 && !_isPausedForInteraction)
         {
             if (_idleCoroutine != null) StopCoroutine(_idleCoroutine);
             _idleCoroutine = StartCoroutine(RandomIdleRoutine());

@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: While giunsa asks how something was done, unsaon asks how something
     can be done or what steps to take.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

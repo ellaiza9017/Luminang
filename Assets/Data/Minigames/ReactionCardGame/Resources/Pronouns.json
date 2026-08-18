@@ -1,6 +1,6 @@
 [
   {
-    "situationText": "Your teacher asks who wants to answer the first question. You raise your hand and say, \"___ want to answer!\" Which pronoun should you use?",
+    "situationText": "Your teacher asks who wants to answer the first question. You raise your hand and say, \"___ want to answer!\" ",
     "correctPhraseId": "pronouns_066",
     "distractors": [
       {
@@ -14,7 +14,7 @@
     ]
   },
   {
-    "situationText": "Your classmate is sitting beside you during an activity. You ask, \"___ have a pencil I can borrow?\" Which pronoun should you use?",
+    "situationText": "Your classmate is sitting beside you during an activity. You ask, \"___ have a pencil I can borrow?\"",
     "correctPhraseId": "pronouns_067",
     "distractors": [
       {
@@ -28,7 +28,7 @@
     ]
   },
   {
-    "situationText": "Your brother is chosen as the team captain for your school's basketball game. You tell your friend, \"___ is our team captain.\" Which pronoun should you use?",
+    "situationText": "Your brother is chosen as the team captain for your school's basketball game. You tell your friend, \"___ is our team captain.\"",
     "correctPhraseId": "pronouns_068",
     "distractors": [
       {
@@ -42,7 +42,7 @@
     ]
   },
   {
-    "situationText": "Your sister wins first place in the school's drawing contest. You proudly tell your classmate, \"___ won the contest!\" Which pronoun should you use?",
+    "situationText": "Your sister wins first place in the school's drawing contest. You proudly tell your classmate, \"___ won the contest!\"",
     "correctPhraseId": "pronouns_069",
     "distractors": [
       {
@@ -56,7 +56,7 @@
     ]
   },
   {
-    "situationText": "You and your seatmate are cleaning your classroom before dismissal. You say, \"___ are cleaning our area.\" Which pronoun should you use?",
+    "situationText": "You and your seatmate are cleaning your classroom before dismissal. You say, \"___ are cleaning our area.\"",
     "correctPhraseId": "pronouns_070",
     "distractors": [
       {
@@ -70,7 +70,7 @@
     ]
   },
   {
-    "situationText": "You see three of your classmates practicing for the school program. You tell your teacher, \"___ are practicing outside.\" Which pronoun should you use?",
+    "situationText": "You see three of your classmates practicing for the school program. You tell your teacher, \"___ are practicing outside.\"",
     "correctPhraseId": "pronouns_071",
     "distractors": [
       {
@@ -84,184 +84,184 @@
     ]
   },
   {
-    "situationText": "Your teacher returns your notebook after checking your work. You reach for it and say, \"Please give ___ my notebook.\" Which pronoun should you use?",
+    "situationText": "Your teacher returns your notebook after checking your work. You reach for it and say, \"Please give ___ my notebook.\"",
     "correctPhraseId": "pronouns_072",
     "distractors": [
       {
-        "phraseId": "pronouns_066",
-        "feedback": "Oops! Look at where the pronoun goes. You're receiving the notebook, so this form doesn't fit after 'give'."
+        "phraseId": "pronouns_067",
+        "feedback": "Oops! The notebook is being returned to the person who owns it, not to the classmate you're talking to."
       },
       {
         "phraseId": "pronouns_074",
-        "feedback": "Wait! That notebook belongs to you, not to a group of students waiting for their notebooks!"
+        "feedback": "Wait! The notebook belongs to one person in this situation, not a group of people."
       }
     ]
   },
   {
-    "situationText": "Your group is waiting outside the classroom because the teacher has not opened the door yet. Your classmate says, \"Please wait for ___.\" Which pronoun should you use?",
+    "situationText": "You and your friends are waiting for your snacks at the school canteen. You tell the cashier, \"Please give the snacks to ___.\"",
     "correctPhraseId": "pronouns_073",
     "distractors": [
       {
-        "phraseId": "pronouns_070",
-        "feedback": "Hmm, check the spot after 'wait for.' This form doesn't sound right when someone is waiting for a group!"
+        "phraseId": "pronouns_067",
+        "feedback": "Oops! The snacks are for your group, not for the person you're talking to."
       },
       {
         "phraseId": "pronouns_074",
-        "feedback": "Oops! You're talking about your own group waiting outside, not another group of people!"
+        "feedback": "Hmm, the snacks are for your own group, not for another group of people."
       }
     ]
   },
   {
-    "situationText": "Your friends are waiting for you near the school gate. You tell your older sister, \"Please meet ___ there.\" Which pronoun should you use?",
+    "situationText": "You see your friends playing basketball at the school court. You tell your classmate, \"I saw ___ playing basketball.\"",
     "correctPhraseId": "pronouns_074",
     "distractors": [
       {
         "phraseId": "pronouns_071",
-        "feedback": "Nice try! Look at the word after 'meet.' That form doesn't fit when you're talking about the friends you're going to meet."
+        "feedback": "Hmm, think about your friends as the people you saw in this situation."
       },
       {
         "phraseId": "pronouns_073",
-        "feedback": "Wait! Your friends are the ones waiting at the gate. You're not asking your sister to meet your own group!"
+        "feedback": "Oops! Think about whether you are talking about the people you saw or including yourself in the group."
       }
     ]
   },
   {
-    "situationText": "[MEMORY] You learned the action word for eating in an earlier lesson. At lunch, you point to yourself and say, \"___ eat my baon at recess.\" Which pronoun should you use?",
-    "correctPhraseId": "pronouns_066",
+    "situationText": "[MEMORY]Let's see if you remember. After running during P.E., you tell your friend, \"I ____ tired.\"",
+    "correctPhraseId": "linking_verbs_056",
     "distractors": [
       {
-        "phraseId": "pronouns_067",
-        "feedback": "Hmm, the sentence is about your own lunch routine. You're not talking directly to your classmate here!"
+        "phraseId": "linking_verbs_057",
+        "feedback": "Almost! Think about the word that fits when you are describing yourself."
       },
       {
-        "phraseId": "pronouns_068",
-        "feedback": "Oops! You're the one eating your baon, not another student."
+        "phraseId": "linking_verbs_058",
+        "feedback": "Nice try! Remember who is talking in the sentence."
       }
     ]
   },
   {
-    "situationText": "[MEMORY] You learned the action word for drinking in an earlier lesson. Your teacher asks what you and your seatmate do during break. You say, \"___ drink water during break.\" Which pronoun should you use?",
-    "correctPhraseId": "pronouns_070",
+    "situationText": "[MEMORY] After basketball practice, you tell your friend about your brother and say, \"He ____ tired.\"",
+    "correctPhraseId": "linking_verbs_057",
     "distractors": [
       {
-        "phraseId": "pronouns_066",
-        "feedback": "Almost! Your seatmate is drinking water with you, so you're not talking about only yourself."
+        "phraseId": "linking_verbs_056",
+        "feedback": "Not quite! You're talking about your brother here, not yourself."
       },
       {
-        "phraseId": "pronouns_071",
-        "feedback": "Wait! You and your seatmate are part of the group you're talking about. You're not describing other students!"
+        "phraseId": "linking_verbs_058",
+        "feedback": "Hmm, you're describing one person after basketball practice, not yourself or a group."
       }
     ]
   },
   {
-    "situationText": "[MEMORY] You learned the action word for going in an earlier lesson. Your friends are heading to the school canteen without you. You tell your teacher, \"___ go to the canteen after class.\" Which pronoun should you use?",
-    "correctPhraseId": "pronouns_071",
+    "situationText": "[MEMORY] Your teacher asks about your group after an activity. You answer, \"We ____ ready.\"",
+    "correctPhraseId": "linking_verbs_058",
     "distractors": [
       {
-        "phraseId": "pronouns_070",
-        "feedback": "Hmm, you're not going with them this time. Including yourself would change who is doing the action!"
+        "phraseId": "linking_verbs_056",
+        "feedback": "Oops! The sentence is about your whole group, not just one person."
       },
       {
-        "phraseId": "pronouns_067",
-        "feedback": "Oops! You're talking about your friends, not speaking directly to the people you're talking about."
+        "phraseId": "linking_verbs_057",
+        "feedback": "Almost! Think about the group being described in the sentence."
       }
     ]
   },
   {
-    "situationText": "[MEMORY] You learned the action word for sleeping in an earlier lesson. Your little brother is already in bed. You tell your mother, \"___ sleep early tonight.\" Which pronoun should you use?",
-    "correctPhraseId": "pronouns_068",
+    "situationText": "[MEMORY] It's lunchtime, and you tell your friend, \"I will ____ my lunch.\"",
+    "correctPhraseId": "action_verbs_048",
     "distractors": [
       {
-        "phraseId": "pronouns_069",
-        "feedback": "Nice try! You're talking about your little brother here, but that pronoun doesn't fit the person you're describing."
+        "phraseId": "action_verbs_049",
+        "feedback": "Not quite! Think about what you're going to do with your lunch."
       },
       {
-        "phraseId": "pronouns_071",
-        "feedback": "Hmm, only your little brother is being described here. There's no group going to sleep."
+        "phraseId": "action_verbs_050",
+        "feedback": "Oops! You're talking about your lunch, not going somewhere."
       }
     ]
   },
   {
-    "situationText": "[MEMORY] You learned the linking verb for a present condition in an earlier lesson. Before your class presentation, you look at your friend and say, \"___ nervous today.\" Which pronoun should you use?",
-    "correctPhraseId": "pronouns_067",
+    "situationText": "[MEMORY] You just finished playing outside and you're thirsty. You tell your friend, \"I am gonna ____ water.\"",
+    "correctPhraseId": "action_verbs_049",
     "distractors": [
       {
-        "phraseId": "pronouns_066",
-        "feedback": "Oops! You're looking at your friend and talking directly to them, not describing your own feelings."
+        "phraseId": "action_verbs_048",
+        "feedback": "Hmm, you're thirsty, so think about what you're going to do with the water."
       },
       {
-        "phraseId": "pronouns_071",
-        "feedback": "Wait! You're talking to one friend standing in front of you, not several classmates."
+        "phraseId": "action_verbs_050",
+        "feedback": "Oops! You're getting a drink, not heading somewhere."
       }
     ]
   },
   {
-    "situationText": "[MEMORY] You learned the linking verb for a present condition in an earlier lesson. Your sister is wearing her new school uniform. You tell your mother, \"___ ready for school.\" Which pronoun should you use?",
-    "correctPhraseId": "pronouns_069",
+    "situationText": "[MEMORY] It's recess, and you and your friends are outside the school canteen. You invite them, saying, \"Let's ____ to the canteen.\"",
+    "correctPhraseId": "action_verbs_050",
     "distractors": [
       {
-        "phraseId": "pronouns_068",
-        "feedback": "Hmm, you're talking about your sister here, but that pronoun doesn't fit the person you're describing."
+        "phraseId": "action_verbs_048",
+        "feedback": "Not quite! You're talking about going somewhere during recess."
       },
       {
-        "phraseId": "pronouns_071",
-        "feedback": "Oops! Only your sister is ready for school in this situation, not a whole group."
+        "phraseId": "action_verbs_051",
+        "feedback": "Hmm, you're heading to the canteen, not asking someone to come toward you."
       }
     ]
   },
   {
-    "situationText": "[MEMORY] You learned the linking verb for a present condition in an earlier lesson. You and your groupmates are ready to present your project. You tell the teacher, \"___ ready to present.\" Which pronoun should you use?",
-    "correctPhraseId": "pronouns_070",
+    "situationText": "[MEMORY] Your friend is waiting for you in the classroom and calls, \"Can you ____ here?\"",
+    "correctPhraseId": "action_verbs_051",
     "distractors": [
       {
-        "phraseId": "pronouns_071",
-        "feedback": "Wait! You're part of the group presenting the project. You can't leave yourself out!"
+        "phraseId": "action_verbs_050",
+        "feedback": "Almost! Your friend is asking you to move toward them."
       },
       {
-        "phraseId": "pronouns_066",
-        "feedback": "Almost! You're presenting with your groupmates, so you're definitely not the only person who is ready."
+        "phraseId": "action_verbs_048",
+        "feedback": "Oops! Your friend is asking you to move closer, not talking about food."
       }
     ]
   },
   {
-    "situationText": "[MEMORY] You learned how to count in an earlier lesson. There are three pencils on your desk, and you point to them. You say, \"___ are on my desk.\" Which pronoun should you use?",
-    "correctPhraseId": "pronouns_071",
+    "situationText": "[MEMORY] You open your pencil case and find only one pencil inside. Complete the sentence: \"I have ____ pencil.\"",
+    "correctPhraseId": "count_038",
     "distractors": [
       {
-        "phraseId": "pronouns_069",
-        "feedback": "Oops! You're pointing to three pencils, not one person or one thing."
+        "phraseId": "count_039",
+        "feedback": "Hmm, check the situation again. How many pencils are actually inside?"
       },
       {
-        "phraseId": "pronouns_070",
-        "feedback": "Hmm, you're talking about the pencils on your desk. You aren't included in the group being described!"
+        "phraseId": "count_040",
+        "feedback": "Oops! Count carefully. There aren't that many pencils in the pencil case."
       }
     ]
   },
   {
-    "situationText": "[MEMORY] You learned how to count in an earlier lesson. You have two notebooks, and your friend asks who they belong to. You point to yourself and say, \"Those are ___.\" Which pronoun should you use?",
-    "correctPhraseId": "pronouns_066",
+    "situationText": "[MEMORY] You check your school bag and find exactly two notebooks inside. Complete the sentence: \"I have ____ notebooks.\"",
+    "correctPhraseId": "count_039",
     "distractors": [
       {
-        "phraseId": "pronouns_067",
-        "feedback": "Wait! The two notebooks belong to you, not to the friend you're talking to."
+        "phraseId": "count_038",
+        "feedback": "Not quite! There are more notebooks than that in the situation."
       },
       {
-        "phraseId": "pronouns_071",
-        "feedback": "Oops! The notebooks belong to one person, not to a group of students."
+        "phraseId": "count_040",
+        "feedback": "Oops! Count the notebooks again. There are not three."
       }
     ]
   },
   {
-    "situationText": "[MEMORY] You learned how to count in an earlier lesson. There are five students in your group, and your teacher asks who will present. You say, \"___ will present together.\" Which pronoun should you use?",
-    "correctPhraseId": "pronouns_070",
+    "situationText": "[MEMORY] Outside the classroom, you see exactly three students waiting for their teacher. Complete the sentence: \"There are ____ students waiting.\"",
+    "correctPhraseId": "count_040",
     "distractors": [
       {
-        "phraseId": "pronouns_071",
-        "feedback": "Hmm, you're talking about your own group, and you're one of the students presenting too!"
+        "phraseId": "count_038",
+        "feedback": "Hmm, look at the situation again. There are more students than that."
       },
       {
-        "phraseId": "pronouns_066",
-        "feedback": "Almost! Five students are presenting together, so this isn't something one person will do alone."
+        "phraseId": "count_039",
+        "feedback": "Almost! Count the students one more time. There is one more than two."
       }
     ]
   }

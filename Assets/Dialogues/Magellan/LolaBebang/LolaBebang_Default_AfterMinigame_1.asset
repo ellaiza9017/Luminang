@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: 'If one of us ever forget the right words to greet in cebuano again,
     we can always recall it together! '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: Thankful
   triggerEventName: 
   endEventName: 

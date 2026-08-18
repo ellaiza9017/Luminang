@@ -69,6 +69,8 @@ public class ReactionCardsManager : MonoBehaviour
     public AudioClip loseSFX;
     public AudioClip cardFlipSFX;
 
+    private int pendingRewardCoins = 0;
+
     [Header("How To Play UI")]
     public GameObject howToPlayGroup;
     public GameObject howToPlayPanel;
@@ -166,17 +168,32 @@ public class ReactionCardsManager : MonoBehaviour
         }
     }
 
+    [Header("Editor Debug")]
+    [Tooltip("If true, ignores PlayerPrefs and forces the game to load the jsonFileName specified above. Useful for testing directly in this scene!")]
+    public bool forceInspectorJsonInEditor = false;
+
     private void LoadDataAndStart()
     {
         hasGameStarted = true;
         // Check if the previous scene told us exactly which category to load
         string overrideJson = PlayerPrefs.GetString("ReactionCardCategory", "");
+
+#if UNITY_EDITOR
+        if (forceInspectorJsonInEditor)
+        {
+            overrideJson = ""; // Force it to use the inspector value
+            Debug.LogWarning("[ReactionCardsManager] forceInspectorJsonInEditor is TRUE. Ignoring PlayerPrefs and loading: " + jsonFileName);
+        }
+#endif
+
         if (!string.IsNullOrEmpty(overrideJson))
         {
             jsonFileName = overrideJson;
             // NOTE: We do NOT clear the key here — we keep it so Try Again still loads the right JSON.
             // It gets cleared in QuitToMenu() and RestartGame() when the player actually exits.
         }
+
+        Debug.Log($"[ReactionCardsManager] Currently loading JSON file: {jsonFileName}");
 
         // Load JSON
         TextAsset jsonFile = Resources.Load<TextAsset>(jsonFileName);
@@ -203,25 +220,61 @@ public class ReactionCardsManager : MonoBehaviour
                     }
                 }
 
-                // If there are memory rounds, pick up to 6 of them randomly
-                if (memoryRounds.Count > 0)
+                if (jsonFileName.Equals("Pronouns", System.StringComparison.OrdinalIgnoreCase))
                 {
-                    for (int i = 0; i < memoryRounds.Count; i++)
+                    // For Pronouns: 9 standard, 6 memory
+                    
+                    // Shuffle standard rounds and take up to 9
+                    for (int i = 0; i < standardRounds.Count; i++)
                     {
-                        GratitudeRoundData temp = memoryRounds[i];
-                        int randomIndex = Random.Range(i, memoryRounds.Count);
-                        memoryRounds[i] = memoryRounds[randomIndex];
-                        memoryRounds[randomIndex] = temp;
+                        GratitudeRoundData temp = standardRounds[i];
+                        int randomIndex = Random.Range(i, standardRounds.Count);
+                        standardRounds[i] = standardRounds[randomIndex];
+                        standardRounds[randomIndex] = temp;
                     }
+                    if (standardRounds.Count > 9)
+                        standardRounds.RemoveRange(9, standardRounds.Count - 9);
 
-                    int memoryCountToTake = Mathf.Min(6, memoryRounds.Count);
-                    for (int i = 0; i < memoryCountToTake; i++)
+                    // Shuffle memory rounds and take up to 6
+                    if (memoryRounds.Count > 0)
                     {
-                        standardRounds.Add(memoryRounds[i]);
+                        for (int i = 0; i < memoryRounds.Count; i++)
+                        {
+                            GratitudeRoundData temp = memoryRounds[i];
+                            int randomIndex = Random.Range(i, memoryRounds.Count);
+                            memoryRounds[i] = memoryRounds[randomIndex];
+                            memoryRounds[randomIndex] = temp;
+                        }
+
+                        int memoryCountToTake = Mathf.Min(6, memoryRounds.Count);
+                        for (int i = 0; i < memoryCountToTake; i++)
+                        {
+                            standardRounds.Add(memoryRounds[i]);
+                        }
                     }
+                    roundPool = standardRounds;
                 }
+                else
+                {
+                    // For Gratitude (and anything else): just combine them all and take up to 15
+                    List<GratitudeRoundData> combined = new List<GratitudeRoundData>();
+                    combined.AddRange(standardRounds);
+                    combined.AddRange(memoryRounds);
+                    
+                    // Shuffle combined
+                    for (int i = 0; i < combined.Count; i++)
+                    {
+                        GratitudeRoundData temp = combined[i];
+                        int randomIndex = Random.Range(i, combined.Count);
+                        combined[i] = combined[randomIndex];
+                        combined[randomIndex] = temp;
+                    }
 
-                roundPool = standardRounds;
+                    if (combined.Count > 15)
+                        combined.RemoveRange(15, combined.Count - 15);
+                        
+                    roundPool = combined;
+                }
             }
         }
         else
@@ -269,8 +322,11 @@ public class ReactionCardsManager : MonoBehaviour
         Sprite foundSprite = null;
         foreach (var mapping in imageMappings)
         {
-            // Simple check to ignore case and minor whitespace differences
-            if (mapping.situationText.Trim().ToLower() == currentRoundData.situationText.Trim().ToLower())
+            // Clean up strings: lower case, trim, remove literal backslashes, and remove underscores (to ignore "___" vs "____" typos)
+            string inspectorText = mapping.situationText.Replace("\\\"", "\"").Replace("_", "").Trim().ToLower();
+            string loadedText = currentRoundData.situationText.Replace("\\\"", "\"").Replace("_", "").Trim().ToLower();
+
+            if (inspectorText == loadedText)
             {
                 foundSprite = mapping.cardImage;
                 break;
@@ -330,7 +386,21 @@ public class ReactionCardsManager : MonoBehaviour
 
                 // Fetch translation from DatasetManager
                 PhraseEntry entry = DatasetManager.Instance?.GetPhraseById(phraseId);
-                string translatedText = entry != null ? entry.GetPhrase(lang) : $"[{phraseId}]";
+                
+                string translatedText = $"[{phraseId}]";
+                if (entry != null)
+                {
+                    if (jsonFileName.Equals("Pronouns", System.StringComparison.OrdinalIgnoreCase))
+                    {
+                        // For Pronouns, show English word on top and local translation in parentheses below
+                        translatedText = $"{entry.english}\n<size=80%><color=#555555>({entry.GetPhrase(lang)})</color></size>";
+                    }
+                    else
+                    {
+                        // For other categories (like Gratitude), just show the local phrase normally
+                        translatedText = entry.GetPhrase(lang);
+                    }
+                }
 
                 choiceTexts[i].text = translatedText;
 
@@ -571,8 +641,8 @@ public class ReactionCardsManager : MonoBehaviour
 
         if (winCoinsText != null) winCoinsText.text = $"+{coinsEarned}";
 
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + coinsEarned);
+        pendingRewardCoins = coinsEarned;
+
         PlayerPrefs.SetInt("ReactionMinigameWon", 1);
         PlayerPrefs.Save();
     }
@@ -587,14 +657,18 @@ public class ReactionCardsManager : MonoBehaviour
         
         if (loseCoinsText != null) loseCoinsText.text = "+2";
 
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + 2); // Consolation prize
+        pendingRewardCoins = 2;
+
         PlayerPrefs.SetInt("ReactionMinigameWon", 0);
-        PlayerPrefs.Save();
     }
 
     public void RestartGame()
     {
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         // Keep category alive — MinigameReloader reloads the same scene so it needs the pref.
         // It will be cleared once the player fully quits instead.
         MinigameReloader.ReloadActiveMinigame();
@@ -602,14 +676,13 @@ public class ReactionCardsManager : MonoBehaviour
 
     public void QuitToMenu()
     {
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         // Clear the category now that the player is fully exiting the minigame.
         PlayerPrefs.DeleteKey("ReactionCardCategory");
-        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        PlayerPrefs.SetString("PreviousScene", prevScene);
-        SceneLoader.ResetLoadingFlag();
-        SceneLoader.targetSceneForLoading = prevScene;
-        SceneLoader.keepBackgroundPersistent = false;
-        PlayerPrefs.Save();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 }

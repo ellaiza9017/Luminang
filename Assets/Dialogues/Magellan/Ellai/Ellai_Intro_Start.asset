@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: 'Maayong aldaw, traveler! Tiptip tweeted that a new adventurer was
     exploring Cebu! I guess that''s you. '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

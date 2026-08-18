@@ -1,17 +1,12 @@
 {
   "objectives": [
     {
-      "category": "Intro",
+      "category": "Greetings",
       "items": [
         {
           "id": "ilo_01",
           "objective": "Find Fruit (Pre-requisite to speaking with Kalaw)"
-        }
-      ]
-    },
-    {
-      "category": "Greetings",
-      "items": [
+        },
         {
           "id": "ilo_02",
           "objective": "Find Kyros"

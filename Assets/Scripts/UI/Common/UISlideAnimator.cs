@@ -30,23 +30,27 @@ public class UISlideAnimator : MonoBehaviour
 
     private void Awake()
     {
-        InitializeIfNeeded();
-    }
-
-    private void InitializeIfNeeded()
-    {
-        if (isInitialized) return;
-        
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        // Don't capture position here — UI layout isn't finalized yet in Awake
+    }
+
+    private IEnumerator Start()
+    {
+        // Wait one frame so Unity's layout system has placed the RectTransform correctly
+        yield return null;
         originalPosition = rectTransform.anchoredPosition;
-        
         isInitialized = true;
+
+        // Play entrance animation on scene start
+        Show();
     }
 
     private void OnEnable()
     {
-        InitializeIfNeeded();
+        // Only animate on re-enable (after first init), not on the first startup
+        // (Start coroutine handles the first entrance)
+        if (!isInitialized) return;
         Show();
     }
 

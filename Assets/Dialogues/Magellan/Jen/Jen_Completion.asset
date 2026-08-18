@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: "Look at that\u2014we started with questions, and now you've learned
     answers to so many of them."
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: HideTeachingPanel
   endEventName: 

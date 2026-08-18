@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: Ay... Don't give up! Practice a little more and come back. I'll be
     here!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8db6c4e01b954444b9f12fe2a66514cd, type: 3}
   animationTrigger: 
   triggerEventName: ShowFloatingText:Needs Practice!
   endEventName: 

@@ -75,7 +75,12 @@ public class BGMManager : MonoBehaviour
             }
         }
 
-        // Fall back to the default clip if no match
+        // If no matching entry AND the scene was loaded additively (e.g. OptionScene, LoadingScene),
+        // keep the current music playing — don't switch to the default clip.
+        // Scenes WITH their own entry (ShopScene, CharacterCustomizationScene) still play their BGM.
+        if (targetClip == null && mode == LoadSceneMode.Additive) return;
+
+        // Fall back to the default clip if no match (Single load only)
         if (targetClip == null)
         {
             targetClip = defaultClip;
@@ -216,4 +221,14 @@ public class BGMManager : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Manually re-evaluates and plays the BGM for the current active scene.
+    /// Call this after an ADDITIVE scene is unloaded, since OnSceneLoaded never fires in that case.
+    /// </summary>
+    public void RefreshBGMForActiveScene()
+    {
+        OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
+    }
 }
+

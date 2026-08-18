@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: Oh, hello! I'm Klara the gardener. Lately I've been meaning to write
     a little fun story about these flowers I'm growing.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

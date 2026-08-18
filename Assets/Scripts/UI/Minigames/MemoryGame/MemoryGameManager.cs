@@ -53,6 +53,8 @@ public class MemoryGameManager : MonoBehaviour
     [Header("Game State")]
     public GameState currentState = GameState.FlippingCards;
 
+    private int pendingRewardCoins = 0;
+
     [Header("UI References (Main)")]
     public TextMeshProUGUI pairsFoundText;
     public Image[] heartImages;
@@ -908,8 +910,8 @@ public class MemoryGameManager : MonoBehaviour
 
         if (winCoinsText != null) winCoinsText.text = $"+{coinsEarned}";
 
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + coinsEarned);
+        pendingRewardCoins = coinsEarned;
+
         PlayerPrefs.SetInt("MemoryGameMinigameWon", 1);
         PlayerPrefs.Save();
     }
@@ -928,38 +930,43 @@ public class MemoryGameManager : MonoBehaviour
         
         if (loseCoinsText != null) loseCoinsText.text = "+2";
 
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + 2); // Consolation prize
+        pendingRewardCoins = 2;
+
         PlayerPrefs.SetInt("MemoryGameMinigameWon", 0);
         PlayerPrefs.Save();
     }
 
     public void OnContinueClicked()
     {
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         if (AudioManager.instance != null && buttonClickSFX != null) AudioManager.instance.PlaySFX(buttonClickSFX);
-        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        PlayerPrefs.SetString("PreviousScene", prevScene); // FIX: Ensures LoadingSceneController unloads minigame scene when testing in Editor
-        SceneLoader.ResetLoadingFlag();
-        SceneLoader.targetSceneForLoading = prevScene;
-        SceneLoader.keepBackgroundPersistent = false;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     public void OnTryAgainClicked()
     {
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         if (AudioManager.instance != null && buttonClickSFX != null) AudioManager.instance.PlaySFX(buttonClickSFX);
         MinigameReloader.ReloadActiveMinigame();
     }
 
     public void OnQuitClicked()
     {
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         if (AudioManager.instance != null && buttonClickSFX != null) AudioManager.instance.PlaySFX(buttonClickSFX);
-        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        PlayerPrefs.SetString("PreviousScene", prevScene); // FIX: Ensures LoadingSceneController unloads minigame scene when testing in Editor
-        SceneLoader.ResetLoadingFlag();
-        SceneLoader.targetSceneForLoading = prevScene;
-        SceneLoader.keepBackgroundPersistent = false;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     private IEnumerator SlidePanelY(RectTransform panel, float targetY, float duration)

@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: You can use it when asking about the number of things, how much something
     costs, or the amount of something.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

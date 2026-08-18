@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: 'Nice to meet you! Next, let''s learn how to ask where someone is
     from: "taga asa ka"!'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: Bow
   triggerEventName: 
   endEventName: 

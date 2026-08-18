@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: Imagine you spot something strange on the ground and want to know
     what it is.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

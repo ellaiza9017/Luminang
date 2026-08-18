@@ -969,7 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: d71ef51224ec98e44be6d75751a71e09, type: 3}
 --- !u!95 &84343927
 Animator:
@@ -1176,148 +1176,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &135013452
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 135013455}
-  - component: {fileID: 135013454}
-  - component: {fileID: 135013453}
-  m_Layer: 0
-  m_Name: AudioSource
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &135013453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135013452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a1573d9ba86644faa35ee28c364235, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SFXVolumeSync
---- !u!82 &135013454
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135013452}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &135013455
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135013452}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1158.5981, y: 489.65292, z: 90.32465}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &142848909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,7 +1335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: d71ef51224ec98e44be6d75751a71e09, type: 3}
 --- !u!95 &149270018
 Animator:
@@ -2547,7 +2405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
 --- !u!114 &299978127
 MonoBehaviour:
@@ -4674,7 +4532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7ec1b372286c7448651e37c64cc044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishTouchHandler
-  fishCamera: {fileID: 515247457}
 --- !u!114 &515247459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5813,7 +5670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
 --- !u!114 &657547345
 MonoBehaviour:
@@ -8833,7 +8690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
 --- !u!114 &903715632
 MonoBehaviour:
@@ -10279,7 +10136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: d71ef51224ec98e44be6d75751a71e09, type: 3}
 --- !u!95 &1050397153
 Animator:
@@ -10842,7 +10699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
 --- !u!114 &1085782004
 MonoBehaviour:
@@ -11773,7 +11630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
 --- !u!114 &1206373360
 MonoBehaviour:
@@ -12123,6 +11980,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1250229900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1250229902}
+  - component: {fileID: 1250229901}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1250229901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250229900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4940a04d9f0fa942a8b0085e98c75c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  mainMixer: {fileID: 0}
+  musicVolume: 1
+  sfxVolume: 1
+--- !u!4 &1250229902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250229900}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 557.40045, y: 12.33817, z: 523.0396}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1256903775
 GameObject:
   m_ObjectHideFlags: 0
@@ -12336,7 +12240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
 --- !u!114 &1263519809
 MonoBehaviour:
@@ -14331,7 +14235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: d71ef51224ec98e44be6d75751a71e09, type: 3}
 --- !u!95 &1517683582
 Animator:
@@ -16340,7 +16244,7 @@ MonoBehaviour:
   correctOrWrongImage: {fileID: 1751946779}
   correctSprite: {fileID: 21300000, guid: 2b6627d567fa5c34e864cf1c5020c321, type: 3}
   wrongSprite: {fileID: 21300000, guid: 788d8f34cbe04df428de84aaa0474157, type: 3}
-  audioSource: {fileID: 135013454}
+  audioSource: {fileID: 0}
   correctSfx: {fileID: 8300000, guid: 80743e35226f6fa4eb990cb43774f9ce, type: 3}
   wrongSfx: {fileID: 8300000, guid: d03d8f851ecd2c044925ebabea9c6863, type: 3}
   nextQuestionSfx: {fileID: 8300000, guid: e8ef5816823f8dd45a9378a979c0806c, type: 3}
@@ -17355,7 +17259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
 --- !u!1 &1851161757
 GameObject:
@@ -18526,7 +18430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
 --- !u!114 &2055870502
 MonoBehaviour:
@@ -18986,7 +18890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7b7eeb2a29a6469ed393db25eb80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  sfxSource: {fileID: 135013454}
+  sfxSource: {fileID: 0}
   clickSFX: {fileID: 8300000, guid: 7585e520433f2604a99b0093b21eb838, type: 3}
 --- !u!114 &2082645826
 MonoBehaviour:
@@ -19405,5 +19309,5 @@ SceneRoots:
   - {fileID: 142848913}
   - {fileID: 389943575}
   - {fileID: 788028557}
-  - {fileID: 135013455}
   - {fileID: 1736494682}
+  - {fileID: 1250229902}

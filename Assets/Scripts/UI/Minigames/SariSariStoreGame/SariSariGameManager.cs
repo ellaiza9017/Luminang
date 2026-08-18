@@ -68,6 +68,8 @@ public class SariSariGameManager : MonoBehaviour
     public Color sttCorrectColor = Color.green;
     public Color sttWrongColor = Color.red;
 
+    private int pendingRewardCoins = 0;
+
     [Header("Lives & Round UI")]
     public UnityEngine.UI.Image[] candyImages;
     public Sprite[] activeCandySprites;
@@ -814,8 +816,8 @@ public class SariSariGameManager : MonoBehaviour
 
         if (winCoinsText != null) winCoinsText.text = $"+{coinsEarned}";
 
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + coinsEarned);
+        pendingRewardCoins = coinsEarned;
+
         PlayerPrefs.SetInt("SariSariMinigameWon", 1);
         PlayerPrefs.SetInt("MinigameWon", 1);
         PlayerPrefs.Save();
@@ -835,8 +837,8 @@ public class SariSariGameManager : MonoBehaviour
         
         if (loseCoinsText != null) loseCoinsText.text = "+2";
 
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + 2); // 2 consolation coins
+        pendingRewardCoins = 2;
+
         PlayerPrefs.SetInt("SariSariMinigameWon", 0);
         PlayerPrefs.SetInt("MinigameWon", 0);
         PlayerPrefs.Save();
@@ -850,19 +852,24 @@ public class SariSariGameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         // Use MinigameReloader so we don't accidentally unload the main game (Magellan) background scene
         MinigameReloader.ReloadActiveMinigame();
     }
 
     public void QuitToMenu()
     {
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         // Load whatever scene they came from (e.g. Map or Menu)
-        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        PlayerPrefs.SetString("PreviousScene", prevScene);
-        SceneLoader.ResetLoadingFlag();
-        SceneLoader.targetSceneForLoading = prevScene;
-        SceneLoader.keepBackgroundPersistent = false;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     public void CloseHowToPlay()

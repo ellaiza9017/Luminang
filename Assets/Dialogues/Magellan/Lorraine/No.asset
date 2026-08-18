@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Lorraine
   speakerPortrait: {fileID: 0}
-  dialogueText: 'That''s alright! Blah blah blah
-
-'
+  dialogueText: No problem! Come back whenever you're ready
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

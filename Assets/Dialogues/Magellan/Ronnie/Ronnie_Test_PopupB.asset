@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Ronnie
   speakerPortrait: {fileID: 0}
-  dialogueText: 'No worries! Let me slow down. Gusto ba nimo tan-awon akong trabaho? Would you like to see my work?'
-  translatedText: ''
-  animationTrigger: ''
-  triggerEventName: ''
-  endEventName: ''
+  dialogueText: No worries! Let me slow down. Gusto ba nimo tan-awon akong trabaho?
+    Would you like to see my work?
+  translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8db6c4e01b954444b9f12fe2a66514cd, type: 3}
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
   choices:
-  - choiceText: ''
+  - choiceText: 
     nextNode: {fileID: 11400000, guid: 0b08b60250354592bf877333816235c0, type: 2}
     isWrong: 0
     choiceEvent: StartMinigame_TiptipQuizB
-    expectedSTTWord: ''
+    expectedSTTWord: 

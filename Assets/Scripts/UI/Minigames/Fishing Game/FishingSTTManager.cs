@@ -153,10 +153,11 @@ public class FishingSTTManager : MonoBehaviour
         }
 
         // Figure out the target word based on FishingGameConfig language
-        targetWord = "";
+        targetWord = caughtFish != null && !string.IsNullOrEmpty(caughtFish.assignedWord) ? caughtFish.assignedWord : "";
         string langToUse = FishingGameConfig.TargetLanguage;
         
-        if (DatasetManager.Instance != null && caughtFish != null)
+        // Fallback just in case
+        if (string.IsNullOrEmpty(targetWord) && DatasetManager.Instance != null && caughtFish != null)
         {
             PhraseEntry entry = DatasetManager.Instance.GetPhraseById(caughtFish.assignedId);
             if (entry != null)

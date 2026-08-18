@@ -20,7 +20,12 @@ MonoBehaviour:
   triggerEventName: 
   endEventName: 
   choices:
-  - choiceText: 
+  - choiceText: I'm ready!
+    nextNode: {fileID: 11400000, guid: 9e22ae09bc8ba5543afe4e927322c7ad, type: 2}
+    isWrong: 0
+    choiceEvent: Start_Assessment
+    expectedSTTWord: 
+  - choiceText: Let me explore for a while..
     nextNode: {fileID: 11400000, guid: 9e22ae09bc8ba5543afe4e927322c7ad, type: 2}
     isWrong: 0
     choiceEvent: 

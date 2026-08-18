@@ -15,13 +15,14 @@ MonoBehaviour:
   speakerName: Sally
   speakerPortrait: {fileID: 0}
   dialogueText: 'Now tell me where you are from in Cebuano: "taga {place} ko"!'
-  translatedText: ''
-  animationTrigger: ''
-  triggerEventName: ''
-  endEventName: ''
+  translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
   choices:
-  - choiceText: ''
+  - choiceText: 
     nextNode: {fileID: 11400000, guid: e1a10001000000000000000000000007, type: 2}
     isWrong: 0
-    choiceEvent: ''
+    choiceEvent: 
     expectedSTTWord: taga {place} ko

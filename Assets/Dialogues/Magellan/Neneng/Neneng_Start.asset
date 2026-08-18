@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: Hi there! I was playing a counting game, but I need someone to count
     with me. Do you want to learn how to count in Cebuano?
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

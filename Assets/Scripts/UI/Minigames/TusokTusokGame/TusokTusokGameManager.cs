@@ -66,8 +66,6 @@ public class TusokTusokGameManager : MonoBehaviour
     public Image[] winStars;
     public Sprite activeStar;
     public Sprite inactiveStar;
-    public AudioClip winSFX;
-    public AudioClip loseSFX;
 
     [Header("How To Play UI")]
     public GameObject howToPlayGroup;
@@ -111,12 +109,18 @@ public class TusokTusokGameManager : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource audioSource;
+    public AudioClip winSFX;
+    public AudioClip loseSFX;
     public AudioClip buttonClickSFX;
+    public AudioClip correctTusokSFX;
+    public AudioClip wrongTusokSFX;
     public AudioClip panelPopupSFX;
     public AudioClip correctSFX;
     public AudioClip wrongSFX;
     public AudioClip tusokSFX;
     public AudioClip returnSFX;
+
+    private int pendingRewardCoins = 0;
 
     [Header("Groups")]
     public GameObject handGroup;
@@ -741,8 +745,8 @@ public class TusokTusokGameManager : MonoBehaviour
 
         if (winCoinsText != null) winCoinsText.text = $"+{coinsEarned}";
 
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + coinsEarned);
+        pendingRewardCoins = coinsEarned;
+
         PlayerPrefs.SetInt("TusokTusokMinigameWon", 1);
         PlayerPrefs.Save();
     }
@@ -762,26 +766,31 @@ public class TusokTusokGameManager : MonoBehaviour
         
         if (loseCoinsText != null) loseCoinsText.text = "+2";
 
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + 2);
+        pendingRewardCoins = 2;
+
         PlayerPrefs.Save();
     }
 
     public void RestartGame()
     {
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         if (audioSource != null && buttonClickSFX != null) audioSource.PlayOneShot(buttonClickSFX);
         MinigameReloader.ReloadActiveMinigame();
     }
 
     public void QuitToMenu()
     {
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         if (audioSource != null && buttonClickSFX != null) audioSource.PlayOneShot(buttonClickSFX);
-        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        PlayerPrefs.SetString("PreviousScene", prevScene);
-        SceneLoader.ResetLoadingFlag();
-        SceneLoader.targetSceneForLoading = prevScene;
-        SceneLoader.keepBackgroundPersistent = false;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     private Coroutine _localPopupAnim;

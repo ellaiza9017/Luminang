@@ -37,7 +37,7 @@ public class LeaderboardDetailsManager : MonoBehaviour
         if (usernameText != null) usernameText.text = entry.Username;
         if (rankText != null) rankText.text = $"Rank #{entry.Rank}";
         if (overallProgressText != null) overallProgressText.text = $"{entry.OverallProgress:F1}%";
-        if (coinsText != null) coinsText.text = $"{entry.OverallCoins.ToString("N0")} Coins";
+        if (coinsText != null) coinsText.text = $"{entry.CurrentCoins.ToString("N0")} Coins";
         if (ilokanoProgressText != null) ilokanoProgressText.text = $"{entry.IlokanoProgress:F1}%";
         if (ilokanoLessonsText != null) ilokanoLessonsText.text = $"{entry.IlokanoLessonsCompleted} / 12";
         if (cebuanoProgressText != null) cebuanoProgressText.text = $"{entry.CebuanoProgress:F1}%";
@@ -69,10 +69,16 @@ public class LeaderboardDetailsManager : MonoBehaviour
         }
     }
 
+    private string _currentAvatarUrl;
+
     private async void LoadAvatarAsync(string url)
     {
+        _currentAvatarUrl = url; // Keep track of the latest requested avatar
+
         var texture = await AvatarManager.Instance.GetAvatarTexture(url);
-        if (texture != null && avatarImage != null)
+        
+        // Only apply if this is still the active player's URL
+        if (texture != null && avatarImage != null && _currentAvatarUrl == url)
         {
             avatarImage.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
             avatarImage.color = Color.white;

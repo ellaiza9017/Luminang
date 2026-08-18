@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: Dili ko kasabot! That's useful. Now I can let people know when I'm
     confused.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

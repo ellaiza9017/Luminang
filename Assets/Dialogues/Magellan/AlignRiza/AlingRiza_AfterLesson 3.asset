@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: If you'd like to practice these action words again, come visit my
     bakery anytime. I'll be happy to help!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

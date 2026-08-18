@@ -16,6 +16,7 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: 9e123fa3ffc8a2a459ea88e6a736ada5, type: 3}
   dialogueText: 'That''s great! Now you can keep the conversation going! '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

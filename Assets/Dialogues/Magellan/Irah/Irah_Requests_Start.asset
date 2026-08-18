@@ -16,6 +16,7 @@ MonoBehaviour:
   speakerPortrait: {fileID: 0}
   dialogueText: 'This container is too heavy! Ah! You over there! Tabangi ko! '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: IrahPhase1Complete

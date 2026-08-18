@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class OptionsManager : MonoBehaviour
@@ -242,16 +243,27 @@ public class OptionsManager : MonoBehaviour
 
     public void GoBack()
     {
-        // Default to Main Menu if for some reason we don't know where we came from
-        string targetScene = string.IsNullOrEmpty(PreviousSceneName) ? "MainMenuScene" : PreviousSceneName;
-        
-        if (TransitionOverlay.Instance != null)
+        if (SceneManager.sceneCount > 1)
         {
-            TransitionOverlay.Instance.StartTransition(targetScene);
+            // OptionScene was loaded additively — just unload it.
+            // The background scene (e.g. Magellan's Cross) is still alive, player position preserved.
+
+            // Re-show the PauseMenuCanvas (button + panel) that we hid when opening Options
+            if (PauseMenuController.Instance != null)
+                PauseMenuController.Instance.gameObject.SetActive(true);
+
+            SceneManager.UnloadSceneAsync(gameObject.scene);
         }
         else
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(targetScene);
+            // OptionScene was loaded as the only scene (e.g. from MainMenu) — full transition back
+            string targetScene = string.IsNullOrEmpty(PreviousSceneName) ? "MainMenuScene" : PreviousSceneName;
+
+            if (TransitionOverlay.Instance != null)
+                TransitionOverlay.Instance.StartTransition(targetScene);
+            else
+                SceneManager.LoadScene(targetScene);
         }
     }
 }
+

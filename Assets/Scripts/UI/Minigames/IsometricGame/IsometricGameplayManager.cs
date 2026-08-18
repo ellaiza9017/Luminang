@@ -58,6 +58,8 @@ namespace Luminang.UI.Minigames.IsometricGame
         [Header("UI - Choices Panel")]
         public GameObject choicesPanel;
         public List<Button> choiceButtons;
+
+        private int pendingRewardCoins = 0;
         public List<TextMeshProUGUI> choiceTexts;
 
         [Header("UI - Overlays")]
@@ -1320,9 +1322,9 @@ namespace Luminang.UI.Minigames.IsometricGame
                 winCoinsText.text = $"+{coinsEarned}";
             }
 
-            // Save coins & minigame win state
-            int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-            PlayerPrefs.SetInt("PlayerCoins", currentCoins + coinsEarned);
+            pendingRewardCoins = coinsEarned;
+
+            // Save minigame win state
             PlayerPrefs.SetInt("IsometricMinigameWon", 1);
             PlayerPrefs.SetInt("MinigameWon", 1);
             PlayerPrefs.Save();
@@ -1354,8 +1356,8 @@ namespace Luminang.UI.Minigames.IsometricGame
                 loseCoinsText.text = $"+{consolationCoins}";
             }
 
-            int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-            PlayerPrefs.SetInt("PlayerCoins", currentCoins + consolationCoins);
+            pendingRewardCoins = consolationCoins;
+
             PlayerPrefs.SetInt("IsometricMinigameWon", 0);
             PlayerPrefs.SetInt("MinigameWon", 0);
             PlayerPrefs.Save();
@@ -1369,6 +1371,11 @@ namespace Luminang.UI.Minigames.IsometricGame
         // Call this from the "Try Again" Button OnClick()
         public void RestartGame()
         {
+            if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+            {
+                if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+                pendingRewardCoins = 0;
+            }
             if (audioSource != null && buttonClickClip != null) audioSource.PlayOneShot(buttonClickClip);
             // Use MinigameReloader to prevent destroying Magellan scene
             MinigameReloader.ReloadActiveMinigame();
@@ -1428,12 +1435,12 @@ namespace Luminang.UI.Minigames.IsometricGame
 
         public void ExitMinigameToPreviousScene()
         {
-            string prevScene = PlayerPrefs.GetString("PreviousScene", "Magellan's_Cross");
-            PlayerPrefs.SetString("PreviousScene", prevScene); // FIX: Ensure LoadingScene unloads caller in Editor
-            SceneLoader.ResetLoadingFlag();
-            SceneLoader.targetSceneForLoading = prevScene;
-            SceneLoader.keepBackgroundPersistent = false;
-            UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+            if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+            {
+                if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+                pendingRewardCoins = 0;
+            }
+            string prevScene = PlayerPrefs.GetString("PreviousScene", "Magellan's_Cross"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
         }
 
         private IEnumerator BlinkAndDisableBar(Image barImage)

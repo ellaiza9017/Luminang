@@ -9,62 +9,54 @@ public class PauseMenuController : MonoBehaviour
     
     [Header("Scene Settings")]
     [Tooltip("The exact name of your Slambook/Language Select scene.")]
-    public string returnSceneName = "LanguageSelectScene"; // Change this if your scene is named differently!
+    public string returnSceneName = "LanguageSelectionScene";
 
-    private bool isPaused = false;
+    // Static reference so OptionsManager can re-show us when it closes
+    public static PauseMenuController Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
-        // Ensure the menu is hidden when the scene starts
+        // Ensure the menu panel is hidden when the scene starts
         if (pauseMenuPanel != null)
-        {
             pauseMenuPanel.SetActive(false);
-        }
-    }
-
-    private void Update()
-    {
-        // Listen for the Escape key to toggle the pause menu
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
     }
 
     public void PauseGame()
     {
-        isPaused = true;
         pauseMenuPanel.SetActive(true);
-        Time.timeScale = 0f; // This freezes the game (animations, movement, etc.)
+        Time.timeScale = 0f;
     }
 
     public void ResumeGame()
     {
-        isPaused = false;
         pauseMenuPanel.SetActive(false);
-        Time.timeScale = 1f; // This unfreezes the game
+        Time.timeScale = 1f;
     }
 
     public void OpenOptions()
     {
-        // Set the previous scene name so the OptionsManager knows which background to show
+        // Reset timeScale before leaving
+        Time.timeScale = 1f;
+
+        // Hide the ENTIRE PauseMenuCanvas (button + panel) while OptionScene is open.
+        // OptionsManager.GoBack() will re-show it when returning.
+        gameObject.SetActive(false);
+
+        // Tell OptionsManager which scene we came from (for background image + GoBack)
         OptionsManager.PreviousSceneName = SceneManager.GetActiveScene().name;
 
-        // Load the options scene additively so it pops up over the paused game
-        SceneManager.LoadScene("OptionsScene", LoadSceneMode.Additive);
+        // Load additively — Magellan's Cross stays alive in the background
+        SceneManager.LoadScene("OptionScene", LoadSceneMode.Additive);
     }
 
     public void ExitLevel()
     {
-        // Always reset time scale before loading a new scene!
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
         SceneManager.LoadScene(returnSceneName);
     }
 }

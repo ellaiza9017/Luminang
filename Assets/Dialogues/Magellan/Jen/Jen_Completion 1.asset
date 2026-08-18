@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: From unsa to pila, you've learned the Cebuano words that help curious
     minds explore the world.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

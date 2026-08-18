@@ -56,17 +56,22 @@ public class LeaderboardJournalPreview : MonoBehaviour
         if (journalJsonFile != null)
         {
             _phraseData = JsonUtility.FromJson<LuminangPhraseData>(journalJsonFile.text);
-            if (_phraseData != null && _phraseData.phrases != null)
+            if (_phraseData != null && _phraseData.phrases != null && _phraseData.phrases.Count > 0)
             {
                 foreach (var entry in _phraseData.phrases)
                 {
                     _allEntriesDict[entry.id] = entry;
                 }
+                Debug.Log($"[LeaderboardJournalPreview] Loaded {_allEntriesDict.Count} phrases successfully.");
+            }
+            else
+            {
+                Debug.LogError("[LeaderboardJournalPreview] The assigned JSON file does not contain a valid 'phrases' array! Did you assign LuminangJournalDictionary instead of LuminangPhrases.json?");
             }
         }
         else
         {
-            Debug.LogError("[LeaderboardJournalPreview] LuminangPhrases JSON file is not assigned!");
+            Debug.LogError("[LeaderboardJournalPreview] LuminangPhrases JSON file is not assigned in the Inspector!");
         }
     }
 
@@ -126,6 +131,7 @@ public class LeaderboardJournalPreview : MonoBehaviour
         // Clear old categories
         foreach (Transform child in categoryListParent)
         {
+            if (!child.gameObject.activeSelf || child.gameObject == categoryButtonPrefab) continue;
             Destroy(child.gameObject);
         }
 
@@ -146,6 +152,7 @@ public class LeaderboardJournalPreview : MonoBehaviour
         foreach (var categoryName in _currentLanguageCategories.Keys.OrderBy(k => k))
         {
             GameObject btnObj = Instantiate(categoryButtonPrefab, categoryListParent, false);
+            btnObj.SetActive(true);
             LeaderboardCategoryButton btnScript = btnObj.GetComponent<LeaderboardCategoryButton>();
             if (btnScript != null)
             {
@@ -171,6 +178,7 @@ public class LeaderboardJournalPreview : MonoBehaviour
         // Clear old words
         foreach (Transform child in wordListParent)
         {
+            if (!child.gameObject.activeSelf || child.gameObject == wordRowPrefab) continue;
             Destroy(child.gameObject);
         }
 
@@ -194,7 +202,14 @@ public class LeaderboardJournalPreview : MonoBehaviour
 
         foreach (var word in words)
         {
+            if (wordRowPrefab == null)
+            {
+                Debug.LogError("[LeaderboardJournalPreview] wordRowPrefab has been destroyed! Make sure you are assigning the Prefab ASSET from the Project Window, NOT a scene object!");
+                return;
+            }
+
             GameObject rowObj = Instantiate(wordRowPrefab, wordListParent, false);
+            rowObj.SetActive(true);
             LeaderboardWordRow rowScript = rowObj.GetComponent<LeaderboardWordRow>();
             if (rowScript != null)
             {

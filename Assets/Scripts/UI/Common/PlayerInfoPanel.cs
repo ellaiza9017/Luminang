@@ -29,6 +29,8 @@ public class PlayerInfoPanel : MonoBehaviour
     private Vector2 hiddenPosition; // The "off-screen" position
     
     private Coroutine slideCoroutine;
+    private Coroutine _blockCoroutine;
+    private bool _interactionBlocked = false;
 
     private void Awake()
     {
@@ -42,6 +44,41 @@ public class PlayerInfoPanel : MonoBehaviour
         
         // Immediately snap it off-screen so it's ready
         rectTransform.anchoredPosition = hiddenPosition;
+    }
+
+    private void OnEnable()
+    {
+        ObjectiveManager.OnObjectiveChanged += HandleObjectiveChanged;
+        UserProfileManager.OnCoinsChanged += HandleCoinsChanged;
+        UserProfileManager.OnObjectivesCompleted += HandleObjectivesCompleted;
+        // Always refresh when becoming active — catches the return-from-minigame case
+        // where the scene is persistent but coins/progress changed in the background.
+        UpdatePanelData();
+    }
+
+    private void OnDisable()
+    {
+        ObjectiveManager.OnObjectiveChanged -= HandleObjectiveChanged;
+        UserProfileManager.OnCoinsChanged -= HandleCoinsChanged;
+        UserProfileManager.OnObjectivesCompleted -= HandleObjectivesCompleted;
+    }
+
+    private void HandleCoinsChanged(int newAmount)
+    {
+        if (coinsText != null)
+            coinsText.text = newAmount.ToString("N0") + " Coins";
+    }
+
+    private void HandleObjectivesCompleted()
+    {
+        // Recompute the full progress bar whenever an objective is saved
+        UpdatePanelData();
+    }
+
+    private void HandleObjectiveChanged(string newObjective)
+    {
+        // Refresh panel whenever the HUD objective text changes
+        UpdatePanelData();
     }
 
     private void Start()
@@ -71,9 +108,17 @@ public class PlayerInfoPanel : MonoBehaviour
         if (coinsText != null)
             coinsText.text = profile.Coins.ToString("N0") + " Coins"; // e.g. 1,500 Coins
 
-        // Progress can be connected dynamically later
-        if (progressPercentageText != null) progressPercentageText.text = "0%"; 
-        if (progressSlider != null) progressSlider.value = 0f;
+        // Safely calculate progress even if ObjectiveManager is not in the scene (e.g. Main Menu)
+        int iloObjectives = profile.CompletedObjectivesIlokano?.Count ?? 0;
+        int cebObjectives = profile.CompletedObjectivesCebuano?.Count ?? 0;
+        int maxIlo = ProgressCalculator.GetTotalObjectivesCount("ilokano");
+        int maxCeb = ProgressCalculator.GetTotalObjectivesCount("cebuano");
+        int maxTotal = maxIlo + maxCeb;
+        
+        float progress = maxTotal > 0 ? (float)(iloObjectives + cebObjectives) / maxTotal : 0f;
+
+        if (progressPercentageText != null) progressPercentageText.text = (progress * 100f).ToString("F1") + "%"; 
+        if (progressSlider != null) progressSlider.value = progress;
 
         // Handle Profile Picture
         HandleProfilePicture(profile);
@@ -137,6 +182,8 @@ public class PlayerInfoPanel : MonoBehaviour
     {
         if (_isShowing) return;
         _isShowing = true;
+        
+        UpdatePanelData(); // Refresh stats (coins, progress) every time it appears!
 
         if (slideCoroutine != null) StopCoroutine(slideCoroutine);
         slideCoroutine = StartCoroutine(SlideRoutine(rectTransform.anchoredPosition, targetPosition));
@@ -193,6 +240,26 @@ public class PlayerInfoPanel : MonoBehaviour
     /// </summary>
     public void OnPanelClicked()
     {
+        if (_interactionBlocked) return; // Ignore clicks during cooldown
         SceneNavigationManager.LoadCustomization();
+    }
+
+    /// <summary>
+    /// Temporarily disables interaction on this panel for the given duration.
+    /// Call this after returning from the ShopScene to prevent accidental click-through.
+    /// </summary>
+    public void TemporarilyDisableInteraction(float seconds = 3f)
+    {
+        if (_blockCoroutine != null) StopCoroutine(_blockCoroutine);
+        _blockCoroutine = StartCoroutine(BlockRoutine(seconds));
+    }
+
+    private IEnumerator BlockRoutine(float seconds)
+    {
+        _interactionBlocked = true;
+        Debug.Log($"[PlayerInfoPanel] Interaction blocked for {seconds}s to prevent click-through from Shop.");
+        yield return new WaitForSeconds(seconds);
+        _interactionBlocked = false;
+        Debug.Log("[PlayerInfoPanel] Interaction re-enabled.");
     }
 }

@@ -48,6 +48,8 @@ public class FishingQuizManager : MonoBehaviour
     public GameObject losePanel;
     public TextMeshProUGUI winCoinsText;
     public TextMeshProUGUI loseCoinsText;
+
+    private int pendingRewardCoins = 0;
     public UnityEngine.UI.Image[] winStars; // Assign the 5 star images from WinPanel's StarsGroup
     public Sprite activeStarSprite;
     public Sprite inactiveStarSprite;
@@ -149,11 +151,9 @@ public class FishingQuizManager : MonoBehaviour
                     questionPool[randomIndex] = temp;
                 }
 
-                // Set rounds and baits dynamically based on the category's size
+                // Set baits dynamically based on the category's size (rounds + 5 mistakes allowed)
                 totalRounds = questionPool.Count;
-                if (fileName == "Greetings") totalBaits = 20;
-                else if (fileName == "Interrogatives") totalBaits = 19;
-                else totalBaits = totalRounds + 5;
+                totalBaits = totalRounds + 5;
             }
         }
         else
@@ -405,14 +405,11 @@ public class FishingQuizManager : MonoBehaviour
             }
         }
 
-        if (winCoinsText != null)
-        {
-            winCoinsText.text = $"+{coinsEarned}";
-        }
+        if (winCoinsText != null) winCoinsText.text = $"+{coinsEarned}";
 
-        // Save coins and minigame win state
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + coinsEarned);
+        pendingRewardCoins = coinsEarned;
+
+        // Save minigame win state
         PlayerPrefs.SetInt("FishingMinigameWon", 1); 
         PlayerPrefs.Save();
 
@@ -433,13 +430,10 @@ public class FishingQuizManager : MonoBehaviour
 
         // Consolation prize for losing
         int coinsEarned = 2;
-        if (loseCoinsText != null)
-        {
-            loseCoinsText.text = $"+{coinsEarned}";
-        }
+        if (loseCoinsText != null) loseCoinsText.text = $"+{coinsEarned}";
 
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + coinsEarned);
+        pendingRewardCoins = coinsEarned;
+
         PlayerPrefs.SetInt("FishingMinigameWon", 0);
         PlayerPrefs.Save();
 
@@ -477,29 +471,34 @@ public class FishingQuizManager : MonoBehaviour
     // Call this from the "Try Again" Button OnClick()
     public void RestartGame()
     {
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         MinigameReloader.ReloadActiveMinigame();
     }
 
     // Call this from the WinPanel's "Continue" Button OnClick()
     public void ContinueToNextObjective()
     {
-        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        PlayerPrefs.SetString("PreviousScene", prevScene);
-        SceneLoader.ResetLoadingFlag();
-        SceneLoader.targetSceneForLoading = prevScene;
-        SceneLoader.keepBackgroundPersistent = false;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
+        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     // Call this from the LosePanel's "Quit" Button OnClick()
     public void QuitToPreviousScene()
     {
-        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        PlayerPrefs.SetString("PreviousScene", prevScene);
-        SceneLoader.ResetLoadingFlag();
-        SceneLoader.targetSceneForLoading = prevScene;
-        SceneLoader.keepBackgroundPersistent = false;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
+        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     void UpdateHUD()

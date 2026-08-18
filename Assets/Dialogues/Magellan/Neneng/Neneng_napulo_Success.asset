@@ -16,6 +16,7 @@ MonoBehaviour:
   speakerPortrait: {fileID: 0}
   dialogueText: Pulo! You did it! We counted all the way to ten!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: Clapping
   triggerEventName: 
   endEventName: 

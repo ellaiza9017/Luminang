@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: "Listen carefully: kinsa.\nLet's see if you can ask about a person
     too\u2014say kinsa!"
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

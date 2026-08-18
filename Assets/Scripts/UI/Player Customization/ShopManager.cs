@@ -51,6 +51,17 @@ public class ShopManager : MonoBehaviour
 
     async void Start()
     {
+        // Disable all EventSystems and AudioListeners that belong to OTHER scenes (background scenes).
+        // This prevents clicks inside the Shop from accidentally hitting UI in the background scene.
+        foreach (var es in FindObjectsByType<UnityEngine.EventSystems.EventSystem>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (es.gameObject.scene != gameObject.scene) es.enabled = false;
+        }
+        foreach (var al in FindObjectsByType<AudioListener>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (al.gameObject.scene != gameObject.scene) al.enabled = false;
+        }
+
         if (modal == null) modal = GenericModal.Instance;
         if (modal == null) modal = FindFirstObjectByType<GenericModal>(FindObjectsInactive.Include);
 
@@ -384,8 +395,16 @@ public class ShopExitHelper : MonoBehaviour
 {
     public System.Collections.IEnumerator ReenableNextFrame(UnityEngine.SceneManagement.Scene unloadedScene)
     {
-        // Wait 0.25 seconds to guarantee the mouse click has been completely consumed
-        // and doesn't accidentally trigger the PlayerInfoPanel underneath the shop!
+        // First: immediately block the PlayerInfoPanel from accepting clicks for 3 seconds.
+        // This is the safest layer of protection — even if EventSystem re-enables fast,
+        // the panel itself will refuse to navigate for 3 full seconds.
+        foreach (var panel in FindObjectsByType<PlayerInfoPanel>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (panel.gameObject.scene != unloadedScene)
+                panel.TemporarilyDisableInteraction(3f);
+        }
+
+        // Then wait 0.25 seconds before re-enabling the background EventSystems
         yield return new WaitForSeconds(0.25f);
         
         foreach (var es in FindObjectsByType<UnityEngine.EventSystems.EventSystem>(FindObjectsInactive.Include, FindObjectsSortMode.None))
@@ -396,7 +415,24 @@ public class ShopExitHelper : MonoBehaviour
         {
             if (al.gameObject.scene != unloadedScene) al.enabled = true;
         }
+
+        // FIX: Re-enable Canvases and Lights that were hidden by HideCurrentSceneImmediate()
+        // Without this, Magellan's UI and lighting never come back after returning from Shop.
+        foreach (var c in FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (c.gameObject.scene != unloadedScene) c.enabled = true;
+        }
+        foreach (var l in FindObjectsByType<Light>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (l.gameObject.scene != unloadedScene) l.enabled = true;
+        }
+
+        // Restore the BGM for whichever scene is now active (OnSceneLoaded doesn't fire on unload)
+        if (BGMManager.Instance != null)
+            BGMManager.Instance.RefreshBGMForActiveScene();
         
         Destroy(gameObject);
     }
 }
+
+

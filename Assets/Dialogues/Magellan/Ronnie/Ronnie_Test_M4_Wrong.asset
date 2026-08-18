@@ -15,13 +15,14 @@ MonoBehaviour:
   speakerName: Ronnie
   speakerPortrait: {fileID: 0}
   dialogueText: Were you trying to ask where I'm from? Try 'taga asa ka'!
-  translatedText: ''
+  translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8db6c4e01b954444b9f12fe2a66514cd, type: 3}
   animationTrigger: headShake
   triggerEventName: 
   endEventName: ConversationTest_Wrong
   choices:
-  - choiceText: ''
+  - choiceText: 
     nextNode: {fileID: 11400000, guid: 7fd8d9789fd84db3ae384d055e2ecb60, type: 2}
     isWrong: 0
-    choiceEvent: ''
+    choiceEvent: 
     expectedSTTWord: taga asa ka

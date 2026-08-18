@@ -89,9 +89,6 @@ public class TumbangPresoGameManager : MonoBehaviour
     public Image[] winStars;
     public Sprite activeStar;
     public Sprite inactiveStar;
-    public AudioClip winSFX;
-    public AudioClip loseSFX;
-    public AudioClip buttonClickSFX;
 
     [Header("How To Play UI")]
     public GameObject howToPlayGroup;
@@ -111,13 +108,18 @@ public class TumbangPresoGameManager : MonoBehaviour
     
     [Header("Sound Effects")]
     public AudioSource uiAudioSource;
+    public AudioClip winSFX;
+    public AudioClip loseSFX;
+    public AudioClip buttonClickSFX;
     public AudioClip correctAnswerSFX;
     public AudioClip wrongAnswerSFX;
     public AudioClip throwSFX;
     public AudioClip canHitSound1;
     public AudioClip canHitSound2;
     public AudioClip canHitSound3;
-    
+
+    private int pendingRewardCoins = 0;
+
 #if UNITY_EDITOR
     [Header("--- EDITOR DEBUG (hidden in build) ---")]
     public int currentTsinelas;
@@ -470,8 +472,8 @@ public class TumbangPresoGameManager : MonoBehaviour
 
         if (winCoinsText != null) winCoinsText.text = $"+{coinsEarned}";
 
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + coinsEarned);
+        pendingRewardCoins = coinsEarned;
+
         PlayerPrefs.SetInt("TumbangPresoMinigameWon", 1);
         PlayerPrefs.Save();
     }
@@ -493,8 +495,8 @@ public class TumbangPresoGameManager : MonoBehaviour
         
         if (loseCoinsText != null) loseCoinsText.text = "+2";
 
-        int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-        PlayerPrefs.SetInt("PlayerCoins", currentCoins + 2); // Consolation prize
+        pendingRewardCoins = 2;
+
         PlayerPrefs.SetInt("TumbangPresoMinigameWon", 0);
         PlayerPrefs.Save();
     }
@@ -535,18 +537,23 @@ public class TumbangPresoGameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         MinigameReloader.ReloadActiveMinigame();
     }
 
     public void QuitToMenu()
     {
+        if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+        {
+            if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+            pendingRewardCoins = 0;
+        }
         if (uiAudioSource != null && buttonClickSFX != null) uiAudioSource.PlayOneShot(buttonClickSFX);
-        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-        PlayerPrefs.SetString("PreviousScene", prevScene);
-        SceneLoader.ResetLoadingFlag();
-        SceneLoader.targetSceneForLoading = prevScene;
-        SceneLoader.keepBackgroundPersistent = false;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     public void ToggleTranslation()

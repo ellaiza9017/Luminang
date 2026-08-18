@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: I can give you taho for free but you need to learn and show gratitude
     the cebuano way in exchange. Are you up for it?
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8db6c4e01b954444b9f12fe2a66514cd, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

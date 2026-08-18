@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: Meeting new people takes practice. If you ever need help remembering
     these phrases, I'd be happy to go over them with you again.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

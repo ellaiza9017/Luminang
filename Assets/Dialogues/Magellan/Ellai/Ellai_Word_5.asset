@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: "In Cebu, the day starts and ends with greetings. \"Maayong aldaw\"
     \u2014 meaning good day \u2014 is the one that fills the afternoon air. "
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: maayongAldaw
   endEventName: 

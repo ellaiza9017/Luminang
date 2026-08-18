@@ -242,15 +242,27 @@ public class MainLoading : MonoBehaviour
 
         // 4. Load the final Target Scene
         Debug.Log("[MainLoading] Loading Final Target: " + sceneToLoad);
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
-        operation.allowSceneActivation = false;
+        
+        Scene targetScene = SceneManager.GetSceneByName(sceneToLoad);
+        bool isAlreadyLoaded = targetScene.IsValid() && targetScene.isLoaded;
+        AsyncOperation operation = null;
+
+        if (!isAlreadyLoaded)
+        {
+            operation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
+            operation.allowSceneActivation = false;
+        }
+        else
+        {
+            Debug.Log("[MainLoading] Target is already loaded (Persistent). Skipping LoadSceneAsync!");
+        }
 
         float timer = 0f;
-        while (operation.progress < 0.9f || timer < minimumLoadTime)
+        while ((operation != null && operation.progress < 0.9f) || timer < minimumLoadTime)
         {
             timer += Time.deltaTime;
             float timeProgress = timer / minimumLoadTime;
-            float loadProgress = operation.progress / 0.9f;
+            float loadProgress = (operation != null) ? (operation.progress / 0.9f) : 1f;
             
             float targetStepProgress = currentTargetProgress + (Mathf.Min(timeProgress, loadProgress) * progressStep);
             UpdateProgressUI(targetStepProgress);
@@ -268,13 +280,16 @@ public class MainLoading : MonoBehaviour
         Debug.Log("[MainLoading] All scenes loaded, activating target...");
 
         // 5. Activate and Cleanup
-        operation.allowSceneActivation = true;
-        while (!operation.isDone) yield return null;
+        if (operation != null)
+        {
+            operation.allowSceneActivation = true;
+            while (!operation.isDone) yield return null;
+        }
         
         // Wait for activation to properly complete (increased for stability)
         for(int i=0; i<10; i++) yield return null;
 
-        Scene targetScene = SceneManager.GetSceneByName(sceneToLoad);
+        targetScene = SceneManager.GetSceneByName(sceneToLoad);
         if (targetScene.IsValid())
         {
             SceneManager.SetActiveScene(targetScene);
@@ -306,10 +321,35 @@ public class MainLoading : MonoBehaviour
             foreach (GameObject obj in targetScene.GetRootGameObjects())
             {
                 obj.SetActive(true);
+                // Restore Canvases that MainLoading's persistence logic disabled
+                Canvas[] canvases = obj.GetComponentsInChildren<Canvas>(true);
+                foreach (Canvas c in canvases) c.enabled = true;
+
+                // FIX: Also restore Lights that were disabled to prevent bleed into
+                // CharacterCustomizationScene / ShopScene
+                Light[] lights = obj.GetComponentsInChildren<Light>(true);
+                foreach (Light l in lights) l.enabled = true;
             }
 
             // REFRESH CAMERA REFERENCES: Ensure players in the new scene find the new camera
             RefreshPlayerCameras(targetScene);
+
+            // NEW: Refresh BGM for the active scene!
+            if (BGMManager.Instance != null)
+            {
+                BGMManager.Instance.RefreshBGMForActiveScene();
+            }
+
+            // NEW: Restore Win/Loss state and controls when returning from minigame
+            if (callerScene.ToLower().Contains("minigame") || callerScene.ToLower().Contains("tcg") || callerScene.ToLower().Contains("reaction") || callerScene.ToLower().Contains("tumbang") || callerScene.ToLower().Contains("quiz"))
+            {
+                Debug.Log($"[MainLoading] Returning from minigame ({callerScene}). Notifying DialogueManager.");
+                if (DialogueManager.Instance != null)
+                {
+                    DialogueManager.Instance.OnReturnFromMinigame();
+                }
+                SceneMinigameTrigger.EnableMainGameControls();
+            }
         }
 
         // Give Unity a moment to settle after activation (prevents lag during outro)
@@ -342,8 +382,14 @@ public class MainLoading : MonoBehaviour
                             }
                             else
                             {
-                                Canvas c = obj.GetComponentInChildren<Canvas>();
-                                if (c != null) c.enabled = false;
+                                // Disable Canvases so UI doesn't overlap
+                                Canvas[] canvases = obj.GetComponentsInChildren<Canvas>(true);
+                                foreach (Canvas c in canvases) c.enabled = false;
+
+                                // FIX: Disable Lights so Magellan's lighting doesn't bleed into
+                                // CharacterCustomizationScene / ShopScene and make preview too bright!
+                                Light[] lights = obj.GetComponentsInChildren<Light>(true);
+                                foreach (Light l in lights) l.enabled = false;
                             }
                         }
                     }

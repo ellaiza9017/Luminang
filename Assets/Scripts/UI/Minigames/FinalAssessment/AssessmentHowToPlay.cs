@@ -24,13 +24,12 @@ public class AssessmentHowToPlay : MonoBehaviour
     {
         // 1. Get the language exactly like AssessmentManager does
         string selectedLanguage = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
-        
-#if UNITY_EDITOR
-        selectedLanguage = "Ilokano"; // FORCE ILOKANO FOR TESTING (matches AssessmentManager cheat)
-#endif
+        Debug.Log("[AssessmentHowToPlay] Fetched Language from PlayerPrefs: " + selectedLanguage);
 
         // 2. Pick the correct array based on language
-        Sprite[] activeSprites = (selectedLanguage == "Cebuano") ? cebuanoCards : ilokanoCards;
+        // We check against "Ilokano" first, exactly like AssessmentManager does, to avoid trailing space bugs
+        Sprite[] activeSprites = (selectedLanguage == "Ilokano") ? ilokanoCards : cebuanoCards;
+        Debug.Log("[AssessmentHowToPlay] Active Sprites Length: " + (activeSprites != null ? activeSprites.Length.ToString() : "null"));
 
         // 3. Prevent errors if you forgot to assign everything
         if (cardImages == null || activeSprites == null) return;
@@ -38,10 +37,16 @@ public class AssessmentHowToPlay : MonoBehaviour
         // 4. Swap the sprites!
         for (int i = 0; i < cardImages.Length; i++)
         {
-            // Only swap if we actually have a sprite for this slot
-            if (i < activeSprites.Length && activeSprites[i] != null && cardImages[i] != null)
+            if (cardImages[i] == null) continue;
+
+            if (i < activeSprites.Length && activeSprites[i] != null)
             {
+                cardImages[i].gameObject.SetActive(true);
                 cardImages[i].sprite = activeSprites[i];
+            }
+            else
+            {
+                cardImages[i].gameObject.SetActive(false);
             }
         }
     }

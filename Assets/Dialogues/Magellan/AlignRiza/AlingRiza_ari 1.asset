@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: In Cebuano, 'ari' means 'come' or 'come here.' Use it when you want
     someone to come over to you!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

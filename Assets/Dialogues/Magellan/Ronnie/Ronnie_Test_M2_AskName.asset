@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Ronnie
   speakerPortrait: {fileID: 0}
-  dialogueText: Ako si Ronnie. Ug ikaw? Ask me my name first — in Cebuano!
-  translatedText: ''
+  dialogueText: "Ako si Ronnie. Ug ikaw? Ask me my name first \u2014 in Cebuano!"
+  translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8db6c4e01b954444b9f12fe2a66514cd, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 
   choices:
-  - choiceText: ''
+  - choiceText: 
     nextNode: {fileID: 11400000, guid: b160436d12ad45249f52d93e1ad1e579, type: 2}
     isWrong: 0
-    choiceEvent: ''
+    choiceEvent: 
     expectedSTTWord: unsay imong ngalan

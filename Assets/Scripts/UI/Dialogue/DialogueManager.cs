@@ -377,6 +377,8 @@ public class DialogueManager : MonoBehaviour
             if (choiceEventTrimmed.Equals("OpenShop", System.StringComparison.OrdinalIgnoreCase))
             {
                 Debug.Log("<color=cyan>[DialogueManager] choiceEvent triggered OpenShop.</color>");
+                // INSTANT: hide current scene's Canvases + Lights before loading screen appears
+                SceneNavigationManager.HideCurrentSceneImmediate();
                 SceneLoader.ResetLoadingFlag();
                 SceneLoader.targetSceneForLoading = "ShopScene";
                 SceneLoader.keepBackgroundPersistent = true;
@@ -651,6 +653,17 @@ public class DialogueManager : MonoBehaviour
                 Debug.Log($"[DialogueManager] Objective set to: '{newObjText}'");
             }
         }
+        // 1.5 Handle CompleteObjective: — explicitly marks an objective ID as done in the database
+        // Usage in dialogue: CompleteObjective:ceb_08
+        else if (cleanEventName.StartsWith("CompleteObjective:", System.StringComparison.OrdinalIgnoreCase))
+        {
+            string objId = cleanEventName.Substring("CompleteObjective:".Length).Trim();
+            if (ObjectiveManager.Instance != null && !string.IsNullOrEmpty(objId))
+            {
+                ObjectiveManager.Instance.CompleteObjective(objId);
+                Debug.Log($"<color=green>[DialogueManager] CompleteObjective called for: '{objId}'</color>");
+            }
+        }
 
         // 2. Handle TeachingOverlayPanel events
         if (cleanEventName.StartsWith("ShowTeachingPanel", System.StringComparison.OrdinalIgnoreCase))
@@ -723,6 +736,8 @@ public class DialogueManager : MonoBehaviour
         if (cleanEventName.Equals("OpenShop", System.StringComparison.OrdinalIgnoreCase))
         {
             Debug.Log("<color=cyan>[DialogueManager] Global Event triggered OpenShop.</color>");
+            // INSTANT: hide current scene's Canvases + Lights before loading screen appears
+            SceneNavigationManager.HideCurrentSceneImmediate();
             SceneLoader.ResetLoadingFlag();
             SceneLoader.targetSceneForLoading = "ShopScene";
             SceneLoader.keepBackgroundPersistent = true;

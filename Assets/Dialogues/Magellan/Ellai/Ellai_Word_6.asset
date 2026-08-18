@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: 'Now if you want to start a friendly conversation and ask ''how are
     you'' in cebuano, we say "Kumusta ka?" '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: kumustaKa
   endEventName: 

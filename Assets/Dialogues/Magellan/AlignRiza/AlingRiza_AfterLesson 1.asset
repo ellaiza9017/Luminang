@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: "You learned words for things people do every day\u2014eating, drinking,
     going, coming, sleeping, seeing, hearing, and speaking."
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

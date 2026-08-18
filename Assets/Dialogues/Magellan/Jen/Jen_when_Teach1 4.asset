@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: '''Kanus-a'' is the word asking when something will happen, while
     ''magsugod ang pista'' means ''the festival starts.'''
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

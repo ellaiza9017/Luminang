@@ -15,6 +15,7 @@ public class LeaderboardEntry
 
     // --- Raw data from ProfileModel ---
     public int OverallCoins { get; set; }
+    public int CurrentCoins { get; set; }
     public DateTime? UsernameFinalizedAt { get; set; }
     public DateTime? LastActive { get; set; }
 

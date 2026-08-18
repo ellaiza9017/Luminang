@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: Now let's start talking in groups! Cebuano has two common words for
     'we.'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:we
   endEventName: 

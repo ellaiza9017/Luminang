@@ -16,6 +16,7 @@ MonoBehaviour:
   speakerPortrait: {fileID: 0}
   dialogueText: Maayong pangalan! Nice to meet you!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8db6c4e01b954444b9f12fe2a66514cd, type: 3}
   animationTrigger: Happy
   triggerEventName: 
   endEventName: ConversationTest_Correct

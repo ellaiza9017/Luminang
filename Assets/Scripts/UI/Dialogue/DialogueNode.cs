@@ -19,6 +19,9 @@ public class DialogueNode : ScriptableObject
     [Tooltip("The translation of the dialogue text (optional).")]
     public string translatedText;
 
+    [Tooltip("The voice audio clip to play when this node appears (optional).")]
+    public AudioClip voiceClip;
+
     [Tooltip("Trigger name to send to the NPC's Animator (e.g., 'DoPointing'). Leave empty for no animation.")]
     public string animationTrigger;
 

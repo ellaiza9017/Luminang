@@ -85,29 +85,19 @@ public class ObjectiveManager : MonoBehaviour
         // Wait a small moment for the scene to settle, then slide in
         yield return new WaitForSeconds(0.1f);
         
-        if (PlayerPrefs.GetInt("RestorePlayerPos", 0) == 1)
+        // (Removed RestorePlayerPos logic since Magellan persists in the background)
+
+        // Step 1: Push any locally-cached progress that may have failed to reach Supabase
+        // This prevents players getting rolled back after a crash or network failure
+        if (UserProfileManager.Instance != null)
         {
-            float x = PlayerPrefs.GetFloat("PlayerPosX");
-            float y = PlayerPrefs.GetFloat("PlayerPosY");
-            float z = PlayerPrefs.GetFloat("PlayerPosZ");
-            float rotY = PlayerPrefs.GetFloat("PlayerRotY");
-
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
-                CharacterController cc = player.GetComponent<CharacterController>();
-                if (cc != null) cc.enabled = false;
-
-                player.transform.position = new Vector3(x, y, z);
-                player.transform.rotation = Quaternion.Euler(0, rotY, 0);
-
-                if (cc != null) cc.enabled = true;
-            }
-            PlayerPrefs.SetInt("RestorePlayerPos", 0);
-            PlayerPrefs.Save();
+            var syncTask = UserProfileManager.Instance.SyncLocalObjectivesWithCloud();
+            yield return new UnityEngine.WaitUntil(() => syncTask.IsCompleted);
+            if (syncTask.IsFaulted)
+                Debug.LogWarning("[ObjectiveManager] SyncLocalObjectivesWithCloud failed: " + syncTask.Exception?.InnerException?.Message);
         }
 
-        // NEW: Automatically fetch the correct objective from Supabase!
+        // Step 2: Automatically fetch the correct objective from Supabase!
         SyncObjectiveWithDatabase();
 
         // Broadcast the initial objective so all Indicators sync up
@@ -116,13 +106,13 @@ public class ObjectiveManager : MonoBehaviour
         UpdateVisibility();
     }
 
-    public void SetObjective(string newObjective)
+    public void SetObjective(string newObjective, bool autoSaveOld = true)
     {
         _isCounterActive = false; // Disable any active counter when a new static objective is set
-        UpdateObjectiveInternal(newObjective);
+        UpdateObjectiveInternal(newObjective, autoSaveOld);
     }
 
-    private void UpdateObjectiveInternal(string newObjective)
+    private void UpdateObjectiveInternal(string newObjective, bool autoSaveOld = true)
     {
         string oldObjective = CurrentObjective;
         string cleanObjective = newObjective != null ? newObjective.Trim() : "";
@@ -133,7 +123,49 @@ public class ObjectiveManager : MonoBehaviour
             cleanObjective = cleanObjective.Substring("Objective:".Length).Trim();
         }
 
-        if (cleanObjective == oldObjective) return;
+        Debug.Log($"<color=cyan>[ObjectiveManager] UpdateObjectiveInternal | old='{oldObjective}' | new='{cleanObjective}' | autoSaveOld={autoSaveOld}</color>");
+
+        if (cleanObjective == oldObjective)
+        {
+            Debug.Log($"<color=yellow>[ObjectiveManager] SKIPPED — new objective is same as old. No save.</color>");
+            return;
+        }
+
+        // If we are moving to a new objective, save the old one AND any skipped ones to the database.
+        // We collect everything that is uncompleted up to (and including) the old objective itself.
+        if (autoSaveOld && !string.IsNullOrEmpty(oldObjective))
+        {
+            string oldId = GetObjectiveIdFromText(oldObjective);
+            string language = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+
+            Debug.Log($"<color=cyan>[ObjectiveManager] autoSaveOld=true | oldId='{oldId}' | language='{language}'</color>");
+
+            if (!string.IsNullOrEmpty(oldId))
+            {
+                // Get all uncompleted objectives before the NEW one (catches skipped entries)
+                string newId = string.IsNullOrEmpty(cleanObjective) ? null : GetObjectiveIdFromText(cleanObjective);
+                Debug.Log($"<color=cyan>[ObjectiveManager] newId='{newId}'</color>");
+
+                System.Collections.Generic.List<string> missedIds =
+                    !string.IsNullOrEmpty(newId)
+                    ? GetAllUncompletedObjectivesBefore(newId, language)
+                    : new System.Collections.Generic.List<string>();
+
+                // Also include the old objective itself — this is what was missing before!
+                if (!missedIds.Contains(oldId)) missedIds.Add(oldId);
+
+                Debug.Log($"<color=cyan>[ObjectiveManager] Saving IDs: [{string.Join(", ", missedIds)}]</color>");
+                BulkSaveMissedObjectivesAsync(missedIds, language);
+            }
+            else
+            {
+                Debug.LogWarning($"<color=orange>[ObjectiveManager] Could not find ID for old objective '{oldObjective}' in JSON — SAVE SKIPPED!</color>");
+            }
+        }
+        else
+        {
+            Debug.Log($"<color=yellow>[ObjectiveManager] Save skipped — autoSaveOld={autoSaveOld}, oldObjective='{oldObjective}'</color>");
+        }
 
         CurrentObjective = cleanObjective;
         PlayerPrefs.SetString("CurrentObjective", cleanObjective);
@@ -166,7 +198,8 @@ public class ObjectiveManager : MonoBehaviour
         if (UserProfileManager.Instance == null || UserProfileManager.Instance.CurrentProfile == null) return;
         
         string activeLanguage = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
-        string jsonFileName = activeLanguage == "Cebuano" ? "Cebuano Objectives" : "Ilokano Objectives";
+        bool isCebuano = activeLanguage.Equals("Cebuano", System.StringComparison.OrdinalIgnoreCase);
+        string jsonFileName = isCebuano ? "Cebuano Objectives" : "Ilokano Objectives";
         
         TextAsset jsonAsset = Resources.Load<TextAsset>(jsonFileName);
         if (jsonAsset == null)
@@ -179,9 +212,44 @@ public class ObjectiveManager : MonoBehaviour
         if (rootData == null || rootData.objectives == null) return;
 
         var profile = UserProfileManager.Instance.CurrentProfile;
-        var completedList = activeLanguage == "Cebuano" ? profile.CompletedObjectivesCebuano : profile.CompletedObjectivesIlokano;
+        var completedList = isCebuano ? profile.CompletedObjectivesCebuano : profile.CompletedObjectivesIlokano;
         if (completedList == null) completedList = new System.Collections.Generic.List<string>();
 
+        string activeQuest = PlayerPrefs.GetString("ActiveQuest", "");
+        
+        // --- 1. REPLAY MODE CHECK ---
+        // If the user clicked a specific category in the menu (ActiveQuest)
+        if (!string.IsNullOrEmpty(activeQuest))
+        {
+            foreach (var category in rootData.objectives)
+            {
+                if (category.category.Equals(activeQuest, System.StringComparison.OrdinalIgnoreCase))
+                {
+                    // Check if this category is completely finished
+                    bool isCategoryCompleted = true;
+                    foreach (var item in category.items)
+                    {
+                        if (!completedList.Contains(item.id))
+                        {
+                            isCategoryCompleted = false;
+                            break;
+                        }
+                    }
+
+                    // If they already finished this category, they are replaying it!
+                    if (isCategoryCompleted && category.items.Length > 0)
+                    {
+                        Debug.Log($"[ObjectiveManager] Replay Mode: Starting at first objective of '{activeQuest}'");
+                        SetObjective(category.items[0].objective, false);
+                        // Clear ActiveQuest so a game restart returns them to normal progression
+                        PlayerPrefs.DeleteKey("ActiveQuest");
+                        return;
+                    }
+                }
+            }
+        }
+
+        // --- 2. NORMAL PROGRESSION ---
         // Find the first objective ID that is NOT in the completed list
         foreach (var category in rootData.objectives)
         {
@@ -190,13 +258,207 @@ public class ObjectiveManager : MonoBehaviour
                 if (!completedList.Contains(item.id))
                 {
                     Debug.Log($"[ObjectiveManager] Database Sync: Found current objective -> {item.id}: {item.objective}");
-                    SetObjective(item.objective);
+                    SetObjective(item.objective, false); // DO NOT auto-save whatever was randomly in PlayerPrefs
                     return;
                 }
             }
         }
         
         Debug.Log("[ObjectiveManager] Database Sync: All objectives completed!");
+    }
+
+    /// <summary>
+    /// Calculates the overall objective progress percentage (0.0 to 1.0) based on ALL languages combined.
+    /// </summary>
+    public float GetOverallProgress()
+    {
+        if (UserProfileManager.Instance == null || UserProfileManager.Instance.CurrentProfile == null) return 0f;
+        var profile = UserProfileManager.Instance.CurrentProfile;
+
+        int totalCount = 0;
+        int completedCount = 0;
+
+        // 1. Cebuano
+        TextAsset cebAsset = Resources.Load<TextAsset>("Cebuano Objectives");
+        if (cebAsset != null)
+        {
+            ObjectivesRootData cebData = JsonUtility.FromJson<ObjectivesRootData>(cebAsset.text);
+            var cebList = profile.CompletedObjectivesCebuano ?? new System.Collections.Generic.List<string>();
+            if (cebData != null && cebData.objectives != null)
+            {
+                foreach (var category in cebData.objectives)
+                {
+                    if (category.items != null)
+                    {
+                        totalCount += category.items.Length;
+                        foreach (var item in category.items)
+                        {
+                            if (cebList.Contains(item.id)) completedCount++;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 2. Ilokano
+        TextAsset iloAsset = Resources.Load<TextAsset>("Ilokano Objectives");
+        if (iloAsset != null)
+        {
+            ObjectivesRootData iloData = JsonUtility.FromJson<ObjectivesRootData>(iloAsset.text);
+            var iloList = profile.CompletedObjectivesIlokano ?? new System.Collections.Generic.List<string>();
+            if (iloData != null && iloData.objectives != null)
+            {
+                foreach (var category in iloData.objectives)
+                {
+                    if (category.items != null)
+                    {
+                        totalCount += category.items.Length;
+                        foreach (var item in category.items)
+                        {
+                            if (iloList.Contains(item.id)) completedCount++;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (totalCount == 0) return 0f;
+        return (float)completedCount / totalCount;
+    }
+
+    /// <summary>
+    /// Checks if a given objective text (e.g. "Go meet Mar") has already been completed in the database.
+    /// Used by InteractableNPC to determine if the player is in the Pre-Quest or Post-Quest phase.
+    /// </summary>
+    public bool IsObjectiveCompleted(string objectiveText)
+    {
+        if (string.IsNullOrEmpty(objectiveText)) return false;
+        if (UserProfileManager.Instance == null || UserProfileManager.Instance.CurrentProfile == null) return false;
+        
+        string activeLanguage = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+        bool isCebuano = activeLanguage.Equals("Cebuano", System.StringComparison.OrdinalIgnoreCase);
+        string jsonFileName = isCebuano ? "Cebuano Objectives" : "Ilokano Objectives";
+        
+        TextAsset jsonAsset = Resources.Load<TextAsset>(jsonFileName);
+        if (jsonAsset == null) return false;
+
+        ObjectivesRootData rootData = JsonUtility.FromJson<ObjectivesRootData>(jsonAsset.text);
+        if (rootData == null || rootData.objectives == null) return false;
+
+        var profile = UserProfileManager.Instance.CurrentProfile;
+        var completedList = isCebuano ? profile.CompletedObjectivesCebuano : profile.CompletedObjectivesIlokano;
+        if (completedList == null) return false;
+
+        foreach (var category in rootData.objectives)
+        {
+            foreach (var item in category.items)
+            {
+                if (item.objective.StartsWith(objectiveText, System.StringComparison.OrdinalIgnoreCase))
+                {
+                    return completedList.Contains(item.id);
+                }
+            }
+        }
+        return false;
+    }
+
+    private System.Collections.Generic.List<string> GetAllUncompletedObjectivesBefore(string newId, string language)
+    {
+        System.Collections.Generic.List<string> missed = new System.Collections.Generic.List<string>();
+        bool isCebuano = language.Equals("Cebuano", System.StringComparison.OrdinalIgnoreCase);
+        string jsonFileName = isCebuano ? "Cebuano Objectives" : "Ilokano Objectives";
+        TextAsset jsonAsset = Resources.Load<TextAsset>(jsonFileName);
+        if (jsonAsset == null) return missed;
+
+        ObjectivesRootData rootData = JsonUtility.FromJson<ObjectivesRootData>(jsonAsset.text);
+        if (rootData == null || rootData.objectives == null) return missed;
+
+        var profile = UserProfileManager.Instance?.CurrentProfile;
+        var completedList = isCebuano ? profile?.CompletedObjectivesCebuano : profile?.CompletedObjectivesIlokano;
+        if (completedList == null) completedList = new System.Collections.Generic.List<string>();
+
+        foreach (var category in rootData.objectives)
+        {
+            foreach (var item in category.items)
+            {
+                if (item.id == newId) return missed; // Stop when we reach the new objective
+                
+                if (!completedList.Contains(item.id))
+                {
+                    missed.Add(item.id);
+                }
+            }
+        }
+        return missed; // Return all uncompleted if newId wasn't found (fallback)
+    }
+
+    /// <summary>
+    /// Looks up the exact objective text in the JSON file and returns its ID (e.g. "ceb_01").
+    /// Returns null if not found.
+    /// </summary>
+    public string GetObjectiveIdFromText(string objectiveText)
+    {
+        if (string.IsNullOrEmpty(objectiveText)) return null;
+        
+        string activeLanguage = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+        bool isCebuano = activeLanguage.Equals("Cebuano", System.StringComparison.OrdinalIgnoreCase);
+        string jsonFileName = isCebuano ? "Cebuano Objectives" : "Ilokano Objectives";
+        
+        TextAsset jsonAsset = Resources.Load<TextAsset>(jsonFileName);
+        if (jsonAsset == null) return null;
+
+        ObjectivesRootData rootData = JsonUtility.FromJson<ObjectivesRootData>(jsonAsset.text);
+        if (rootData == null || rootData.objectives == null) return null;
+
+        foreach (var category in rootData.objectives)
+        {
+            foreach (var item in category.items)
+            {
+                if (item.objective.Equals(objectiveText, System.StringComparison.OrdinalIgnoreCase))
+                {
+                    return item.id;
+                }
+            }
+        }
+        return null;
+    }
+
+
+    /// <summary>
+    /// Call this when a player finishes an objective (NPC talk, minigame complete, etc.).
+    /// Saves the objective ID to Supabase immediately, then advances the HUD to the next one.
+    /// Usage: ObjectiveManager.Instance.CompleteObjective("ceb_01");
+    /// </summary>
+    public void CompleteObjective(string objectiveId)
+    {
+        string language = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+
+        // Fire-and-forget: save in the background without blocking gameplay
+        _ = SaveAndAdvanceAsync(objectiveId, language);
+    }
+
+    private async System.Threading.Tasks.Task SaveAndAdvanceAsync(string objectiveId, string language)
+    {
+        // 1. Auto-save to Supabase (updates local cache + pushes to DB)
+        if (UserProfileManager.Instance != null)
+            await UserProfileManager.Instance.MarkObjectiveCompleted(objectiveId, language);
+
+        // 2. Advance the HUD to the next uncompleted objective
+        SyncObjectiveWithDatabase();
+    }
+
+    private async System.Threading.Tasks.Task SaveToDatabaseOnlyAsync(string objectiveId, string language)
+    {
+        if (UserProfileManager.Instance != null)
+            await UserProfileManager.Instance.MarkObjectiveCompleted(objectiveId, language);
+    }
+
+    private async void BulkSaveMissedObjectivesAsync(System.Collections.Generic.List<string> missedIds, string language)
+    {
+        // Single batched call — avoids Supabase race conditions from rapid sequential updates
+        if (missedIds == null || missedIds.Count == 0) return;
+        await UserProfileManager.Instance.BulkMarkObjectivesCompleted(missedIds, language);
+        Debug.Log($"[ObjectiveManager] Auto-saved {missedIds.Count} skipped objectives in a single batch.");
     }
 
     [Header("Counter Logic")]

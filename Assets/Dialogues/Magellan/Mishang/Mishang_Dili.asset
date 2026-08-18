@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: 'Someone offers me another serving of food, but I''m already full.
     What should I say if I want to politely decline? '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

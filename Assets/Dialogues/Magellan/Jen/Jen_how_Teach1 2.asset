@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: 'For example, you see a giant sandcastle on the beach, you might
     ask: ''How did you make that?'' '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

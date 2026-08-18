@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: I've got plenty of ideas, but I'm missing some special words that
     help connect them together.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

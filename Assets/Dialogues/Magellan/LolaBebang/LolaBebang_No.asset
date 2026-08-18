@@ -16,6 +16,7 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: 431c291e6a9edde459aa387cb0de89cb, type: 3}
   dialogueText: 'If you change your mind, I''ll be right here. '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

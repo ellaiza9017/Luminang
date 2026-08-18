@@ -19,6 +19,7 @@ MonoBehaviour:
     Come find me again,
     and we''ll sort them through!'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8db6c4e01b954444b9f12fe2a66514cd, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

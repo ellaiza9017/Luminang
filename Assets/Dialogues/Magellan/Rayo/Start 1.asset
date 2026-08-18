@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: "Things become, stay, and feelings peek through\u2014\nWant to learn
     these linking verbs in Cebuano too?"
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8db6c4e01b954444b9f12fe2a66514cd, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

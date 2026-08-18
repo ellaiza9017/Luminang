@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: Just add the item at the end! For example, 'Hatagi ko tubig' means
     'Give me water.'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

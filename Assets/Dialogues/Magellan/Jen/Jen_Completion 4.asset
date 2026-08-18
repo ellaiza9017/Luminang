@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: If your curiosity brings you back this way, I'd love to explore these
     question words with you again.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

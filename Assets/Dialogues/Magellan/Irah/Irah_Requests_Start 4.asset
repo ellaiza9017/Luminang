@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: " It's short, quick, and gets people's attention. Try asking me for
     help\u2014say 'tabangi ko'!"
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:helpMe
   endEventName: 

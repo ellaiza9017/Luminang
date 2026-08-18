@@ -50,4 +50,26 @@ public class MinigameReloader : MonoBehaviour
         // Clean up the reloader
         Destroy(gameObject);
     }
+    public static void QuitActiveMinigame()
+    {
+        // If there's more than one scene loaded, it means the main world (e.g. Magellan) is in the background
+        if (SceneManager.sceneCount > 1)
+        {
+            // Restore player controls in the background scene
+            SceneMinigameTrigger.EnableMainGameControls();
+            
+            // Unload the minigame scene seamlessly
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        }
+        else
+        {
+            // Fallback for Editor testing (if the minigame was started directly without Magellan)
+            string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
+            PlayerPrefs.SetString("PreviousScene", prevScene);
+            SceneLoader.ResetLoadingFlag();
+            SceneLoader.targetSceneForLoading = prevScene;
+            SceneLoader.keepBackgroundPersistent = false;
+            SceneManager.LoadScene("LoadingScene", LoadSceneMode.Additive);
+        }
+    }
 }

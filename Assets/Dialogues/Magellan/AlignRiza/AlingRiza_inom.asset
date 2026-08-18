@@ -16,6 +16,7 @@ MonoBehaviour:
   speakerPortrait: {fileID: 0}
   dialogueText: Mmm, fresh bread is delicious, but it can make you super thirsty!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:drink
   endEventName: 

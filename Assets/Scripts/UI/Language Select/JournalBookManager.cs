@@ -142,15 +142,20 @@ public class JournalBookManager : MonoBehaviour
                 continue;
 
             // Filter by Unlocked Status in Supabase
-            if (UserProfileManager.Instance != null && UserProfileManager.Instance.CurrentProfile != null)
+            if (UserProfileManager.Instance == null || UserProfileManager.Instance.CurrentProfile == null)
             {
-                string baseId = entry.id.Replace("ilo_", "").Replace("ceb_", "");
-                List<string> unlockedIds = (_currentLanguage == "Ilokano")
-                    ? UserProfileManager.Instance.CurrentProfile.UnlockedPhrasesIlokano
-                    : UserProfileManager.Instance.CurrentProfile.UnlockedPhrasesCebuano;
+                // If not logged in or testing directly in scene, show nothing (or you can remove this to show all for testing)
+                continue;
+            }
 
-                if (unlockedIds == null || !unlockedIds.Contains(baseId))
-                    continue;
+            string baseId = entry.id.Replace("ilo_", "").Replace("ceb_", "");
+            List<string> unlockedIds = (_currentLanguage == "Ilokano")
+                ? UserProfileManager.Instance.CurrentProfile.UnlockedPhrasesIlokano
+                : UserProfileManager.Instance.CurrentProfile.UnlockedPhrasesCebuano;
+
+            if (unlockedIds == null || !unlockedIds.Contains(baseId))
+            {
+                continue;
             }
 
             // Filter by Category

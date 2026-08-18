@@ -66,6 +66,7 @@ public class DialogueUIController : MonoBehaviour
 
     [Header("Audio Settings")]
     public AudioSource sfxSource;
+    public AudioSource voiceSource;
     public AudioClip buttonClickSFX;
 
     // ── Private State ────────────────────────────────────────────────
@@ -207,6 +208,19 @@ public class DialogueUIController : MonoBehaviour
         if (nextButton != null)
         {
             nextButton.gameObject.SetActive(true);
+        }
+
+        // Stop the previous voice clip to prevent overlapping
+        if (voiceSource == null) voiceSource = gameObject.AddComponent<AudioSource>();
+        
+        if (voiceSource != null)
+        {
+            voiceSource.Stop();
+            if (node.voiceClip != null)
+            {
+                voiceSource.clip = node.voiceClip;
+                voiceSource.Play();
+            }
         }
 
         ShowDialogue(true, skipAnimation);

@@ -66,6 +66,8 @@ namespace Luminang.UI.Minigames
         public AudioClip loseSFX;
         public AudioClip cardSlideSFX;
 
+        private int pendingRewardCoins = 0;
+
         [Header("Win / Lose UI Panels")]
         public GameObject winOrLoseGroup;
         public GameObject winPanel;
@@ -1137,9 +1139,9 @@ namespace Luminang.UI.Minigames
 
             if (winCoinsText != null) winCoinsText.text = $"+{coinsEarned}";
 
-            // Save coins and minigame win state
-            int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-            PlayerPrefs.SetInt("PlayerCoins", currentCoins + coinsEarned);
+            pendingRewardCoins = coinsEarned;
+
+            // Save minigame win state
             PlayerPrefs.SetInt("TCGMinigameWon", 1);
             PlayerPrefs.SetInt("FishingMinigameWon", 1);
             PlayerPrefs.SetInt("MinigameWon", 1);
@@ -1163,8 +1165,8 @@ namespace Luminang.UI.Minigames
             int coinsEarned = 2;
             if (loseCoinsText != null) loseCoinsText.text = $"+{coinsEarned}";
 
-            int currentCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
-            PlayerPrefs.SetInt("PlayerCoins", currentCoins + coinsEarned);
+            pendingRewardCoins = coinsEarned;
+
             PlayerPrefs.SetInt("TCGMinigameWon", 0);
             PlayerPrefs.SetInt("FishingMinigameWon", 0);
             PlayerPrefs.SetInt("MinigameWon", 0);
@@ -1178,18 +1180,23 @@ namespace Luminang.UI.Minigames
 
         public void RestartGame()
         {
+            if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+            {
+                if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+                pendingRewardCoins = 0;
+            }
             // Use MinigameReloader so we don't accidentally unload the main game (Magellan) background scene
             MinigameReloader.ReloadActiveMinigame();
         }
 
         public void QuitGame()
         {
-            string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene");
-            PlayerPrefs.SetString("PreviousScene", prevScene); // FIX: Ensures LoadingSceneController unloads TCGScene when testing in Editor
-            SceneLoader.ResetLoadingFlag();
-            SceneLoader.targetSceneForLoading = prevScene;
-            SceneLoader.keepBackgroundPersistent = false;
-            SceneManager.LoadScene("LoadingScene", LoadSceneMode.Additive);
+            if (winOrLoseGroup != null && winOrLoseGroup.activeSelf && pendingRewardCoins > 0)
+            {
+                if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
+                pendingRewardCoins = 0;
+            }
+            string prevScene = PlayerPrefs.GetString("PreviousScene", "LanguageSelectionScene"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
         }
 
         private void UpdateHUD()

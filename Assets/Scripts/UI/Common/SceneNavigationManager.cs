@@ -7,6 +7,26 @@ public static class SceneNavigationManager
     private static string lastSceneName = "LanguageSelectionScene"; // Default fallback
 
     /// <summary>
+    /// INSTANTLY hides all Canvases and Lights in the current active scene.
+    /// Call this right before triggering a persistent additive load (Shop, Customization)
+    /// so the Pause Menu and world lighting don't bleed through the loading screen.
+    /// </summary>
+    public static void HideCurrentSceneImmediate()
+    {
+        Scene active = SceneManager.GetActiveScene();
+        foreach (GameObject root in active.GetRootGameObjects())
+        {
+            // Instantly kill all Canvases (Pause Menu, HUD, etc.)
+            Canvas[] canvases = root.GetComponentsInChildren<Canvas>(true);
+            foreach (Canvas c in canvases) c.enabled = false;
+
+            // Instantly kill all Lights so they don't bleed into the next scene
+            Light[] lights = root.GetComponentsInChildren<Light>(true);
+            foreach (Light l in lights) l.enabled = false;
+        }
+    }
+
+    /// <summary>
     /// Loads the customization scene and remembers the current scene.
     /// Uses the game's existing Additive LoadingScene system.
     /// </summary>
@@ -16,14 +36,17 @@ public static class SceneNavigationManager
         lastSceneName = SceneManager.GetActiveScene().name;
         Debug.Log("[SceneNavigator] Remembering scene for return: " + lastSceneName);
 
-        // 2. Reset the loading flag in your SceneLoader so it doesn't block us
+        // 2. Instantly hide the current scene's UI and lights BEFORE loading starts
+        HideCurrentSceneImmediate();
+
+        // 3. Reset the loading flag in your SceneLoader so it doesn't block us
         SceneLoader.ResetLoadingFlag();
 
-        // 3. Set the target for your existing LoadingScene system
+        // 4. Set the target for your existing LoadingScene system
         SceneLoader.targetSceneForLoading = "CharacterCustomizationScene";
-        SceneLoader.keepBackgroundPersistent = true; // NEW: Keep the video background visible!
+        SceneLoader.keepBackgroundPersistent = true;
         
-        // 4. Load your LoadingScene ADDITIVELY (it will overlay on your current scene)
+        // 5. Load your LoadingScene ADDITIVELY (it will overlay on your current scene)
         SceneManager.LoadScene("LoadingScene", LoadSceneMode.Additive);
     }
 

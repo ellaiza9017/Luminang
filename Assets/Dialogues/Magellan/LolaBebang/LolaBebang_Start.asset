@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: It's been too long since I visited Cebu. Now I can't remember clearly
     how the greetings here work. Can you help me, dear?
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

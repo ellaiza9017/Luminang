@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: '''Kami'' means ''we,'' but the person you''re talking to is not
     included. ''Kita'' means ''we,'' including the person you''re talking to.'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

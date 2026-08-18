@@ -45,12 +45,23 @@ public class SceneMinigameTrigger : MonoBehaviour
         // Set config for Tusok-Tusok (uses PlayerPrefs for category)
         PlayerPrefs.SetString("TusokTusokCategory", categoryFilter);
         
+        // Normalize language to title case so comparisons like language == "Cebuano" work
+        // correctly throughout the codebase. (targetLanguage may be lowercase "cebuano")
+        string normalizedLanguage = string.IsNullOrEmpty(targetLanguage) ? "Cebuano"
+            : char.ToUpper(targetLanguage[0]) + targetLanguage.Substring(1).ToLower();
+        // Replace "Ilokano" alternate spellings
+        if (normalizedLanguage.Equals("Ilocano", System.StringComparison.OrdinalIgnoreCase)) normalizedLanguage = "Ilokano";
+
+        // Ensure global language is synced (for AssessmentManager and others)
+        PlayerPrefs.SetString("SelectedLanguage", normalizedLanguage);
+        
         PlayerPrefs.Save();
 
         // Disable main game joysticks and touchpads so they don't block minigame UI input
         DisableMainGameControls();
 
-        // 2. Tell the minigame where to return to when it finishes
+        // 2. We no longer save Player Position to PlayerPrefs because Magellan stays perfectly alive!
+
         PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
         PlayerPrefs.Save();
 
@@ -65,7 +76,7 @@ public class SceneMinigameTrigger : MonoBehaviour
         {
             SceneLoader.ResetLoadingFlag();
             SceneLoader.targetSceneForLoading = minigameSceneName;
-            SceneLoader.keepBackgroundPersistent = false; // Hide the current scene while loading
+            SceneLoader.keepBackgroundPersistent = true; // KEEP Magellan alive!
             SceneManager.LoadScene("LoadingScene", LoadSceneMode.Additive);
         }
         else
@@ -90,6 +101,16 @@ public class SceneMinigameTrigger : MonoBehaviour
 
             foreach (GameObject root in s.GetRootGameObjects())
             {
+                // INSTANTLY disable Canvases so Pause Menu and HUD don't overlap the loading screen!
+                Canvas[] canvases = root.GetComponentsInChildren<Canvas>(true);
+                foreach (Canvas c in canvases)
+                {
+                    if (!c.gameObject.name.Contains("LoadingScreen") && !c.gameObject.name.Contains("MainLoading"))
+                    {
+                        c.enabled = false;
+                    }
+                }
+
                 foreach (Transform t in root.GetComponentsInChildren<Transform>(true))
                 {
                     if (t.name.Contains("StarterAssetsInputs") || 
@@ -119,6 +140,13 @@ public class SceneMinigameTrigger : MonoBehaviour
 
             foreach (GameObject root in s.GetRootGameObjects())
             {
+                // INSTANTLY re-enable Canvases that were hidden during the minigame
+                Canvas[] canvases = root.GetComponentsInChildren<Canvas>(true);
+                foreach (Canvas c in canvases)
+                {
+                    c.enabled = true;
+                }
+
                 foreach (Transform t in root.GetComponentsInChildren<Transform>(true))
                 {
                     if (t.name.Contains("StarterAssetsInputs") || 
@@ -133,6 +161,12 @@ public class SceneMinigameTrigger : MonoBehaviour
                     }
                 }
             }
+        }
+
+        // 3. Ensure BGM returns to the active scene's track!
+        if (BGMManager.Instance != null)
+        {
+            BGMManager.Instance.RefreshBGMForActiveScene();
         }
     }
 }

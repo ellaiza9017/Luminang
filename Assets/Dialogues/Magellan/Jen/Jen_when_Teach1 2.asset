@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: You can use it whenever you want to know when something will happen,
     when it happened, or when an event is going to begin.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: 
   endEventName: 

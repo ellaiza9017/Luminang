@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: Salamat sa imong tabang! Are you a local cebuano? You understood
     and helped me qute fast!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 
   triggerEventName: DropCoolerEvent
   endEventName: 
