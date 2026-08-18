@@ -240,7 +240,7 @@
     "correctPhraseId": "greetings_001",
     "englishFeedback": "Have a good day!",
     "ilokanoFeedback": "Naimbag nga aldawmo!",
-    "cebuanoFeedback": "Maayong aldaw nimo!",
+    "cebuanoFeedback": "Maayong adlaw nimo!",
     "npcDescription": "A guy in white sando holding his plastic bag full of goods.",
     "npcKeyword": "morning",
     "wrongFeedback": "'{0}'? That doesn't sound quite right! Try checking the word order.",
@@ -438,7 +438,7 @@
     "npcType": "MomSurprised",
     "englishDialogue": "Oh! Good day!",
     "ilokanoDialogue": "Ay! Naimbag nga aldaw!",
-    "cebuanoDialogue": "Hala! Maayong aldaw!",
+    "cebuanoDialogue": "Hala! Maayong adlaw!",
     "situationText": "Greet her back!",
     "correctPhraseId": "greetings_008",
     "englishFeedback": "Sorry, I was just surprised!",
@@ -485,7 +485,7 @@
     ],
     "cebuanoDistractorWords": [
       "buntag",
-      "aldaw",
+      "adlaw",
       "ngalan"
     ],
     "acceptablePhraseIds": [
@@ -513,7 +513,7 @@
       "nasayaat"
     ],
     "cebuanoDistractorWords": [
-      "aldaw",
+      "adlaw",
       "nga",
       "maayo"
     ],
@@ -542,7 +542,7 @@
       "saan"
     ],
     "cebuanoDistractorWords": [
-      "aldaw",
+      "adlaw",
       "ko",
       "dili"
     ],
