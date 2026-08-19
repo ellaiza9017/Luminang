@@ -173,6 +173,9 @@ public class TeachingOverlayPanel : MonoBehaviour
     {
         _targetWord = word;
         _isRecording = false;
+        
+        // Activate early to ensure Coroutines (like AutoSkipNoMic) don't crash if called
+        gameObject.SetActive(true);
 
         EnsureSpeechEngineDependencies();
 
@@ -236,8 +239,6 @@ public class TeachingOverlayPanel : MonoBehaviour
         SetupPronunciationButton();
 
         HideMovementControls(true);
-
-        gameObject.SetActive(true);
 
         // If panel is ALREADY fully open, keep alpha at 1.0f directly to prevent flickering!
         if (canvasGroup != null && canvasGroup.alpha >= 0.95f)
