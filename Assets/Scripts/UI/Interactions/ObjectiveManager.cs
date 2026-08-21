@@ -106,8 +106,21 @@ public class ObjectiveManager : MonoBehaviour
         UpdateVisibility();
     }
 
+    // Added for UnityEvent Inspector support (which only supports 1 parameter)
+    public void SetObjective(string newObjective)
+    {
+        SetObjective(newObjective, true);
+    }
+
     public void SetObjective(string newObjective, bool autoSaveOld = true)
     {
+        // Intercept Counter Objectives formatted as "Prefix ; Target ; Completion"
+        if (newObjective != null && newObjective.Contains(";") && newObjective.Split(';').Length >= 2)
+        {
+            SetCounterObjective(newObjective);
+            return;
+        }
+
         _isCounterActive = false; // Disable any active counter when a new static objective is set
         UpdateObjectiveInternal(newObjective, autoSaveOld);
     }

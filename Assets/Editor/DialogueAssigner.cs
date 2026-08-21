@@ -25,11 +25,7 @@ public class DialogueAssigner : EditorWindow
                 // Assign to default dialogue
                 interactable.defaultDialogue = startNode;
                 
-                // Clear old quest dialogues to ensure only new dialogues are played
-                if (interactable.questDialogues != null)
-                {
-                    interactable.questDialogues.Clear(); 
-                }
+                // Removed the code that clears questDialogues to prevent wiping out manual work
                 
                 EditorUtility.SetDirty(interactable);
                 updated++;

@@ -173,6 +173,9 @@ MonoBehaviour:
   - sceneNameContains: Magellan's_Cross
     clip: {fileID: 8300000, guid: 6e55f91d1c1a7744b99bcc6590352f49, type: 3}
     volumeMultiplier: 0.5
+  - sceneNameContains: Calle_Crisologo
+    clip: {fileID: 8300000, guid: 68bdfb33dbbe29f429b7cd8801d92dc6, type: 3}
+    volumeMultiplier: 0.5
   defaultClip: {fileID: 8300000, guid: e76b3a43171539c4f93b2d49778a824c, type: 3}
   defaultVolumeMultiplier: 0.5
   crossfadeDuration: 1

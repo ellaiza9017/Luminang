@@ -45,8 +45,19 @@ public class QuestTargetMarker : MonoBehaviour
         if (string.IsNullOrEmpty(requiredObjective) || string.IsNullOrEmpty(activeObjective))
             return false;
 
-        return activeObjective.StartsWith(requiredObjective.Trim(), System.StringComparison.OrdinalIgnoreCase) ||
-               requiredObjective.Trim().StartsWith(activeObjective.Trim(), System.StringComparison.OrdinalIgnoreCase);
+        string activeTrim = activeObjective.Trim();
+        string reqTrim = requiredObjective.Trim();
+
+        // Exact match is always true
+        if (activeTrim.Equals(reqTrim, System.StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        // Hide tracker for Counter Objectives (e.g., "Objective (0/4)") so the player explores on their own
+        if (activeTrim.Contains("(") && activeTrim.Contains("/"))
+            return false;
+
+        return activeTrim.StartsWith(reqTrim, System.StringComparison.OrdinalIgnoreCase) ||
+               reqTrim.StartsWith(activeTrim, System.StringComparison.OrdinalIgnoreCase);
     }
 
     /// <summary>

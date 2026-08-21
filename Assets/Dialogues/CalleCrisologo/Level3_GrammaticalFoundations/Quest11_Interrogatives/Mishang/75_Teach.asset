@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: 75_Teach
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Mishang
+  speakerPortrait: {fileID: 0}
+  dialogueText: "When you want to know which person you are talking about, use 'asino.'\r\nIt
+    means 'who.' Remember this: asino. Your turn\u2014say it back to me."
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: ShowTeachingPanel:who
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 551337c6a37b4de43a9497d9d58b7c16, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: asino

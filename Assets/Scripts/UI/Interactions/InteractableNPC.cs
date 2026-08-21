@@ -94,7 +94,7 @@ public class InteractableNPC : InteractableBase
 
             // 2. Pre-Quest Check
             // If they have quests, but none of them are completed yet, they are in the "Before Quest" phase
-            if (questDialogues.Count > 0 && preQuestDialogue != null)
+            if (questDialogues.Count > 0)
             {
                 bool hasFinishedAny = false;
                 foreach (var qd in questDialogues)
@@ -301,7 +301,9 @@ public class InteractableNPC : InteractableBase
             }
             else
             {
-                canInteract = (defaultDialogue != null);
+                // We now auto-generate a post-quest fallback ("Thank you for your help earlier!"), 
+                // so if they have any quests, they can always interact!
+                canInteract = (defaultDialogue != null) || (questDialogues != null && questDialogues.Count > 0);
             }
 
             interactionEnabled = canInteract && (npcAnimator != null);

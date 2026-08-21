@@ -234,6 +234,13 @@ public class UserProfileManager : MonoBehaviour
         return new System.Collections.Generic.List<string>(raw.Split(','));
     }
 
+    public void ClearLocalBackup()
+    {
+        PlayerPrefs.DeleteKey(LocalBackupKey("Cebuano"));
+        PlayerPrefs.DeleteKey(LocalBackupKey("Ilokano"));
+        PlayerPrefs.Save();
+    }
+
     /// <summary>
     /// Called on game startup. Compares local PlayerPrefs backup against the
     /// Supabase data that was just fetched. If the local backup has MORE entries,
@@ -275,21 +282,41 @@ public class UserProfileManager : MonoBehaviour
     // ── Category unlock helper (shared) ──────────────────────────────────────
     private string GetCategoryForObjective(string objectiveId, bool isCebuano)
     {
-        if (!isCebuano) return null; // Ilokano mapping can be added later
-        switch (objectiveId)
+        if (isCebuano)
         {
-            case "ceb_03": return "Greetings";
-            case "ceb_05": return "Gratitude";
-            case "ceb_07": return "Responses";
-            case "ceb_09": return "Identity";
-            case "ceb_12": return "Requests";
-            case "ceb_15": return "Directions";
-            case "ceb_17": return "Count";
-            case "ceb_21": return "Action Verbs";
-            case "ceb_23": return "Linking Verbs";
-            case "ceb_25": return "Pronouns";
-            case "ceb_27": return "Interrogatives";
-            default: return null;
+            switch (objectiveId)
+            {
+                case "ceb_03": return "Greetings";
+                case "ceb_05": return "Gratitude";
+                case "ceb_07": return "Responses";
+                case "ceb_09": return "Identity";
+                case "ceb_12": return "Requests";
+                case "ceb_15": return "Directions";
+                case "ceb_17": return "Count";
+                case "ceb_21": return "Action Verbs";
+                case "ceb_23": return "Linking Verbs";
+                case "ceb_25": return "Pronouns";
+                case "ceb_27": return "Interrogatives";
+                default: return null;
+            }
+        }
+        else
+        {
+            switch (objectiveId)
+            {
+                case "ilo_02": return "Greetings";
+                case "ilo_05": return "Gratitude";
+                case "ilo_07": return "Responses";
+                case "ilo_09": return "Identity";
+                case "ilo_11": return "Requests";
+                case "ilo_13": return "Directions";
+                case "ilo_15": return "Count";
+                case "ilo_17": return "Action Verbs";
+                case "ilo_19": return "Linking Verbs";
+                case "ilo_21": return "Pronouns";
+                case "ilo_23": return "Interrogatives";
+                default: return null;
+            }
         }
     }
 

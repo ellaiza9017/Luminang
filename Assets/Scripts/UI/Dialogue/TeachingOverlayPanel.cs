@@ -179,9 +179,18 @@ public class TeachingOverlayPanel : MonoBehaviour
 
         EnsureSpeechEngineDependencies();
 
-        // Match STT_TestScene behavior: always set region to Cebuano for Magellan scene lessons
+        // Dynamically set region based on the scene (Foolproof for Editor testing)
         if (PhraseEvaluator.Instance != null)
-            PhraseEvaluator.Instance.SetRegion(RegionMode.Cebuano);
+        {
+            string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+            string lang = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+
+            // Override with Scene name to guarantee correct STT language during Editor testing
+            if (sceneName.Contains("Calle_Crisologo")) lang = "Ilokano";
+            else if (sceneName.Contains("Magellan")) lang = "Cebuano";
+
+            PhraseEvaluator.Instance.SetRegion(lang == "Cebuano" ? RegionMode.Cebuano : RegionMode.Ilokano);
+        }
 
         if (backgroundImage != null)
         {
@@ -286,7 +295,7 @@ public class TeachingOverlayPanel : MonoBehaviour
         
         foreach (var entry in _journalData.journal_entries)
         {
-            if (string.Equals(entry.phrase, _targetWord, System.StringComparison.OrdinalIgnoreCase) && 
+            if (string.Equals(entry.phrase.Trim(), _targetWord.Trim(), System.StringComparison.OrdinalIgnoreCase) && 
                 string.Equals(entry.language, currentRegion, System.StringComparison.OrdinalIgnoreCase))
             {
                 if (!string.IsNullOrEmpty(entry.sound_file))
@@ -307,7 +316,7 @@ public class TeachingOverlayPanel : MonoBehaviour
 
         foreach (var entry in _journalData.journal_entries)
         {
-            if (string.Equals(entry.phrase, _targetWord, System.StringComparison.OrdinalIgnoreCase) &&
+            if (string.Equals(entry.phrase.Trim(), _targetWord.Trim(), System.StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(entry.language, currentRegion, System.StringComparison.OrdinalIgnoreCase))
             {
                 if (!string.IsNullOrEmpty(entry.sound_file))

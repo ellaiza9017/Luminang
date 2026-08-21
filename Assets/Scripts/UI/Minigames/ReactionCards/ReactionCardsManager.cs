@@ -487,12 +487,15 @@ public class ReactionCardsManager : MonoBehaviour
 
     public void CompleteSTTAndAdvanceRound()
     {
+        if (ReactionCardsSTTManager.Instance != null) ReactionCardsSTTManager.Instance.ForceHidePanel();
         StartCoroutine(CorrectAnswerSequence());
     }
 
     public void CompleteSTTAndFailRound()
     {
         isInputBlocked = false;
+        
+        if (ReactionCardsSTTManager.Instance != null) ReactionCardsSTTManager.Instance.ForceHidePanel();
         
         // Re-enable buttons and restore original text
         foreach (var btn in choiceButtons) btn.interactable = true;

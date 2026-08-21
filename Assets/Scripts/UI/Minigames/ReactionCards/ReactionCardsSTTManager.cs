@@ -46,6 +46,7 @@ public class ReactionCardsSTTManager : MonoBehaviour
     private bool isRecording = false;
     private string targetWord = "";
     private bool isSTTActive = false;
+    private bool isProcessing = false;
 
     private Vector2 panelOffscreenPos;
     private Vector2 panelOnscreenPos;
@@ -129,6 +130,8 @@ public class ReactionCardsSTTManager : MonoBehaviour
         ReactionCardsManager.Instance.UpdateQuestionText($"Say \"{targetWord}\" to go to the next round", colorNormal);
         
         if (speakButtonImage != null) speakButtonImage.sprite = speakNormalSprite;
+        if (speakButton != null) speakButton.interactable = true;
+        isProcessing = false;
 
         sttPanel.gameObject.SetActive(true);
         StartCoroutine(SlidePanel(panelOffscreenPos, panelOnscreenPos, true));
@@ -136,7 +139,7 @@ public class ReactionCardsSTTManager : MonoBehaviour
 
     private void OnSpeakButtonClicked()
     {
-        if (!isSTTActive) return;
+        if (!isSTTActive || isProcessing) return;
         if (sfxSource != null && buttonClickSFX != null) sfxSource.PlayOneShot(buttonClickSFX);
 
         if (!isRecording)
@@ -157,6 +160,8 @@ public class ReactionCardsSTTManager : MonoBehaviour
     private void StopRecording()
     {
         isRecording = false;
+        isProcessing = true;
+        if (speakButton != null) speakButton.interactable = false;
         if (speakButtonImage != null) speakButtonImage.sprite = speakNormalSprite;
         ReactionCardsManager.Instance.UpdateQuestionText("Processing voice...", colorProcessing);
         
@@ -251,8 +256,10 @@ public class ReactionCardsSTTManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         
         // Only reset if they haven't already started recording again
-        if (isSTTActive && !isRecording && currentTries > 0)
+        if (isSTTActive && currentTries > 0)
         {
+            isProcessing = false;
+            if (speakButton != null) speakButton.interactable = true;
             ReactionCardsManager.Instance.UpdateQuestionText($"Say \"{targetWord}\" to go to the next round", colorNormal);
         }
     }
@@ -351,6 +358,18 @@ public class ReactionCardsSTTManager : MonoBehaviour
 
         if (!showGroup && sttPanel != null)
         {
+            sttPanel.gameObject.SetActive(false);
+        }
+    }
+
+    public void ForceHidePanel()
+    {
+        isSTTActive = false;
+        isProcessing = false;
+        isRecording = false;
+        if (sttPanel != null)
+        {
+            sttPanel.anchoredPosition = panelOffscreenPos;
             sttPanel.gameObject.SetActive(false);
         }
     }

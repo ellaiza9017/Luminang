@@ -66,10 +66,16 @@ public class OptionsMenuManager : MonoBehaviour
     {
         Debug.Log("[Options] Logging out...");
         
-        // 1. Sign out from Supabase (this also clears the PlayerPrefs session)
+        // 1. Clear local offline backup so it doesn't get pushed to the next account
+        if (UserProfileManager.Instance != null)
+        {
+            UserProfileManager.Instance.ClearLocalBackup();
+        }
+
+        // 2. Sign out from Supabase
         await SupabaseManager.Instance.client.Auth.SignOut();
 
-        // 2. Return to the Login screen
+        // 3. Return to the Login screen
         SceneManager.LoadScene(loginSceneName);
     }
 }

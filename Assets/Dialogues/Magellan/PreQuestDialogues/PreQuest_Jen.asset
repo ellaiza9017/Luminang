@@ -15,7 +15,7 @@ MonoBehaviour:
   speakerName: Jen
   speakerPortrait: {fileID: 0}
   dialogueText: Hi! hmm.. I think you still have something to do right? go do it
-    first! haha
+    first!
   translatedText: 
   voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
   animationTrigger: 

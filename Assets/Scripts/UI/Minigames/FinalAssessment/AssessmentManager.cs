@@ -1480,7 +1480,7 @@ public class AssessmentManager : MonoBehaviour
         PlayerPrefs.Save();
         
         string selectedLanguage = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
-        string targetScene = selectedLanguage + "EndingScene"; // CebuanoEndingScene or IlokanoEndingScene
+        string targetScene = selectedLanguage + "Ending"; // CebuanoEnding or IlokanoEnding
         
         SceneLoader.ResetLoadingFlag(); 
         SceneLoader.targetSceneForLoading = targetScene; 

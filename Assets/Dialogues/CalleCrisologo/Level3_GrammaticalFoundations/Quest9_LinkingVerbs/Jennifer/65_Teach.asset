@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: 65_Teach
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Jennifer
+  speakerPortrait: {fileID: 0}
+  dialogueText: Sometimes a conversation is about more than what you see or hear.
+    Sometimes, it is about what you experience. In Ilokano, 'marikna' means 'feel'
+    or 'perceive.'
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: ShowTeachingPanel:feel
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 6f504c530d015894eb0a90f809c296f0, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 

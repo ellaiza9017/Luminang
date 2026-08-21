@@ -284,7 +284,7 @@ public class SignupManager : MonoBehaviour
         }
     }
 
-    private void HandleGoogleSignupComplete(bool success)
+    private async void HandleGoogleSignupComplete(bool success)
     {
         _waitingForGoogleLogin = false;
         Debug.Log($"[Signup] HandleGoogleSignupComplete called. Success: {success}");
@@ -297,11 +297,21 @@ public class SignupManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("<color=green>[Signup] Google signup successful! Transitioning to Main Menu...</color>");
+        try
+        {
+            Debug.Log("<color=green>[Signup] Google signup successful! Fetching profile...</color>");
+            
+            if (UserProfileManager.Instance != null)
+            {
+                await UserProfileManager.Instance.FetchProfile();
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"[Signup] Error fetching profile after Google signup: {ex.Message}");
+        }
+
         LoadingOverlay.Instance?.Hide();
-        
-        // For signup, we trust the DB trigger to handle his profile.
-        // We load the Main Menu directly.
         SceneManager.LoadScene(mainMenuSceneName);
         isBusy = false;
     }

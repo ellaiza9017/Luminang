@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: 63_Teach 1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Jennifer
+  speakerPortrait: {fileID: 0}
+  dialogueText: "You can use it when talking about something continuing to exist
+    or stay in a certain state. Remember this: agtalinaed. Your turn\u2014say it
+    back to me."
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 1f11e57e0298d014390c345c6a958e20, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: agtalinaed

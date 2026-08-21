@@ -6,7 +6,8 @@ public class AutoSetupSTT
 {
     static AutoSetupSTT()
     {
-        EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+        // DISABLED: This was automatically wiping manual Inspector changes every time Play was pressed!
+        // EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
     }
 
     private static void OnPlayModeStateChanged(PlayModeStateChange state)

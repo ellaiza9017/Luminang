@@ -10,12 +10,14 @@ public class InteractablePickup : InteractableBase
     public string requiredObjective = "Collect yarns";
     public bool hideOnPickup = true; // New Toggle!
     public bool canBeClicked = true; // New Toggle!
+    public bool autoAddProgress = true; // Automatically increment the counter!
     
     [Header("Glow Appearance (HDR)")]
     [ColorUsage(true, true)]
     public Color glowColor = new Color(4f, 3.5f, 0.5f, 1f);
     public float pulseSpeed = 3f;
     public float streakHeight = 1.5f;
+    public Vector3 streakOffset = Vector3.zero; // New!
 
     [Header("URP Materials/Shaders")]
     [Tooltip("Optional custom Material to use for the light streak. If assigned, this is used directly.")]
@@ -76,6 +78,11 @@ public class InteractablePickup : InteractableBase
         
         // Fire the standard event from the base class
         OnInteract?.Invoke();
+
+        if (autoAddProgress && ObjectiveManager.Instance != null)
+        {
+            ObjectiveManager.Instance.AddProgress();
+        }
         
         // Only hide if the toggle is checked
         if (hideOnPickup)
@@ -113,7 +120,7 @@ public class InteractablePickup : InteractableBase
         // 2. Setup Light Streak
         GameObject streakGO = new GameObject("_QuestStreak");
         streakGO.transform.SetParent(transform);
-        streakGO.transform.localPosition = Vector3.zero;
+        streakGO.transform.localPosition = streakOffset;
 
         _line = streakGO.AddComponent<LineRenderer>();
         _line.positionCount = 2;

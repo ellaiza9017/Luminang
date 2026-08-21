@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: 34_Teach 1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Rayo
+  speakerPortrait: {fileID: 21300000, guid: 375a2426790ffd84aa1a9c7758ba6b06, type: 3}
+  dialogueText: "Use it when asking someone to move toward your location.\r\nRemember
+    this: umay ditoy. Your turn\u2014say it back to me."
+  translatedText: 
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 67b86d9a0b8dd9a468801c4f400fc581, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: umay ditoy

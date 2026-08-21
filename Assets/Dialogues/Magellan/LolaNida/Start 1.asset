@@ -22,12 +22,12 @@ MonoBehaviour:
   triggerEventName: 
   endEventName: 
   choices:
-  - choiceText: Dili
+  - choiceText: Saan
     nextNode: {fileID: 0}
     isWrong: 0
     choiceEvent: 
     expectedSTTWord: 
-  - choiceText: Oo
+  - choiceText: Wen
     nextNode: {fileID: 11400000, guid: d534d4cc601e77c479eab8d37bc03bc6, type: 2}
     isWrong: 0
     choiceEvent: 

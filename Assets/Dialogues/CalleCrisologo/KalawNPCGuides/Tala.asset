@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff519377b990a4c81cd1461a3c1f62, type: 3}
+  m_Name: Tala
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Kalaw
+  speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
+  dialogueText: 'Great work! Not only did you help Sally, but you also learned to
+    thank her! '
+  translatedText: 
+  voiceClip: {fileID: 0}
+  animationTrigger: 
+  triggerEventName: 
+  endEventName: 
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 8d56c180bac7a234384ba4c1b37b2300, type: 2}
+    isWrong: 0
+    choiceEvent: 
+    expectedSTTWord: 

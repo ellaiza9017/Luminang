@@ -45,11 +45,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Hub/CharacterCustomizationScene.unity
     guid: bda05c22fa2a3a144aaecbdb729a4a04
   - enabled: 1
+    path: Assets/Scenes/CutScenes/IlocosIntroScene.unity
+    guid: d93c6fa8e97f15549b29650e601bed72
+  - enabled: 1
     path: Assets/Scenes/CutScenes/CebuIntroScene.unity
     guid: a86fa5fd3f1eb024a9abf4841965c65b
   - enabled: 1
     path: Assets/Scenes/Environments/Magellan's_Cross.unity
     guid: f22e8b4fc4cb3e3409b7ce42335a7238
+  - enabled: 1
+    path: Assets/Scenes/Environments/Calle_Crisologo.unity
+    guid: d67eadbadba503d4798c3407006d114c
   - enabled: 1
     path: Assets/Scenes/MiniGames/FishingGameScene.unity
     guid: ce74d42815571444488ca576c1ea13c6
@@ -83,6 +89,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CutScenes/CebuanoEnding.unity
     guid: ec555ed50f3f0fa4395a78552c1430e6
+  - enabled: 1
+    path: Assets/Scenes/CutScenes/IlokanoEnding.unity
+    guid: 6f71646a8dc134b4c9103617922a0656
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: d2afdb32aa936b84f96cb58f959024df, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

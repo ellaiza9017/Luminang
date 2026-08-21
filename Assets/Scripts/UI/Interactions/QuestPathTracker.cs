@@ -194,21 +194,27 @@ public class QuestPathTracker : MonoBehaviour
         // 2. Fallback: Search QuestIndicator objects
         if (_activeMarker == null)
         {
-            QuestIndicator[] indicators = FindObjectsByType<QuestIndicator>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-            for (int i = 0; i < indicators.Length; i++)
+            // Do not use fallback indicators for Counter Objectives (e.g. "(0/4)")
+            bool isCounterObjective = objectiveName.Contains("(") && objectiveName.Contains("/");
+            
+            if (!isCounterObjective)
             {
-                if (indicators[i] != null && 
-                    !string.IsNullOrEmpty(indicators[i].requiredObjective) &&
-                    objectiveName.StartsWith(indicators[i].requiredObjective.Trim(), System.StringComparison.OrdinalIgnoreCase))
+                QuestIndicator[] indicators = FindObjectsByType<QuestIndicator>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+                for (int i = 0; i < indicators.Length; i++)
                 {
-                    QuestTargetMarker dynamicMarker = indicators[i].GetComponent<QuestTargetMarker>();
-                    if (dynamicMarker == null)
+                    if (indicators[i] != null && 
+                        !string.IsNullOrEmpty(indicators[i].requiredObjective) &&
+                        objectiveName.StartsWith(indicators[i].requiredObjective.Trim(), System.StringComparison.OrdinalIgnoreCase))
                     {
-                        dynamicMarker = indicators[i].gameObject.AddComponent<QuestTargetMarker>();
-                        dynamicMarker.requiredObjective = indicators[i].requiredObjective;
+                        QuestTargetMarker dynamicMarker = indicators[i].GetComponent<QuestTargetMarker>();
+                        if (dynamicMarker == null)
+                        {
+                            dynamicMarker = indicators[i].gameObject.AddComponent<QuestTargetMarker>();
+                            dynamicMarker.requiredObjective = indicators[i].requiredObjective;
+                        }
+                        _activeMarker = dynamicMarker;
+                        break;
                     }
-                    _activeMarker = dynamicMarker;
-                    break;
                 }
             }
         }
@@ -481,6 +487,18 @@ public class QuestPathTracker : MonoBehaviour
     {
         if (distanceText != null || _dynamicDistanceText != null) return;
         if (ObjectiveManager.Instance == null || ObjectiveManager.Instance.objectiveText == null) return;
+
+        // Extremely fast, crash-safe lookup: Just check the children of ObjectiveText
+        Transform customTextTransform = ObjectiveManager.Instance.objectiveText.transform.Find("DistanceTrackerText");
+        if (customTextTransform != null)
+        {
+            distanceText = customTextTransform.GetComponent<TextMeshProUGUI>();
+            if (distanceText != null)
+            {
+                distanceText.gameObject.SetActive(_isVisible);
+                return;
+            }
+        }
 
         TextMeshProUGUI objText = ObjectiveManager.Instance.objectiveText;
 

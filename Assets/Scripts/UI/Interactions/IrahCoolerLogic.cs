@@ -37,7 +37,7 @@ public class IrahCoolerLogic : MonoBehaviour
         }
     }
 
-    private float idleHipHeight = 0f;
+    private float idleHipHeight = -1f; // -1 = not yet captured
 
     void LateUpdate()
     {
@@ -51,8 +51,9 @@ public class IrahCoolerLogic : MonoBehaviour
                     // Record her perfect grounded hip height while she's in Idle
                     idleHipHeight = hips.localPosition.y;
                 }
-                else
+                else if (idleHipHeight >= 0f)
                 {
+                    // Only clamp once we have a valid captured height.
                     // Force her hips to stay at the exact same height during Carrying
                     Vector3 pos = hips.localPosition;
                     pos.y = idleHipHeight;
@@ -78,9 +79,26 @@ public class IrahCoolerLogic : MonoBehaviour
         {
             if (!isCarrying)
             {
-                StartCarrying();
+                StartCoroutine(StartCarryingAfterIdleCaptured());
             }
         }
+    }
+
+    private System.Collections.IEnumerator StartCarryingAfterIdleCaptured()
+    {
+        // Wait until we have captured a valid idle hip height from at least one Idle LateUpdate frame.
+        // idleHipHeight starts at -1 (sentinel). Once LateUpdate runs with isCarrying=false it becomes >= 0.
+        yield return null; // wait one frame so animator runs LateUpdate in Idle state
+        yield return new WaitForEndOfFrame();
+
+        // Capture now if we haven't yet (e.g. if animator just started)
+        if (idleHipHeight < 0f && irahAnimator != null)
+        {
+            Transform hips = irahAnimator.GetBoneTransform(HumanBodyBones.Hips);
+            if (hips != null) idleHipHeight = hips.localPosition.y;
+        }
+
+        StartCarrying();
     }
 
     private void StartCarrying()
