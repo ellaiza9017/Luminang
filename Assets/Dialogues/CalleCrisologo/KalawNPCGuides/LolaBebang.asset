@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: 'Let''s keep moving! Having trouble counting in ilokano? Ask Lola
     Bebang for help! '
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 0b9d7bade945e674aa0d9dbcf03441d3, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: SetObjective:Count with Lola Bebang!
   endEventName: SetObjective:Count with Lola Bebang!

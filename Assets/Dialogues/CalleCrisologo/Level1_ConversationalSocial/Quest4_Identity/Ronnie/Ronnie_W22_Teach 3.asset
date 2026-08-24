@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 0}
   dialogueText: Now try telling me where you're from in ilokano!
   translatedText: 
+  voiceClip: {fileID: 0}
+  voiceGain: 1
   animationTrigger: 
   triggerEventName: 
   endEventName: 
@@ -24,4 +26,4 @@ MonoBehaviour:
     nextNode: {fileID: 11400000, guid: c9d1dbaced78e584883d19ff36c045d3, type: 2}
     isWrong: 0
     choiceEvent: 
-    expectedSTTWord: taga ___ ak
+    expectedSTTWord: taga {place} ak

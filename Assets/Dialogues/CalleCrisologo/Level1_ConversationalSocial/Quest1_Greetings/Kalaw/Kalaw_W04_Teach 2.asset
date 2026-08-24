@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: For example, you can use it when greeting vendors as they begin their
     morning.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: dfe82c35744187240a88130d9255426b, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

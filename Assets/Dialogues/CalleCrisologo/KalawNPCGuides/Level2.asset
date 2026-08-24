@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: Amazing work! You mastered all the ilokano phrases for the categories
     greetings, gratitude, responses, and identity!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 27b02ce7cad883749a339332befcfb7f, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

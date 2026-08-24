@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: You've greeted new friends, asked questions, followed directions,
     counted supplies, and learned how to build complete thoughts in Ilokano.
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: e709e4d60e0a14b438c38ccfe1c3cb1d, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: First, you learned how to say hello, introduce yourself, answer questions,
     and thank others.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: d541a049957fa314b8954e529154e841, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

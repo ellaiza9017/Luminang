@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: If someone asks, you can answer with 'ti nagan ko ket...' and your
     own name.
   translatedText: 
+  voiceClip: {fileID: 0}
+  voiceGain: 1
   animationTrigger: 
   triggerEventName: 
   endEventName: 
@@ -25,4 +27,4 @@ MonoBehaviour:
     nextNode: {fileID: 11400000, guid: e85b4b7a013bb73498f48e24ac4fd588, type: 2}
     isWrong: 0
     choiceEvent: 
-    expectedSTTWord: ti nagan ko ket ___
+    expectedSTTWord: ti nagan ko ket {name}

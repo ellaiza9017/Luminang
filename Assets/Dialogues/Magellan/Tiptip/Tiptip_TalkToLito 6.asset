@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "You know how to ask for help\u2014but what happens when someone
     tells you where to go?"
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: e06c99acf88d35841b2c2aaf3c244a6d, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

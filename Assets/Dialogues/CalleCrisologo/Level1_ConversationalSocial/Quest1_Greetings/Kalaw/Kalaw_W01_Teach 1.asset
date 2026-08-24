@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: It is a friendly greeting you can use when you meet someone or begin
     a conversation. Now, try saying 'kumusta' yourself.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 3017e0840bd61484e82ad3e7a0643432, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'Hello friend! Welcome to Magellan''s Cross. You can call me Tiptip,
     you''re friendly neighborhood guide! You don''t look like a local here.  '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 6affd8acd1c242b4d84d3a9860ef73c2, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

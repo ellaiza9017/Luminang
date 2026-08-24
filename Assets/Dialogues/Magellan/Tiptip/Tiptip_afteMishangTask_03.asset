@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "Sally is a local waiting nearby. Go talk to her and learn how to
     ask someone's name\u2014and how to introduce yourself in Cebuano!"
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 9964791b7e22d3540b5db5224fff72b2, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Get to know Sally
   endEventName: SetObjective:Get to know Sally

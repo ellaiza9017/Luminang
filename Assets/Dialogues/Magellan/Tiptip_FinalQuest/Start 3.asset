@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: In this final challenge, you'll listen, respond, and communicate
     using everything you've learned so far.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 6a33004d0765d9349b46b1bf7ce89891, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

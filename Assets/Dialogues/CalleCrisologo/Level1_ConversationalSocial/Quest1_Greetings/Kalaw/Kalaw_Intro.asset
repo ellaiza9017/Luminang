@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "Is that fruit for me? I\u2019m starving after flying around in this
     heat. Will you share some?"
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 5a3760833422fc243b9863cf2ce0100a, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

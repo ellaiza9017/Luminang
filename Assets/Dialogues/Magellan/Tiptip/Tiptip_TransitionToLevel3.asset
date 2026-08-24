@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'Let''s begin Level 3: Grammatical Foundations and discover how Cebuano
     helps bring stories, actions, and ideas to life!'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 5e588d9a8690b5242a47aa8c0984d78a, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

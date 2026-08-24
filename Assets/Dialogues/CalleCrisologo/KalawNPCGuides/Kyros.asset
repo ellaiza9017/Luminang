@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: You've learned how to count from one to ten. Come on! Let's put those
     numbers to use!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 55bf31573cbf06542a87d684fea957a4, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: SetObjective:Count street foods with Kyros!
   endEventName: SetObjective:Count street foods with Kyros!

@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "Good Evening indeed! Your pendant glows bright enough to illuminate
     the night!\t"
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 345fa7062351e8a44a80c8d282044257, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

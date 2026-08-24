@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "Gratitude is powerful, but a conversation is like a bridge\u2014it
     needs both sides to connect."
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 161224080c555f04eb5cf6421fbd563b, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

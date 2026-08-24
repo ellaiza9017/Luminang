@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Tiptip
   speakerPortrait: {fileID: 0}
-  dialogueText: "Remember: greet with 'maayong buntag', 'maayong hapon', or 'maayong gabii' depending on the time!"
-  translatedText: ''
+  dialogueText: 'Remember: greet with ''maayong buntag'', ''maayong hapon'', or ''maayong
+    gabii'' depending on the time!'
+  translatedText: 
+  voiceClip: {fileID: 8300000, guid: f7fc1220e78365546b577cfc2ab87f9b, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 
   choices:
-  - choiceText: ''
+  - choiceText: 
     nextNode: {fileID: 11400000, guid: 73e84ff428144d0c883a7b2d2078040f, type: 2}
     isWrong: 0
-    choiceEvent: ''
-    expectedSTTWord: ''
+    choiceEvent: 
+    expectedSTTWord: 

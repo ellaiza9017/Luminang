@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'Excellent work, traveler! You can now introduce yourself and learn
     a little about the people you meet. '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 46b9d7aa3854b2243a717a01efc5ce99, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

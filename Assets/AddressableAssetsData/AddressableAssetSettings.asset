@@ -15,9 +15,9 @@ MonoBehaviour:
   m_DefaultGroup: d2abb95a582c8b6458f0a60894450c9c
   m_currentHash:
     serializedVersion: 2
-    Hash: 27c0ecc1e0a36ba4b0cef764748ec346
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
   m_InternalIdNamingMode: 0
@@ -50,15 +50,16 @@ MonoBehaviour:
   m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: 7f516e73a68d4b942b4c59b54b9cd29d
   m_RemoteCatalogLoadPath:
-    m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+    m_Id: 7be80686a7647fb41a5b899fd5b57e58
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: a3540a867067da54a9cdabf7ccac4c76, type: 2}
   - {fileID: 11400000, guid: 7a364f1f53f59284f9345e76ff3297af, type: 2}
   - {fileID: 11400000, guid: 2b268d0e738a04a4e85929248e2496a1, type: 2}
   m_BuildSettings:
@@ -75,7 +76,7 @@ MonoBehaviour:
       - m_Id: 1f2ff93092ecfee439f18788a3fe0ed3
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
       - m_Id: 7be80686a7647fb41a5b899fd5b57e58
-        m_Value: <undefined>
+        m_Value: https://github.com/ellaiza9017/Luminang/releases/download/v1.0
       - m_Id: 7f516e73a68d4b942b4c59b54b9cd29d
         m_Value: 'ServerData/[BuildTarget]'
       - m_Id: c511bf9c94056e24e873c58ea8ff4a89

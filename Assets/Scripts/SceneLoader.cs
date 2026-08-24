@@ -33,7 +33,7 @@ public class SceneLoader : MonoBehaviour
 
         // NEW RULE: We use the loading screen if we are loading into a heavy Gameplay Scene,
         // OR if we are transitioning into any major feature scene (like Language Select or Prologue).
-        bool isHeavyScene = (sceneName == "Calle_Crisologo" || sceneName == "Magellan's_Cross" || 
+        bool isHeavyScene = (sceneName == "Calle_Crisologo" || sceneName == "Magellan_s_Cross" || 
                              sceneName == "LanguageSelectionScene" || sceneName == "PrologueScene" || 
                              sceneName == "CreateCharacterScene" || sceneName == "ShopScene");
         
@@ -62,6 +62,7 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
+
     public void LoadSceneAdditive(string sceneName)
     {
         Debug.Log("[SceneLoader] Additive loading for: " + sceneName);
@@ -69,7 +70,7 @@ public class SceneLoader : MonoBehaviour
         // Optional: Save the previous scene just in case the new scene needs to know
         previousScene = SceneManager.GetActiveScene().name;
         
-        bool isHeavyScene = (sceneName == "ShopScene" || sceneName == "Calle_Crisologo" || sceneName == "Magellan's_Cross" || 
+        bool isHeavyScene = (sceneName == "ShopScene" || sceneName == "Calle_Crisologo" || sceneName == "Magellan_s_Cross" || 
                              sceneName == "LanguageSelectionScene" || sceneName == "PrologueScene" || 
                              sceneName == "CreateCharacterScene");
 

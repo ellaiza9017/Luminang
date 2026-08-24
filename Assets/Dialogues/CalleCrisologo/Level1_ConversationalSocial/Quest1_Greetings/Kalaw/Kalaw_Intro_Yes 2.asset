@@ -19,6 +19,8 @@ MonoBehaviour:
 
 '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: b1208dea105da7e45b45e8abf0e9d754, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -16,7 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: You're quite the fast learner! Off to your next lessons!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 12cf5cd153d54144d8bd908c28f97f6d, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Find Jom the vendor'
   endEventName: 'SetObjective: Find Jom the vendor'

@@ -18,6 +18,7 @@ MonoBehaviour:
     by the object.
   translatedText: 
   voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
+  voiceGain: 1
   animationTrigger: 
   triggerEventName: 
   endEventName: 
@@ -26,4 +27,4 @@ MonoBehaviour:
     nextNode: {fileID: 11400000, guid: 10da50c13aeef8842b957fead7525c6f, type: 2}
     isWrong: 0
     choiceEvent: StartSTT
-    expectedSTTWord: hatagi ko
+    expectedSTTWord: hatagi ko {item}

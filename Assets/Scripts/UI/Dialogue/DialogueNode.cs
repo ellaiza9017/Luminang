@@ -21,6 +21,10 @@ public class DialogueNode : ScriptableObject
 
     [Tooltip("The voice audio clip to play when this node appears (optional).")]
     public AudioClip voiceClip;
+    
+    [Tooltip("Volume gain multiplier for this specific voice clip. 1 = Normal, 2 = 2x Louder, etc.")]
+    [Range(1f, 10f)]
+    public float voiceGain = 1f;
 
     [Tooltip("Trigger name to send to the NPC's Animator (e.g., 'DoPointing'). Leave empty for no animation.")]
     public string animationTrigger;

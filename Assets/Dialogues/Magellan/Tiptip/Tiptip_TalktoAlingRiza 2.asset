@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Then, you learned how to ask for help, find places, and count things
     all the way to ten!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 7e495b8adc8df9941b214c3d91ba31fa, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'Lola Bebang used to be a local here but ever since moving to central
     Luzon, it''s been years since she had to speak cebuano. '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f5387da9ad7166647baca71cf3e210d6, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

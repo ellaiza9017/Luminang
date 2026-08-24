@@ -16,7 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Naimbag a rabii! You are a fast learner!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: ee05dfb06338cf74ea9e4ea33dec5225, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

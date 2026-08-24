@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Speaking of which... I spotted a tourist nearby who's having a terrible
     time finding their way around. Why don't you lend them a hand?
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: c468b2862c0d95f4db1d81d9abed50c9, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Guide Rodrick to his destination
   endEventName: SetObjective:Guide Rodrick to his destination

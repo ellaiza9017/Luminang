@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Tiptip
   speakerPortrait: {fileID: 0}
-  dialogueText: "To ask where someone is from: 'taga asa ka'. To say yours: 'taga [place] ko'!"
-  translatedText: ''
+  dialogueText: 'To ask where someone is from: ''taga asa ka''. To say yours: ''taga
+    [place] ko''!'
+  translatedText: 
+  voiceClip: {fileID: 8300000, guid: 89c1e93105a6afe40a3d26c111c0c078, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 
   choices:
-  - choiceText: ''
+  - choiceText: 
     nextNode: {fileID: 11400000, guid: 1bbd35ba35e6472d9472afdc26a2e9e8, type: 2}
     isWrong: 0
-    choiceEvent: ''
-    expectedSTTWord: ''
+    choiceEvent: 
+    expectedSTTWord: 

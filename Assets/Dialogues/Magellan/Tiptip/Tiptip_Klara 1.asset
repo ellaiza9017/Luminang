@@ -19,6 +19,8 @@ MonoBehaviour:
     Go pay her a visit and
     see what you can do!'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 48d76586db43d714ca7b08b7972496b9, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: Setobjective:Find Klara at the garden
   endEventName: Setobjective:Find Klara at the garden

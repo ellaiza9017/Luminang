@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Who's 'I'? Who's 'you'? And who are 'they'? That's where our next
     words come in.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 4a568cf35493986468afc5d55d1d94b9, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

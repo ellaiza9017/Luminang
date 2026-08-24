@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Great job! You learned how linking words connect ideas and bring
     stories to life.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: e106f8a7f95a8ba4293f5e1b3c9aec8e, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

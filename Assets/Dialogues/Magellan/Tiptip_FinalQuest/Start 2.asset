@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "But language isn't just about remembering words\u2014it's about
     using them."
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 94ef33c1c30c74b42acadb7489f09e28, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

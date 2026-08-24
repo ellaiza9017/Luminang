@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: You can use it when greeting someone earlier in the day.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 6805dfb87f4a85e4b8dfbfc8b972f1ab, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

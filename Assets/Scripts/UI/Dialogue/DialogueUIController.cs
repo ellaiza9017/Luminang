@@ -211,10 +211,36 @@ public class DialogueUIController : MonoBehaviour
         }
 
         // Stop the previous voice clip to prevent overlapping
-        if (voiceSource == null) voiceSource = gameObject.AddComponent<AudioSource>();
+        if (voiceSource == null) 
+        {
+            // Create a child object specifically for the voice so the gain booster doesn't affect UI click sounds
+            GameObject voiceObj = new GameObject("DialogueVoiceSource");
+            voiceObj.transform.SetParent(this.transform);
+            
+            voiceSource = voiceObj.AddComponent<AudioSource>();
+            voiceSource.spatialBlend = 0f; // Force 2D sound
+            voiceSource.playOnAwake = false;
+            
+            // Add the booster component (we will update its multiplier per-node)
+            voiceObj.AddComponent<AudioGainBooster>();
+        }
         
         if (voiceSource != null)
         {
+            // Sync with the SFX Volume setting
+            float currentSfxVolume = 1f;
+            if (AudioManager.instance != null) currentSfxVolume = AudioManager.instance.sfxVolume;
+            else currentSfxVolume = PlayerPrefs.GetFloat("SFXVolume", 0.75f);
+            
+            voiceSource.volume = currentSfxVolume;
+
+            // Apply the custom gain for this specific node
+            AudioGainBooster booster = voiceSource.GetComponent<AudioGainBooster>();
+            if (booster != null)
+            {
+                booster.gainMultiplier = node.voiceGain;
+            }
+
             voiceSource.Stop();
             if (node.voiceClip != null)
             {

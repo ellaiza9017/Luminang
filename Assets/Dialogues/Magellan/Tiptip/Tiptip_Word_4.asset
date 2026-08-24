@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Now let's keep it simple! The friendly word Cebuanos use to say hello
     when meeting someone is "Kumusta". "Kumusta!"
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 005d0662e94838e4086217e43f543a86, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: kumusta_cebu
   endEventName: 

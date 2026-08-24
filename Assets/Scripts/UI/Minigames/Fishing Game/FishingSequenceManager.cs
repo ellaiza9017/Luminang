@@ -235,19 +235,22 @@ public class FishingSequenceManager : MonoBehaviour
     // Stretches and rotates the UI Image between two WORLD positions
     void DrawLine(Vector3 fromWorld, Vector3 toWorld)
     {
-        if (lineImage == null) return;
-
-        Vector3 direction = toWorld - fromWorld;
-        float distance = direction.magnitude;
+        if (lineImage == null || lineImage.parent == null) return;
 
         // Position the LEFT EDGE of the line at the rod tip.
         // Because the pivot is (0, 0.5), the line only grows TOWARD the fish, never backward!
         lineImage.position = fromWorld;
 
-        // Stretch its width to match the distance
-        lineImage.sizeDelta = new Vector2(distance, lineImage.sizeDelta.y);
+        // Convert world positions to the parent's local space to get the true scaled distance!
+        Vector3 localFrom = lineImage.parent.InverseTransformPoint(fromWorld);
+        Vector3 localTo = lineImage.parent.InverseTransformPoint(toWorld);
+        float localDistance = Vector3.Distance(localFrom, localTo);
+
+        // Stretch its width to match the exact local distance
+        lineImage.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, localDistance);
 
         // Rotate to point from rod tip to hook
+        Vector3 direction = toWorld - fromWorld;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         lineImage.localEulerAngles = new Vector3(0, 0, angle);
     }

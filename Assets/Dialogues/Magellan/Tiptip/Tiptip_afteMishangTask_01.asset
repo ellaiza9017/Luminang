@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: You've learned how to take part in a conversation, but now it's time
     to make those conversations more personal.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: dd4a70ff5dc0cab4dbc35974e6672e59, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

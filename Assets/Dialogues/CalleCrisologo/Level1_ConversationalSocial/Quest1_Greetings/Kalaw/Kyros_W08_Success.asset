@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: "Stay with me\u2014there\u2019s more to discover. For now, come over
     to Irah and greet her!"
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 61808df9c3ddb6240ad34ed48ee7d4bf, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: SetObjective_Find Irah

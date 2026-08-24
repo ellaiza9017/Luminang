@@ -185,7 +185,7 @@ public class InSceneLessonController : MonoBehaviour
     /// </summary>
     public void ShowInSceneMic(string rawPhrase)
     {
-        _targetPhrase = ResolveTemplatePhrase(rawPhrase);
+        _targetPhrase = rawPhrase;
         _isRecording = false;
 
         EnsureSpeechDependencies();
@@ -494,7 +494,6 @@ public class InSceneLessonController : MonoBehaviour
 
         string target = !string.IsNullOrEmpty(_targetPhrase) ? _targetPhrase :
             (DialogueManager.Instance?.PendingSTTChoice?.expectedSTTWord ?? "");
-        target = ResolveTemplatePhrase(target);
 
         if (!string.IsNullOrEmpty(target) && PhraseEvaluator.Instance != null)
         {

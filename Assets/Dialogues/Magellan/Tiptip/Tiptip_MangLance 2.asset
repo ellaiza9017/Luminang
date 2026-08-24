@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: A barangay official nearby is working on a community report, but
     there are so many people around.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 6645460e12358884aa1be6ada20ba5e3, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "Listen carefully: ikanmo man map.\r\nGive it a try\u2014'ikanmo
     man' followed by the object you want."
   translatedText: 
+  voiceClip: {fileID: 0}
+  voiceGain: 1
   animationTrigger: 
   triggerEventName: 
   endEventName: 
@@ -25,4 +27,4 @@ MonoBehaviour:
     nextNode: {fileID: 11400000, guid: f5b86de4e3c61f04a99986ababf3bc3a, type: 2}
     isWrong: 0
     choiceEvent: 
-    expectedSTTWord: ikanmo man ___
+    expectedSTTWord: ikanmo man {item}

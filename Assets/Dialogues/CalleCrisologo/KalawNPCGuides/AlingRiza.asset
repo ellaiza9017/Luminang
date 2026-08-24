@@ -16,7 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Time to test what you learned from Aling Rosa!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 4bf5b534dd99c6a4a9f363da2ff9ead7, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

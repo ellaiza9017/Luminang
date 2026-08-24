@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: You've learned how to ask for help, request items, and seek information.
     These skills help you communicate your needs to others.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 1eb2dfb0cb9463e4db46bb25e4c0813d, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

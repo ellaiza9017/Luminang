@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: The morning sun is shining over Cebu! When welcoming someone at the
     start of the day, we say "Maayong Buntag" It means "Good morning"
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: ba5e1335a55a4004ebf5d7baff3a25f5, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: maayongBuntag
   endEventName: 

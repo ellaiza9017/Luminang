@@ -16,7 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Go find Aling Riza and see what she has in store!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 3a539e02cf1b9274381b445eeccb4ee1, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Meet Aling Riza'
   endEventName: 'SetObjective: Meet Aling Riza'

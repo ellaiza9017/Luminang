@@ -16,7 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Go find Aliyah to start learning all about ilokano action verbs.
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: fe1feba121666844083675687795ec3b, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Go find Aliyah'
   endEventName: 'SetObjective: Go find Aliyah'

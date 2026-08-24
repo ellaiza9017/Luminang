@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Amazing! You've fully grapsed the greetings of cebuano! You're ready
     for the next level.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: b5de4476ca1e4f241b603613f6fd479f, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

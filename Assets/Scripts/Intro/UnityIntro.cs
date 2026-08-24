@@ -46,7 +46,7 @@ public class UnityIntro : MonoBehaviour
             if (!sceneLoading && unityLogoGroup.alpha <= 0f)
             {
                 sceneLoading = true;
-                SceneManager.LoadScene("MainLoadingScene");
+                SceneManager.LoadScene("LoadingResourcesScene");
             }
         }
     }

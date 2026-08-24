@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Every word you learn brings you one step closer to the people who
     speak it. Every sentence you form gives your voice a little more strength.
   translatedText: 
+  voiceClip: {fileID: 0}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

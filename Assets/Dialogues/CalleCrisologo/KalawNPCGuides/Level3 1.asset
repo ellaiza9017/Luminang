@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: 'Welcome to level 3: Grammatical Foundations! Where you''ll learn
     more everyday expressions and actions.'
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 95e5e62f80f83974ca6ca17446c3627f, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

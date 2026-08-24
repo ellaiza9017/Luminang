@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Why not introduce yourself and see how much of your learning you
     can recall?
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 5500f0fcfe539e844b56a3dc657db4a6, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

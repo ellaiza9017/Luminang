@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'A young cafe owner at the market is preparing for the afternoon
     rush, but things aren''t going according to plan. '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: c4d4918d1abeb5c4bb757edee4706176, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

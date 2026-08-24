@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: To truly learn a language, you must listen and understand, choose
     the right words and create your own sentences.
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: ccd41b9f0acbe4f4d94e348dbd2192e3, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

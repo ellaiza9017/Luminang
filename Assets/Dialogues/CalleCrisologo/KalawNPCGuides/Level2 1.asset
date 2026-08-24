@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: You just leveled up to Level 2! Now you're going to learn ilokano
     functional and navigational words!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: aa2b44094f7121e40832f9424cd5cd74, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

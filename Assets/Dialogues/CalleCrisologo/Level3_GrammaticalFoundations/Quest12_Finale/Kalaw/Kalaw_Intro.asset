@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Squawk! Look at you, traveler!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: d564eeda79d90c84ca0cb11b8bb3721a, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

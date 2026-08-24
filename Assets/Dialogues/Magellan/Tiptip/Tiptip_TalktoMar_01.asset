@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Go find the taho vendor named Mar. He'll teach you all there is to
     know about cebuano gratitude and polite expressions!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 53bae36035ec3c240a45efc0d7f8fc9d, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Go meet Mar
   endEventName: SetObjective:Go meet Mar

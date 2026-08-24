@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: Great work! Now to challenge what you learned about ilokano interrogatives,
     go find Dave!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 92a5944ba6fcd474aa80efd3c3ffe71b, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Find Dave'
   endEventName: 'SetObjective: Find Dave'

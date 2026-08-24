@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "But stories aren't just about what happens\u2014they're also about
     who it happens to!"
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8e16aa454f6cdab4b94b113421b3364a, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

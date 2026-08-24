@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: 'Now you know the basic responses of the Ilokano language! How about
     you go and play some game with Pedro? This game will challenge what you learned! '
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 5aa10c0d700288c499d4a1a2d91d0fec, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Meet Pedro'
   endEventName: 'SetObjective: Meet Pedro'

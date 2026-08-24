@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: "You\u2019ve come a long way! "
   translatedText: 
   voiceClip: {fileID: 0}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Tiptip
   speakerPortrait: {fileID: 0}
-  dialogueText: "To ask a name: 'unsay imong ngalan'. To say yours: 'ako si' then your name!"
-  translatedText: ''
+  dialogueText: 'To ask a name: ''unsay imong ngalan''. To say yours: ''ako si''
+    then your name!'
+  translatedText: 
+  voiceClip: {fileID: 8300000, guid: 545664f4424e456428ed88c5c7ae33f5, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 
   choices:
-  - choiceText: ''
+  - choiceText: 
     nextNode: {fileID: 11400000, guid: 106347f3a17d4481a79e4926a8a9d7be, type: 2}
     isWrong: 0
-    choiceEvent: ''
-    expectedSTTWord: ''
+    choiceEvent: 
+    expectedSTTWord: 

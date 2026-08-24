@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: c7eaae8ab4a991e4a944a73b6328db14, type: 3}
   dialogueText: A lesson remembered is good, but a lesson applied is even better.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 5a4c539045623564390f3e6c790d03c0, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Converse with Ronnie
   endEventName: SetObjective:Converse with Ronnie

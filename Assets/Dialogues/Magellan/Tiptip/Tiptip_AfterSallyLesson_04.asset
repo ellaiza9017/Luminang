@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: c7eaae8ab4a991e4a944a73b6328db14, type: 3}
   dialogueText: Now it's time to strengthen those lessons and make them your own.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 21075fe5d2b9c48459b9eddb770bebcf, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

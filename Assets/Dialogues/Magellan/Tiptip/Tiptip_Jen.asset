@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: You've learned how to say 'I,' 'you,' 'we,' and 'they.' Another lesson
     mastered!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 6432f5b340061894fb5618bc31bd63f7, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

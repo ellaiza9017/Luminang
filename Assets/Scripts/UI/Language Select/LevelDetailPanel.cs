@@ -460,7 +460,7 @@ public class LevelDetailPanel : MonoBehaviour
             if (isCebuano)
             {
                 if (!profile.HasSeenCebuIntro) targetScene = "CebuIntroScene";
-                else targetScene = "Magellan's_Cross";
+                else targetScene = "Magellan_s_Cross";
             }
             else
             {
@@ -471,7 +471,7 @@ public class LevelDetailPanel : MonoBehaviour
         else
         {
             // Fallback
-            targetScene = isCebuano ? "Magellan's_Cross" : "Calle_Crisologo";
+            targetScene = isCebuano ? "Magellan_s_Cross" : "Calle_Crisologo";
         }
 
         // Use SceneLoader to smoothly transition with the loading screen

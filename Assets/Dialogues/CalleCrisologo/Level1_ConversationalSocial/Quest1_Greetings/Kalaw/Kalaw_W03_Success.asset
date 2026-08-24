@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Nasayaat ak! That's the spirit! Keep that energy up!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 01cb78840fafc694ea45182a35ec319c, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

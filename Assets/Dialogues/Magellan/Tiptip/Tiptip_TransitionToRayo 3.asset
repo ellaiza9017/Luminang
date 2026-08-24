@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Sometimes we want to say who someone is, what something is, or how
     it feels.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 61e57f728b11f8341abab827e8308c00, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Kumusta ka! Ah, see that smile? You're making friends already!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 5739834d6a8e1f048925755b400298b9, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

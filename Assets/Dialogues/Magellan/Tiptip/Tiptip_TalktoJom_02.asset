@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Come on! Let's discover the Cebuano responses that every traveler
     should know.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: d61110f5dc736ea4b9348fd49d566738, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Find Jom and learn the Cebuano responses
   endEventName: SetObjective:Find Jom and learn the Cebuano responses

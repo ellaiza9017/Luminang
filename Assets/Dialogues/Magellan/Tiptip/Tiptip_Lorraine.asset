@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Fantastic! You've learned how to talk about yourself, your friends,
     and everyone around you.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 1614a389bbdec514f988d117f75b8b3e, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: You're becoming more and more familiar with ilokano! Now it's time
     to step it up to the next level!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 3238a04de5a23764484b4d24a94a446e, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

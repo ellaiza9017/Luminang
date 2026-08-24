@@ -150,7 +150,7 @@ public class RegionSelectionManager : MonoBehaviour
                         if (!UserProfileManager.Instance.CurrentProfile.HasSeenCebuIntro)
                             sceneToLoad = "CebuIntroScene"; // For when you make this later
                         else
-                            sceneToLoad = "Magellan's_Cross";
+                            sceneToLoad = "Magellan_s_Cross";
                     }
                     else
                     {

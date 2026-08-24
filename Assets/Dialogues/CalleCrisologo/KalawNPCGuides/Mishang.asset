@@ -15,9 +15,10 @@ MonoBehaviour:
   speakerName: Kalaw
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Wow! You're already off to your last lessons! Go find Mishang and
-    learn all about the interrogative words of ilonako!
+    learn all about the interrogative words of ilokano!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: ed5dc5c2a7204d04cacdaf403c15c570, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Go over to Mishang'
   endEventName: 'SetObjective: Go over to Mishang'

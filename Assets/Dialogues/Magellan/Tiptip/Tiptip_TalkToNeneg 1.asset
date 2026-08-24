@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Now, let's try something different. Directions help us know where
     to go, but numbers help us know how many!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 81e46f66016778c41a477f70dd4d361f, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

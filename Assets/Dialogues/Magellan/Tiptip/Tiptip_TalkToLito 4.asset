@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: And who better to learn from than someone who spends his days guiding
     travelers across Cebu?
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 749f0d71501dc5848a17681700406a68, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

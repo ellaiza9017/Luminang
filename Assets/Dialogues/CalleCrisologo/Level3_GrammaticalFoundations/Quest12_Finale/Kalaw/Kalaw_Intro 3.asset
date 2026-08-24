@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "A language is a bridge\u2014a way to understand people, share stories,
     and become part of a community."
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 493fa514ef7616d47893b478badd8ccf, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

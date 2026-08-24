@@ -16,7 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Nice! Now you can go guide other people! Why not try helping Rodrick?
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: c5a17e234d23cf24f95bd2c9fb96e772, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: SetObjective:Guide Rodrick to his destination
   endEventName: SetObjective:Guide Rodrick to his destination

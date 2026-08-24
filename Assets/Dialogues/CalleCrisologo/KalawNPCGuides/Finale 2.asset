@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: Now it's time for your final challenge! Come meet me at the stage
     of Burgos Plaza when you're ready!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 21b20726be675ac488ed6cffdb1f4b8d, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Meet Kalaw at the Plaza'
   endEventName: 'SetObjective: Meet Kalaw at the Plaza'

@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Now, try saying 'naimbag a bigat' yourself.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 08bf08c885dd2c54fb62e462a9d0aa3b, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

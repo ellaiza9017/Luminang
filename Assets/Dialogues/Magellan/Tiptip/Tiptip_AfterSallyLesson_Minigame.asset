@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: There's a tourist here that's having quite the trouble introducing
     themselves in cebuano. Why not lend them a hand?
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 701f01743b99828429e60bff48b90fd6, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Help Jerem introduce himself
   endEventName: SetObjective:Help Jerem introduce himself

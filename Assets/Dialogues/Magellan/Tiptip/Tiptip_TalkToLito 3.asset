@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: A language isn't only used to start conversations. It's also used
     to guide people through the world around them.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: cc7ef25e804bc254595eb42cbdc8b85f, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

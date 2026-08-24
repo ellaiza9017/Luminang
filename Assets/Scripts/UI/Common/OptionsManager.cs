@@ -59,7 +59,7 @@ public class OptionsManager : MonoBehaviour
             {
                 backgroundImage.sprite = calleCrisologoBg;
             }
-            else if (PreviousSceneName == "Magellan's_Cross")
+            else if (PreviousSceneName == "Magellan_s_Cross")
             {
                 backgroundImage.sprite = magellansCrossBg;
             }

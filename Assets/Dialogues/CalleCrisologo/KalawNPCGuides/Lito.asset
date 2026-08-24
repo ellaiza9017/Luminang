@@ -18,7 +18,8 @@ MonoBehaviour:
     But saying who we're talking about every time can get tiring. That's where pronouns
     come in!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: ddb11a5e0ad124c4cab38eb8b98c8d5d, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

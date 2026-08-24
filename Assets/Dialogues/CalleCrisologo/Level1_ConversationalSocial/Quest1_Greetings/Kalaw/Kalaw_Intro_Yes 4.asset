@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: So, let's begin with something simple. Before you can truly connect
     with the people of Ilocos, you must first learn how to greet them.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 3fc7e10625f98704099f42faeb04eee1, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

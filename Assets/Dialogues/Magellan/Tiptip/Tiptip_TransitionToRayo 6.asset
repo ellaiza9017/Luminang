@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "Eating, drinking, talking, listening\u2014you've learned how to
     describe what people do."
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: d2cb2dc5932d82a47b560ca242e6af00, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

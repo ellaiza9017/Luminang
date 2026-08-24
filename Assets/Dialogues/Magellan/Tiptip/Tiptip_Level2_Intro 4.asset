@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: When you're ready, go find Irah to begin your first lesson on making
     requests!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: e332f979d3f58a943b74da77796f7ede, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Find Irah to learn Requests
   endEventName: SetObjective:Find Irah to learn Requests

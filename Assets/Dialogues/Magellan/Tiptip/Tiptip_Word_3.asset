@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'Once the sun sets in Cebu and the evening begins, we greet each
     other with "Maayong Gabii". Try saying it back to me. '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f22213a4f11dac747b9438e36b697948, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: maayongGabi
   endEventName: 

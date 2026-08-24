@@ -19,7 +19,8 @@ MonoBehaviour:
     When leaving
     someone, you can say ''agpakada akon'' to say ''goodbye.'''
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 6065e4e9ed6497445a553305aa258210, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:goodbye
   endEventName: 

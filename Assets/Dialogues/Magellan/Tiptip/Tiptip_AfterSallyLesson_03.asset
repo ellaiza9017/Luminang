@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "But words are like seeds. Simply hearing them isn't enough\u2014they
     must be revisited and used before they can grow."
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f37e12abd9455ee4b9380148b5dce4ba, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

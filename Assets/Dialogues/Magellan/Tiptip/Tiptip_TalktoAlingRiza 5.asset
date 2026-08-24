@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: c7eaae8ab4a991e4a944a73b6328db14, type: 3}
   dialogueText: Starting with cebuano action words with Aling Riza!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 3823dedcb5e0fdb41a6ed9b9131b0cf9, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Visit Aling Riza at the bakery
   endEventName: SetObjective:Visit Aling Riza at the bakery

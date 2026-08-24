@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'But imagine this: you''ve arrived in a place you''ve never visited
     before.'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: e528f7e2330ce0b4c851e8620b31db6f, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

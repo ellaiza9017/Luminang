@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: I spotted Kyros at his fishball stall struggling with counting all
     his supplies. Come lend him a hand!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: b7d0df847a4f62e46aeedc466c5e26ae, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Find Kyros at the fishball stall
   endEventName: SetObjective:Find Kyros at the fishball stall

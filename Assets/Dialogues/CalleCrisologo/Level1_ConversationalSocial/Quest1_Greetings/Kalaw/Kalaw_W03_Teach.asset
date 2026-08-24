@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: When someone asks you 'kumusta ka?', you can tell them how you're
     doing. In Ilokano, 'nasayaat ak' means 'I'm fine' or 'I'm doing well.'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: d20eca855fd3a36479107fec952735ab, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:I'm fine
   endEventName: 

@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Along the journey, you've learned new words, met new people, and
     discovered how Cebuano is used in everyday life.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: fea4b3babce65bc409c0bf7440bd53c9, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

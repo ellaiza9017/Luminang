@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: As you practice and learn how Ilocanos talk in their daily lives,
     you will earn their trust and friendship.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: c13f1b23e10c87f45acb4bbee1eafcc9, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

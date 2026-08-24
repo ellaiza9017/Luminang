@@ -26,7 +26,7 @@ public class MainLoading : MonoBehaviour
     public string[] scenesToPreload = new string[] { 
         "LoadingScene", "LoginScene", "SignupScene", "MainMenuScene", 
         "AboutScene", "OptionScene", "CreateCharacterScene", "PrologueScene", 
-        "LanguageSelectionScene", "TutorialScene", "Calle_Crisologo", "Magellan's_Cross", "hatdog"
+        "LanguageSelectionScene", "TutorialScene", "Calle_Crisologo", "Magellan_s_Cross", "hatdog"
     };
     public float minimumLoadTime = 5f;
     public float smoothSpeed = 3f;

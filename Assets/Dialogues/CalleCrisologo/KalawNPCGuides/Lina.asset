@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: 'That''s a meaningful connection! Why don''t you go over to Lina?
     You might make another new friend and connection! '
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: f72ba0371afeb054cb0ff3f51cef7a56, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Go over to Lina'
   endEventName: 'SetObjective: Go over to Lina'

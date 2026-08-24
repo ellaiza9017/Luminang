@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Those may seem like simple responses, but they're the building blocks
     of every conversation!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 4a3dc46abc33b6b4abeff81752e87575, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

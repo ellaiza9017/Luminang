@@ -20,7 +20,8 @@ MonoBehaviour:
     In Ilokano, ''naimbag nga aldaw'' means
     ''good day.'''
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: fcf3291b881f5cd459c77f0fb3b0ac2a, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:good day
   endEventName: 

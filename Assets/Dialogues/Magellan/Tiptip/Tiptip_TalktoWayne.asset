@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'A well mannered customer is welcomed anywhere! Now that you know
     these polite expression, why don''t you help a tourist who don''t?  '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 21e2259eb57d36748bee97caef8b7b31, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Teach Wayne polite Cebuano expressions
   endEventName: SetObjective:Teach Wayne polite Cebuano expressions

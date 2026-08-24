@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: You've learned how to agree, disagree, and even tell someone whether
     you understand them or not.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: ba8c03cdb7babad4a807861e42d59a16, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

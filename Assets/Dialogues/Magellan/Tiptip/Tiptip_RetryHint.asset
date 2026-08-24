@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Tiptip
   speakerPortrait: {fileID: 0}
-  dialogueText: "Don't worry! Let me remind you of a few things before you try again..."
-  translatedText: ''
+  dialogueText: Don't worry! Let me remind you of a few things before you try again...
+  translatedText: 
+  voiceClip: {fileID: 8300000, guid: 83649af4abe0af449aeca87abb894780, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 
   choices:
-  - choiceText: ''
+  - choiceText: 
     nextNode: {fileID: 11400000, guid: e0cf214ab323445380fd0631c9ba7b2c, type: 2}
     isWrong: 0
-    choiceEvent: ''
-    expectedSTTWord: ''
+    choiceEvent: 
+    expectedSTTWord: 

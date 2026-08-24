@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Kalaw
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
-  dialogueText: 'Now Tala needs help at ehr store. Take a look at what''s happening! '
+  dialogueText: 'Now Tala needs help at her store. Take a look at what''s happening! '
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 09defbb043532b34598033fd0571a28f, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: SetObjective:Meet Tala at her stall
   endEventName: SetObjective:Meet Tala at her stall

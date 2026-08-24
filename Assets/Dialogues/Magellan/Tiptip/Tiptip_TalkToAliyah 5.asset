@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: This is the perfect opportunity to put your new request phrases into
     action. Why don't you go see what's happening?
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: e25a59fd5f2051d4783d5d3ba8caf0aa, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: SetObjective:Lend a Hand at the Cafe

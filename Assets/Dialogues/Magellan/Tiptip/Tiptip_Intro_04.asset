@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'Every phrase you speak will charge the crystal with bright energy!
     We have 81 Cebuano words to collect across these lands.  '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: fe385874e6b51744096545c2f63e35a9, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

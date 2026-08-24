@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: But knowing the words is only half the lesson. The real challenge
     is recognizing when to use them.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 23df4054144e0904999d199142f00007, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

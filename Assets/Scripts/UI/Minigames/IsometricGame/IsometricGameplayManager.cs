@@ -1440,7 +1440,7 @@ namespace Luminang.UI.Minigames.IsometricGame
                 if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
                 pendingRewardCoins = 0;
             }
-            string prevScene = PlayerPrefs.GetString("PreviousScene", "Magellan's_Cross"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+            string prevScene = PlayerPrefs.GetString("PreviousScene", "Magellan_s_Cross"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
         }
 
         private IEnumerator BlinkAndDisableBar(Image barImage)

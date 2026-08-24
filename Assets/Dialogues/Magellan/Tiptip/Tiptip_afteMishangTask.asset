@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Excellent work, traveler! You helped our visitor gain the confidence
     to talk with the locals.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: b37a70d2af38e124d998c8d4c6cdbe59, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

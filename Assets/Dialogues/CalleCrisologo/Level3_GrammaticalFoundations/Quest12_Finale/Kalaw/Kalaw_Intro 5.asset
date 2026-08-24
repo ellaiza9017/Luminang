@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "Find the courage to speak\u2014even when the situation changes and
     the words don't come easily."
   translatedText: 
+  voiceClip: {fileID: 0}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

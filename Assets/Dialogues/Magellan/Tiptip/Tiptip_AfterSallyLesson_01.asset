@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: c7eaae8ab4a991e4a944a73b6328db14, type: 3}
   dialogueText: You've gathered quite a collection of Cebuano phrases!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 73bf09dda3b1bc948a6ca4bbd8f89221, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: "You\u2019re ready to continue getting to know the people around
     you."
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 1ed122a446b580349a7407093f053d50, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Get to know Ronnie'
   endEventName: 'SetObjective: Get to know Ronnie'

@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'The day is getting warmer! We greet someone when the afternoon arrives
     by saying "Maayong hapon". Give it a try! '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 6167a62058e50b241a24815a38c60b23, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: maayongHapon
   endEventName: 

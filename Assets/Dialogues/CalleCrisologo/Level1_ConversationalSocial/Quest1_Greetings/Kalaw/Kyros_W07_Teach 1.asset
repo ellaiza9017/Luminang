@@ -19,7 +19,8 @@ MonoBehaviour:
 
     Now, try saying ''naimbag nga aldaw'' yourself.'
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 9f0e0c690851715449527f0a7bc41773, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

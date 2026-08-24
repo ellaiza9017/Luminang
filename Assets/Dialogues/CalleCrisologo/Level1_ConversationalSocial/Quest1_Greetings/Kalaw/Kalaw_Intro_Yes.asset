@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Mmm, sweet and juicy! Thank you so much, traveler!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 03fa59bedf330ef4db884dc1c55a7fb9, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -19,6 +19,8 @@ MonoBehaviour:
     You can
     use it when checking on a friend, neighbor, or someone you''ve just met.'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 7b8b4263a3b5cc44893a2b6d29542b4b, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

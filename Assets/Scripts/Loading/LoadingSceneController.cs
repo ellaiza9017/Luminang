@@ -227,25 +227,54 @@ public class LoadingSceneController : MonoBehaviour
         else
         {
             Debug.Log("[LoadingScene] Starting Async Load for: " + sceneToLoad);
-            operation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
-            operation.allowSceneActivation = false;
-
             float displayedProgress = 0f;
-            while (operation.progress < 0.9f || (Time.time - startTime) < minimumLoadTime)
+            bool isAddressable = sceneToLoad == "Calle_Crisologo" || sceneToLoad == "Magellan_s_Cross";
+
+            if (isAddressable)
             {
-                float realProgress = operation.progress / 0.9f;
-                float timeProgress = (Time.time - startTime) / minimumLoadTime;
-                float targetProgress = Mathf.Min(realProgress, timeProgress);
-
-                displayedProgress = Mathf.MoveTowards(displayedProgress, targetProgress, 1.5f * Time.deltaTime);
-
-                if (loadingText != null)
+                var handle = UnityEngine.AddressableAssets.Addressables.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive, activateOnLoad: false);
+                
+                while (!handle.IsDone || (Time.time - startTime) < minimumLoadTime)
                 {
-                    int percent = Mathf.RoundToInt(displayedProgress * 100f);
-                    loadingText.text = "Loading Assets... " + percent + "%";
-                    if (loadingFill != null) loadingFill.fillAmount = displayedProgress;
+                    float realProgress = handle.PercentComplete;
+                    float timeProgress = (Time.time - startTime) / minimumLoadTime;
+                    float targetProgress = Mathf.Min(realProgress, timeProgress);
+
+                    displayedProgress = Mathf.MoveTowards(displayedProgress, targetProgress, 1.5f * Time.deltaTime);
+
+                    if (loadingText != null)
+                    {
+                        int percent = Mathf.RoundToInt(displayedProgress * 100f);
+                        loadingText.text = "Loading Assets... " + percent + "%";
+                        if (loadingFill != null) loadingFill.fillAmount = displayedProgress;
+                    }
+                    yield return null;
                 }
-                yield return null;
+                
+                operation = handle.Result.ActivateAsync();
+                operation.allowSceneActivation = false;
+            }
+            else
+            {
+                operation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
+                operation.allowSceneActivation = false;
+
+                while (operation.progress < 0.9f || (Time.time - startTime) < minimumLoadTime)
+                {
+                    float realProgress = operation.progress / 0.9f;
+                    float timeProgress = (Time.time - startTime) / minimumLoadTime;
+                    float targetProgress = Mathf.Min(realProgress, timeProgress);
+
+                    displayedProgress = Mathf.MoveTowards(displayedProgress, targetProgress, 1.5f * Time.deltaTime);
+
+                    if (loadingText != null)
+                    {
+                        int percent = Mathf.RoundToInt(displayedProgress * 100f);
+                        loadingText.text = "Loading Assets... " + percent + "%";
+                        if (loadingFill != null) loadingFill.fillAmount = displayedProgress;
+                    }
+                    yield return null;
+                }
             }
 
             if (loadingText != null) loadingText.text = "Loading Assets... 100%";

@@ -1847,7 +1847,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1449638738}
   m_HandleRect: {fileID: 0}
@@ -1983,8 +1983,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
-  m_SizeDelta: {x: -88.504, y: -89}
+  m_AnchoredPosition: {x: 0, y: -0.000091552734}
+  m_SizeDelta: {x: -88.503, y: -84.899}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1442291187
 GameObject:
@@ -2111,8 +2111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 718.5061, y: 0.19919968}
-  m_SizeDelta: {x: 1459.5657, y: 18.8822}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1449638739
 MonoBehaviour:
@@ -2443,6 +2443,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1745650544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1745650546}
+  - component: {fileID: 1745650545}
+  m_Layer: 0
+  m_Name: 'AddressableDownloadManager '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1745650545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745650544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57ad1dd5594fb6458510d41306a047e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AddressableDownloadManager
+  progressBar: {fileID: 1117516691}
+  progressText: {fileID: 1679757240}
+  statusText: {fileID: 701326755}
+  envLoadingIcon: {fileID: 1928472695}
+  npcLoadingIcon: {fileID: 728987487}
+  audioLoadingIcon: {fileID: 38185742}
+  minigameLoadingIcon: {fileID: 1606079484}
+  loadingSprite: {fileID: 21300000, guid: df99ac71d4342a84fa0088dab66e6088, type: 3}
+  checkmarkSprite: {fileID: 21300000, guid: 45948e799d12d9c409d322ab050dac69, type: 3}
+  spinSpeed: 360
+--- !u!4 &1745650546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745650544}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 634.76404, y: 2.73807, z: 491.72406}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928472693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,3 +2763,4 @@ SceneRoots:
   - {fileID: 395277192}
   - {fileID: 705379467}
   - {fileID: 1736772967}
+  - {fileID: 1745650546}

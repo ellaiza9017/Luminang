@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'One of Lina''s teammates needs help organizing a group activity.
     Let''s '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 4aa716b7ab88aec40b5ca43ebf03adf9, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

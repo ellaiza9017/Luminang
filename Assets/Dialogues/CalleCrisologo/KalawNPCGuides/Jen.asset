@@ -16,7 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: You've completed the lesson! Let's put what you've learned into practice.
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 0b5645aa616d7134bbea21edf0c6b160, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: SetObjective:Converse with Jen
   endEventName: SetObjective:Converse with Jen

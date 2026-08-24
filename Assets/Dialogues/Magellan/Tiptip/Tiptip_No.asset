@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'Take your time! You can always find me whenever you are ready to
     take your first steps in your journey in this region. '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: e5bbde3367565c44a976cac741ad6dbc, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Talk to Tiptip
   endEventName: SetObjective:Talk to Tiptip

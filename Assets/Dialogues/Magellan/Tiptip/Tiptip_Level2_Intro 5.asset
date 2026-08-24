@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: You've successfully mastered the essentials of greeting others, showing
     gratitude, and introducing yourself.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: d3e8f5b06802d234ea92b04013bd4199, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

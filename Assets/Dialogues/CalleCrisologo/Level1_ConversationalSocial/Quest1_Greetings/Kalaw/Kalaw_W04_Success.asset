@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Naimbag a bigat! You've got the morning greeting down!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 60cdc176047e18b46b0fffe744128e03, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

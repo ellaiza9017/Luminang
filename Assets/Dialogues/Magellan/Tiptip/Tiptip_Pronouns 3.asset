@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Lina is chatting with some visitors nearby. Why not join her and
     learn the words that help us talk about people?
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: e9cc7201ee3b55044a39f3fdd39be72d, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Come Meet Lina!
   endEventName: SetObjective:Come Meet Lina!

@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Supplies are missing, customers are arriving early, and they're struggling
     to keep everything organized.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 30ed821debe8ade4d86d15876dbccf12, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

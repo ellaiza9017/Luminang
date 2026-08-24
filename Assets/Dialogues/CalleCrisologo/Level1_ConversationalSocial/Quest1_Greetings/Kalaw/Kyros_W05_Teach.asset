@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: When the morning has passed and the afternoon arrives, Ilocanos can
     greet someone by saying 'naimbag a malem.'
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: fcb1a1dcc77858e41b081b87d3421252, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:good afternoon
   endEventName: 

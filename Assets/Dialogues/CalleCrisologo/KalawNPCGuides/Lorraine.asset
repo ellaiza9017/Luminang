@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: Congrats on discovering the ilokano words for pronouns! Now let's
     see if you remembered them well!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: ef8124b045d2380438aab35c9dfeb01b, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Find Lorraine'
   endEventName: 'SetObjective: Find Lorraine'

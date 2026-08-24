@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speakerName: Tiptip
   speakerPortrait: {fileID: 0}
-  dialogueText: "If you don't understand: 'dili ko kasabot'. To thank someone: 'salamat'. To say goodbye: 'paalam'. Now go try again!"
-  translatedText: ''
+  dialogueText: 'If you don''t understand: ''dili ko kasabot''. To thank someone:
+    ''salamat''. To say goodbye: ''paalam''. Now go try again!'
+  translatedText: 
+  voiceClip: {fileID: 8300000, guid: 1af012674eaf12944aee06cabb96962b, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 
   choices:
-  - choiceText: ''
+  - choiceText: 
     nextNode: {fileID: 11400000, guid: 82abfa7a985b4d0abfb1e22096095b5d, type: 2}
     isWrong: 0
-    choiceEvent: ''
-    expectedSTTWord: ''
+    choiceEvent: 
+    expectedSTTWord: 

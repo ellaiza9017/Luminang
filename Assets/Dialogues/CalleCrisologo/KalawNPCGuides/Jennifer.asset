@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: Now we're moving into a more advanced part of Ilokano. Come find
     Jennifer!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: c0b681f5112d5964bad0cc3dddcc6fdc, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Find Jennifer'
   endEventName: 'SetObjective: Find Jennifer'

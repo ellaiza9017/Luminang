@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Let's start with a simple word you'll use often when meeting someone.
     In Ilokano, 'kumusta' means 'hello.'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 1371a42d71d0b8e45ba61ba2b70ffe96, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:hello
   endEventName: 

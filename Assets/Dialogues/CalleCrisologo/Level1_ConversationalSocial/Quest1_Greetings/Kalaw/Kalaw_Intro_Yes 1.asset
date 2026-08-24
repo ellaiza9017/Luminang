@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "Ah, where are my manners\u2014I am Kalaw, your companion and guide
     through these lands!"
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 3e1a9f6a7edca9248bfaf1e6850de135, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

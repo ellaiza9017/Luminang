@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Oh, is that so... Nevermind.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 3374f94ed01835b44ab06e9aad0fa7e9, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

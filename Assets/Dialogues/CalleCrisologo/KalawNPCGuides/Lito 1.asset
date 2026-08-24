@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: "Come along\u2014let's learn the words we use instead of names, like
     'I,' 'you,' and 'they.'"
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: e41fbc65acfd81e459c81116588c3f6c, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Talk to Lito'
   endEventName: 'SetObjective: Talk to Lito'

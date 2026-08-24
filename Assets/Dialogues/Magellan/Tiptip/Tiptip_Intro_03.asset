@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'To unlock its power, you''ll need to explore Magellan''s Cross and
     practice speaking with the Cebuanos using their own words. '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: f38566fd03dfb494897ba5fe097d51ec, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -152,7 +152,7 @@ namespace Luminang.UI.Minigames
             // the screen resolution and safe area layout before we cache their world positions!
             yield return new WaitForEndOfFrame();
 
-            // Disable main game joysticks and touchpads in background scenes (e.g. Magellan's_Cross)
+            // Disable main game joysticks and touchpads in background scenes (e.g. Magellan_s_Cross)
             SceneMinigameTrigger.DisableMainGameControls();
 
             // Make the deck render behind the cards so they fly off the top

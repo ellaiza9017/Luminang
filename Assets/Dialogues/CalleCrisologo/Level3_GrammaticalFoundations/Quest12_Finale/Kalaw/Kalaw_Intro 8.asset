@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Because when you learn a language, you don't just learn how to speak.
     You learn how to connect.
   translatedText: 
+  voiceClip: {fileID: 0}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

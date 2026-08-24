@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'Kumusta kaibigan! I see you''ve already collected all the basic
     greeting words for cebuano! '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 1c4b4db0a9af0024988926fb66e1a328, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

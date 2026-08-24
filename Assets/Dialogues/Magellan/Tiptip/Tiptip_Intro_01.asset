@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'Hold on... is that the ancient anting-anting pendant around your
     neck? Can you feel it vibrating softly? '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8dfbd80e7c7f7be458a338a0fd94cc57, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

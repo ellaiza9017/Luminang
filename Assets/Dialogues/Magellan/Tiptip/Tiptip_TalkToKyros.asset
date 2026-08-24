@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: It was fun counting with Neneng! Now you know how to count form one
     to ten the cebuano style!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 2a886a294a85fe848b428d0c5e5b4af3, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

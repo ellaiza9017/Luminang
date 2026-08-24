@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Why don't you help them? Share what you've learned and guide them
     when they get stuck.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 67e728bbc2393864b87ae08aec41462f, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

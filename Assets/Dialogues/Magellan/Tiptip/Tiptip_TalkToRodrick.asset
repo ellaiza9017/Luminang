@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'Nicely done, traveler! A short while ago, you were the one looking
     for directions. Now you''re ready to give them! '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: ffe08ed7fde3aaf499bb6c0351e95377, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

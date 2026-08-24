@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: In this level, you'll learn how to ask for assistance, request items,
     and find your way around town.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 21ce21a4269186949a8a2da8799bce22, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: c7eaae8ab4a991e4a944a73b6328db14, type: 3}
   dialogueText: But not every sentence is about what someone does.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: ca3aa784d2608bc47955b69c3e96a8c7, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

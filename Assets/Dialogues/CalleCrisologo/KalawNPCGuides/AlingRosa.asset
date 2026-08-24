@@ -16,7 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Come fiind Aling Rosa to continue your journey!
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 7822c8500a1ac6e40a83411b2ab6fdb2, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: SetObjective:Find Aling Rosa
   endEventName: SetObjective:Find Aling Rosa

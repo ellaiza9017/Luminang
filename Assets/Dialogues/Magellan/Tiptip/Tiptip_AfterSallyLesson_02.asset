@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: From greetings and introductions to responses and words of gratitude,
     you've learned the building blocks of conversation.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: ae0c22c95ff245146927fbdc622c34f8, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

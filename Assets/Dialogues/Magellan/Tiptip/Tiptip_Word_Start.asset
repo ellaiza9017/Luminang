@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'Let''s start with the absolute basics and break the ice with the
     townsfolk! '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: fa3666c3464a6d345ba1a2c8cf21e587, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -22,7 +22,8 @@ MonoBehaviour:
     Now, try saying ''naimbag a rabii''
     yourself.'
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 4d4d601439f53634c9ed7b34a5a29a7f, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

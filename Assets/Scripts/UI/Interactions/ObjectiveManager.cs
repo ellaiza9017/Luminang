@@ -436,6 +436,50 @@ public class ObjectiveManager : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    /// Checks if targetObjectiveText comes BEFORE the CurrentObjective chronologically in the JSON file.
+    /// This is crucial for Replay Mode, where a future objective might be 'Completed' in the database,
+    /// but the player hasn't reached it yet in their current replay.
+    /// </summary>
+    public bool IsObjectiveChronologicallyPast(string targetObjectiveText)
+    {
+        if (string.IsNullOrEmpty(targetObjectiveText)) return false;
+        
+        string activeLanguage = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+        bool isCebuano = activeLanguage.Equals("Cebuano", System.StringComparison.OrdinalIgnoreCase);
+        string jsonFileName = isCebuano ? "Cebuano Objectives" : "Ilokano Objectives";
+        
+        TextAsset jsonAsset = Resources.Load<TextAsset>(jsonFileName);
+        if (jsonAsset == null) return false;
+
+        ObjectivesRootData rootData = JsonUtility.FromJson<ObjectivesRootData>(jsonAsset.text);
+        if (rootData == null || rootData.objectives == null) return false;
+
+        string currentObjClean = CurrentObjective != null ? CurrentObjective.Trim() : "";
+        string targetObjClean = targetObjectiveText.Trim();
+
+        foreach (var category in rootData.objectives)
+        {
+            foreach (var item in category.items)
+            {
+                // If we hit the TARGET objective first, it means it's in the PAST.
+                if (item.objective.StartsWith(targetObjClean, System.StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+                
+                // If we hit the CURRENT objective first, it means the target is in the FUTURE.
+                if (!string.IsNullOrEmpty(currentObjClean) && 
+                    item.objective.StartsWith(currentObjClean, System.StringComparison.OrdinalIgnoreCase))
+                {
+                    return false;
+                }
+            }
+        }
+        
+        return false;
+    }
+
 
     /// <summary>
     /// Call this when a player finishes an objective (NPC talk, minigame complete, etc.).

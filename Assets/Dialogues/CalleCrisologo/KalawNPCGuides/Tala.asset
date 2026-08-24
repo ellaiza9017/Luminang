@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: 'Great work! Not only did you help Sally, but you also learned to
     thank her! '
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: fd256c7c870d3de4a9813241d87577b6, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -19,6 +19,8 @@ MonoBehaviour:
     Like flowers
     and roots growing together too!'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 332ce0ab88439d04fa4d8c43599daf2b, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

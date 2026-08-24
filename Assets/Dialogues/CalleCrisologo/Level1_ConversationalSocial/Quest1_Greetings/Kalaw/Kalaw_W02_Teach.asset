@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Once you've greeted someone, you can show more warmth by asking how
     they are.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: e9cac198262c4bd4d942df6de5f4d685, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:how are you?
   endEventName: 

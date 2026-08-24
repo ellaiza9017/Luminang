@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Look at the morning sun shining over the tiled roofs of Calle Crisologo.
     In Ilokano, 'naimbag a bigat' means 'good morning.'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: d5d06633fe3ffa8449fad510d4ee1d06, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:good morning
   endEventName: 

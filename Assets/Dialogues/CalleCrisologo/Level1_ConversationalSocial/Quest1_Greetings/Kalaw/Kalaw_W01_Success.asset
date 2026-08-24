@@ -16,6 +16,8 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e9a1f2822809deb49a0ce098da0fddca, type: 3}
   dialogueText: Kumusta! Nailed it! That's a great way to greet someone!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 30aee10cae9704045b9c95396d3082ce, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

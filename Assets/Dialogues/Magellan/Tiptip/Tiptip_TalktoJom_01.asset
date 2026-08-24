@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: You've learned what to say. Now it's time to learn how to respond
     when others speak to you.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 0749b7c2047d48148a5711177d9c569a, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

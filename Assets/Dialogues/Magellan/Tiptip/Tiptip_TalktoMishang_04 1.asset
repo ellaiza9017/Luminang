@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: After all, one of the best ways to learn something is to teach it
     to someone else!
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: be7b2523fde3f0f47b8cf90f622cadf4, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: SetObjective:Find Mishang and help her
   endEventName: SetObjective:Find Mishang and help her

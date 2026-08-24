@@ -18,6 +18,8 @@ MonoBehaviour:
     of Ilocos, and learned the words and expressions that bring our everyday conversations
     to life.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8b8bf866735ed4a409603a378db055a0, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

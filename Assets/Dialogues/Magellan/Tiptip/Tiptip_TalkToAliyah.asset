@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'Excellent work, traveler! You''ve learned how to ask for help, request
     items, ask questions, and politely get someone''s attention. '
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: d3a14fab8eadbaa488db3dae023d969d, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

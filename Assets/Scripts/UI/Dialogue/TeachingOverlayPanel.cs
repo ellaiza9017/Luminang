@@ -67,6 +67,7 @@ public class TeachingOverlayPanel : MonoBehaviour
 
         _audioSource = gameObject.GetComponent<AudioSource>();
         if (_audioSource == null) _audioSource = gameObject.AddComponent<AudioSource>();
+        _audioSource.playOnAwake = false;
 
         TextAsset dictAsset = Resources.Load<TextAsset>("LuminangJournalDictionary");
         if (dictAsset != null)
@@ -192,18 +193,43 @@ public class TeachingOverlayPanel : MonoBehaviour
             PhraseEvaluator.Instance.SetRegion(lang == "Cebuano" ? RegionMode.Cebuano : RegionMode.Ilokano);
         }
 
-        if (backgroundImage != null)
+        // NEW: AUTOMATIC BACKGROUND FETCHING
+        Sprite foundBg = null;
+
+        // 1. First, try to fetch based on the dictionary meaning
+        if (!string.IsNullOrEmpty(_targetWord) && _journalData != null && _journalData.journal_entries != null)
         {
-            if (!string.IsNullOrEmpty(backgroundName))
+            string currentRegion = PhraseEvaluator.Instance != null && PhraseEvaluator.Instance.CurrentRegion == RegionMode.Cebuano ? "Cebuano" : "Ilokano";
+            foreach (var entry in _journalData.journal_entries)
             {
-                Sprite found = FindBackground(backgroundName);
-                if (found != null) 
+                if (string.Equals(entry.phrase.Trim(), _targetWord.Trim(), System.StringComparison.OrdinalIgnoreCase) && 
+                    string.Equals(entry.language, currentRegion, System.StringComparison.OrdinalIgnoreCase))
                 {
-                    backgroundImage.gameObject.SetActive(true);
-                    ChangeBackground(found);
+                    if (!string.IsNullOrEmpty(entry.meaning))
+                    {
+                        foundBg = FindBackgroundByMeaning(entry.meaning);
+                        if (foundBg != null)
+                            Debug.Log($"[TeachingOverlayPanel] Automatically found background '{foundBg.name}' for meaning '{entry.meaning}'.");
+                    }
+                    break;
                 }
             }
-            // If backgroundName is empty, DO NOT hide the background.
+        }
+
+        // 2. Fallback to manual backgroundName if provided and no meaning was found
+        if (foundBg == null && !string.IsNullOrEmpty(backgroundName))
+        {
+            foundBg = FindBackground(backgroundName);
+        }
+
+        if (backgroundImage != null)
+        {
+            if (foundBg != null) 
+            {
+                backgroundImage.gameObject.SetActive(true);
+                ChangeBackground(foundBg);
+            }
+            // If foundBg is null and backgroundName is empty, DO NOT hide the background.
             // This allows the background to persist across multiple STT nodes!
         }
 
@@ -437,14 +463,35 @@ public class TeachingOverlayPanel : MonoBehaviour
         string target = !string.IsNullOrEmpty(_targetWord) ? _targetWord : 
             (DialogueManager.Instance != null && DialogueManager.Instance.PendingSTTChoice != null ? DialogueManager.Instance.PendingSTTChoice.expectedSTTWord : "");
 
-        if (!string.IsNullOrEmpty(target) && PhraseEvaluator.Instance != null)
+        if (!string.IsNullOrEmpty(target))
         {
-            PhraseEvaluator.Instance.EvaluateSpeech(target, transcribedText, (transcript, scorePercent, evalResult) =>
-            {
-                bool success = scorePercent >= 80f;
-                Debug.Log($"[TeachingOverlayPanel] Evaluation score: {scorePercent:F0}%. Result: {evalResult}");
+            bool isTemplate = target.Contains("{") || target.Contains("[") || target.Contains("_");
 
-                if (success)
+            if (isTemplate)
+            {
+                // For templates like "taga {place} ko" or "ti nagan ko ket ___", Levenshtein fails because the sentence might be too short or too long.
+                // Instead, let's extract the actual words we want them to say (ignoring the bracketed/blank part)
+                // and check if they said those words!
+                string cleanTarget = System.Text.RegularExpressions.Regex.Replace(target.ToLower(), @"\{.*?\}|\[.*?\]|_", "");
+                string[] requiredWords = cleanTarget.Split(new char[] { ' ', '.', ',', '!', '?' }, System.StringSplitOptions.RemoveEmptyEntries);
+                
+                string cleanTranscript = transcribedText.ToLower();
+                bool hasAllRequiredWords = true;
+                
+                foreach (string word in requiredWords)
+                {
+                    if (!cleanTranscript.Contains(word))
+                    {
+                        hasAllRequiredWords = false;
+                        break;
+                    }
+                }
+
+                // Still do a similarity check just in case it was a long sentence, but give them a pass if they hit the keywords!
+                float localScore = ComputeStringSimilarity(target, transcribedText);
+                Debug.Log($"[TeachingOverlayPanel] Template string similarity: {localScore:F1}%. Has required words: {hasAllRequiredWords}");
+
+                if (hasAllRequiredWords || localScore >= 60f)
                 {
                     HandleSuccess(transcribedText);
                 }
@@ -452,7 +499,32 @@ public class TeachingOverlayPanel : MonoBehaviour
                 {
                     HandleFailure();
                 }
-            });
+            }
+            else if (PhraseEvaluator.Instance != null)
+            {
+                PhraseEvaluator.Instance.EvaluateSpeech(target, transcribedText, (transcript, scorePercent, evalResult) =>
+                {
+                    // For TeachingOverlayPanel, success threshold is usually 75-80%
+                    bool success = scorePercent >= 75f;
+                    Debug.Log($"[TeachingOverlayPanel] Evaluation score: {scorePercent:F0}%. Result: {evalResult}");
+
+                    if (success)
+                    {
+                        HandleSuccess(transcribedText);
+                    }
+                    else
+                    {
+                        HandleFailure();
+                    }
+                });
+            }
+            else
+            {
+                // Absolute fallback if PhraseEvaluator is missing
+                float localScore = ComputeStringSimilarity(target.ToLower(), transcribedText.ToLower());
+                if (localScore >= 60f) HandleSuccess(transcribedText);
+                else HandleFailure();
+            }
         }
         else if (PhraseEvaluator.Instance != null)
         {
@@ -469,6 +541,37 @@ public class TeachingOverlayPanel : MonoBehaviour
                 }
             });
         }
+    }
+
+    private float ComputeStringSimilarity(string source, string target)
+    {
+        if (string.IsNullOrEmpty(source) || string.IsNullOrEmpty(target)) return 0f;
+        
+        // Highly forgiving string cleanup: remove all spaces and common punctuation
+        source = System.Text.RegularExpressions.Regex.Replace(source.ToLower(), @"[\s\-\.\,\!\?\'\""]", "");
+        target = System.Text.RegularExpressions.Regex.Replace(target.ToLower(), @"[\s\-\.\,\!\?\'\""]", "");
+        
+        int n = source.Length;
+        int m = target.Length;
+        int[,] d = new int[n + 1, m + 1];
+
+        for (int i = 0; i <= n; i++) { d[i, 0] = i; }
+        for (int j = 0; j <= m; j++) { d[0, j] = j; }
+
+        for (int i = 1; i <= n; i++)
+        {
+            for (int j = 1; j <= m; j++)
+            {
+                int cost = (target[j - 1] == source[i - 1]) ? 0 : 1;
+                d[i, j] = UnityEngine.Mathf.Min(
+                    UnityEngine.Mathf.Min(d[i - 1, j] + 1, d[i, j - 1] + 1),
+                    d[i - 1, j - 1] + cost);
+            }
+        }
+        
+        int maxLen = UnityEngine.Mathf.Max(n, m);
+        if (maxLen == 0) return 100f;
+        return (1f - ((float)d[n, m] / maxLen)) * 100f;
     }
 
     public void HandleSuccess(string transcribedText)
@@ -563,6 +666,27 @@ public class TeachingOverlayPanel : MonoBehaviour
         {
             if (sprite != null && sprite.name.Equals(name, System.StringComparison.OrdinalIgnoreCase))
                 return sprite;
+        }
+        return null;
+    }
+
+    private Sprite FindBackgroundByMeaning(string meaning)
+    {
+        if (backgroundOptions == null || string.IsNullOrEmpty(meaning)) return null;
+        
+        // Remove apostrophes and question marks (since filenames can't have '?')
+        string targetFormat = meaning.ToLower().Replace("'", "_").Replace("?", "").Trim();
+        
+        foreach (var sprite in backgroundOptions)
+        {
+            if (sprite != null)
+            {
+                string spriteFormat = sprite.name.ToLower().Replace("'", "_").Replace("?", "").Trim();
+                if (spriteFormat == targetFormat)
+                {
+                    return sprite;
+                }
+            }
         }
         return null;
     }

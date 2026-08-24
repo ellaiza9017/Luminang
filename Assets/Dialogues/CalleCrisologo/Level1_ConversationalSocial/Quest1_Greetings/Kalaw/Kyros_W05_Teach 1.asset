@@ -21,7 +21,8 @@ MonoBehaviour:
 
     Now, try saying ''naimbag a malem'' yourself.'
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 1de372394a856944b8c2770e3ed2292d, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

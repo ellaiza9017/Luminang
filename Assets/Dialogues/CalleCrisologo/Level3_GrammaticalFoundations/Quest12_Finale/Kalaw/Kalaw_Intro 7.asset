@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: So don't be afraid to make mistakes, traveler. Keep listening. Keep
     speaking. Keep learning.
   translatedText: 
+  voiceClip: {fileID: 0}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

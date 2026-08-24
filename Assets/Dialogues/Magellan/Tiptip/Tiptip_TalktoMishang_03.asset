@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: There's a fellow visitor around here who's having trouble figuring
     out the right responses in a conversation.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 8fb809e4025a9df4ea665e762997443b, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

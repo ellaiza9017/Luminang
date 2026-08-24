@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: 'Kumusta! You''re quite the character now! Why don''t you go introduce
     yourself to Klara! '
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: a30cdf2b7c0937b4db2476aa0dc2e34a, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 'SetObjective: Meet Klara at the sari-sari store'
   endEventName: 'SetObjective: Meet Klara at the sari-sari store'

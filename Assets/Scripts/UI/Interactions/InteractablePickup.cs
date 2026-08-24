@@ -7,7 +7,12 @@ using UnityEngine;
 public class InteractablePickup : InteractableBase
 {
     [Header("Quest Settings")]
+    [Tooltip("The exact objective text (e.g. 'Collect all weaving materials').")]
     public string requiredObjective = "Collect yarns";
+    
+    [Tooltip("Optional: The OFFICIAL JSON objective that, once reached, means these items should be permanently hidden. (e.g. 'Return to Sally')")]
+    public string completionAnchorObjective = "";
+    
     public bool hideOnPickup = true; // New Toggle!
     public bool canBeClicked = true; // New Toggle!
     public bool autoAddProgress = true; // Automatically increment the counter!
@@ -30,9 +35,15 @@ public class InteractablePickup : InteractableBase
     private LineRenderer _line;
     private Material _lineMat;
     private bool _matchesObjective = false;
+    private bool _hasBeenPickedUp = false;
+    private string _pickupKey;
 
     protected virtual void Awake()
     {
+        // Create a unique key for this specific pickup based on its name and position
+        _pickupKey = $"Pickup_{gameObject.scene.name}_{gameObject.name}_{Mathf.RoundToInt(transform.position.x * 100f)}";
+        _hasBeenPickedUp = PlayerPrefs.GetInt(_pickupKey, 0) == 1;
+
         SetupVisuals();
     }
 
@@ -45,7 +56,6 @@ public class InteractablePickup : InteractableBase
     protected override void Start()
     {
         base.Start();
-        // Sync with the current objective AFTER Awake() has run SetupVisuals()
         if (ObjectiveManager.Instance != null)
             HandleObjectiveChanged(ObjectiveManager.Instance.CurrentObjective);
     }
@@ -60,23 +70,77 @@ public class InteractablePickup : InteractableBase
     {
         if (_line == null) return; // Not yet initialized by Awake
 
-        _matchesObjective = !string.IsNullOrEmpty(newObjective) && 
-                            newObjective.StartsWith(requiredObjective.Trim(), System.StringComparison.OrdinalIgnoreCase);
+        string cleanRequired = requiredObjective.Trim();
+        string cleanNew = newObjective != null ? newObjective.Trim() : "";
+        string anchor = string.IsNullOrEmpty(completionAnchorObjective) ? cleanRequired : completionAnchorObjective.Trim();
+
+        // DETERMINE CHRONOLOGICAL STATE
+        // We check the anchor against the master JSON list.
+        bool isPast = ObjectiveManager.Instance != null && ObjectiveManager.Instance.IsObjectiveChronologicallyPast(anchor);
         
-        // Only enable interaction if the quest matches AND the designer allowed it
+        _matchesObjective = !string.IsNullOrEmpty(cleanNew) && 
+                            cleanNew.StartsWith(cleanRequired, System.StringComparison.OrdinalIgnoreCase);
+
+        // 1. RESTART LOGIC: If the quest just started (or restarted at 0/X), wipe the pickup memory
+        if (_matchesObjective && 
+            (cleanNew.Equals(cleanRequired, System.StringComparison.OrdinalIgnoreCase) ||
+             cleanNew.StartsWith(cleanRequired + " (0/", System.StringComparison.OrdinalIgnoreCase)))
+        {
+            _hasBeenPickedUp = false;
+            PlayerPrefs.DeleteKey(_pickupKey);
+        }
+
         interactionEnabled = _matchesObjective && canBeClicked;
-        
-        if (_line != null) _line.gameObject.SetActive(_matchesObjective);
-        if (!_matchesObjective && _mat != null) _mat.SetColor("_EmissionColor", Color.black);
+
+        if (_matchesObjective)
+        {
+            // ACTIVE QUEST
+            if (_hasBeenPickedUp)
+            {
+                // Already picked up during this active quest
+                SetVisible(false);
+                interactionEnabled = false;
+                if (_line != null) _line.gameObject.SetActive(false);
+            }
+            else
+            {
+                // Ready to be picked up
+                SetVisible(true);
+                if (_line != null) _line.gameObject.SetActive(true);
+                // Color is handled in Update()
+            }
+        }
+        else if (isPast)
+        {
+            // POST-QUEST (Chronologically)
+            // They are past this objective in the current timeline. Hide it forever.
+            SetVisible(false);
+            interactionEnabled = false;
+            if (_line != null) _line.gameObject.SetActive(false);
+            if (_mat != null) _mat.SetColor("_EmissionColor", Color.black);
+        }
+        else
+        {
+            // PRE-QUEST (Chronologically)
+            // Even if they picked this up yesterday, they are replaying a chapter BEFORE this item.
+            // Chronologically, it hasn't been picked up yet in this timeline. Make it visible!
+            SetVisible(true);
+            interactionEnabled = false; // Cannot click it yet
+            if (_line != null) _line.gameObject.SetActive(false);
+            if (_mat != null) _mat.SetColor("_EmissionColor", Color.black);
+        }
     }
 
     public override void Interact()
     {
-        if (!interactionEnabled) return;
+        if (!interactionEnabled || _hasBeenPickedUp) return;
 
         Debug.Log($"[InteractablePickup] {gameObject.name} interaction triggered!");
         
-        // Fire the standard event from the base class
+        _hasBeenPickedUp = true;
+        PlayerPrefs.SetInt(_pickupKey, 1);
+        PlayerPrefs.Save();
+
         OnInteract?.Invoke();
 
         if (autoAddProgress && ObjectiveManager.Instance != null)
@@ -84,16 +148,27 @@ public class InteractablePickup : InteractableBase
             ObjectiveManager.Instance.AddProgress();
         }
         
-        // Only hide if the toggle is checked
         if (hideOnPickup)
         {
-            gameObject.SetActive(false);
+            SetVisible(false);
+            if (_line != null) _line.gameObject.SetActive(false);
+        }
+    }
+
+    private void SetVisible(bool isVisible)
+    {
+        if (_renderer != null) _renderer.enabled = isVisible;
+        var col = GetComponent<Collider>();
+        if (col != null) col.enabled = isVisible;
+        foreach (Transform child in transform)
+        {
+            if (child.name != "_QuestStreak") child.gameObject.SetActive(isVisible);
         }
     }
 
     private void Update()
     {
-        if (!_matchesObjective || !gameObject.activeInHierarchy) return;
+        if (!_matchesObjective || _hasBeenPickedUp || !_renderer.enabled) return;
 
         float t = (Mathf.Sin(Time.time * pulseSpeed) + 1f) / 2f;
         float intensity = Mathf.Lerp(1f, 8f, t);

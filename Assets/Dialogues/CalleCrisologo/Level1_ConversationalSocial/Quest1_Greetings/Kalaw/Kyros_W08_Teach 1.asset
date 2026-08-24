@@ -19,7 +19,8 @@ MonoBehaviour:
     Now, try
     saying ''agpakada akon'' yourself.'
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: 232f35a64bd84da4db2797f198705074, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 

@@ -17,7 +17,8 @@ MonoBehaviour:
   dialogueText: As the sun sets and the streetlamps begin to glow, the greeting changes
     with the time of day.
   translatedText: 
-  voiceClip: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: c6e7b815cac424741a317a7f7d444e39, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: ShowTeachingPanel:good evening
   endEventName: 

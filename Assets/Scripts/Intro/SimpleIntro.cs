@@ -122,15 +122,17 @@ public class SampleIntro : MonoBehaviour
         {
             sceneLoading = true;
             
-            // If the TransitionOverlay exists, use its smooth fade
+            // ALWAYS go to LoadingResourcesScene first.
+            // If download is needed -> it shows the download UI, then goes to MainLoadingScene.
+            // If no download needed -> it skips instantly and goes to MainLoadingScene.
+            // This way the planned flow is: TeamBA -> LoadingResourcesScene -> MainLoadingScene
             if (TransitionOverlay.Instance != null)
             {
-                TransitionOverlay.Instance.StartTransition("MainLoadingScene");
+                TransitionOverlay.Instance.StartTransition("LoadingResourcesScene");
             }
             else
             {
-                // Fallback if no overlay is in the scene
-                SceneManager.LoadScene("MainLoadingScene");
+                SceneManager.LoadScene("LoadingResourcesScene");
             }
         }
     }

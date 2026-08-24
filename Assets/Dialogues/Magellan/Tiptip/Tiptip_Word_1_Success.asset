@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: "Maayong buntag! Nailed it! Look, your pendant just gave its very
     first warm spark of light!\t"
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 51da263641d7a844591262a0853f8dbe, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

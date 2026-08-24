@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: Those things need special connecting words. Rayo knows quite a bit
     about them.
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: dc5e19fb1abd09c4eb9d38d7a15dd217, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

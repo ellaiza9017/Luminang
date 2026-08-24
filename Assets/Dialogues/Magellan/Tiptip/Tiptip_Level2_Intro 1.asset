@@ -17,6 +17,8 @@ MonoBehaviour:
   dialogueText: 'You''re now ready to move up to Level 2: Functional & Navigational
     Phrases!'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: 25ebf1b073d79e64998a6061a22f0304, type: 3}
+  voiceGain: 2
   animationTrigger: 
   triggerEventName: 
   endEventName: 

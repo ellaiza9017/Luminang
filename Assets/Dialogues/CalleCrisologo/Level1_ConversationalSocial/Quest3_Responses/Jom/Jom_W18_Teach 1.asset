@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogueText: "You can use it when you need someone to explain something again.\r\nRemember
     this: diak maawatan. Your turn\u2014say it back to me."
   translatedText: 
+  voiceClip: {fileID: 0}
   animationTrigger: 
   triggerEventName: 
   endEventName: 
@@ -25,4 +26,4 @@ MonoBehaviour:
     nextNode: {fileID: 11400000, guid: cbbd80b93f396984f8586aae8fe1b050, type: 2}
     isWrong: 0
     choiceEvent: 
-    expectedSTTWord: diak mawatan
+    expectedSTTWord: diak maawatan

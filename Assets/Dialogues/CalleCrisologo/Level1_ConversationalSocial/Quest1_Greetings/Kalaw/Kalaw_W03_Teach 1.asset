@@ -19,6 +19,8 @@ MonoBehaviour:
 
     Now, try saying ''nasayaat ak'' yourself.'
   translatedText: 
+  voiceClip: {fileID: 8300000, guid: eb59c82ce4eeef440928af4fb6051f77, type: 3}
+  voiceGain: 3
   animationTrigger: 
   triggerEventName: 
   endEventName: 
