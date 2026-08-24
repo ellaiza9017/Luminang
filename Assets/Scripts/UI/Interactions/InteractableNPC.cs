@@ -243,14 +243,12 @@ public class InteractableNPC : InteractableBase
         // Check implicit targeting if not already found in questDialogues
         if (!isTarget && (obj.StartsWith("Talk to ", System.StringComparison.OrdinalIgnoreCase) || 
             obj.StartsWith("Return to ", System.StringComparison.OrdinalIgnoreCase) ||
-            obj.StartsWith("Meet ", System.StringComparison.OrdinalIgnoreCase) ||
-            obj.StartsWith("Find ", System.StringComparison.OrdinalIgnoreCase)))
+            obj.StartsWith("Meet ", System.StringComparison.OrdinalIgnoreCase)))
         {
             string targetName = obj;
             if (obj.StartsWith("Talk to ", System.StringComparison.OrdinalIgnoreCase)) targetName = obj.Substring("Talk to ".Length).Trim();
             else if (obj.StartsWith("Return to ", System.StringComparison.OrdinalIgnoreCase)) targetName = obj.Substring("Return to ".Length).Trim();
             else if (obj.StartsWith("Meet ", System.StringComparison.OrdinalIgnoreCase)) targetName = obj.Substring("Meet ".Length).Trim();
-            else if (obj.StartsWith("Find ", System.StringComparison.OrdinalIgnoreCase)) targetName = obj.Substring("Find ".Length).Trim();
             
             string cleanTarget = targetName.Replace(" ", "").Replace("_", "").ToLower();
             string cleanName = gameObject.name.Replace(" ", "").Replace("_", "").ToLower()

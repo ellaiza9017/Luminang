@@ -466,7 +466,7 @@ public class SariSariGameManager : MonoBehaviour
             if (slot == null || slot.CurrentBlock == null)
             {
                 // If any slot is empty, we don't check yet! Play wrong face to hint they need to fill it
-                SariSariNPC activeNPC_empty = (activeSessionRounds[currentRoundIndex].npcType == "Tindera") ? tindera : GetActiveCustomer();
+                SariSariNPC activeNPC_empty = (activeSessionRounds[currentRoundIndex].npcType == "Tindera") ? tindera : leftTambay;
                 activeNPC_empty.SetWrong();
                 Invoke("ResetNPCIdle", 1.5f);
                 return; 
@@ -734,7 +734,7 @@ public class SariSariGameManager : MonoBehaviour
         if (currentRoundIndex >= activeSessionRounds.Count) return;
         
         ChismisRoundData currentRound = activeSessionRounds[currentRoundIndex];
-        SariSariNPC activeNPC = (currentRound.npcType == "Tindera") ? tindera : GetActiveCustomer();
+        SariSariNPC activeNPC = (currentRound.npcType == "Tindera") ? tindera : leftTambay;
         activeNPC.SetIdle();
         
         // Restore original prompt dialogue
