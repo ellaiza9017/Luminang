@@ -758,7 +758,7 @@ public class DialogueManager : MonoBehaviour
     private void BroadcastDialogueEvent(string eventName)
     {
         if (string.IsNullOrEmpty(eventName)) return;
-        var allNPCs = FindObjectsByType<InteractableNPC>(FindObjectsSortMode.None);
+        var allNPCs = FindObjectsByType<InteractableNPC>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         foreach (var npc in allNPCs)
             npc.HandleDialogueEvent(eventName);
     }
