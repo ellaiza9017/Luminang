@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrologueController
   introType: 2
-  nextSceneName: Magellan's_Cross
+  nextSceneName: Magellan_s_Cross
   videoPlayer: {fileID: 283730720}
   fallbackWaitTime: 5
   sceneLoader: {fileID: 283730721}

@@ -170,7 +170,7 @@ MonoBehaviour:
   - sceneNameContains: CharacterCustomizationScene
     clip: {fileID: 8300000, guid: 9df55647de5b46d4f8f8e406a286c9b7, type: 3}
     volumeMultiplier: 0.5
-  - sceneNameContains: Magellan's_Cross
+  - sceneNameContains: Magellan_s_Cross
     clip: {fileID: 8300000, guid: 6e55f91d1c1a7744b99bcc6590352f49, type: 3}
     volumeMultiplier: 0.5
   - sceneNameContains: Calle_Crisologo

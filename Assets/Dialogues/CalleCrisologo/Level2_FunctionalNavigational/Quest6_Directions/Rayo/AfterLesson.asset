@@ -17,12 +17,14 @@ MonoBehaviour:
   dialogueText: Now you know how to navigate around these streets! If you get lost,
     come find me!
   translatedText: 
+  voiceClip: {fileID: 0}
+  voiceGain: 1
   animationTrigger: 
   triggerEventName: HideTeachingPanel
   endEventName: 
   choices:
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: b84ea4c1303f77443ac706b98ff484d3, type: 2}
+    nextNode: {fileID: 11400000, guid: 47e344822965e3642ab630cd01f9bcb9, type: 2}
     isWrong: 0
     choiceEvent: ShowPopup:directions
     expectedSTTWord: 

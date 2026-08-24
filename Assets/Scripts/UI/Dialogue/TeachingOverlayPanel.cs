@@ -493,11 +493,11 @@ public class TeachingOverlayPanel : MonoBehaviour
 
                 if (hasAllRequiredWords || localScore >= 60f)
                 {
-                    HandleSuccess(transcribedText);
+                    HandleSuccess(transcribedText, hasAllRequiredWords ? 100f : localScore);
                 }
                 else
                 {
-                    HandleFailure();
+                    HandleFailure(transcribedText, localScore);
                 }
             }
             else if (PhraseEvaluator.Instance != null)
@@ -510,11 +510,11 @@ public class TeachingOverlayPanel : MonoBehaviour
 
                     if (success)
                     {
-                        HandleSuccess(transcribedText);
+                        HandleSuccess(transcribedText, scorePercent);
                     }
                     else
                     {
-                        HandleFailure();
+                        HandleFailure(transcribedText, scorePercent);
                     }
                 });
             }
@@ -522,8 +522,8 @@ public class TeachingOverlayPanel : MonoBehaviour
             {
                 // Absolute fallback if PhraseEvaluator is missing
                 float localScore = ComputeStringSimilarity(target.ToLower(), transcribedText.ToLower());
-                if (localScore >= 60f) HandleSuccess(transcribedText);
-                else HandleFailure();
+                if (localScore >= 60f) HandleSuccess(transcribedText, localScore);
+                else HandleFailure(transcribedText, localScore);
             }
         }
         else if (PhraseEvaluator.Instance != null)
@@ -533,11 +533,11 @@ public class TeachingOverlayPanel : MonoBehaviour
                 bool success = accuracy >= 80f && !isEnglish;
                 if (success)
                 {
-                    HandleSuccess(transcribedText);
+                    HandleSuccess(transcribedText, accuracy);
                 }
                 else
                 {
-                    HandleFailure();
+                    HandleFailure(transcribedText, accuracy);
                 }
             });
         }
@@ -574,13 +574,20 @@ public class TeachingOverlayPanel : MonoBehaviour
         return (1f - ((float)d[n, m] / maxLen)) * 100f;
     }
 
-    public void HandleSuccess(string transcribedText)
+    public void HandleSuccess(string transcribedText, float score = -1f)
     {
         Debug.Log($"<color=green>[TeachingOverlayPanel] HandleSuccess called for speech: '{transcribedText}'. Firing CompleteSTT(true)...</color>");
 
         // 1. Display success message on overlay prompt
         if (promptText != null)
-            promptText.text = "<color=#55FF55><b>Great job! Correct!</b></color>";
+        {
+            string msg = "<color=#55FF55><b>Great job! Correct!</b></color>";
+            if (!string.IsNullOrEmpty(transcribedText) && score >= 0f)
+            {
+                msg += $"\n<size=35><color=#FFFFaa>Heard: \"{transcribedText}\" (Score: {score:F0}%)</color></size>";
+            }
+            promptText.text = msg;
+        }
 
         // 2. Hide the mic button so player uses NEXT>> on dialogue panel
         if (micButton != null)
@@ -595,11 +602,18 @@ public class TeachingOverlayPanel : MonoBehaviour
         // NOTE: We do NOT call Hide() here! Panel & background stay active during the success node!
     }
 
-    private void HandleFailure()
+    private void HandleFailure(string heard = "", float score = -1f)
     {
         // Display only 'Not quite!' message without doubling the prompt text
         if (promptText != null)
-            promptText.text = "<color=#FF7777><b>Not quite! Try again.</b></color>";
+        {
+            string msg = "<color=#FF7777><b>Not quite! Try again.</b></color>";
+            if (!string.IsNullOrEmpty(heard) && score >= 0f)
+            {
+                msg += $"\n<size=35><color=#FFFFaa>Heard: \"{heard}\" (Score: {score:F0}%)</color></size>";
+            }
+            promptText.text = msg;
+        }
 
         // Re-enable mic button so player can attempt again right away
         if (micButton != null)

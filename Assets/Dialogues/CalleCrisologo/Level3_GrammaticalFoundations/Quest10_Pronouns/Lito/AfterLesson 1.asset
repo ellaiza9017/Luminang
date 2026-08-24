@@ -18,12 +18,14 @@ MonoBehaviour:
     everywhere you go. Keep practicing, and they'll soon become second nature. Well
     done!
   translatedText: 
+  voiceClip: {fileID: 0}
+  voiceGain: 1
   animationTrigger: 
   triggerEventName: 
   endEventName: 
   choices:
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 32251fdb79bd4b24290aaa25f0c5cd9b, type: 2}
+    nextNode: {fileID: 11400000, guid: b204a8a2908b693468a57aa51c0fc28f, type: 2}
     isWrong: 0
     choiceEvent: ShowPopup:pronouns
     expectedSTTWord: 

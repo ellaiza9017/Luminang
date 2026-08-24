@@ -16,12 +16,14 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: e185e0ec3efba60429a1f9e0680e9fe7, type: 3}
   dialogueText: If you wanna recall them again, just ask me.
   translatedText: 
+  voiceClip: {fileID: 0}
+  voiceGain: 1
   animationTrigger: 
   triggerEventName: 
   endEventName: 
   choices:
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: ec029d69074e8dd419672043166a2020, type: 2}
+    nextNode: {fileID: 11400000, guid: 48b9f97ff5f1f6340a91fedd0887d205, type: 2}
     isWrong: 0
     choiceEvent: 
     expectedSTTWord: 

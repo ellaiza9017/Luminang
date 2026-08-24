@@ -16,12 +16,14 @@ MonoBehaviour:
   speakerPortrait: {fileID: 21300000, guid: 431c291e6a9edde459aa387cb0de89cb, type: 3}
   dialogueText: Count with me if you feel like relaxing!
   translatedText: 
+  voiceClip: {fileID: 0}
+  voiceGain: 1
   animationTrigger: 
   triggerEventName: 
   endEventName: 
   choices:
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 43a6331b91bd60340b75e698c2d7f5ee, type: 2}
+    nextNode: {fileID: 11400000, guid: ef16be2ede0b2d14ba078ad93231f9e1, type: 2}
     isWrong: 0
     choiceEvent: ShowPopup:counting
     expectedSTTWord: 
