@@ -548,10 +548,10 @@ public class BookSelectionManager : MonoBehaviour
             PhraseEvaluator.Instance.SetRegion(mode);
 
         Debug.Log($"[BookUI] Stored region: {mode}. Proceeding...");
-        StartCoroutine(TransitionToGame());
+        StartCoroutine(TransitionToGame(mode));
     }
 
-    private IEnumerator TransitionToGame()
+    private IEnumerator TransitionToGame(RegionMode mode)
     {
         _isTransitioning = true;
 
@@ -571,12 +571,26 @@ public class BookSelectionManager : MonoBehaviour
         }
 
         // Scene Routing
-        string sceneToLoad = "TutorialScene";
+        string sceneToLoad = "Calle_Crisologo"; // Default fallback
         if (UserProfileManager.Instance?.CurrentProfile != null)
         {
-            if (UserProfileManager.Instance.CurrentProfile.HasCompletedTutorial)
+            if (mode == RegionMode.Ilokano)
             {
-                sceneToLoad = "SampleScene";
+                if (!UserProfileManager.Instance.CurrentProfile.HasSeenIlocosIntro)
+                    sceneToLoad = "IlocosIntroScene";
+                else if (!UserProfileManager.Instance.CurrentProfile.HasCompletedTutorial)
+                    sceneToLoad = "TutorialScene";
+                else
+                    sceneToLoad = "Calle_Crisologo";
+            }
+            else if (mode == RegionMode.Cebuano)
+            {
+                if (!UserProfileManager.Instance.CurrentProfile.HasSeenCebuIntro)
+                    sceneToLoad = "CebuIntroScene";
+                else if (!UserProfileManager.Instance.CurrentProfile.HasCompletedTutorial)
+                    sceneToLoad = "TutorialScene";
+                else
+                    sceneToLoad = "Magellan_s_Cross";
             }
         }
 

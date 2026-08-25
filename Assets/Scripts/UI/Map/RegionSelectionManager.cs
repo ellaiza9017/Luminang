@@ -130,38 +130,34 @@ public class RegionSelectionManager : MonoBehaviour
         }
 
         // 2. Decide where to go based on progress
-        string sceneToLoad = "TutorialScene";
+        string sceneToLoad = "Calle_Crisologo"; // Default fallback
         if (UserProfileManager.Instance != null && UserProfileManager.Instance.CurrentProfile != null)
         {
-            if (UserProfileManager.Instance.CurrentProfile.HasCompletedTutorial)
+            if (currentRegion != null && currentRegion.data != null)
             {
-                if (currentRegion != null && currentRegion.data != null)
+                string region = currentRegion.data.regionName.ToLower();
+                if (region.Contains("ilocos") || region.Contains("crisologo"))
                 {
-                    string region = currentRegion.data.regionName.ToLower();
-                    if (region.Contains("ilocos") || region.Contains("crisologo"))
-                    {
-                        if (!UserProfileManager.Instance.CurrentProfile.HasSeenIlocosIntro)
-                            sceneToLoad = "IlocosIntroScene";
-                        else
-                            sceneToLoad = "Calle_Crisologo";
-                    }
-                    else if (region.Contains("cebu") || region.Contains("magellan"))
-                    {
-                        if (!UserProfileManager.Instance.CurrentProfile.HasSeenCebuIntro)
-                            sceneToLoad = "CebuIntroScene"; // For when you make this later
-                        else
-                            sceneToLoad = "Magellan_s_Cross";
-                    }
+                    if (!UserProfileManager.Instance.CurrentProfile.HasSeenIlocosIntro)
+                        sceneToLoad = "IlocosIntroScene";
+                    else if (!UserProfileManager.Instance.CurrentProfile.HasCompletedTutorial)
+                        sceneToLoad = "TutorialScene";
                     else
-                    {
                         sceneToLoad = "Calle_Crisologo";
-                    }
                 }
-                else
+                else if (region.Contains("cebu") || region.Contains("magellan"))
                 {
-                    sceneToLoad = "Calle_Crisologo";
+                    if (!UserProfileManager.Instance.CurrentProfile.HasSeenCebuIntro)
+                        sceneToLoad = "CebuIntroScene";
+                    else if (!UserProfileManager.Instance.CurrentProfile.HasCompletedTutorial)
+                        sceneToLoad = "TutorialScene";
+                    else
+                        sceneToLoad = "Magellan_s_Cross";
                 }
-                Debug.Log($"[Map] Tutorial already completed. Skipping to {sceneToLoad}...");
+            }
+            else
+            {
+                sceneToLoad = !UserProfileManager.Instance.CurrentProfile.HasCompletedTutorial ? "TutorialScene" : "Calle_Crisologo";
             }
         }
 

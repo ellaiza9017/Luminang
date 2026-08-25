@@ -646,14 +646,14 @@ public class AssessmentManager : MonoBehaviour
         if (isCorrect)
         {
             mcChoiceButtons[mcSelectedIndex].image.color = mcCorrectColor;
-            if(audioSource && correctSfx) audioSource.PlayOneShot(correctSfx);
+            PlaySFX(correctSfx);
             StartCoroutine(ShowCorrectOrWrongPopup(true));
         }
         else
         {
             mcChoiceButtons[mcSelectedIndex].image.color = mcWrongColor;
             mcChoiceButtons[mcCorrectIndex].image.color = mcCorrectColor; // Reveal the correct one
-            if(audioSource && wrongSfx) audioSource.PlayOneShot(wrongSfx);
+            PlaySFX(wrongSfx);
             StartCoroutine(ShowCorrectOrWrongPopup(false));
         }
         
@@ -744,14 +744,14 @@ public class AssessmentManager : MonoBehaviour
         if (isCorrect)
         {
             fibChoiceButtons[fibSelectedIndex].image.color = mcCorrectColor;
-            if(audioSource && correctSfx) audioSource.PlayOneShot(correctSfx);
+            PlaySFX(correctSfx);
             StartCoroutine(ShowCorrectOrWrongPopup(true));
         }
         else
         {
             fibChoiceButtons[fibSelectedIndex].image.color = mcWrongColor;
             fibChoiceButtons[fibCorrectIndex].image.color = mcCorrectColor; // Reveal the correct one
-            if(audioSource && wrongSfx) audioSource.PlayOneShot(wrongSfx);
+            PlaySFX(wrongSfx);
             StartCoroutine(ShowCorrectOrWrongPopup(false));
         }
         
@@ -926,7 +926,7 @@ public class AssessmentManager : MonoBehaviour
                 sttStatusText.text = "Correct!";
                 sttStatusText.color = sttColorCorrect;
             }
-            if (audioSource && correctSfx) audioSource.PlayOneShot(correctSfx);
+            PlaySFX(correctSfx);
             StartCoroutine(ShowCorrectOrWrongPopup(true));
             OnAnswerSubmitted(true);
         }
@@ -951,7 +951,7 @@ public class AssessmentManager : MonoBehaviour
                     sttStatusText.text = $"Correct answer was:\n\"{sttTargetWord}\"";
                     sttStatusText.color = sttColorWrong;
                 }
-                if (audioSource && wrongSfx) audioSource.PlayOneShot(wrongSfx);
+                PlaySFX(wrongSfx);
                 
                 StartCoroutine(ShowCorrectOrWrongPopup(false));
                 OnAnswerSubmitted(false);
@@ -967,7 +967,7 @@ public class AssessmentManager : MonoBehaviour
                     sttStatusText.text = $"Not quite! You have {sttTries} tries left.";
                     sttStatusText.color = sttColorWrong;
                 }
-                if (audioSource && wrongSfx) audioSource.PlayOneShot(wrongSfx);
+                PlaySFX(wrongSfx);
             }
         }
     }
@@ -1152,7 +1152,7 @@ public class AssessmentManager : MonoBehaviour
     {
         if (audioSource && sbDropSfx)
         {
-            audioSource.PlayOneShot(sbDropSfx);
+            PlaySFX(sbDropSfx);
         }
     }
 
@@ -1214,12 +1214,12 @@ public class AssessmentManager : MonoBehaviour
 
         if (isCorrect)
         {
-            if (audioSource && correctSfx) audioSource.PlayOneShot(correctSfx);
+            PlaySFX(correctSfx);
             StartCoroutine(ShowCorrectOrWrongPopup(true));
         }
         else
         {
-            if (audioSource && wrongSfx) audioSource.PlayOneShot(wrongSfx);
+            PlaySFX(wrongSfx);
             StartCoroutine(ShowCorrectOrWrongPopup(false));
         }
 
@@ -1388,7 +1388,7 @@ public class AssessmentManager : MonoBehaviour
         // Disable interaction during transition
         yield return new WaitForSeconds(1.5f);
         
-        if(audioSource && nextQuestionSfx) audioSource.PlayOneShot(nextQuestionSfx);
+        PlaySFX(nextQuestionSfx);
 
         
         // Optional: Check if we are crossing a section boundary (e.g. Q# 22 -> 23)
@@ -1430,11 +1430,8 @@ public class AssessmentManager : MonoBehaviour
         if (roundedPerc >= 75) stars = 4;
         if (roundedPerc >= 90) stars = 5;
 
-        if (audioSource != null)
-        {
-            if (stars > 0 && winSfx != null) audioSource.PlayOneShot(winSfx);
-            else if (stars == 0 && loseSfx != null) audioSource.PlayOneShot(loseSfx);
-        }
+        if (stars > 0) PlaySFX(winSfx);
+        else if (stars == 0) PlaySFX(loseSfx);
 
         if (starImages != null)
         {
@@ -1475,17 +1472,38 @@ public class AssessmentManager : MonoBehaviour
             if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
             pendingRewardCoins = 0;
         }
-        if (audioSource != null && nextQuestionSfx != null) audioSource.PlayOneShot(nextQuestionSfx);
+        PlaySFX(nextQuestionSfx);
         PlayerPrefs.SetInt("FinalAssessment_Completed", 1);
-        PlayerPrefs.Save();
         
         string selectedLanguage = PlayerPrefs.GetString("SelectedLanguage", "Ilokano");
+        
+        // Complete the final assessment objective in the database!
+        if (ObjectiveManager.Instance != null)
+        {
+            if (selectedLanguage == "Ilokano")
+                ObjectiveManager.Instance.CompleteObjective("ilo_25");
+            else if (selectedLanguage == "Cebuano")
+                ObjectiveManager.Instance.CompleteObjective("ceb_29");
+        }
+
+        PlayerPrefs.Save();
+        
         string targetScene = selectedLanguage + "Ending"; // CebuanoEnding or IlokanoEnding
         
         SceneLoader.ResetLoadingFlag(); 
         SceneLoader.targetSceneForLoading = targetScene; 
         SceneLoader.keepBackgroundPersistent = false; 
         UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+    }
+
+    private void PlaySFX(AudioClip clip)
+    {
+        if (clip == null) return;
+        
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(clip);
+        }
     }
 
     private void HideAllPanels()

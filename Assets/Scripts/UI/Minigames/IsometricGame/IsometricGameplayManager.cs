@@ -1497,25 +1497,30 @@ namespace Luminang.UI.Minigames.IsometricGame
 
             if (tapToCloseText != null) tapToCloseText.SetActive(true);
 
-            // Wait for user touch or click to dismiss (cross-platform)
+            // Add a temporary full-panel Button so the player can tap anywhere on the zoomed paper to dismiss.
+            // This is more reliable than wasPressedThisFrame which breaks after scene transitions.
             bool dismissed = false;
-            while (!dismissed)
+            Button tapBtn = null;
+            if (zoomedErrandPaperPanel != null)
             {
-                if (UnityEngine.InputSystem.Pointer.current != null && UnityEngine.InputSystem.Pointer.current.press.wasPressedThisFrame)
-                {
-                    dismissed = true;
-                }
-                else if (UnityEngine.InputSystem.Touchscreen.current != null && UnityEngine.InputSystem.Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
-                {
-                    dismissed = true;
-                }
-                else if (UnityEngine.InputSystem.Mouse.current != null && UnityEngine.InputSystem.Mouse.current.leftButton.wasPressedThisFrame)
-                {
-                    dismissed = true;
-                }
+                // Add button directly to the panel (it already fills the screen)
+                Image img = zoomedErrandPaperPanel.GetComponent<Image>();
+                if (img == null) img = zoomedErrandPaperPanel.AddComponent<Image>();
+                img.color = new Color(0, 0, 0, 0);
+                img.raycastTarget = true;
 
-                yield return null;
+                tapBtn = zoomedErrandPaperPanel.GetComponent<Button>();
+                if (tapBtn == null) tapBtn = zoomedErrandPaperPanel.AddComponent<Button>();
+                tapBtn.transition = Selectable.Transition.None;
+                tapBtn.onClick.RemoveAllListeners();
+                tapBtn.onClick.AddListener(() => dismissed = true);
             }
+
+            while (!dismissed)
+                yield return null;
+
+            // Clean up button
+            if (tapBtn != null) tapBtn.onClick.RemoveAllListeners();
 
             if (zoomedErrandPaperPanel != null) zoomedErrandPaperPanel.SetActive(false);
 

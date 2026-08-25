@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Collections.Generic;
 
 public class SampleIntro : MonoBehaviour
 {
@@ -121,19 +124,42 @@ public class SampleIntro : MonoBehaviour
         if (!sceneLoading && iconGroup.alpha <= 0f && nameGroup.alpha <= 0f)
         {
             sceneLoading = true;
-            
-            // ALWAYS go to LoadingResourcesScene first.
-            // If download is needed -> it shows the download UI, then goes to MainLoadingScene.
-            // If no download needed -> it skips instantly and goes to MainLoadingScene.
-            // This way the planned flow is: TeamBA -> LoadingResourcesScene -> MainLoadingScene
-            if (TransitionOverlay.Instance != null)
-            {
-                TransitionOverlay.Instance.StartTransition("LoadingResourcesScene");
-            }
-            else
-            {
-                SceneManager.LoadScene("LoadingResourcesScene");
-            }
+            StartCoroutine(CheckDownloadsAndTransition());
+        }
+    }
+
+    private System.Collections.IEnumerator CheckDownloadsAndTransition()
+    {
+        // 1. Check for Catalog Updates (Must do this first so size check is accurate)
+        var checkHandle = Addressables.CheckForCatalogUpdates(false);
+        yield return checkHandle;
+
+        if (checkHandle.Status == AsyncOperationStatus.Succeeded && checkHandle.Result != null && checkHandle.Result.Count > 0)
+        {
+            var updateHandle = Addressables.UpdateCatalogs(checkHandle.Result, false);
+            yield return updateHandle;
+            if (updateHandle.IsValid()) Addressables.Release(updateHandle);
+        }
+        if (checkHandle.IsValid()) Addressables.Release(checkHandle);
+
+        // 2. Check download size for our heavy remote scenes
+        List<object> keysToDownload = new List<object> { "Calle_Crisologo", "Magellan_s_Cross" };
+        var sizeHandle = Addressables.GetDownloadSizeAsync(keysToDownload);
+        yield return sizeHandle;
+        
+        long downloadSize = sizeHandle.Result;
+        Addressables.Release(sizeHandle);
+
+        // 3. Decide where to go!
+        string targetScene = (downloadSize > 0) ? "LoadingResourcesScene" : "MainLoadingScene";
+        
+        if (TransitionOverlay.Instance != null)
+        {
+            TransitionOverlay.Instance.StartTransition(targetScene);
+        }
+        else
+        {
+            SceneManager.LoadScene(targetScene);
         }
     }
 }

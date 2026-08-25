@@ -72,6 +72,8 @@ public class DialogueManager : MonoBehaviour
                          PlayerPrefs.GetInt("TCGMinigameWon", 0) == 1 ||
                          PlayerPrefs.GetInt("ReactionMinigameWon", 0) == 1 ||
                          PlayerPrefs.GetInt("TumbangPresoMinigameWon", 0) == 1 ||
+                         PlayerPrefs.GetInt("TusokTusokMinigameWon", 0) == 1 ||
+                         PlayerPrefs.GetInt("MemoryGameMinigameWon", 0) == 1 ||
                          PlayerPrefs.GetInt("MinigameWon", 0) == 1;
 
             if (isWon)
@@ -89,6 +91,8 @@ public class DialogueManager : MonoBehaviour
             PlayerPrefs.SetInt("TCGMinigameWon", 0);
             PlayerPrefs.SetInt("ReactionMinigameWon", 0);
             PlayerPrefs.SetInt("TumbangPresoMinigameWon", 0);
+            PlayerPrefs.SetInt("TusokTusokMinigameWon", 0);
+            PlayerPrefs.SetInt("MemoryGameMinigameWon", 0);
             PlayerPrefs.SetInt("MinigameWon", 0);
             PlayerPrefs.Save();
         }

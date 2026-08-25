@@ -759,7 +759,7 @@
       "category": "Linking Verbs",
       "english_prompt": "<u>They</u> are students.",
       "native_context": "_____ ket estudyante",
-      "correct_answer": "da",
+      "correct_answer": "isuda",
       "wrong_choices": [
         "wen",
         "haan",
@@ -848,11 +848,11 @@
     {
       "id": "linking_verbs_062_b",
       "category": "Linking Verbs",
-      "english_prompt": "It seems to be him.",
+      "english_prompt": "It <u>seems</u> to be him.",
       "native_context": "",
       "correct_answer": "kasla ket",
       "wrong_choices": [
-        "saan",
+        "nagsakit ti",
         "ket",
         "awan"
       ],

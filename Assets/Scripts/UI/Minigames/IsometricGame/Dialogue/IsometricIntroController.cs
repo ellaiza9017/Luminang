@@ -83,6 +83,7 @@ namespace Luminang.UI.Minigames.IsometricGame
         private bool      _introStarted       = false;
         private Coroutine _typeCoroutine;
         private Coroutine _popCoroutine;
+        private GameObject _tapCatcherButton;
 
         // Saved in Awake so pop-in always restores the editor scale, not a hardcoded (1,1,1)
         private Vector3 _originalBubbleScale = Vector3.one;
@@ -113,6 +114,42 @@ namespace Luminang.UI.Minigames.IsometricGame
             }
             if (tapToContinueIndicator != null)
                 tapToContinueIndicator.SetActive(false);
+
+            // Create an invisible full-screen button on the ROOT Canvas so it's above
+            // ALL other UI elements (including DialogueBlackOverlay which would block it).
+            Canvas rootCanvas = GetComponentInParent<Canvas>();
+            if (rootCanvas != null)
+            {
+                // Find the actual root canvas (not a nested one)
+                while (rootCanvas.transform.parent != null && rootCanvas.transform.parent.GetComponentInParent<Canvas>() != null)
+                    rootCanvas = rootCanvas.transform.parent.GetComponentInParent<Canvas>();
+
+                GameObject btnObj = new GameObject("InvisibleTapCatcher", typeof(RectTransform));
+                btnObj.transform.SetParent(rootCanvas.transform, false);
+                btnObj.transform.SetAsLastSibling(); // TOPMOST - above everything else
+
+                RectTransform rt = btnObj.GetComponent<RectTransform>();
+                rt.anchorMin = Vector2.zero;
+                rt.anchorMax = Vector2.one;
+                rt.offsetMin = Vector2.zero;
+                rt.offsetMax = Vector2.zero;
+
+                Image img = btnObj.AddComponent<Image>();
+                img.color = new Color(0, 0, 0, 0); // Fully transparent
+                img.raycastTarget = true;
+
+                Button btn = btnObj.AddComponent<Button>();
+                btn.transition = Selectable.Transition.None; // No visual feedback
+                btn.onClick.AddListener(OnScreenTapped);
+                
+                _tapCatcherButton = btnObj;
+                _tapCatcherButton.SetActive(false); // Disabled until intro starts
+                Debug.Log("[IsometricIntro] TapCatcher button created on: " + rootCanvas.name);
+            }
+            else
+            {
+                Debug.LogWarning("[IsometricIntro] No root Canvas found! Tap detection may not work.");
+            }
         }
 
         private void Start()
@@ -127,24 +164,12 @@ namespace Luminang.UI.Minigames.IsometricGame
 
         private void Update()
         {
+            // Intentionally left empty - tap detection handled by the InvisibleTapCatcher button.
+        }
+
+        private void OnScreenTapped()
+        {
             if (!_introStarted) return;
-
-            bool tapped = false;
-
-            if (UnityEngine.InputSystem.Pointer.current != null && UnityEngine.InputSystem.Pointer.current.press.wasPressedThisFrame)
-            {
-                tapped = true;
-            }
-            else if (UnityEngine.InputSystem.Touchscreen.current != null && UnityEngine.InputSystem.Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
-            {
-                tapped = true;
-            }
-            else if (UnityEngine.InputSystem.Mouse.current != null && UnityEngine.InputSystem.Mouse.current.leftButton.wasPressedThisFrame)
-            {
-                tapped = true;
-            }
-
-            if (!tapped) return;
 
             // Play tap advance sound
             AudioClip tapClip = GetTapAdvanceClip();
@@ -202,7 +227,17 @@ namespace Luminang.UI.Minigames.IsometricGame
             if (_introStarted) return;
             _introStarted = true;
 
-            gameObject.SetActive(true); // <--- CRITICAL FIX: Ensure the component is active so Update() and Coroutines run
+            Debug.Log("[IsometricIntro] StartIntro called. Scene: " + gameObject.scene.name);
+
+            // Check EventSystem state
+            var allES = UnityEngine.EventSystems.EventSystem.FindObjectsByType<UnityEngine.EventSystems.EventSystem>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            foreach (var es in allES)
+                Debug.Log($"[IsometricIntro] EventSystem: {es.name} in {es.gameObject.scene.name} enabled={es.enabled}");
+
+            gameObject.SetActive(true);
+
+            // Activate the tap catcher now that the intro is starting
+            if (_tapCatcherButton != null) _tapCatcherButton.SetActive(true);
 
             if (dialogueLines == null || dialogueLines.Count == 0)
             {
@@ -287,6 +322,7 @@ namespace Luminang.UI.Minigames.IsometricGame
             StartCoroutine(PopOutBubble(() =>
             {
                 _introStarted = false;
+                if (_tapCatcherButton != null) _tapCatcherButton.SetActive(false); // Stop blocking other UI
                 OnIntroComplete?.Invoke();
             }));
         }

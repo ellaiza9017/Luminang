@@ -93,16 +93,30 @@ public class TutorialManager : MonoBehaviour
 
         Debug.Log("[Tutorial] Transitioning to Game via SceneLoader...");
 
+        string finalSceneToLoad = nextSceneName;
+        
+        // PhraseEvaluator might not exist in the TutorialScene, so we check PlayerPrefs directly
+        int savedRegion = PlayerPrefs.GetInt("SelectedRegion", 0); // Default to 0 (Ilokano)
+        
+        if (savedRegion == (int)RegionMode.Ilokano)
+            finalSceneToLoad = "Calle_Crisologo";
+        else if (savedRegion == (int)RegionMode.Cebuano)
+            finalSceneToLoad = "Magellan_s_Cross";
+
         // Find the SceneLoader in the scene and use it
         var loader = Object.FindFirstObjectByType<SceneLoader>();
         if (loader != null)
         {
-            loader.LoadScene(nextSceneName);
+            loader.LoadScene(finalSceneToLoad);
         }
         else
         {
-            // Fallback if no SceneLoader found
-            UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneName);
+            // Fallback: Addressable scenes CANNOT be loaded directly via SceneManager.
+            // Create a temporary SceneLoader to correctly route through the LoadingScene.
+            Debug.Log("[Tutorial] No SceneLoader found. Creating a temporary one to load the Addressable scene.");
+            GameObject tempObj = new GameObject("TempSceneLoader");
+            SceneLoader tempLoader = tempObj.AddComponent<SceneLoader>();
+            tempLoader.LoadScene(finalSceneToLoad);
         }
         
         yield break;

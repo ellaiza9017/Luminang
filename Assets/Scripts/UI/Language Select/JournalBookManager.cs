@@ -284,12 +284,22 @@ public class JournalBookManager : MonoBehaviour
         AudioClip clip = Resources.Load<AudioClip>(_selectedEntry.sound_file);
         if (clip != null)
         {
-            _audioSource.clip = clip;
-            _audioSource.Play();
+            if (_selectedEntry.language == "Cebuano" || (!string.IsNullOrEmpty(_selectedEntry.id) && _selectedEntry.id.StartsWith("ceb_")))
+            {
+                _audioSource.Stop();
+                _audioSource.PlayOneShot(clip, 1f);
+                _audioSource.PlayOneShot(clip, 1f);
+                _audioSource.PlayOneShot(clip, 1f);
+            }
+            else
+            {
+                _audioSource.clip = clip;
+                _audioSource.Play();
+            }
         }
         else
         {
-            Debug.LogError($"Failed to load AudioClip at Resources path: {_selectedEntry.sound_file}");
+            Debug.LogWarning($"[JournalBookManager] Could not load audio clip: {_selectedEntry.sound_file}");
         }
     }
 }

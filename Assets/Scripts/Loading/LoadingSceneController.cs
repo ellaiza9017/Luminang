@@ -447,6 +447,7 @@ public class LoadingSceneController : MonoBehaviour
         Debug.Log("[LoadingScene] Performing Global Conflict Cleanup...");
         
         Scene activeScene = SceneManager.GetActiveScene();
+        string targetScene = SceneLoader.targetSceneForLoading;
 
         // 1. Audio Listeners: Keep only the one in the active scene
         AudioListener[] allListeners = Object.FindObjectsByType<AudioListener>(FindObjectsInactive.Include, FindObjectsSortMode.None);
@@ -459,14 +460,37 @@ public class LoadingSceneController : MonoBehaviour
             }
         }
 
-        // 2. Event Systems: Keep only the one in the active scene
+        // 2. Event Systems: Keep only the one in the active/target scene
+        // IMPORTANT: Do NOT disable EventSystems in the target scene being loaded into,
+        // or UI buttons (like tap-to-continue) will stop working!
         UnityEngine.EventSystems.EventSystem[] allES = Object.FindObjectsByType<UnityEngine.EventSystems.EventSystem>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        
+        UnityEngine.EventSystems.EventSystem activeES = null;
+        // Find the best EventSystem to keep: prefer the active scene's one
         foreach (var es in allES)
         {
-            if (es.gameObject.scene != activeScene)
+            if (es.gameObject.scene == activeScene)
+            {
+                activeES = es;
+                break;
+            }
+        }
+        
+        foreach (var es in allES)
+        {
+            bool isInActiveScene = es.gameObject.scene == activeScene;
+            bool isInTargetScene = es.gameObject.scene.name == targetScene;
+            
+            if (!isInActiveScene && !isInTargetScene)
             {
                 es.enabled = false;
                 Debug.Log($"[LoadingScene] Disabled redundant EventSystem in scene: {es.gameObject.scene.name}");
+            }
+            else
+            {
+                // Make sure target/active scene EventSystems are always on
+                es.enabled = true;
+                Debug.Log($"[LoadingScene] Keeping EventSystem alive in scene: {es.gameObject.scene.name}");
             }
         }
     }

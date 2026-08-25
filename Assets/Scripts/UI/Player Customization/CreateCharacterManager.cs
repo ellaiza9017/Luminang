@@ -266,7 +266,8 @@ public class CreateCharacterManager : MonoBehaviour
                         NotificationId = welcomeAdminNotif.Id,
                         IsRead = false,
                         IsClaimed = false,
-                        IsArchived = false
+                        IsArchived = false,
+                        CreatedAt = System.DateTime.UtcNow
                     };
                     await client.From<UserNotificationModel>().Insert(welcomeUserNotif);
                 }

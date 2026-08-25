@@ -350,8 +350,18 @@ public class TeachingOverlayPanel : MonoBehaviour
                     AudioClip clip = Resources.Load<AudioClip>(entry.sound_file);
                     if (clip != null)
                     {
-                        _audioSource.clip = clip;
-                        _audioSource.Play();
+                        if (entry.language == "Cebuano" || (!string.IsNullOrEmpty(entry.id) && entry.id.StartsWith("ceb_")))
+                        {
+                            _audioSource.Stop();
+                            _audioSource.PlayOneShot(clip, 1f);
+                            _audioSource.PlayOneShot(clip, 1f);
+                            _audioSource.PlayOneShot(clip, 1f);
+                        }
+                        else
+                        {
+                            _audioSource.clip = clip;
+                            _audioSource.Play();
+                        }
                     }
                     else
                     {

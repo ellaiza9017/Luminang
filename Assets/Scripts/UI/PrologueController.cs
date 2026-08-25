@@ -215,11 +215,33 @@ public class PrologueController : MonoBehaviour
 
         if (sceneLoader != null)
         {
-            sceneLoader.LoadScene(nextSceneName);
+            string finalSceneToLoad = nextSceneName;
+            if (introType == IntroType.IlocosIntro || introType == IntroType.CebuIntro)
+            {
+                if (UserProfileManager.Instance != null && UserProfileManager.Instance.CurrentProfile != null)
+                {
+                    if (!UserProfileManager.Instance.CurrentProfile.HasCompletedTutorial)
+                    {
+                        finalSceneToLoad = "TutorialScene";
+                    }
+                }
+            }
+            sceneLoader.LoadScene(finalSceneToLoad);
         }
         else
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneName);
+            string finalSceneToLoad = nextSceneName;
+            if (introType == IntroType.IlocosIntro || introType == IntroType.CebuIntro)
+            {
+                if (UserProfileManager.Instance != null && UserProfileManager.Instance.CurrentProfile != null)
+                {
+                    if (!UserProfileManager.Instance.CurrentProfile.HasCompletedTutorial)
+                    {
+                        finalSceneToLoad = "TutorialScene";
+                    }
+                }
+            }
+            UnityEngine.SceneManagement.SceneManager.LoadScene(finalSceneToLoad);
         }
     }
 }
