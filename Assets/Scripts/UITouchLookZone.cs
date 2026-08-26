@@ -51,17 +51,19 @@ public class UITouchLookZone : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             return;
         }
 
-        // Normalize based on physical screen size instead of raw pixels or DPI.
-        // This ensures that swiping halfway across ANY screen gives the exact same rotation,
-        // whether it's a 720p budget phone or a 4K tablet.
-        float normalizedX = eventData.delta.x / Screen.width;
-        float normalizedY = eventData.delta.y / Screen.height;
+        // Normalize based on physical Screen DPI instead of resolution!
+        // This guarantees that a 1-inch physical swipe on the glass will rotate the camera
+        // the EXACT same amount on EVERY phone, regardless of how big or small the screen is.
+        float dpi = Screen.dpi;
+        if (dpi == 0) dpi = 160f; // Fallback if Unity can't detect DPI
+
+        float normalizedX = eventData.delta.x / dpi;
+        float normalizedY = eventData.delta.y / dpi;
 
         if (_activePointers.Count == 1)
         {
-            // Lowered baseline multiplier significantly to fix high sensitivity. 
-            // 5f gives a much smoother and less jerky camera movement.
-            _lookDelta = new Vector2(normalizedX, normalizedY) * (sensitivity * 5f);
+            // Since we are now using DPI (inches), we lower the multiplier so it feels natural.
+            _lookDelta = new Vector2(normalizedX, normalizedY) * (sensitivity * 1.5f);
         }
     }
 
