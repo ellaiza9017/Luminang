@@ -17,6 +17,7 @@ public class OptionsManager : MonoBehaviour
 
     [Header("Look Sensitivity")]
     public Slider lookSensitivitySlider;
+    public Image lookSensitivityFillImage;
     public TextMeshProUGUI lookSensitivityPercentageText;
 
     [Header("Mute Buttons")]
@@ -150,6 +151,13 @@ public class OptionsManager : MonoBehaviour
             // Let's format it nicely to 1 decimal place.
             lookSensitivityPercentageText.text = value.ToString("F1") + "x";
         }
+
+        if (lookSensitivityFillImage != null && lookSensitivitySlider != null)
+        {
+            // Slider value is between 0.1 and 5.0, but fillAmount only accepts 0 to 1.
+            // We use normalizedValue to perfectly convert the slider's position into a 0 to 1 range!
+            lookSensitivityFillImage.fillAmount = lookSensitivitySlider.normalizedValue;
+        }
     }
 
 
@@ -199,6 +207,13 @@ public class OptionsManager : MonoBehaviour
         // Assign Images
         if (musicMuteButton != null) musicMuteImage = musicMuteButton.GetComponent<Image>();
         if (sfxMuteButton != null) sfxMuteImage = sfxMuteButton.GetComponent<Image>();
+        
+        Image[] images = GetComponentsInChildren<Image>(true);
+        foreach (var img in images)
+        {
+            string n = img.name.ToLower();
+            if (n.Contains("look") && n.Contains("fill")) lookSensitivityFillImage = img;
+        }
         
         Debug.Log("<color=green>[OptionsManager] UI Elements AUTO-FOUND!</color>");
     }
