@@ -100,18 +100,33 @@ public class DialogueManager : MonoBehaviour
 
     private System.Collections.IEnumerator ResumePostMinigameDialogue()
     {
+        // IMPORTANT: Capture node and NPC name NOW, before yielding.
+        // If we wait until after the yield, OnReturnFromMinigame() may fire in the
+        // meantime (called by LoadingSceneController) and wipe these static fields,
+        // causing the dialogue to never resume on slower Android devices.
+        DialogueNode node = _pendingMinigameNextNode;
+        string npcName = _pendingMinigameNPCName;
+        _pendingMinigameNextNode = null;
+        _pendingMinigameNPCName = null;
+
         yield return new WaitForSeconds(1f); // 1s matches the outro circle animation duration
         
         InteractableNPC targetNPC = null;
-        if (!string.IsNullOrEmpty(_pendingMinigameNPCName))
+        if (!string.IsNullOrEmpty(npcName))
         {
-            GameObject npcGo = GameObject.Find(_pendingMinigameNPCName);
-            if (npcGo != null) targetNPC = npcGo.GetComponent<InteractableNPC>();
+            // Retry find a few times — on slow Android devices the NPC's own Start()
+            // may not have fully completed when DialogueManager.Start() first fires.
+            for (int attempt = 0; attempt < 10; attempt++)
+            {
+                GameObject npcGo = GameObject.Find(npcName);
+                if (npcGo != null)
+                {
+                    targetNPC = npcGo.GetComponent<InteractableNPC>();
+                    break;
+                }
+                yield return null; // wait one more frame and try again
+            }
         }
-        
-        DialogueNode node = _pendingMinigameNextNode;
-        _pendingMinigameNextNode = null;
-        _pendingMinigameNPCName = null;
         
         Animator anim = targetNPC != null ? targetNPC.GetComponent<Animator>() : null;
         StartDialogue(node, anim, targetNPC);

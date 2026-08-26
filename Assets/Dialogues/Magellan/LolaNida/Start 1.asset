@@ -18,16 +18,17 @@ MonoBehaviour:
     here to buy anything?
   translatedText: 
   voiceClip: {fileID: 8300000, guid: f7d7f02700f68f947a57dd303112128e, type: 3}
+  voiceGain: 1
   animationTrigger: 
   triggerEventName: 
   endEventName: 
   choices:
-  - choiceText: Saan
+  - choiceText: Dili
     nextNode: {fileID: 0}
     isWrong: 0
     choiceEvent: 
     expectedSTTWord: 
-  - choiceText: Wen
+  - choiceText: Oo
     nextNode: {fileID: 11400000, guid: d534d4cc601e77c479eab8d37bc03bc6, type: 2}
     isWrong: 0
     choiceEvent: 

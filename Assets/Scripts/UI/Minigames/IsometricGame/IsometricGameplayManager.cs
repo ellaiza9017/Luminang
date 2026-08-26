@@ -1440,6 +1440,7 @@ namespace Luminang.UI.Minigames.IsometricGame
                 if (UserProfileManager.Instance != null) _ = UserProfileManager.Instance.AddCoins(pendingRewardCoins);
                 pendingRewardCoins = 0;
             }
+            // Quit to main hub or wherever the previous scene was
             string prevScene = PlayerPrefs.GetString("PreviousScene", "Magellan_s_Cross"); PlayerPrefs.SetString("PreviousScene", prevScene); SceneLoader.ResetLoadingFlag(); SceneLoader.targetSceneForLoading = prevScene; SceneLoader.keepBackgroundPersistent = false; UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
         }
 

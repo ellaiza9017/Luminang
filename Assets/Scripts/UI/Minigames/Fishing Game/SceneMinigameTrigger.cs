@@ -85,6 +85,9 @@ public class SceneMinigameTrigger : MonoBehaviour
         }
     }
 
+    private static System.Collections.Generic.List<Canvas> _disabledCanvases = new System.Collections.Generic.List<Canvas>();
+    private static System.Collections.Generic.List<Transform> _disabledControls = new System.Collections.Generic.List<Transform>();
+
     /// <summary>
     /// Disables main game mobile touchpads, joysticks, and movement controls in background scenes 
     /// so they don't block clicks/taps during minigames!
@@ -102,26 +105,31 @@ public class SceneMinigameTrigger : MonoBehaviour
             foreach (GameObject root in s.GetRootGameObjects())
             {
                 // INSTANTLY disable Canvases so Pause Menu and HUD don't overlap the loading screen!
+                // Only disable ones that are currently ON, and remember them so we don't accidentally turn on hidden menus later.
                 Canvas[] canvases = root.GetComponentsInChildren<Canvas>(true);
                 foreach (Canvas c in canvases)
                 {
-                    if (!c.gameObject.name.Contains("LoadingScreen") && !c.gameObject.name.Contains("MainLoading"))
+                    if (c.enabled && !c.gameObject.name.Contains("LoadingScreen") && !c.gameObject.name.Contains("MainLoading"))
                     {
                         c.enabled = false;
+                        if (!_disabledCanvases.Contains(c)) _disabledCanvases.Add(c);
                     }
                 }
 
                 foreach (Transform t in root.GetComponentsInChildren<Transform>(true))
                 {
-                    if (t.name.Contains("StarterAssetsInputs") || 
+                    if (t.gameObject.activeSelf &&
+                        (t.name.Contains("StarterAssetsInputs") || 
                         t.name.Contains("Touchpad") || 
                         t.name.Contains("Joystick") || 
                         t.name.Contains("Movement_Controls") || 
-                        t.name.Contains("UI_Virtual_Touchpad"))
+                        t.name.Contains("UI_Virtual_Touchpad")))
                     {
                         t.gameObject.SetActive(false);
                         UnityEngine.UI.Image img = t.GetComponent<UnityEngine.UI.Image>();
                         if (img != null) img.raycastTarget = false;
+                        
+                        if (!_disabledControls.Contains(t)) _disabledControls.Add(t);
                     }
                 }
             }
@@ -133,6 +141,27 @@ public class SceneMinigameTrigger : MonoBehaviour
     /// </summary>
     public static void EnableMainGameControls()
     {
+        // Step 1: Restore canvases and controls that were alive when we ENTERED the minigame.
+        // These lists contain objects from a keep-alive scene. If the scene was fully reloaded
+        // the references are dead (null), so the null-checks below safely skip them.
+        foreach (Canvas c in _disabledCanvases)
+        {
+            if (c != null) c.enabled = true;
+        }
+        _disabledCanvases.Clear();
+
+        foreach (Transform t in _disabledControls)
+        {
+            if (t != null)
+            {
+                t.gameObject.SetActive(true);
+                UnityEngine.UI.Image img = t.GetComponent<UnityEngine.UI.Image>();
+                if (img != null) img.raycastTarget = true;
+            }
+        }
+        _disabledControls.Clear();
+
+        // Step 2: Restore cameras and AudioListeners in whatever scene is now active.
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             Scene s = SceneManager.GetSceneAt(i);
@@ -140,33 +169,57 @@ public class SceneMinigameTrigger : MonoBehaviour
 
             foreach (GameObject root in s.GetRootGameObjects())
             {
-                // INSTANTLY re-enable Canvases that were hidden during the minigame
-                Canvas[] canvases = root.GetComponentsInChildren<Canvas>(true);
-                foreach (Canvas c in canvases)
+                Camera[] cameras = root.GetComponentsInChildren<Camera>(true);
+                foreach (Camera cam in cameras)
                 {
-                    c.enabled = true;
-                }
-
-                foreach (Transform t in root.GetComponentsInChildren<Transform>(true))
-                {
-                    if (t.name.Contains("StarterAssetsInputs") || 
-                        t.name.Contains("Touchpad") || 
-                        t.name.Contains("Joystick") || 
-                        t.name.Contains("Movement_Controls") || 
-                        t.name.Contains("UI_Virtual_Touchpad"))
+                    if (cam.gameObject.name != "MainLoading" && !cam.gameObject.name.Contains("Loading"))
                     {
-                        t.gameObject.SetActive(true);
-                        UnityEngine.UI.Image img = t.GetComponent<UnityEngine.UI.Image>();
-                        if (img != null) img.raycastTarget = true;
+                        cam.enabled = true;
+                        AudioListener listener = cam.GetComponent<AudioListener>();
+                        if (listener != null) listener.enabled = true;
                     }
                 }
             }
         }
 
-        // 3. Ensure BGM returns to the active scene's track!
+        // Step 3: Safety net — force-close the pause menu panel if it somehow opened.
+        Time.timeScale = 1f;
+        if (PauseMenuController.Instance != null)
+        {
+            PauseMenuController.Instance.ResumeGame();
+        }
+
+        // ABSOLUTE FALLBACK: Wait a fraction of a second for any ghost clicks to process, then nuke the menu.
+        GameObject cleanerObj = new GameObject("GhostClickCleaner");
+        GhostClickCleaner cleaner = cleanerObj.AddComponent<GhostClickCleaner>();
+        cleaner.StartCoroutine(cleaner.CleanUpGhostClicks());
+
+        // Step 4: Ensure BGM returns to the active scene's track!
         if (BGMManager.Instance != null)
         {
             BGMManager.Instance.RefreshBGMForActiveScene();
         }
+    }
+}
+
+public class GhostClickCleaner : MonoBehaviour
+{
+    public System.Collections.IEnumerator CleanUpGhostClicks()
+    {
+        // Wait 0.15 seconds in realtime to allow EventSystem to process any buffered Ghost Clicks
+        yield return new WaitForSecondsRealtime(0.15f);
+
+        // Find ALL PauseMenuControllers in the scene (ignoring Instance in case it broke)
+        PauseMenuController[] controllers = Resources.FindObjectsOfTypeAll<PauseMenuController>();
+        foreach (PauseMenuController pmc in controllers)
+        {
+            if (pmc.gameObject.scene.isLoaded && pmc.pauseMenuPanel != null && pmc.pauseMenuPanel.activeInHierarchy)
+            {
+                pmc.pauseMenuPanel.SetActive(false);
+                Time.timeScale = 1f; // Ensure time isn't frozen
+            }
+        }
+        
+        Destroy(gameObject);
     }
 }

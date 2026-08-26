@@ -170,6 +170,29 @@ public class LoadingSceneController : MonoBehaviour
             yield return new WaitForSeconds(transitionTime);
         }
 
+        // PERFECT TIMING: Now that the loading screen has fully covered the screen,
+        // we can safely turn off the background scene's Cameras and AudioListeners to save massive GPU power!
+        if (SceneLoader.keepBackgroundPersistent && !string.IsNullOrEmpty(callerScene))
+        {
+            Scene actualCallerScene = SceneManager.GetSceneByName(callerScene);
+            if (actualCallerScene.IsValid() && actualCallerScene.isLoaded)
+            {
+                foreach (GameObject root in actualCallerScene.GetRootGameObjects())
+                {
+                    Camera[] cameras = root.GetComponentsInChildren<Camera>(true);
+                    foreach (Camera cam in cameras)
+                    {
+                        if (cam.gameObject.name != "MainLoading" && !cam.gameObject.name.Contains("Loading"))
+                        {
+                            cam.enabled = false;
+                            AudioListener listener = cam.GetComponent<AudioListener>();
+                            if (listener != null) listener.enabled = false;
+                        }
+                    }
+                }
+            }
+        }
+
         // Wait a frame to ensure target is set
         if (string.IsNullOrEmpty(sceneToLoad)) sceneToLoad = SceneLoader.targetSceneForLoading;
 

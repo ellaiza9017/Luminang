@@ -51,17 +51,17 @@ public class UITouchLookZone : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             return;
         }
 
-        // Normalize based on physical pixel density (DPI) instead of raw screen resolution.
-        // This ensures moving 1 inch on ANY phone screen gives the exact same look speed.
-        float currentDpi = Screen.dpi;
-        if (currentDpi == 0) currentDpi = 160f; // Safe fallback for Unity Editor
-        
-        // Multiplier of 250f matches the feel of the Poco F6 Pro
-        float deviceScale = 250f / currentDpi;
+        // Normalize based on physical screen size instead of raw pixels or DPI.
+        // This ensures that swiping halfway across ANY screen gives the exact same rotation,
+        // whether it's a 720p budget phone or a 4K tablet.
+        float normalizedX = eventData.delta.x / Screen.width;
+        float normalizedY = eventData.delta.y / Screen.height;
 
         if (_activePointers.Count == 1)
         {
-            _lookDelta = eventData.delta * deviceScale * (sensitivity * 0.65f);
+            // Lowered baseline multiplier significantly. 
+            // 10f is much closer to what a standard mobile joystick/touchpad outputs per frame.
+            _lookDelta = new Vector2(normalizedX, normalizedY) * (sensitivity * 10f);
         }
     }
 

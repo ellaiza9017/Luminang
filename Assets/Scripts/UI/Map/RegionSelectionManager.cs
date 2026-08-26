@@ -138,6 +138,7 @@ public class RegionSelectionManager : MonoBehaviour
                 string region = currentRegion.data.regionName.ToLower();
                 if (region.Contains("ilocos") || region.Contains("crisologo"))
                 {
+                    PlayerPrefs.SetInt("SelectedRegion", 0); // Ilokano
                     if (!UserProfileManager.Instance.CurrentProfile.HasSeenIlocosIntro)
                         sceneToLoad = "IlocosIntroScene";
                     else if (!UserProfileManager.Instance.CurrentProfile.HasCompletedTutorial)
@@ -147,6 +148,7 @@ public class RegionSelectionManager : MonoBehaviour
                 }
                 else if (region.Contains("cebu") || region.Contains("magellan"))
                 {
+                    PlayerPrefs.SetInt("SelectedRegion", 1); // Cebuano
                     if (!UserProfileManager.Instance.CurrentProfile.HasSeenCebuIntro)
                         sceneToLoad = "CebuIntroScene";
                     else if (!UserProfileManager.Instance.CurrentProfile.HasCompletedTutorial)
@@ -157,8 +159,10 @@ public class RegionSelectionManager : MonoBehaviour
             }
             else
             {
+                PlayerPrefs.SetInt("SelectedRegion", 0);
                 sceneToLoad = !UserProfileManager.Instance.CurrentProfile.HasCompletedTutorial ? "TutorialScene" : "Calle_Crisologo";
             }
+            PlayerPrefs.Save();
         }
 
         Debug.Log($"[Map] Transitioning to {sceneToLoad}...");
