@@ -59,9 +59,9 @@ public class UITouchLookZone : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         if (_activePointers.Count == 1)
         {
-            // Lowered baseline multiplier significantly. 
-            // 10f is much closer to what a standard mobile joystick/touchpad outputs per frame.
-            _lookDelta = new Vector2(normalizedX, normalizedY) * (sensitivity * 10f);
+            // Lowered baseline multiplier significantly to fix high sensitivity. 
+            // 5f gives a much smoother and less jerky camera movement.
+            _lookDelta = new Vector2(normalizedX, normalizedY) * (sensitivity * 5f);
         }
     }
 
