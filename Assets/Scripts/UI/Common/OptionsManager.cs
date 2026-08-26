@@ -15,6 +15,10 @@ public class OptionsManager : MonoBehaviour
     public Image sfxFillImage;
     public TextMeshProUGUI sfxPercentageText;
 
+    [Header("Look Sensitivity")]
+    public Slider lookSensitivitySlider;
+    public TextMeshProUGUI lookSensitivityPercentageText;
+
     [Header("Mute Buttons")]
     public Button musicMuteButton;
     public Image musicMuteImage;
@@ -79,6 +83,15 @@ public class OptionsManager : MonoBehaviour
             AudioManager.instance.ApplySFXVolume(savedSFX);
         }
 
+        // 2. Load & Set Look Sensitivity
+        if (lookSensitivitySlider != null)
+        {
+            float savedSensitivity = PlayerPrefs.GetFloat("LookSensitivity", 1.5f);
+            lookSensitivitySlider.value = savedSensitivity;
+            lookSensitivitySlider.onValueChanged.AddListener(OnLookSensitivityChanged);
+            UpdateLookSensitivityUI(savedSensitivity);
+        }
+
 
 
         // Hide panels if they exist (even though not used anymore)
@@ -120,6 +133,25 @@ public class OptionsManager : MonoBehaviour
         UpdateSFXUI(value);
     }
 
+    private void OnLookSensitivityChanged(float value)
+    {
+        PlayerPrefs.SetFloat("LookSensitivity", value);
+        PlayerPrefs.Save();
+        UpdateLookSensitivityUI(value);
+    }
+
+    private void UpdateLookSensitivityUI(float value)
+    {
+        if (lookSensitivityPercentageText != null)
+        {
+            // Assuming the slider is set from 0.1 to 5.0 in the inspector.
+            // If they set it from 0 to 1, we can multiply by 100 to show %.
+            // But if it's 1.5f default, showing "1.5x" or "150%" makes sense.
+            // Let's format it nicely to 1 decimal place.
+            lookSensitivityPercentageText.text = value.ToString("F1") + "x";
+        }
+    }
+
 
 
     public void ToggleMusicMute()
@@ -151,6 +183,7 @@ public class OptionsManager : MonoBehaviour
             
             if (n.Contains("music") && n.Contains("slider")) musicSlider = btn.GetComponent<Slider>();
             if (n.Contains("soundeffects") && n.Contains("slider")) sfxSlider = btn.GetComponent<Slider>();
+            if (n.Contains("look") && n.Contains("slider")) lookSensitivitySlider = btn.GetComponent<Slider>();
         }
 
         // Find TMP texts
@@ -160,6 +193,7 @@ public class OptionsManager : MonoBehaviour
             string n = t.name.ToLower();
             if (n.Contains("music") && n.Contains("percentage")) musicPercentageText = t;
             if (n.Contains("soundeffects") && n.Contains("percentage")) sfxPercentageText = t;
+            if (n.Contains("look") && n.Contains("percentage")) lookSensitivityPercentageText = t;
         }
 
         // Assign Images

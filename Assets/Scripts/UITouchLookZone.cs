@@ -60,10 +60,13 @@ public class UITouchLookZone : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         float normalizedX = eventData.delta.x / dpi;
         float normalizedY = eventData.delta.y / dpi;
 
+        // Read the sensitivity from PlayerPrefs so the Options Menu slider works instantly
+        float currentSensitivity = PlayerPrefs.GetFloat("LookSensitivity", 1.5f);
+
         if (_activePointers.Count == 1)
         {
             // Since we are now using DPI (inches), we lower the multiplier so it feels natural.
-            _lookDelta = new Vector2(normalizedX, normalizedY) * (sensitivity * 1.5f);
+            _lookDelta = new Vector2(normalizedX, normalizedY) * currentSensitivity;
         }
     }
 
