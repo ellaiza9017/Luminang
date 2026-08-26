@@ -25,6 +25,14 @@ public class ProximityTrigger : MonoBehaviour
     {
         if (_hasTriggered || _player == null) return;
 
+        // FIX: Prevent ProximityTrigger from firing if we are returning from a minigame
+        // or already actively in a dialogue. (DialogueManager.IsInDialogue is set to true 
+        // the millisecond we return from a minigame).
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsInDialogue)
+        {
+            return;
+        }
+
         // Check if quest matches
         if (!string.IsNullOrEmpty(requiredObjective))
         {

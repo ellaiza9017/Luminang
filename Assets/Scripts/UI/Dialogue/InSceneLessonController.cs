@@ -216,6 +216,12 @@ public class InSceneLessonController : MonoBehaviour
             micTarget.SetActive(true);
         }
 
+        // Setup the Pronunciation button properly for the In-Scene lesson using the target phrase
+        if (TeachingOverlayPanel.Instance != null)
+        {
+            TeachingOverlayPanel.Instance.SetupPronunciationForInSceneLesson(rawPhrase);
+        }
+
         if (inSceneMicPanel != null)
             inSceneMicPanel.SetActive(true);
 

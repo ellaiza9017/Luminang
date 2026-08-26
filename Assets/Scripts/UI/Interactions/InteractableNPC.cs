@@ -53,6 +53,7 @@ public class InteractableNPC : InteractableBase
     public override void Interact()
     {
         Debug.Log($"[InteractableNPC] {gameObject.name} Interact() called. interactionEnabled={interactionEnabled}");
+        
         if (!interactionEnabled || npcAnimator == null) 
         {
             if (npcAnimator == null) Debug.LogWarning($"[InteractableNPC] {gameObject.name} blocked from interaction because it has no Animator (T-pose/static constraint).");

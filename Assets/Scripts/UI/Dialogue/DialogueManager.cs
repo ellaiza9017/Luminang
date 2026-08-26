@@ -98,6 +98,8 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+
+
     private System.Collections.IEnumerator ResumePostMinigameDialogue()
     {
         // IMPORTANT: Capture node and NPC name NOW, before yielding.
@@ -108,6 +110,9 @@ public class DialogueManager : MonoBehaviour
         string npcName = _pendingMinigameNPCName;
         _pendingMinigameNextNode = null;
         _pendingMinigameNPCName = null;
+
+        // Block interactions immediately so the user cannot spam the 'Talk' button during the delay
+        IsInDialogue = true;
 
         yield return new WaitForSeconds(1f); // 1s matches the outro circle animation duration
         
@@ -152,14 +157,14 @@ public class DialogueManager : MonoBehaviour
 
         StarterAssets.StarterAssetsInputs inputs = FindFirstObjectByType<StarterAssets.StarterAssetsInputs>();
         if (inputs != null) inputs.move = Vector2.zero;
-
+        
         // Hide the proximity Talk button
         if (InteractionManager.Instance != null && InteractionManager.Instance.talkButton != null)
         {
             InteractionManager.Instance.talkButton.gameObject.SetActive(false);
         }
 
-        // Process the first node
+        _nodeHistory.Clear(); // Ensure fresh history stack
         ProcessNode(startNode);
     }
 

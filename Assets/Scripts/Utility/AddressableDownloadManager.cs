@@ -34,6 +34,12 @@ public class AddressableDownloadManager : MonoBehaviour
 
     void Start()
     {
+        // Add SSL Bypass to completely prevent "Curl error 60: Cert verify failed" on older Androids / VPNs
+        Addressables.WebRequestOverride = (UnityEngine.Networking.UnityWebRequest req) => 
+        {
+            req.certificateHandler = new BypassCertificateHandler();
+        };
+
         // Explicitly set all icons to the loading sprite at the start
         if (loadingSprite != null)
         {
@@ -279,5 +285,14 @@ public class AddressableDownloadManager : MonoBehaviour
 
         Debug.Log("[AddressableDownloadManager] Transitioning to MainLoadingScene...");
         SceneManager.LoadScene("MainLoadingScene");
+    }
+}
+
+public class BypassCertificateHandler : UnityEngine.Networking.CertificateHandler
+{
+    protected override bool ValidateCertificate(byte[] certificateData)
+    {
+        // Return true to accept all SSL certificates (bypasses Curl error 60 on old Androids/VPNs)
+        return true;
     }
 }

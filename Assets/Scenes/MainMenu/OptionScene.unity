@@ -3851,6 +3851,7 @@ MonoBehaviour:
   sfxFillImage: {fileID: 1049791571}
   sfxPercentageText: {fileID: 1322660530}
   lookSensitivitySlider: {fileID: 1897448664}
+  lookSensitivityFillImage: {fileID: 1130905729}
   lookSensitivityPercentageText: {fileID: 1586882318}
   musicMuteButton: {fileID: 1762761423}
   musicMuteImage: {fileID: 1762761424}
@@ -5188,10 +5189,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 584461801}
   m_Direction: 0
-  m_MinValue: 0.1
-  m_MaxValue: 5
+  m_MinValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0.1
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

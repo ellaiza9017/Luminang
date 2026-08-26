@@ -51,22 +51,14 @@ public class UITouchLookZone : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             return;
         }
 
-        // Normalize based on physical Screen DPI instead of resolution!
-        // This guarantees that a 1-inch physical swipe on the glass will rotate the camera
-        // the EXACT same amount on EVERY phone, regardless of how big or small the screen is.
-        float dpi = Screen.dpi;
-        if (dpi == 0) dpi = 160f; // Fallback if Unity can't detect DPI
-
-        float normalizedX = eventData.delta.x / dpi;
-        float normalizedY = eventData.delta.y / dpi;
-
-        // Read the sensitivity from PlayerPrefs so the Options Menu slider works instantly
-        float currentSensitivity = PlayerPrefs.GetFloat("LookSensitivity", 1.5f);
+        // Read the sensitivity from PlayerPrefs. Slider range in Inspector should be 1.0 to 10.0.
+        float currentSensitivity = PlayerPrefs.GetFloat("LookSensitivity", 5.0f);
 
         if (_activePointers.Count == 1)
         {
-            // Since we are now using DPI (inches), we lower the multiplier so it feels natural.
-            _lookDelta = new Vector2(normalizedX, normalizedY) * currentSensitivity;
+            // Multiply raw pixel delta by sensitivity * 0.03f.
+            // Slider range 1-10: at 1 = very slow (0.03x), at 5 = comfortable (0.15x), at 10 = fast (0.3x).
+            _lookDelta = new Vector2(eventData.delta.x, eventData.delta.y) * (currentSensitivity * 0.03f);
         }
     }
 
@@ -89,8 +81,9 @@ public class UITouchLookZone : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     private void Update()
     {
-        // Output Look Delta
-        if (_activePointers.Count < 2 && _lookDelta.sqrMagnitude > 0.001f)
+        // Output Look Delta EVERY frame. 
+        // If we only output when > 0, the camera keeps spinning when the finger stops moving!
+        if (_activePointers.Count < 2)
         {
             touchZoneOutputEvent.Invoke(_lookDelta);
         }

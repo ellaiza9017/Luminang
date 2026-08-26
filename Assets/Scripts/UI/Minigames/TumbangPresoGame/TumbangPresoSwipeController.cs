@@ -71,10 +71,11 @@ public class TumbangPresoSwipeController : MonoBehaviour
         if (wasPressed)
         {
             startTouchPosition = position;
-
             lowestTouchPosition = position;
             isDragging = true;
             isCocked = false;
+            
+            Debug.Log($"[TumbangPreso] SWIPE STARTED at {position}. Using Touch: {UnityEngine.InputSystem.Touchscreen.current != null && UnityEngine.InputSystem.Touchscreen.current.touches.Count > 0}");
         }
         else if (isPressed && isDragging)
         {

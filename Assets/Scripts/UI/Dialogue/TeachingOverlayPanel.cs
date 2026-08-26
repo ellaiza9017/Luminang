@@ -337,6 +337,23 @@ public class TeachingOverlayPanel : MonoBehaviour
         }
     }
 
+    public void SetupPronunciationForInSceneLesson(string phrase)
+    {
+        _targetWord = phrase;
+
+        // Ensure dictionary is loaded if this was somehow called before Start() finished
+        if (_journalData == null || _journalData.journal_entries == null)
+        {
+            TextAsset dictAsset = Resources.Load<TextAsset>("LuminangJournalDictionary");
+            if (dictAsset != null)
+            {
+                _journalData = JsonUtility.FromJson<JournalData>(dictAsset.text);
+            }
+        }
+
+        SetupPronunciationButton();
+    }
+
     private void PlayPronunciationAudio()
     {
         if (string.IsNullOrEmpty(_targetWord) || _journalData == null || _journalData.journal_entries == null) return;
