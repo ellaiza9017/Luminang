@@ -495,14 +495,54 @@ public class InSceneLessonController : MonoBehaviour
         string target = !string.IsNullOrEmpty(_targetPhrase) ? _targetPhrase :
             (DialogueManager.Instance?.PendingSTTChoice?.expectedSTTWord ?? "");
 
-        if (!string.IsNullOrEmpty(target) && PhraseEvaluator.Instance != null)
+        if (!string.IsNullOrEmpty(target))
         {
-            PhraseEvaluator.Instance.EvaluateSpeech(target, transcribedText, (t, score, result) =>
+            bool isTemplate = target.Contains("{") || target.Contains("[") || target.Contains("_");
+            if (isTemplate)
             {
-                Debug.Log($"[InSceneLessonController] Score: {score:F0}%. Result: {result}");
-                if (score >= 75f) HandleSuccess(transcribedText);
-                else HandleFailure();
-            });
+                string cleanTarget = System.Text.RegularExpressions.Regex.Replace(target.ToLower(), @"\{.*?\}|\[.*?\]|_", "");
+                string[] requiredWords = cleanTarget.Split(new char[] { ' ', '.', ',', '!', '?' }, System.StringSplitOptions.RemoveEmptyEntries);
+                
+                string cleanTranscript = transcribedText.ToLower();
+                bool hasAllRequiredWords = true;
+                
+                foreach (string word in requiredWords)
+                {
+                    if (!cleanTranscript.Contains(word))
+                    {
+                        hasAllRequiredWords = false;
+                        break;
+                    }
+                }
+
+                if (PhraseEvaluator.Instance != null)
+                {
+                    PhraseEvaluator.Instance.EvaluateSpeech(cleanTarget, transcribedText, (t, score, result) =>
+                    {
+                        Debug.Log($"[InSceneLessonController] Template Score: {score:F0}%. Has required words: {hasAllRequiredWords}");
+                        if (hasAllRequiredWords || score >= 60f) HandleSuccess(transcribedText, hasAllRequiredWords ? 100f : score);
+                        else HandleFailure(transcribedText, score);
+                    });
+                }
+                else
+                {
+                    if (hasAllRequiredWords) HandleSuccess(transcribedText, 100f);
+                    else HandleFailure(transcribedText, 0f);
+                }
+            }
+            else if (PhraseEvaluator.Instance != null)
+            {
+                PhraseEvaluator.Instance.EvaluateSpeech(target, transcribedText, (t, score, result) =>
+                {
+                    Debug.Log($"[InSceneLessonController] Score: {score:F0}%. Result: {result}");
+                    if (score >= 75f) HandleSuccess(transcribedText, score);
+                    else HandleFailure(transcribedText, score);
+                });
+            }
+            else
+            {
+                HandleSuccess(transcribedText, -1f);
+            }
         }
         else
         {
@@ -510,14 +550,19 @@ public class InSceneLessonController : MonoBehaviour
         }
     }
 
-    private void HandleSuccess(string text)
+    private void HandleSuccess(string text, float score = -1f)
     {
         Debug.Log("<color=green>[InSceneLessonController] STT SUCCESS!</color>");
 
         if (promptText != null)
         {
             promptText.gameObject.SetActive(true);
-            promptText.text = "<color=#55FF55><b>Great job! Correct!</b></color>";
+            string msg = "<color=#55FF55><b>Great job! Correct!</b></color>";
+            if (!string.IsNullOrEmpty(text) && score >= 0f)
+            {
+                msg += $"\n<size=35><color=#FFFFaa>Heard: \"{text}\" (Score: {score:F0}%)</color></size>";
+            }
+            promptText.text = msg;
         }
 
         if (tapToStopText != null) tapToStopText.gameObject.SetActive(false);
@@ -548,7 +593,7 @@ public class InSceneLessonController : MonoBehaviour
             DialogueManager.Instance.CompleteSTT(true);
     }
 
-    private void HandleFailure()
+    private void HandleFailure(string heard = "", float score = -1f)
     {
         Debug.Log("[InSceneLessonController] STT Failed. Retry.");
 
@@ -557,7 +602,12 @@ public class InSceneLessonController : MonoBehaviour
         if (promptText != null)
         {
             promptText.gameObject.SetActive(true);
-            promptText.text = "<color=#FF7777><b>Not quite! Try again.</b></color>";
+            string msg = "<color=#FF7777><b>Not quite! Try again.</b></color>";
+            if (!string.IsNullOrEmpty(heard) && score >= 0f)
+            {
+                msg += $"\n<size=35><color=#FFFFaa>Heard: \"{heard}\" (Score: {score:F0}%)</color></size>";
+            }
+            promptText.text = msg;
         }
 
         if (micButton != null) { micButton.gameObject.SetActive(true); micButton.interactable = true; }

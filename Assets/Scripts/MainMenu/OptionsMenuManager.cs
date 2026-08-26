@@ -72,10 +72,15 @@ public class OptionsMenuManager : MonoBehaviour
             UserProfileManager.Instance.ClearLocalBackup();
         }
 
-        // 2. Sign out from Supabase
+        // 2. Clear lingering PlayerPrefs that are tied to the specific account
+        PlayerPrefs.DeleteKey("CurrentObjective");
+        PlayerPrefs.DeleteKey("FinalAssessment_Completed");
+        PlayerPrefs.Save();
+
+        // 3. Sign out from Supabase
         await SupabaseManager.Instance.client.Auth.SignOut();
 
-        // 3. Return to the Login screen
+        // 4. Return to the Login screen
         SceneManager.LoadScene(loginSceneName);
     }
 }

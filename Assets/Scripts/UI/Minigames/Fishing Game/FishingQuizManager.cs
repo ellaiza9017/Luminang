@@ -373,20 +373,19 @@ public class FishingQuizManager : MonoBehaviour
         if (winPanel != null) winPanel.SetActive(true);
         if (losePanel != null) losePanel.SetActive(false);
 
-        // Calculate Stars based on remaining baits (Total Baits is 20, 15 rounds = min 15 baits used)
-        int baitsUsed = totalBaits - currentBaits;
+        // Calculate Stars directly based on remaining baits as requested
         int stars = 0;
         int coinsEarned = 0;
 
-        if (baitsUsed <= 15) { stars = 5; coinsEarned = 50; }
-        else if (baitsUsed == 16) { stars = 4; coinsEarned = 40; }
-        else if (baitsUsed == 17) { stars = 3; coinsEarned = 30; }
-        else if (baitsUsed == 18) { stars = 2; coinsEarned = 20; }
-        else { stars = 1; coinsEarned = 10; }
+        if (currentBaits >= 5) { stars = 5; coinsEarned = 50; }
+        else if (currentBaits == 4) { stars = 4; coinsEarned = 40; }
+        else if (currentBaits == 3) { stars = 3; coinsEarned = 30; }
+        else if (currentBaits == 2) { stars = 2; coinsEarned = 20; }
+        else { stars = 1; coinsEarned = 10; } // Applies to 1 and 0 baits left
 
         // Update star sprites visually
         ValidateStars(); // Auto-recover if references are missing
-        Debug.Log($"[WinScreen] baitsUsed={baitsUsed}, stars={stars}, winStars.Length={winStars?.Length ?? -1}, activeSprite={activeStarSprite?.name}, inactiveSprite={inactiveStarSprite?.name}");
+        Debug.Log($"[WinScreen] currentBaits={currentBaits}, stars={stars}, winStars.Length={winStars?.Length ?? -1}, activeSprite={activeStarSprite?.name}, inactiveSprite={inactiveStarSprite?.name}");
         if (winStars != null)
         {
             for (int i = 0; i < winStars.Length; i++)

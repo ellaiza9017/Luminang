@@ -294,14 +294,28 @@ namespace Luminang.UI.Minigames
             if (!isSTTActive) return;
 
             // Strip template placeholders like {item}, {name} for robust voice recognition
-            string cleanTarget = System.Text.RegularExpressions.Regex.Replace(targetWord, @"\{.*?\}", "").Trim();
-            string cleanResult = result != null ? result.Trim() : "";
+            string cleanTarget = System.Text.RegularExpressions.Regex.Replace(targetWord.ToLower(), @"\{.*?\}|\[.*?\]|_", "").Trim();
+            string cleanResult = result != null ? result.ToLower().Trim() : "";
 
-            // Check if clean target is contained in transcription or if it matches
+            // Check if clean target words are contained in transcription
             bool templateMatch = false;
-            if (!string.IsNullOrEmpty(cleanTarget) && cleanTarget != targetWord)
+            bool isTemplate = targetWord.Contains("{") || targetWord.Contains("[") || targetWord.Contains("_");
+            
+            if (isTemplate)
             {
-                if (!string.IsNullOrEmpty(cleanResult) && cleanResult.ToLower().Contains(cleanTarget.ToLower()))
+                string[] requiredWords = cleanTarget.Split(new char[] { ' ', '.', ',', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+                bool hasAllRequiredWords = requiredWords.Length > 0;
+                
+                foreach (string word in requiredWords)
+                {
+                    if (!cleanResult.Contains(word))
+                    {
+                        hasAllRequiredWords = false;
+                        break;
+                    }
+                }
+                
+                if (hasAllRequiredWords)
                 {
                     templateMatch = true;
                 }
@@ -313,7 +327,7 @@ namespace Luminang.UI.Minigames
             {
                 if (templateMatch && scorePercent < 80f)
                 {
-                    scorePercent = 95f; // Template base phrase was spoken correctly
+                    scorePercent = 100f; // Template base phrase was spoken correctly
                 }
 
                 // Update Debug text on the panel

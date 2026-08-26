@@ -32,9 +32,52 @@ public class NPCFlyToTarget : MonoBehaviour
     [Tooltip("Fires automatically when the NPC finishes flying to the target point.")]
     public UnityEvent OnArrival;
 
+    [Header("State Persistence")]
+    [Tooltip("If this objective is already completed when the scene loads, the NPC will instantly snap to the target point instead of waiting to fly.")]
+    public string snapToTargetIfObjectiveCompleted;
+
     private bool _isFlying = false;
 
     public bool IsFlying => _isFlying;
+
+    private void Start()
+    {
+        // Automatically snap to ground if the player already passed the trigger objective in a previous session
+        if (!string.IsNullOrEmpty(snapToTargetIfObjectiveCompleted) && ObjectiveManager.Instance != null)
+        {
+            if (ObjectiveManager.Instance.IsObjectiveCompleted(snapToTargetIfObjectiveCompleted))
+            {
+                SnapToTarget();
+            }
+        }
+    }
+
+    public void SnapToTarget()
+    {
+        if (targetPoint == null) return;
+        
+        transform.position = targetPoint.position;
+        
+        HoverAnimation hover = GetComponent<HoverAnimation>();
+        if (hover != null)
+        {
+            hover.SetBasePosition(targetPoint.position);
+            hover.enableHover = true;
+        }
+
+        if (facePlayerOnArrival)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null)
+            {
+                Vector3 lookAtPos = player.transform.position;
+                lookAtPos.y = transform.position.y;
+                transform.rotation = Quaternion.LookRotation((lookAtPos - transform.position).normalized, Vector3.up);
+            }
+            else transform.rotation = targetPoint.rotation;
+        }
+        else transform.rotation = targetPoint.rotation;
+    }
 
     /// <summary>
     /// Call this to start the smooth fly sequence.

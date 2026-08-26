@@ -244,8 +244,11 @@ public class TeachingOverlayPanel : MonoBehaviour
 
         SetMicState(false);
 
-        // Check if device even has a microphone!
+#if UNITY_ANDROID || UNITY_IOS
+        bool hasMic = true;
+#else
         bool hasMic = Microphone.devices.Length > 0;
+#endif
         bool hasSttWord = !string.IsNullOrEmpty(_targetWord);
 
         if (micButton != null)

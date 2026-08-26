@@ -51,8 +51,13 @@ public class UITouchLookZone : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             return;
         }
 
-        float referenceHeight = 1080f;
-        float deviceScale = referenceHeight / Screen.height;
+        // Normalize based on physical pixel density (DPI) instead of raw screen resolution.
+        // This ensures moving 1 inch on ANY phone screen gives the exact same look speed.
+        float currentDpi = Screen.dpi;
+        if (currentDpi == 0) currentDpi = 160f; // Safe fallback for Unity Editor
+        
+        // Multiplier of 250f matches the feel of the Poco F6 Pro
+        float deviceScale = 250f / currentDpi;
 
         if (_activePointers.Count == 1)
         {
