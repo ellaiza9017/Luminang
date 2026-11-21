@@ -75,7 +75,30 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        [Header("Fall & Respawn")]
+        [Tooltip("Enable automatic respawn if the player falls off terrain or out of bounds")]
+        public bool EnableFallRespawn = true;
 
+        [Tooltip("Y-level below which the player is considered falling into the void (e.g. falling off cliffs/terrain).")]
+        public float FallYThreshold = -15.0f;
+
+        [Tooltip("If true, respawn to the last safe position where the player was grounded. If false, respawn to the initial spawn position.")]
+        public bool RespawnToLastSafePosition = true;
+
+        [Tooltip("Optional custom respawn point Transform. Overrides initial spawn if set.")]
+        public Transform CustomRespawnPoint;
+
+        [Tooltip("Optional SFX played upon respawn.")]
+        public AudioClip RespawnAudioClip;
+
+        // respawn tracking
+        private Vector3 _initialSpawnPosition;
+        private Quaternion _initialSpawnRotation;
+        private Vector3 _lastSafePosition;
+        private Quaternion _lastSafeRotation;
+        private bool _hasSafePosition;
+        private float _safePositionRecordTimer;
+        private const float SafePositionRecordInterval = 0.5f;
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -196,6 +219,13 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            // record initial spawn transform for respawning
+            _initialSpawnPosition = transform.position;
+            _initialSpawnRotation = transform.rotation;
+            _lastSafePosition = _initialSpawnPosition;
+            _lastSafeRotation = _initialSpawnRotation;
+            _hasSafePosition = true;
         }
 
         private void Update()
@@ -205,6 +235,8 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            UpdateSafeGroundedPosition();
+            CheckFallAndRespawn();
         }
 
         private void LateUpdate()
@@ -485,6 +517,121 @@ namespace StarterAssets
                 else
                     AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
+        }
+
+        // =========================================================================
+        // RESPAWN & FALL RECOVERY SYSTEM
+        // =========================================================================
+
+        private void UpdateSafeGroundedPosition()
+        {
+            // Only capture safe grounded point if player is grounded, stationary/walking, and not falling
+            if (Grounded && _verticalVelocity <= 0.1f && transform.position.y > FallYThreshold + 5.0f)
+            {
+                _safePositionRecordTimer += Time.deltaTime;
+                if (_safePositionRecordTimer >= SafePositionRecordInterval)
+                {
+                    _safePositionRecordTimer = 0f;
+                    _lastSafePosition = transform.position;
+                    _lastSafeRotation = transform.rotation;
+                    _hasSafePosition = true;
+                }
+            }
+        }
+
+        private void CheckFallAndRespawn()
+        {
+            if (EnableFallRespawn && transform.position.y < FallYThreshold)
+            {
+                Respawn();
+            }
+        }
+
+        /// <summary>
+        /// Respawns the player safely back to solid ground or spawn point.
+        /// </summary>
+        public void Respawn()
+        {
+            Vector3 targetPosition = _initialSpawnPosition;
+            Quaternion targetRotation = _initialSpawnRotation;
+
+            if (CustomRespawnPoint != null)
+            {
+                targetPosition = CustomRespawnPoint.position;
+                targetRotation = CustomRespawnPoint.rotation;
+            }
+            else if (RespawnToLastSafePosition && _hasSafePosition)
+            {
+                // Elevate slightly (0.35m) so the character drops cleanly onto the ground mesh without clipping
+                targetPosition = _lastSafePosition + Vector3.up * 0.35f;
+                targetRotation = _lastSafeRotation;
+            }
+
+            Teleport(targetPosition, targetRotation);
+
+            if (RespawnAudioClip != null)
+            {
+                if (_sfxAudioSource != null)
+                    _sfxAudioSource.PlayOneShot(RespawnAudioClip, FootstepAudioVolume);
+                else
+                    AudioSource.PlayClipAtPoint(RespawnAudioClip, targetPosition, FootstepAudioVolume);
+            }
+
+            Debug.Log($"[ThirdPersonController] Player fell off terrain! Safely respawned to: {targetPosition}");
+        }
+
+        /// <summary>
+        /// Reliably teleports the player with CharacterController and Cinemachine target synchronization.
+        /// </summary>
+        public void Teleport(Vector3 targetPosition, Quaternion targetRotation)
+        {
+            // 1. Disable CharacterController so Unity doesn't reject direct transform manipulation
+            if (_controller != null)
+            {
+                _controller.enabled = false;
+            }
+
+            transform.position = targetPosition;
+            transform.rotation = targetRotation;
+
+            // 2. Clear falling momentum and velocity state
+            _verticalVelocity = 0.0f;
+            _speed = 0.0f;
+            _animationBlend = 0.0f;
+            _fallTimeoutDelta = FallTimeout;
+            _jumpTimeoutDelta = JumpTimeout;
+
+            // 3. Reset animator falling parameters
+            if (_hasAnimator)
+            {
+                _animator.SetBool(_animIDFreeFall, false);
+                _animator.SetBool(_animIDJump, false);
+                _animator.SetBool(_animIDGrounded, true);
+                _animator.SetFloat(_animIDSpeed, 0.0f);
+                _animator.SetFloat(_animIDMotionSpeed, 1.0f);
+            }
+
+            // 4. Re-enable CharacterController
+            if (_controller != null)
+            {
+                _controller.enabled = true;
+            }
+
+            // 5. Align camera look direction with new orientation
+            if (CinemachineCameraTarget != null)
+            {
+                _cinemachineTargetYaw = targetRotation.eulerAngles.y;
+                _cinemachineTargetPitch = 0.0f;
+                CinemachineCameraTarget.transform.rotation = Quaternion.Euler(CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
+            }
+        }
+
+        /// <summary>
+        /// Sets a custom respawn point transform dynamically (e.g. from a quest checkpoint).
+        /// </summary>
+        public void SetCustomRespawnPoint(Transform respawnPoint)
+        {
+            CustomRespawnPoint = respawnPoint;
         }
     }
 }
